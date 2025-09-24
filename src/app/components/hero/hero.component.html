@@ -1,0 +1,14 @@
+<section class="bg-brand-surface py-section text-center text-brand-text font-sans">
+  <div class="container mx-auto px-4">
+    <h1 class="text-4xl md:text-5xl font-bold">{{ 'hero_title' | translate }}</h1>
+    <p class="text-lg md:text-xl mt-4 text-brand-muted">
+      {{ 'hero_subtitle' | translate }}
+    </p>
+    <button
+      (click)="onBookNow()"
+      class="mt-6 px-8 py-3 bg-brand-primary text-white text-lg rounded-xl hover:opacity-90 transition"
+    >
+      {{ 'hero_cta' | translate }}
+    </button>
+  </div>
+</section>

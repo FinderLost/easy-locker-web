@@ -1,0 +1,9 @@
+<section class="bg-brand-background py-section text-brand-text font-sans px-4">
+  <h2 class="text-3xl font-bold text-center mb-10">{{ 'faq_title' | translate }}</h2>
+  <div class="max-w-3xl mx-auto space-y-6">
+    <div *ngFor="let faq of faqs" class="text-left">
+      <h3 class="text-lg font-semibold mb-2">{{ faq.questionKey | translate }}</h3>
+      <p class="text-brand-muted">{{ faq.answerKey | translate }}</p>
+    </div>
+  </div>
+</section>
