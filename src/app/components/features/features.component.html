@@ -1,9 +1,49 @@
-<section class="bg-brand-surface py-section text-center text-brand-text font-sans">
-  <h2 class="text-3xl font-bold mb-10">{{ 'features_title' | translate }}</h2>
-  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-    <div *ngFor="let feature of features" class="flex flex-col items-center">
-      <div class="text-5xl mb-4">{{ feature.icon }}</div>
-      <p class="text-lg font-medium text-brand-muted">{{ feature.textKey | translate }}</p>
+<section class="bg-white py-20 lg:py-32 text-center text-brand-text font-sans">
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+        {{ 'features_title' | translate }}
+      </h2>
+      <p class="text-xl text-gray-600">Características que hacen de Easy Locker tu mejor opción</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-6xl mx-auto">
+      <div *ngFor="let feature of features; let i = index" 
+           class="group relative bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100 overflow-hidden">
+        
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-brand-primary/5 to-brand-secondary/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-700"></div>
+        
+        <!-- Icon container -->
+        <div class="relative z-10 w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-blue-100 via-white to-green-100 rounded-3xl flex items-center justify-center text-5xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+          {{ feature.icon }}
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 space-y-4">
+          <p class="text-lg font-semibold text-gray-800 leading-relaxed">
+            {{ feature.textKey | translate }}
+          </p>
+        </div>
+        
+        <!-- Hover effect border -->
+        <div class="absolute inset-0 rounded-3xl bg-gradient-to-r from-brand-primary to-brand-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="padding: 2px;">
+          <div class="w-full h-full bg-white rounded-3xl"></div>
+        </div>
+        
+        <!-- Bottom accent -->
+        <div class="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-b-3xl transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+      </div>
+    </div>
+    
+    <!-- Call to action -->
+    <div class="mt-16 text-center">
+      <div class="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-50 to-green-50 px-6 py-3 rounded-full border border-gray-200">
+        <svg class="w-5 h-5 text-brand-primary" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-sm font-medium text-gray-700">Todas las características incluidas</span>
+      </div>
     </div>
   </div>
 </section>
