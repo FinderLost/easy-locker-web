@@ -6,31 +6,31 @@ module.exports = {
     extend: {
       colors: {
         // Ajuste temporal: usar superficie blanca como fondo por defecto para evitar UI en negro
-        "brand-background": "#F9FAFB",
+        "brand-background": "#F4F5F7",
         // superficie blanca
         "brand-surface": "#FFFFFF",
         // texto principal
-        "brand-text": "#111827",
+        "brand-text": "#1F2328",
         // texto secundario
-        "brand-muted": "#6B7280",
+        "brand-muted": "#6C7278",
         brand: {
-          // azul oscuro – transmite seguridad
-          primary: "#1E3A8A",
+          // gris profundo proveniente del logo
+          primary: "#34373A",
 
-          // verde suave – transmite facilidad
-          secondary: "#10B981",
+          // coral cálido como acento complementario
+          secondary: "#CBC8C5",
 
-          // fondo claro F9FAFB
-          background: "#F9FAFB",
+          // fondo claro neutro
+          background: "#F4F5F7",
 
           // superficie blanca
           surface: "#FFFFFF",
 
-          // texto principal
-          text: "#111827",
+          // texto principal de alto contraste
+          text: "#1F2328",
 
-          // texto secundario
-          muted: "#6B7280",
+          // texto secundario suavizado
+          muted: "#6C7278",
         },
       },
       fontFamily: {
@@ -58,5 +58,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
-
+};

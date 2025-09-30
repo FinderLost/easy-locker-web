@@ -1,38 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap");
 
 /* Custom animations and utilities */
 @layer utilities {
   .bg-grid-pattern {
-    background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
   }
-  
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
-  
+
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out forwards;
   }
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -77,17 +77,17 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #1e3a8a, #10b981);
+  background: linear-gradient(to bottom, #34373a, #ff7a59);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #1e40af, #059669);
+  background: linear-gradient(to bottom, #2b2e31, #e86845);
 }
 
 /* Focus styles for accessibility */
 .focus-visible:focus {
-  outline: 2px solid #1e3a8a;
+  outline: 2px solid #34373a;
   outline-offset: 2px;
 }
 
@@ -100,6 +100,6 @@ html {
 
 /* Gradient text selection */
 ::selection {
-  background: linear-gradient(to right, #1e3a8a, #10b981);
+  background: linear-gradient(to right, #34373a, #ff7a59);
   color: white;
 }
