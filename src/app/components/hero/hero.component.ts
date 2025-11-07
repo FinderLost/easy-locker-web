@@ -10,7 +10,15 @@ export class HeroComponent {
 
   constructor(private translate: TranslateService) {}
 
-  onBookNow() {
-    alert('Redirigir a la reserva');
+  onReserve() {
+    this.translate.get('hero_reserve_link').subscribe((link: string) => {
+      window.open(link, '_blank');
+    });
+  }
+
+  onDirections() {
+    this.translate.get('hero_maps_link').subscribe((link: string) => {
+      window.open(link, '_blank');
+    });
   }
 }

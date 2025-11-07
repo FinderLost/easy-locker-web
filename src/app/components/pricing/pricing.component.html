@@ -1,0 +1,48 @@
+<section class="bg-white py-16 lg:py-24 text-brand-text font-sans">
+  <div class="container mx-auto px-6 lg:px-8">
+    <!-- Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+        {{ 'pricing_title' | translate }}
+      </h2>
+    </div>
+    
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div *ngFor="let plan of plans" 
+           class="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 overflow-hidden">
+        
+        <!-- Image Placeholder -->
+        <div class="relative w-full h-64 bg-gray-100 flex items-center justify-center overflow-hidden">
+          <img [src]="plan.imageKey | translate" 
+               [alt]="plan.titleKey | translate"
+               class="w-full h-full object-cover"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="absolute inset-0 flex items-center justify-center bg-gray-100 text-gray-400" style="display: none;">
+            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Content -->
+        <div class="p-6">
+          <h3 class="text-xl font-bold text-gray-800 mb-2">
+            {{ plan.titleKey | translate }}
+          </h3>
+          <p class="text-gray-600 text-sm mb-6">
+            {{ plan.descriptionKey | translate }}
+          </p>
+          
+          <!-- Reserve Button -->
+          <button
+            (click)="onReserve()"
+            class="w-full px-6 py-3 bg-white text-gray-800 text-sm font-semibold rounded-full border-2 border-gray-800 hover:bg-gray-800 hover:text-white transition-all duration-300"
+          >
+            {{ 'pricing_btn_reserve' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
