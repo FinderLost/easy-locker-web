@@ -6,9 +6,16 @@
       <div class="md:col-span-2">
         <div class="mb-6">
           <img 
-            src="assets/images/easy-locker-logo-vertical.svg" 
+            *ngIf="!isDarkMode"
+            src="assets/images/landscape-light.svg" 
             alt="Easy Locker" 
-            class="h-24 w-auto"
+            class="h-12 w-auto"
+          >
+          <img 
+            *ngIf="isDarkMode"
+            src="assets/images/landscape-dark.svg" 
+            alt="Easy Locker" 
+            class="h-12 w-auto"
           >
         </div>
         <p class="text-gray-300 leading-relaxed mb-6 max-w-md">

@@ -1,14 +1,15 @@
 <section class="bg-white dark:bg-gray-800 py-16 lg:py-24 text-brand-text dark:text-gray-100 font-sans transition-colors duration-300">
   <div class="container mx-auto px-6 lg:px-8">
     <!-- Title -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
         {{ 'pricing_title' | translate }}
       </h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full"></div>
     </div>
     
     <!-- Pricing Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
       <div *ngFor="let plan of plans" 
            class="group bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden">
         
