@@ -2286,12 +2286,131 @@
         ];
         var CONTACT_COLUMN_ATTR = "data-easy-locker-contact-column";
         var BRAND_COLUMN_ATTR = "data-easy-locker-brand-column";
+        var LEGAL_LINKS = Object.freeze({
+          es: "https://easylocker.drop-point.com/booking-engine/legal?locale=es",
+          en: "https://easylocker.drop-point.com/booking-engine/legal?locale=en",
+          fr: "https://easylocker.drop-point.com/booking-engine/legal?locale=fr",
+          de: "https://easylocker.drop-point.com/booking-engine/legal?locale=de",
+          it: "https://easylocker.drop-point.com/booking-engine/legal?locale=it",
+        });
+        var LEGAL_LABELS = Object.freeze({
+          es: "T\u00e9rminos y condiciones",
+          en: "Terms and conditions",
+          fr: "Conditions g\u00e9n\u00e9rales",
+          de: "Allgemeine Gesch\u00e4ftsbedingungen",
+          it: "Termini e condizioni",
+        });
+        var LEGAL_KEYWORDS = [
+          "termino",
+          "termini",
+          "terms",
+          "condici",
+          "condition",
+          "bedingungen",
+        ];
+        var REMOVABLE_KEYWORDS = [
+          "contact",
+          "kontakt",
+          "contatt",
+          "correo",
+          "privacy",
+          "policy",
+          "privaci",
+          "confidential",
+          "datenschutz",
+          "politica",
+        ];
 
         function normaliseText(node) {
           if (!node || !node.textContent) {
             return "";
           }
           return node.textContent.trim().toLowerCase();
+        }
+
+        function toMatchKey(value) {
+          var result = (value || "")
+            .toString()
+            .trim()
+            .toLowerCase();
+
+          if (!result) {
+            return "";
+          }
+
+          if (typeof result.normalize === "function") {
+            result = result.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          }
+
+          return result;
+        }
+
+        function classifyLinkText(text) {
+          var key = toMatchKey(text);
+          if (!key) {
+            return "empty";
+          }
+
+          if (
+            LEGAL_KEYWORDS.some(function (term) {
+              return key.indexOf(term) !== -1;
+            })
+          ) {
+            return "legal";
+          }
+
+          if (
+            REMOVABLE_KEYWORDS.some(function (term) {
+              return key.indexOf(term) !== -1;
+            })
+          ) {
+            return "remove";
+          }
+
+          return "keep";
+        }
+
+        function resolvePreferredLocale() {
+          var candidates = [];
+
+          try {
+            if (window.localStorage) {
+              candidates.push(localStorage.getItem("language"));
+            }
+          } catch (err) {}
+
+          candidates.push(document.documentElement.getAttribute("lang"));
+
+          if (window.navigator) {
+            if (Array.isArray(navigator.languages)) {
+              candidates = candidates.concat(navigator.languages);
+            }
+            candidates.push(navigator.language);
+          }
+
+          for (var i = 0; i < candidates.length; i += 1) {
+            var candidate = candidates[i];
+            if (!candidate) {
+              continue;
+            }
+
+            var normalised = toMatchKey(candidate).split(/[\-_]/)[0];
+            if (LEGAL_LINKS[normalised]) {
+              return normalised;
+            }
+          }
+
+          return "es";
+        }
+
+        function getLegalLink() {
+          var locale = resolvePreferredLocale();
+          return LEGAL_LINKS[locale] || LEGAL_LINKS.es;
+        }
+
+        function getLegalLabel() {
+          var locale = resolvePreferredLocale();
+          return LEGAL_LABELS[locale] || LEGAL_LABELS.es;
         }
 
         function buildIcon(iconDef, classNames) {
@@ -2394,8 +2513,19 @@
           }
 
           Array.from(scope.querySelectorAll("a")).forEach(function (anchor) {
-            if (normaliseText(anchor).includes("contacto")) {
+            var classification = classifyLinkText(anchor.textContent);
+            if (classification === "remove" || classification === "empty") {
               anchor.remove();
+            }
+          });
+
+          Array.from(scope.children).forEach(function (child) {
+            if (child.querySelector && child.querySelector("a")) {
+              return;
+            }
+
+            if (!toMatchKey(child.textContent)) {
+              child.remove();
             }
           });
 
@@ -2403,6 +2533,47 @@
           if (subtitle) {
             subtitle.remove();
           }
+        }
+
+        function ensureLegalQuickLink(column) {
+          var scope = column.querySelector(".space-y-3, .space-y-4") || column;
+          if (!scope) {
+            return;
+          }
+
+          var legalLabel = getLegalLabel();
+          var legalHref = getLegalLink();
+          var legalAnchors = [];
+          Array.from(scope.querySelectorAll("a")).forEach(function (anchor) {
+            if (classifyLinkText(anchor.textContent) === "legal") {
+              legalAnchors.push(anchor);
+            }
+          });
+
+          var primary = legalAnchors.shift() || null;
+          legalAnchors.forEach(function (duplicate) {
+            duplicate.remove();
+          });
+
+          var legalAnchor = primary;
+          if (!legalAnchor) {
+            legalAnchor = document.createElement("a");
+            legalAnchor.textContent = legalLabel;
+            legalAnchor.href = legalHref;
+            scope.insertBefore(legalAnchor, scope.firstChild);
+          } else {
+            legalAnchor.href = legalHref;
+            var labelSpan = legalAnchor.querySelector("span.text-sm");
+            if (labelSpan) {
+              labelSpan.textContent = legalLabel;
+            } else {
+              legalAnchor.textContent = legalLabel;
+            }
+          }
+
+          legalAnchor.removeAttribute("target");
+          legalAnchor.removeAttribute("rel");
+          legalAnchor.dataset.easyLockerLegalLink = "true";
         }
 
         function ensureContactDetails(column) {
@@ -2658,6 +2829,7 @@
           var social = ensureSocialBlock(grid);
           removeBusStationEntry(grid);
           cleanQuickLinks(quickLinks);
+          ensureLegalQuickLink(quickLinks);
           enhanceQuickLinks(quickLinks);
           ensureContactDetails(contact);
           ensureColumnOrder(grid, quickLinks, contact, social);
