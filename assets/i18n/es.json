@@ -4,9 +4,10 @@
   "hero_title_line3": "EN CÓRDOBA",
   "hero_subtitle": "Ubicados en C. Pintor Peñalosa, Córdoba. Reserva tu locker en minutos.",
   "hero_btn_reserve": "RESERVA TU LOCKER",
-  "hero_btn_directions": "OPEN GOOGLE MAPS DIRECTIONS",
-  "hero_reserve_link": "https://tu-link-de-reserva.com",
+  "hero_btn_directions": "ABRIR RUTA EN GOOGLE MAPS",
+  "hero_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=es",
   "hero_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Peñalosa%2C%20Noroeste%2C%2014011%20Córdoba%2C%20Spain",
+  "language_switcher_current": "Idioma",
 
   "pricing_title": "PLANES Y PRECIOS",
   "pricing_plan1_title": "Tamaño M\n28 cm x 41 cm x 56 cm",
@@ -19,7 +20,7 @@
   "pricing_plan3_description": "Capacidad para una maleta grande y dos pequeñas, cuatro maletas pequeñas o cuatro mochilas.",
   "pricing_plan3_image": "assets/images/box-type-xl.png",
   "pricing_btn_reserve": "RESERVA",
-  "pricing_reserve_link": "https://tu-link-de-reserva.com",
+  "pricing_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=es",
 
   "faq_title": "FAQS",
   "faq_q1": "¿Cómo funciona el servicio?",

@@ -1622,7 +1622,11 @@
 
       /* Footer palette alignment */
       app-footer .from-gray-900 {
-        --tw-gradient-from: var(--easy-palette-highlight-stronger)
+        --tw-gradient-from: color-mix(
+            in srgb,
+            var(--easy-color-depth-stronger) 60%,
+            var(--easy-color-highlight-stronger) 40%
+          )
           var(--tw-gradient-from-position) !important;
         --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
       }
@@ -1630,21 +1634,45 @@
       app-footer .bg-gradient-to-br {
         background-image: linear-gradient(
           135deg,
-          var(--easy-palette-highlight-stronger) 0%,
-          var(--easy-palette-highlight) 50%,
-          var(--easy-palette-action-strong) 100%
+          color-mix(
+              in srgb,
+              var(--easy-color-depth-stronger) 62%,
+              var(--easy-color-highlight-stronger) 38%
+            )
+            0%,
+          color-mix(
+              in srgb,
+              var(--easy-color-highlight) 60%,
+              var(--easy-color-surface-muted) 40%
+            )
+            55%,
+          color-mix(
+              in srgb,
+              var(--easy-color-positive) 70%,
+              var(--easy-color-highlight-soft) 30%
+            )
+            100%
         ) !important;
         background-color: transparent !important;
       }
 
       app-footer .via-gray-800 {
         --tw-gradient-stops: var(--tw-gradient-from),
-          var(--easy-palette-highlight) var(--tw-gradient-via-position),
+          color-mix(
+              in srgb,
+              var(--easy-color-highlight) 58%,
+              var(--easy-color-surface) 42%
+            )
+            var(--tw-gradient-via-position),
           var(--tw-gradient-to) !important;
       }
 
       app-footer .to-gray-900 {
-        --tw-gradient-to: var(--easy-palette-action-strong)
+        --tw-gradient-to: color-mix(
+            in srgb,
+            var(--easy-color-positive) 68%,
+            var(--easy-color-highlight-soft) 32%
+          )
           var(--tw-gradient-to-position) !important;
       }
 
