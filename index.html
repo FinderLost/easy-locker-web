@@ -12,6 +12,8 @@
     <style id="easy-locker-theme">
       :root {
         /* Núcleo visual */
+
+        /* Núcleo visual */
         --easy-palette-primary-light: #34373a; /* Gris antracita del locker, tono base fuerte y neutro */
         --easy-palette-primary-dark: #e8e8e8; /* Gris claro, contraste con el material real */
         --easy-palette-secondary-light: #5b6168; /* Gris medio ligeramente frío para interfaz clara */
@@ -92,6 +94,7 @@
         );
         --easy-color-danger: var(--easy-palette-feedback-negative-light);
         --easy-color-depth-strong: var(--easy-palette-depth-strong);
+        --easy-color-depth-stronger: var(--easy-palette-depth-strong);
         --easy-color-depth-mid: var(--easy-palette-depth-mid);
         --easy-color-depth-soft: var(--easy-palette-depth-soft);
         --easy-color-depth-muted: var(--easy-palette-depth-muted);
@@ -204,6 +207,11 @@
           var(--easy-palette-primary-dark) 60%,
           #050a16 40%
         );
+        --easy-color-depth-stronger: color-mix(
+          in srgb,
+          var(--easy-palette-depth-strong) 92%,
+          #000 8%
+        );
         --easy-color-on-dark: var(--easy-palette-primary-dark);
         --easy-color-on-dark-muted: color-mix(
           in srgb,
@@ -243,6 +251,9 @@
         --tw-gradient-from-position: ;
         --tw-gradient-via-position: ;
         --tw-gradient-to-position: ;
+        --tw-gradient-from: rgba(0, 0, 0, 0);
+        --tw-gradient-to: rgba(0, 0, 0, 0);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
         --tw-ordinal: ;
         --tw-slashed-zero: ;
         --tw-numeric-figure: ;
@@ -312,10 +323,10 @@
         padding: 5rem 1.5rem;
         background: linear-gradient(
           135deg,
-          var(--easy-color-surface-muted, #f8fafc) 0%,
-          var(--easy-color-highlight-soft, #e0f2fe) 100%
+          var(--easy-color-surface-muted) 0%,
+          var(--easy-color-highlight-soft) 100%
         );
-        color: var(--easy-color-text, #0f172a);
+        color: var(--easy-color-text);
         transition: background 0.3s ease, color 0.3s ease;
       }
 
@@ -343,8 +354,8 @@
         border-radius: 9999px;
         background: linear-gradient(
           90deg,
-          var(--easy-color-warning, #fbbf24) 0%,
-          var(--easy-color-highlight, #38bdf8) 100%
+          var(--easy-color-warning) 0%,
+          var(--easy-color-highlight) 100%
         );
       }
 
@@ -352,7 +363,7 @@
         font-size: 1.125rem;
         margin: 0 auto 2.75rem auto;
         max-width: 720px;
-        color: var(--easy-color-text-muted, #334155);
+        color: var(--easy-color-text-muted);
         line-height: 1.7;
       }
 
@@ -365,7 +376,7 @@
       #easy-locker-testimonials .testimonial-card {
         width: 100%;
         max-width: 360px;
-        background: var(--easy-color-surface, #ffffff);
+        background: var(--easy-color-surface);
         border-radius: 1rem;
         padding: 1.75rem;
         text-align: left;
@@ -376,18 +387,18 @@
         justify-content: space-between;
         min-height: 240px;
         border: 1px solid
-          color-mix(in srgb, var(--easy-color-border, #94a3b8) 20%, transparent);
+          color-mix(in srgb, var(--easy-color-border) 20%, transparent);
       }
 
       #easy-locker-testimonials .testimonial-card.testimonial-empty {
         text-align: center;
         justify-content: center;
         font-weight: 600;
-        color: var(--easy-color-text-muted, #475569);
+        color: var(--easy-color-text-muted);
       }
 
       #easy-locker-testimonials .testimonial-rating {
-        color: var(--easy-color-warning, #facc15);
+        color: var(--easy-color-warning);
         font-size: 1rem;
         letter-spacing: 0.1rem;
         margin-bottom: 1rem;
@@ -396,7 +407,7 @@
       #easy-locker-testimonials .testimonial-text {
         font-size: 1rem;
         line-height: 1.6;
-        color: var(--easy-color-text, #1e293b);
+        color: var(--easy-color-text);
         margin-bottom: 1.5rem;
         flex: 1 1 auto;
       }
@@ -406,18 +417,18 @@
         flex-direction: column;
         gap: 0.2rem;
         font-weight: 600;
-        color: var(--easy-color-text, #0f172a);
+        color: var(--easy-color-text);
       }
 
       #easy-locker-testimonials .testimonial-footer small {
         font-weight: 400;
-        color: var(--easy-color-text-muted, #64748b);
+        color: var(--easy-color-text-muted);
       }
 
       #easy-locker-testimonials .testimonial-summary {
         margin-top: 2.5rem;
         font-size: 0.95rem;
-        color: var(--easy-color-highlight, #1d4ed8);
+        color: var(--easy-color-highlight);
       }
 
       #easy-locker-testimonials .testimonial-actions {
@@ -449,7 +460,7 @@
           var(--easy-color-surface) 96%,
           transparent 4%
         );
-        color: var(--easy-color-text, #0f172a);
+        color: var(--easy-color-text);
         box-shadow: 0 22px 42px
           color-mix(in srgb, var(--easy-color-depth-strong) 18%, transparent);
         transition: transform 0.25s ease, box-shadow 0.25s ease,
@@ -469,18 +480,15 @@
       #easy-locker-testimonials .testimonial-button.primary {
         background: linear-gradient(
           135deg,
+          color-mix(in srgb, var(--easy-color-highlight) 92%, transparent 8%) 0%,
           color-mix(
-            in srgb,
-            var(--easy-color-highlight) 92%,
-            transparent 8%
-          ) 0%,
-          color-mix(
-            in srgb,
-            var(--easy-color-brand-accent) 88%,
-            transparent 12%
-          ) 100%
+              in srgb,
+              var(--easy-color-brand-accent) 88%,
+              transparent 12%
+            )
+            100%
         );
-        color: var(--easy-color-on-dark, #f8fafc);
+        color: var(--easy-color-on-dark);
         border-color: color-mix(
           in srgb,
           var(--easy-color-highlight) 65%,
@@ -495,8 +503,8 @@
       #easy-locker-testimonials .testimonial-button.primary:hover {
         background: linear-gradient(
           135deg,
-          var(--easy-color-highlight-stronger, #0e5ba7) 0%,
-          var(--easy-color-brand-accent, #2f9d85) 100%
+          var(--easy-color-highlight-stronger) 0%,
+          var(--easy-color-brand-accent) 100%
         );
       }
 
@@ -507,7 +515,7 @@
           var(--easy-color-surface) 94%,
           var(--easy-color-highlight-soft) 6%
         );
-        color: var(--easy-color-text, #0f172a);
+        color: var(--easy-color-text);
         border-color: color-mix(
           in srgb,
           var(--easy-color-border) 82%,
@@ -554,61 +562,57 @@
       .dark #easy-locker-testimonials {
         background: linear-gradient(
           135deg,
-          var(--easy-color-background, #0f172a) 0%,
-          var(--easy-color-surface-muted, #1b2536) 100%
+          var(--easy-color-background) 0%,
+          var(--easy-color-surface-muted) 100%
         );
-        color: var(--easy-color-text, #e2e8f0);
+        color: var(--easy-color-text);
       }
 
       .dark #easy-locker-testimonials h2::after {
         background: linear-gradient(
           90deg,
-          var(--easy-color-warning, #facc15) 0%,
-          var(--easy-color-highlight, #38bdf8) 100%
+          var(--easy-color-warning) 0%,
+          var(--easy-color-highlight) 100%
         );
       }
 
       .dark #easy-locker-testimonials p.section-intro {
-        color: var(--easy-color-text-muted, #cbd5f5);
+        color: var(--easy-color-text-muted);
       }
 
       .dark #easy-locker-testimonials .testimonial-card {
         background: color-mix(
           in srgb,
-          var(--easy-color-surface, #ffffff) 5%,
-          var(--easy-color-background, #0f172a)
+          var(--easy-color-surface) 5%,
+          var(--easy-color-background)
         );
         border-color: color-mix(
           in srgb,
-          var(--easy-color-border, #94a3b8) 18%,
+          var(--easy-color-border) 18%,
           transparent
         );
         box-shadow: 0 22px 36px
-          color-mix(
-            in srgb,
-            var(--easy-color-depth-stronger, var(--easy-color-depth-strong)) 32%,
-            transparent
-          );
+          color-mix(in srgb, var(--easy-color-depth-stronger) 32%, transparent);
       }
 
       .dark #easy-locker-testimonials .testimonial-card.testimonial-empty {
-        color: var(--easy-color-text-muted, #cbd5f5);
+        color: var(--easy-color-text-muted);
       }
 
       .dark #easy-locker-testimonials .testimonial-text {
-        color: var(--easy-color-text, #e2e8f0);
+        color: var(--easy-color-text);
       }
 
       .dark #easy-locker-testimonials .testimonial-footer {
-        color: var(--easy-color-text, #f8fafc);
+        color: var(--easy-color-text);
       }
 
       .dark #easy-locker-testimonials .testimonial-footer small {
-        color: var(--easy-color-text-muted, #94a3b8);
+        color: var(--easy-color-text-muted);
       }
 
       .dark #easy-locker-testimonials .testimonial-summary {
-        color: var(--easy-color-highlight, #38bdf8);
+        color: var(--easy-color-highlight);
       }
 
       .dark app-hero button,
@@ -619,7 +623,7 @@
           var(--easy-color-background) 72%,
           var(--easy-color-surface-muted) 28%
         );
-        color: var(--easy-color-on-dark, #f5f7ff);
+        color: var(--easy-color-on-dark);
         border-color: color-mix(
           in srgb,
           var(--easy-color-border) 60%,
@@ -641,16 +645,14 @@
       .dark #easy-locker-testimonials .testimonial-button.primary {
         background: linear-gradient(
           135deg,
+          color-mix(in srgb, var(--easy-color-brand-gold) 88%, transparent 12%)
+            0%,
           color-mix(
-            in srgb,
-            var(--easy-color-brand-gold) 88%,
-            transparent 12%
-          ) 0%,
-          color-mix(
-            in srgb,
-            var(--easy-color-brand-accent) 85%,
-            transparent 15%
-          ) 100%
+              in srgb,
+              var(--easy-color-brand-accent) 85%,
+              transparent 15%
+            )
+            100%
         );
         border-color: color-mix(
           in srgb,
@@ -666,11 +668,8 @@
       .dark #easy-locker-testimonials .testimonial-button.primary:hover {
         background: linear-gradient(
           135deg,
-          color-mix(
-            in srgb,
-            var(--easy-color-brand-gold) 95%,
-            transparent 5%
-          ) 0%,
+          color-mix(in srgb, var(--easy-color-brand-gold) 95%, transparent 5%)
+            0%,
           var(--easy-color-brand-accent) 100%
         );
       }
@@ -682,7 +681,7 @@
           var(--easy-color-background) 68%,
           var(--easy-color-surface-muted) 32%
         );
-        color: var(--easy-color-on-dark, #f5f7ff);
+        color: var(--easy-color-on-dark);
         border-color: color-mix(
           in srgb,
           var(--easy-color-border) 55%,
@@ -702,7 +701,7 @@
           var(--easy-color-highlight) 55%,
           var(--easy-color-border) 45%
         );
-        color: var(--easy-color-on-dark, #f8fafc);
+        color: var(--easy-color-on-dark);
       }
     </style>
     <link
@@ -984,8 +983,7 @@
       .from-brand-primary {
         --tw-gradient-from: var(--easy-color-brand-primary)
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .to-brand-secondary {
@@ -996,7 +994,7 @@
       .via-brand-accent {
         --tw-gradient-stops: var(--tw-gradient-from),
           var(--easy-color-brand-accent) var(--tw-gradient-via-position),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+          var(--tw-gradient-to);
       }
 
       .dark\:from-brand-gold:is(.dark *) {
@@ -1011,15 +1009,13 @@
             transparent
           )
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .dark\:from-gray-900:is(.dark *) {
         --tw-gradient-from: var(--easy-color-depth-strong)
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .dark\:to-brand-gold:is(.dark *) {
@@ -1054,7 +1050,7 @@
       .dark\:via-brand-accent:is(.dark *) {
         --tw-gradient-stops: var(--tw-gradient-from),
           var(--easy-color-brand-accent) var(--tw-gradient-via-position),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+          var(--tw-gradient-to);
       }
 
       .dark\:via-gray-800:is(.dark *) {
@@ -1067,8 +1063,7 @@
       .from-gray-900 {
         --tw-gradient-from: var(--easy-color-depth-strong)
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .via-gray-800 {
@@ -1090,8 +1085,7 @@
             var(--easy-color-surface) 55%
           )
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .from-blue-50 {
@@ -1101,8 +1095,7 @@
             var(--easy-color-surface) 75%
           )
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .to-blue-50 {
@@ -1139,8 +1132,7 @@
             transparent
           )
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .from-brand-primary\/5 {
@@ -1150,8 +1142,7 @@
             transparent
           )
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .to-brand-secondary\/20 {
@@ -1179,8 +1170,7 @@
             var(--easy-color-surface) 15%
           )
           var(--tw-gradient-from-position);
-        --tw-gradient-stops: var(--tw-gradient-from),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
       }
 
       .to-gray-50 {
@@ -1345,8 +1335,8 @@
       .shadow-sm {
         --tw-shadow: 0 1px 2px 0
           color-mix(in srgb, var(--easy-color-depth-strong) 15%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       .shadow-md {
@@ -1355,8 +1345,8 @@
                 )
                 20%, transparent),
           0 2px 4px -2px color-mix(in srgb, var(--easy-color-depth-strong) 18%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       .shadow-lg {
@@ -1365,8 +1355,8 @@
                 )
                 22%, transparent),
           0 4px 6px -4px color-mix(in srgb, var(--easy-color-depth-strong) 20%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       .shadow-2xl {
@@ -1374,8 +1364,8 @@
                 --easy-color-depth-strong
               )
               25%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       .hover\:shadow-md:hover {
@@ -1384,8 +1374,8 @@
                 )
                 24%, transparent),
           0 2px 4px -2px color-mix(in srgb, var(--easy-color-depth-strong) 22%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       .hover\:shadow-lg:hover {
@@ -1394,8 +1384,8 @@
                 )
                 26%, transparent),
           0 4px 6px -4px color-mix(in srgb, var(--easy-color-depth-strong) 22%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       .hover\:shadow-xl:hover {
@@ -1404,8 +1394,8 @@
                 )
                 26%, transparent),
           0 8px 10px -6px color-mix(in srgb, var(--easy-color-depth-strong) 24%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       .hover\:shadow-2xl:hover {
@@ -1413,8 +1403,8 @@
                 --easy-color-depth-strong
               )
               28%, transparent);
-        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
-          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+        box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow),
+          var(--tw-shadow);
       }
 
       /* Hero palette alignment */
@@ -1453,21 +1443,23 @@
       app-hero .via-white {
         --tw-gradient-stops: var(--tw-gradient-from),
           color-mix(
-            in srgb,
-            var(--easy-color-surface) 92%,
-            var(--easy-color-highlight-soft) 8%
-          ) var(--tw-gradient-via-position),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+              in srgb,
+              var(--easy-color-surface) 92%,
+              var(--easy-color-highlight-soft) 8%
+            )
+            var(--tw-gradient-via-position),
+          var(--tw-gradient-to);
       }
 
       .dark app-hero .dark\:via-gray-800 {
         --tw-gradient-stops: var(--tw-gradient-from),
           color-mix(
-            in srgb,
-            var(--easy-color-depth-mid) 85%,
-            var(--easy-color-background) 15%
-          ) var(--tw-gradient-via-position),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+              in srgb,
+              var(--easy-color-depth-mid) 85%,
+              var(--easy-color-background) 15%
+            )
+            var(--tw-gradient-via-position),
+          var(--tw-gradient-to);
       }
 
       /* FAQ palette alignment */
@@ -1610,16 +1602,8 @@
       app-faq .group .w-full.h-px {
         background-image: linear-gradient(
           90deg,
-          color-mix(
-            in srgb,
-            var(--easy-color-highlight) 30%,
-            transparent 70%
-          ),
-          color-mix(
-            in srgb,
-            var(--easy-color-positive) 30%,
-            transparent 70%
-          )
+          color-mix(in srgb, var(--easy-color-highlight) 30%, transparent 70%),
+          color-mix(in srgb, var(--easy-color-positive) 30%, transparent 70%)
         ) !important;
       }
 
@@ -1643,19 +1627,21 @@
       app-footer .via-gray-800 {
         --tw-gradient-stops: var(--tw-gradient-from),
           color-mix(
-            in srgb,
-            var(--easy-color-depth-mid) 80%,
-            var(--easy-color-background) 20%
-          ) var(--tw-gradient-via-position),
-          var(--tw-gradient-to, rgba(0, 0, 0, 0));
+              in srgb,
+              var(--easy-color-depth-mid) 80%,
+              var(--easy-color-background) 20%
+            )
+            var(--tw-gradient-via-position),
+          var(--tw-gradient-to);
       }
 
       app-footer .to-gray-900 {
         --tw-gradient-to: color-mix(
-          in srgb,
-          var(--easy-color-background) 90%,
-          var(--easy-color-depth-strong) 10%
-        ) var(--tw-gradient-to-position);
+            in srgb,
+            var(--easy-color-background) 90%,
+            var(--easy-color-depth-strong) 10%
+          )
+          var(--tw-gradient-to-position);
       }
 
       /* Pricing palette alignment */
@@ -1663,42 +1649,40 @@
         background: linear-gradient(
           135deg,
           color-mix(
-            in srgb,
-            var(--easy-color-surface) 92%,
-            var(--easy-color-highlight-soft) 8%
-          ) 0%,
+              in srgb,
+              var(--easy-color-surface) 92%,
+              var(--easy-color-highlight-soft) 8%
+            )
+            0%,
           color-mix(
-            in srgb,
-            var(--easy-color-surface-muted) 75%,
-            var(--easy-color-surface) 25%
-          ) 100%
+              in srgb,
+              var(--easy-color-surface-muted) 75%,
+              var(--easy-color-surface) 25%
+            )
+            100%
         ) !important;
-        border-bottom: 1px solid color-mix(
-          in srgb,
-          var(--easy-color-border) 60%,
-          transparent 40%
-        );
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--easy-color-border) 60%, transparent 40%);
       }
 
       .dark app-pricing .relative.w-full.h-64 {
         background: linear-gradient(
           135deg,
           color-mix(
-            in srgb,
-            var(--easy-color-background) 65%,
-            var(--easy-color-surface-muted) 35%
-          ) 0%,
+              in srgb,
+              var(--easy-color-background) 65%,
+              var(--easy-color-surface-muted) 35%
+            )
+            0%,
           color-mix(
-            in srgb,
-            var(--easy-color-brand-secondary) 30%,
-            var(--easy-color-background) 70%
-          ) 100%
+              in srgb,
+              var(--easy-color-brand-secondary) 30%,
+              var(--easy-color-background) 70%
+            )
+            100%
         ) !important;
-        border-bottom: 1px solid color-mix(
-          in srgb,
-          var(--easy-color-border) 55%,
-          transparent 45%
-        );
+        border-bottom: 1px solid
+          color-mix(in srgb, var(--easy-color-border) 55%, transparent 45%);
       }
 
       app-pricing .absolute.inset-0 {
