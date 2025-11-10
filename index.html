@@ -1621,40 +1621,31 @@
       }
 
       /* Footer palette alignment */
+      app-footer .from-gray-900 {
+        --tw-gradient-from: var(--easy-palette-highlight-stronger)
+          var(--tw-gradient-from-position) !important;
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to) !important;
+      }
+
       app-footer .bg-gradient-to-br {
         background-image: linear-gradient(
-          140deg,
-          color-mix(
-            in srgb,
-            var(--easy-color-background) 82%,
-            var(--easy-color-depth-mid) 18%
-          ),
-          color-mix(
-            in srgb,
-            var(--easy-color-brand-secondary) 28%,
-            var(--easy-color-background) 72%
-          )
+          135deg,
+          var(--easy-palette-highlight-stronger) 0%,
+          var(--easy-palette-highlight) 50%,
+          var(--easy-palette-action-strong) 100%
         ) !important;
+        background-color: transparent !important;
       }
 
       app-footer .via-gray-800 {
         --tw-gradient-stops: var(--tw-gradient-from),
-          color-mix(
-              in srgb,
-              var(--easy-color-depth-mid) 80%,
-              var(--easy-color-background) 20%
-            )
-            var(--tw-gradient-via-position),
-          var(--tw-gradient-to);
+          var(--easy-palette-highlight) var(--tw-gradient-via-position),
+          var(--tw-gradient-to) !important;
       }
 
       app-footer .to-gray-900 {
-        --tw-gradient-to: color-mix(
-            in srgb,
-            var(--easy-color-background) 90%,
-            var(--easy-color-depth-strong) 10%
-          )
-          var(--tw-gradient-to-position);
+        --tw-gradient-to: var(--easy-palette-action-strong)
+          var(--tw-gradient-to-position) !important;
       }
 
       /* Pricing palette alignment */
