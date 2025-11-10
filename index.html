@@ -11,8 +11,9 @@
     />
     <style id="easy-locker-theme">
       :root {
-        /* Núcleo visual */
+        /* Colores inicio */
 
+        /* Paleta colores inicio */
         /* Núcleo visual */
         --easy-palette-primary-light: #34373a; /* Gris antracita del locker, tono base fuerte y neutro */
         --easy-palette-primary-dark: #e8e8e8; /* Gris claro, contraste con el material real */
@@ -70,6 +71,14 @@
         --easy-palette-neutral-700: #4b4f53;
         --easy-palette-neutral-800: #36393d;
         --easy-palette-neutral-900: #1f2225;
+
+        /* Profundidades auxiliares */
+        --easy-palette-depth-midnight: #141b26;
+        --easy-palette-depth-abyss: #0c1018;
+        --easy-palette-depth-black: #000000;
+
+        /* Paleta colores fin */
+        /* Paleta colores fin */
 
         --easy-color-brand-primary: var(--easy-palette-primary-light);
         --easy-color-brand-secondary: var(--easy-palette-secondary-light);
@@ -149,22 +158,22 @@
         --easy-color-depth-strong: color-mix(
           in srgb,
           var(--easy-palette-depth-strong) 88%,
-          #000 12%
+          var(--easy-palette-depth-black) 12%
         );
         --easy-color-depth-mid: color-mix(
           in srgb,
           var(--easy-palette-depth-mid) 85%,
-          #000 15%
+          var(--easy-palette-depth-black) 15%
         );
         --easy-color-depth-soft: color-mix(
           in srgb,
           var(--easy-palette-depth-soft) 80%,
-          #000 20%
+          var(--easy-palette-depth-black) 20%
         );
         --easy-color-depth-muted: color-mix(
           in srgb,
           var(--easy-palette-depth-muted) 78%,
-          #000 22%
+          var(--easy-palette-depth-black) 22%
         );
         --easy-color-neutral-100: color-mix(
           in srgb,
@@ -200,17 +209,17 @@
         --easy-color-neutral-800: color-mix(
           in srgb,
           var(--easy-palette-primary-dark) 65%,
-          #0c1522 35%
+          var(--easy-palette-depth-midnight) 35%
         );
         --easy-color-neutral-900: color-mix(
           in srgb,
           var(--easy-palette-primary-dark) 60%,
-          #050a16 40%
+          var(--easy-palette-depth-abyss) 40%
         );
         --easy-color-depth-stronger: color-mix(
           in srgb,
           var(--easy-palette-depth-strong) 92%,
-          #000 8%
+          var(--easy-palette-depth-black) 8%
         );
         --easy-color-on-dark: var(--easy-palette-primary-dark);
         --easy-color-on-dark-muted: color-mix(
@@ -221,12 +230,12 @@
         --easy-color-scroll-start: color-mix(
           in srgb,
           var(--easy-palette-highlight-stronger) 80%,
-          #000 20%
+          var(--easy-palette-depth-black) 20%
         );
         --easy-color-scroll-end: color-mix(
           in srgb,
           var(--easy-palette-feedback-positive-dark) 75%,
-          #000 25%
+          var(--easy-palette-depth-black) 25%
         );
       }
     </style>
@@ -251,8 +260,8 @@
         --tw-gradient-from-position: ;
         --tw-gradient-via-position: ;
         --tw-gradient-to-position: ;
-        --tw-gradient-from: rgba(0, 0, 0, 0);
-        --tw-gradient-to: rgba(0, 0, 0, 0);
+        --tw-gradient-from: transparent;
+        --tw-gradient-to: transparent;
         --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
         --tw-ordinal: ;
         --tw-slashed-zero: ;
@@ -261,12 +270,16 @@
         --tw-numeric-fraction: ;
         --tw-ring-inset: ;
         --tw-ring-offset-width: 0px;
-        --tw-ring-offset-color: #fff;
-        --tw-ring-color: rgb(59 130 246 / 0.5);
-        --tw-ring-offset-shadow: 0 0 #0000;
-        --tw-ring-shadow: 0 0 #0000;
-        --tw-shadow: 0 0 #0000;
-        --tw-shadow-colored: 0 0 #0000;
+        --tw-ring-offset-color: var(--easy-color-surface);
+        --tw-ring-color: color-mix(
+          in srgb,
+          var(--easy-color-highlight) 55%,
+          transparent
+        );
+        --tw-ring-offset-shadow: 0 0 transparent;
+        --tw-ring-shadow: 0 0 transparent;
+        --tw-shadow: 0 0 transparent;
+        --tw-shadow-colored: 0 0 transparent;
         --tw-blur: ;
         --tw-brightness: ;
         --tw-contrast: ;
@@ -296,7 +309,7 @@
         box-sizing: border-box;
         border-width: 0;
         border-style: solid;
-        border-color: #e5e7eb;
+        border-color: var(--easy-color-border);
       }
       :before,
       :after {
@@ -1194,7 +1207,7 @@
         background-color: color-mix(
           in srgb,
           var(--easy-color-depth-mid) 90%,
-          #000 10%
+          var(--easy-palette-depth-black) 10%
         ) !important;
       }
 
