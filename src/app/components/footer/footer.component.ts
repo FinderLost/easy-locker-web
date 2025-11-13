@@ -5,7 +5,7 @@ import { ThemeService } from '../../services/theme.service';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
@@ -15,7 +15,7 @@ export class FooterComponent {
     private translate: TranslateService,
     public themeService: ThemeService
   ) {
-    this.themeService.darkMode$.subscribe(isDark => {
+    this.themeService.darkMode$.subscribe((isDark) => {
       this.isDarkMode = isDark;
     });
   }

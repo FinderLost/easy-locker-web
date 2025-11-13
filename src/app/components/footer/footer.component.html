@@ -21,14 +21,15 @@
           />
         </div>
         <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
-          Tu solución de confianza para el almacenamiento seguro de equipajes en
-          Córdoba. Fácil, rápido y completamente seguro.
+          {{ "footer_description" | translate }}
         </p>
       </div>
 
       <!-- Quick links -->
       <div>
-        <h3 class="text-lg font-semibold mb-6 text-white">Enlaces Rápidos</h3>
+        <h3 class="text-lg font-semibold mb-6 text-white">
+          {{ "footer_quick_links" | translate }}
+        </h3>
         <div class="space-y-3">
           <a
             [href]="getTermsUrl()"
@@ -43,27 +44,53 @@
 
       <!-- Contact info -->
       <div>
-        <h3 class="text-lg font-semibold mb-6 text-white">Contacto</h3>
+        <h3 class="text-lg font-semibold mb-6 text-white">
+          {{ "footer_contact_title" | translate }}
+        </h3>
         <div class="space-y-4">
           <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-brand-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+            <svg
+              class="w-5 h-5 text-brand-primary flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+              ></path>
+              <path
+                d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+              ></path>
             </svg>
-            <a href="mailto:info@easy-locker.com" class="text-gray-300 hover:text-white transition-colors duration-200">
-              {{ 'footer_email' | translate }}
+            <a
+              href="mailto:info@easy-locker.com"
+              class="text-gray-300 hover:text-white transition-colors duration-200"
+            >
+              {{ "footer_email" | translate }}
             </a>
           </div>
           <div class="flex items-center space-x-3">
             <span class="inline-block w-5 h-5 rounded-full bg-gray-300"></span>
-            <span class="text-gray-300">{{ 'footer_available' | translate }}</span>
+            <span class="text-gray-300">{{
+              "footer_available" | translate
+            }}</span>
           </div>
           <div class="flex items-center space-x-3">
-            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.076 4.348.71.306 1.263.489 1.695.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.075-.124-.272-.198-.57-.347z"/>
+            <svg
+              class="w-5 h-5 text-green-500 flex-shrink-0"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.075-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.099 3.2 5.076 4.348.71.306 1.263.489 1.695.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.075-.124-.272-.198-.57-.347z"
+              />
             </svg>
-            <a href="https://wa.me/34647990184" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors duration-200">
-              {{ 'footer_whatsapp' | translate }}
+            <a
+              href="https://wa.me/34647990184"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-300 hover:text-white transition-colors duration-200"
+            >
+              {{ "footer_whatsapp" | translate }}
             </a>
           </div>
         </div>
@@ -76,8 +103,7 @@
         class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
       >
         <div class="text-gray-400 text-sm">
-          &copy; {{ currentYear }} Easy Locker · Córdoba. Todos los derechos
-          reservados.
+          &copy; {{ currentYear }} {{ "footer_copyright_text" | translate }}
         </div>
         <div class="flex items-center space-x-6">
           <div class="flex items-center space-x-2 text-gray-400 text-sm">
@@ -92,10 +118,12 @@
                 clip-rule="evenodd"
               ></path>
             </svg>
-            <span>Servicio Seguro</span>
+            <span>{{ "footer_secure_service" | translate }}</span>
           </div>
           <div class="w-px h-4 bg-gray-600"></div>
-          <div class="text-gray-400 text-sm">Hecho con ❤️ en Córdoba</div>
+          <div class="text-gray-400 text-sm">
+            {{ "footer_made_in_cordoba" | translate }}
+          </div>
         </div>
       </div>
     </div>

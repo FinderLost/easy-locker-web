@@ -7,7 +7,7 @@
   "hero_btn_directions": "OPEN GOOGLE MAPS DIRECTIONS",
   "hero_reserve_link": "https://tu-link-de-reserva.com",
   "hero_maps_link": "https://www.google.com/maps/dir//Estación+de+Autobuses+de+Córdoba",
-  
+
   "pricing_title": "PLANES Y PRECIOS",
   "pricing_plan1_title": "Plan Básico",
   "pricing_plan1_description": "Descripción del plan básico",
@@ -20,12 +20,24 @@
   "pricing_plan3_image": "assets/images/plan3.jpg",
   "pricing_btn_reserve": "RESERVA",
   "pricing_reserve_link": "https://tu-link-de-reserva.com",
-  
+
   "faq_title": "FAQS",
+  "faq_subtitle": "Resolvemos tus dudas más frecuentes",
+  "faq_contact_title": "¿Tienes más preguntas?",
+  "faq_contact_desc": "Contáctanos y te responderemos lo antes posible.",
+  "faq_contact_btn": "Enviar email",
   "faq_q1": "¿Cómo funciona el servicio de consignas?",
   "faq_a1": "Nuestro servicio de consignas inteligentes te permite guardar tu equipaje de forma segura. Solo necesitas reservar online, llegar al punto, usar tu código y guardar tus pertenencias.",
-  
+
   "footer_contact": "Contacto",
+  "footer_whatsapp": "WhatsApp",
+  "footer_available": "24/7 Disponible",
+  "footer_description": "Tu solución de confianza para el almacenamiento seguro de equipajes en Córdoba. Fácil, rápido y completamente seguro.",
+  "footer_quick_links": "Enlaces Rápidos",
+  "footer_contact_title": "Contacto",
+  "footer_secure_service": "Servicio Seguro",
+  "footer_made_in_cordoba": "Hecho con ❤️ en Córdoba",
+  "footer_copyright_text": "Easy Locker · Córdoba. Todos los derechos reservados.",
   "footer_terms": "Términos y condiciones",
   "footer_privacy": "Política de privacidad",
   "footer_email": "Email: contacto@easylocker.com",

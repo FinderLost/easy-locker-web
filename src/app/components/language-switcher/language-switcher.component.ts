@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-language-switcher',
   templateUrl: './language-switcher.component.html',
-  styleUrls: ['./language-switcher.component.css']
+  styleUrls: ['./language-switcher.component.css'],
 })
 export class LanguageSwitcherComponent {
   open = false;
@@ -14,7 +14,7 @@ export class LanguageSwitcherComponent {
     { code: 'en', name: 'EN' },
     { code: 'fr', name: 'FR' },
     { code: 'de', name: 'DE' },
-    { code: 'it', name: 'IT' }
+    { code: 'it', name: 'IT' },
   ];
 
   constructor(private translate: TranslateService) {
@@ -33,7 +33,7 @@ export class LanguageSwitcherComponent {
   }
 
   getCurrentLanguageName(): string {
-    const lang = this.languages.find(l => l.code === this.currentLanguage);
+    const lang = this.languages.find((l) => l.code === this.currentLanguage);
     return lang ? lang.name : 'ES';
   }
 }
