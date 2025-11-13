@@ -1,0 +1,68 @@
+<section class="bg-brand-background dark:bg-gray-900 py-16 lg:py-24 text-brand-text dark:text-gray-100 transition-colors duration-300">
+  <div class="container mx-auto px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 id="easy-locker-testimonials-title" class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+        {{ 'testimonials_title' | translate }}
+      </h2>
+      <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+        {{ 'testimonials_subtitle' | translate }}
+      </p>
+      <div class="mt-6 w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full"></div>
+    </div>
+
+    <div class="mt-12">
+      <div *ngIf="hasReviews; else testimonialsFallback" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <article class="testimonial-card bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col" *ngFor="let review of reviews; trackBy: trackByAuthor">
+          <div *ngIf="getStars(review.rating).length" class="flex items-center gap-1 text-brand-accent text-xl mb-4" role="img" [attr.aria-label]="('testimonials_rating_aria' | translate:{ rating: review.rating || 0 })">
+            <span *ngFor="let _ of getStars(review.rating)" aria-hidden="true">★</span>
+          </div>
+          <p class="text-base text-gray-600 dark:text-gray-200 leading-relaxed flex-1">
+            {{ review.text }}
+          </p>
+          <div class="mt-6 flex flex-col text-sm text-gray-500 dark:text-gray-400">
+            <span class="font-semibold text-gray-800 dark:text-gray-100">{{ review.author }}</span>
+            <small *ngIf="review.date">{{ review.date }}</small>
+          </div>
+        </article>
+      </div>
+
+      <ng-template #testimonialsFallback>
+        <div class="bg-white dark:bg-gray-900 border border-dashed border-gray-300 dark:border-gray-700 rounded-2xl px-6 py-16 text-center text-gray-500 dark:text-gray-300">
+          <p class="text-base" *ngIf="isLoading; else testimonialsEmpty">
+            {{ 'testimonials_placeholder_loading' | translate }}
+          </p>
+          <ng-template #testimonialsEmpty>
+            <p class="text-base">
+              {{ 'testimonials_placeholder' | translate }}
+            </p>
+          </ng-template>
+        </div>
+      </ng-template>
+
+      <p class="mt-8 text-center text-sm text-brand-accent">
+        {{ summaryTranslationKey | translate }}
+      </p>
+    </div>
+
+    <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
+      <a
+        class="inline-flex items-center justify-center rounded-full px-10 py-4 text-base font-semibold bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 border-2 border-gray-800 dark:border-gray-300 hover:bg-gray-800 dark:hover:bg-gray-100 hover:text-white dark:hover:text-gray-900 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+        [href]="profileUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        [attr.aria-label]="'testimonials_button_profile_aria' | translate"
+      >
+        {{ 'testimonials_button_profile' | translate }}
+      </a>
+      <a
+        class="inline-flex items-center justify-center rounded-full px-10 py-4 text-base font-semibold bg-transparent text-gray-800 dark:text-gray-100 border-2 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-all duration-300"
+        [href]="reviewUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        [attr.aria-label]="'testimonials_button_review_aria' | translate"
+      >
+        {{ 'testimonials_button_review' | translate }}
+      </a>
+    </div>
+  </div>
+</section>

@@ -14,6 +14,19 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Google Reviews configuration
+
+The testimonials section pulls real data from Google Business Profile. Before deploying, set your credentials in `src/assets/config/reviews-config.js`:
+
+```js
+(function () {
+	window.EASY_LOCKER_GOOGLE_PLACE_ID = 'YOUR_PLACE_ID';
+	window.EASY_LOCKER_GOOGLE_API_KEY = 'YOUR_PUBLIC_BROWSER_KEY';
+})();
+```
+
+Both values are required; if either is missing the section will keep showing the empty state. For production you can generate this file dynamically at deploy time so your keys are not stored in version control.
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
