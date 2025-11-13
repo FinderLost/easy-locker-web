@@ -1,20 +1,17 @@
 <div class="relative inline-block text-left font-sans">
-  <button
-    (click)="toggleDropdown()"
-    class="text-sm bg-brand-surface border border-brand-muted px-3 py-1 rounded-md shadow-sm hover:bg-brand-background"
-  >
+  <button (click)="toggleDropdown()" class="language-switcher-btn">
     {{ getCurrentLanguageName() }}
   </button>
 
-  <div
-    *ngIf="open"
-    class="absolute right-0 mt-2 w-24 bg-brand-surface border border-brand-muted rounded-md shadow-lg z-50"
-  >
+  <div *ngIf="open" class="language-switcher-dropdown">
     <button
       *ngFor="let lang of languages"
       (click)="changeLanguage(lang.code)"
-      [class]="'block w-full text-left px-4 py-2 text-sm hover:bg-brand-background rounded-md ' + 
-               (lang.code === currentLanguage ? 'font-bold text-brand-primary' : 'text-brand-muted')"
+      [ngClass]="
+        lang.code === currentLanguage
+          ? 'language-switcher-item language-switcher-item-active'
+          : 'language-switcher-item'
+      "
     >
       {{ lang.name }}
     </button>
