@@ -11,7 +11,10 @@ export class LanguageSwitcherComponent {
   currentLanguage = 'es';
   languages = [
     { code: 'es', name: 'ES' },
-    { code: 'en', name: 'EN' }
+    { code: 'en', name: 'EN' },
+    { code: 'fr', name: 'FR' },
+    { code: 'de', name: 'DE' },
+    { code: 'it', name: 'IT' }
   ];
 
   constructor(private translate: TranslateService) {
