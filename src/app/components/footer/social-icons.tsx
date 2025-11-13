@@ -1,0 +1,4 @@
+// SVGs for TikTok, Instagram, Facebook (Heroicons style)
+export const TikTokIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 3v12a3 3 0 1 0 3-3h-3" /></svg>`;
+export const InstagramIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17" cy="7" r="1" /></svg>`;
+export const FacebookIcon = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 8h1V6a2 2 0 1 1 4 0v2h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-6H9a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" /></svg>`;
