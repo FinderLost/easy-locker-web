@@ -1,29 +1,30 @@
-<section class="bg-gradient-to-br from-gray-50 to-blue-50 py-16 lg:py-24 text-brand-text font-sans">
+<section class="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-16 lg:py-24 text-brand-text dark:text-gray-100 font-sans transition-colors duration-300">
   <div class="container mx-auto px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto mb-12 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+    <div class="max-w-4xl mx-auto mb-8 text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-gray-800 dark:text-gray-100">
         {{ 'faq_title' | translate }}
       </h2>
-      <p class="text-lg text-gray-600">Resolvemos tus dudas más frecuentes</p>
+      <div class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full mb-6"></div>
+      <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8">Resolvemos tus dudas más frecuentes</p>
     </div>
     
-    <div class="max-w-3xl mx-auto space-y-3">
+    <div class="max-w-4xl mx-auto space-y-4">
       <div *ngFor="let faq of faqs; let i = index" 
-           class="group bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 overflow-hidden">
+           class="group bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
         
         <!-- Question header -->
-        <div class="flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+        <div class="flex items-center justify-between p-5 lg:p-6 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
              (click)="toggleFaq(i)">
-          <div class="flex items-center space-x-3 flex-1">
-            <div class="w-6 h-6 bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full flex items-center justify-center text-white font-bold text-xs flex-shrink-0">
+          <div class="flex items-center space-x-4 flex-1">
+            <div class="w-8 h-8 bg-gradient-to-r from-brand-primary to-brand-secondary dark:from-brand-gold dark:to-brand-accent rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
               {{ i + 1 }}
             </div>
-            <h3 class="text-base font-semibold text-gray-800 leading-relaxed">
+            <h3 class="text-base lg:text-lg font-semibold text-gray-800 dark:text-gray-100 leading-relaxed">
               {{ faq.questionKey | translate }}
             </h3>
           </div>
-          <div class="ml-3 flex-shrink-0">
-            <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-300"
+          <div class="ml-4 flex-shrink-0">
+            <svg class="w-6 h-6 text-gray-400 dark:text-gray-500 transform transition-transform duration-300"
                  [class.rotate-180]="faq.isOpen"
                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
@@ -35,10 +36,10 @@
         <div class="overflow-hidden transition-all duration-300"
              [class.max-h-0]="!faq.isOpen"
              [class.max-h-48]="faq.isOpen">
-          <div class="px-4 pb-4">
-            <div class="pl-9">
-              <div class="w-full h-px bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 mb-3"></div>
-              <p class="text-sm text-gray-600 leading-relaxed">
+          <div class="px-5 lg:px-6 pb-5 lg:pb-6">
+            <div class="pl-12">
+              <div class="w-full h-px bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 dark:from-brand-gold/20 dark:to-brand-accent/20 mb-4"></div>
+              <p class="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                 {{ faq.answerKey | translate }}
               </p>
             </div>
@@ -46,17 +47,17 @@
         </div>
         
         <!-- Accent line -->
-        <div class="h-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+        <div class="h-0.5 bg-gradient-to-r from-brand-primary to-brand-secondary dark:from-brand-gold dark:to-brand-accent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
       </div>
     </div>
     
     <!-- Contact CTA -->
     <div class="mt-12 text-center">
-      <div class="bg-white rounded-xl p-6 shadow-md border border-gray-100 max-w-xl mx-auto">
-        <h3 class="text-lg font-semibold text-gray-800 mb-3">¿Tienes más preguntas?</h3>
-        <p class="text-sm text-gray-600 mb-4">Contáctanos y te responderemos lo antes posible.</p>
+      <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md border border-gray-100 dark:border-gray-700 max-w-xl mx-auto">
+        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-3">¿Tienes más preguntas?</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Contáctanos y te responderemos lo antes posible.</p>
         <a href="mailto:info@easylocker.es" 
-           class="inline-flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-secondary text-white text-sm rounded-lg hover:shadow-md transition-all duration-300">
+           class="inline-flex items-center space-x-2 px-5 py-2.5 bg-gradient-to-r from-brand-primary to-brand-secondary dark:from-brand-gold dark:to-brand-accent text-white text-sm rounded-lg hover:shadow-md transition-all duration-300">
           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>

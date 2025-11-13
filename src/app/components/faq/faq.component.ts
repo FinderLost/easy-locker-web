@@ -8,9 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class FaqComponent {
   faqs = [
-    { questionKey: 'faq_1_q', answerKey: 'faq_1_a', isOpen: false },
-    { questionKey: 'faq_2_q', answerKey: 'faq_2_a', isOpen: false },
-    { questionKey: 'faq_3_q', answerKey: 'faq_3_a', isOpen: false }
+    { questionKey: 'faq_q1', answerKey: 'faq_a1', isOpen: false }
   ];
 
   constructor(private translate: TranslateService) {}
