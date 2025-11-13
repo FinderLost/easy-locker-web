@@ -7,6 +7,9 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./pricing.component.css']
 })
 export class PricingComponent {
+  public getTitleHtml(key: string): string {
+    return this.translate.instant(key).replace(/\n/g, '<br>');
+  }
   plans = [
     { 
       imageKey: 'pricing_plan1_image',
