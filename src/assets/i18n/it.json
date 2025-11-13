@@ -21,18 +21,6 @@
   "pricing_btn_reserve": "PRENOTA",
   "pricing_reserve_link": "https://tu-link-de-reserva.com",
 
-  "testimonials_title": "COSA DICONO I NOSTRI CLIENTI",
-  "testimonials_subtitle": "Selezione di recensioni reali dalla nostra scheda Google per conoscere l’esperienza Easy Locker.",
-  "testimonials_summary_loading": "Caricamento delle recensioni verificate...",
-  "testimonials_summary_verified": "Mostrando recensioni verificate da Google Business Profile.",
-  "testimonials_summary_empty": "Nessuna recensione disponibile in questo momento.",
-  "testimonials_placeholder_loading": "Stiamo caricando recensioni verificate, attendi qualche secondo.",
-  "testimonials_placeholder": "Non è stato ancora possibile caricare le recensioni. Riprova più tardi.",
-  "testimonials_button_profile": "Vedi la scheda su Google",
-  "testimonials_button_profile_aria": "Apri la scheda Easy Locker su Google in una nuova scheda",
-  "testimonials_button_review": "Lascia la tua recensione",
-  "testimonials_button_review_aria": "Apri il modulo per lasciare una recensione su Google",
-  "testimonials_rating_aria": "{{rating}} su 5 stelle",
 
   "faq_title": "FAQS",
   "faq_subtitle": "Rispondiamo alle tue domande più frequenti",
