@@ -20,9 +20,7 @@
             class="h-12 w-auto"
           />
         </div>
-        <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
-          {{ "footer_description" | translate }}
-        </p>
+  <p class="text-gray-300 leading-relaxed mb-6 max-w-md" [innerHTML]="footerDescriptionHtml"></p>
       </div>
 
       <!-- Contact info -->

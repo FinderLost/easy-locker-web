@@ -8,6 +8,10 @@ import { ThemeService } from '../../services/theme.service';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
+  get footerDescriptionHtml(): string {
+    const desc = this.translate.instant('footer_description');
+    return desc.replace(/\n/g, '<br>');
+  }
   currentYear = new Date().getFullYear();
   isDarkMode = false;
 
