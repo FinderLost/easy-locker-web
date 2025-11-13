@@ -19,4 +19,20 @@ export class FooterComponent {
       this.isDarkMode = isDark;
     });
   }
+  getTermsUrl(): string {
+    const lang = this.translate.currentLang || 'es';
+    switch (lang) {
+      case 'en':
+        return 'https://easylocker.drop-point.com/booking-engine/legal?locale=en';
+      case 'fr':
+        return 'https://easylocker.drop-point.com/booking-engine/legal?locale=fr';
+      case 'de':
+        return 'https://easylocker.drop-point.com/booking-engine/legal?locale=de';
+      case 'it':
+        return 'https://easylocker.drop-point.com/booking-engine/legal?locale=it';
+      case 'es':
+      default:
+        return 'https://easylocker.drop-point.com/booking-engine/legal?locale=es';
+    }
+  }
 }
