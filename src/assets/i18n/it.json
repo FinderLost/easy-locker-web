@@ -5,8 +5,8 @@
   "hero_subtitle": "Sottotitolo breve",
   "hero_btn_reserve": "PRENOTA IL TUO LOCKER",
   "hero_btn_directions": "APRI INDICAZIONI GOOGLE MAPS",
-  "hero_reserve_link": "https://tu-link-de-reserva.com",
-  "hero_maps_link": "https://www.google.com/maps/dir//Estación+de+Autobuses+de+Córdoba",
+  "hero_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=it",
+  "hero_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain",
 
   "pricing_title": "PIANI E PREZZI",
   "pricing_plan1_title": "Misura M\n28 cm x 41 cm x 56 cm",
