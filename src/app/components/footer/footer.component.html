@@ -3,9 +3,9 @@
 >
   <div class="container mx-auto px-6 lg:px-8">
     <!-- Main footer content -->
-    <div class="py-16 grid grid-cols-4 gap-8 items-start">
+  <div class="py-8 px-2 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
       <!-- Brand section -->
-      <div class="col-span-1 max-w-xs">
+  <div class="mb-8 md:mb-0 col-span-1 max-w-xs">
         <div class="mb-6">
           <img
             *ngIf="!isDarkMode"
@@ -26,7 +26,7 @@
       </div>
 
       <!-- Contact info -->
-      <div>
+  <div class="mb-8 md:mb-0">
         <h3 class="text-lg font-semibold mb-6 text-white">
           {{ "footer_contact_title" | translate }}
         </h3>
@@ -104,7 +104,7 @@
       </div>
 
       <!-- Social Media column -->
-      <div>
+  <div class="mb-8 md:mb-0">
         <h3 class="text-lg font-semibold mb-6 text-white">Redes Sociales</h3>
         <div class="space-y-4">
           <a
@@ -202,7 +202,7 @@
       </div>
 
       <!-- Quick links -->
-      <div>
+  <div class="mb-8 md:mb-0">
         <h3 class="text-lg font-semibold mb-6 text-white">
           {{ "footer_quick_links" | translate }}
         </h3>
@@ -252,10 +252,8 @@
     </div>
 
     <!-- Bottom bar -->
-    <div class="border-t border-gray-700 py-8">
-      <div
-        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
-      >
+  <div class="border-t border-gray-700 py-6 px-2">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         <div class="text-gray-400 text-sm">
           &copy; {{ currentYear }} {{ "footer_copyright_text" | translate }}
         </div>
