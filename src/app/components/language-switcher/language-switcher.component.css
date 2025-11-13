@@ -15,9 +15,9 @@
 }
 
 .language-switcher-item:hover {
-  @apply bg-brand-accent/20 dark:bg-brand-accent/30 text-brand-primary dark:text-brand-gold mx-2 my-1;
+  @apply bg-brand-accent/20 dark:bg-brand-accent/30 text-brand-primary dark:text-brand-gold px-3 py-2 mx-auto w-[85%];
 }
 
 .language-switcher-item-active {
-  @apply bg-gray-900 dark:bg-gray-800 text-brand-gold font-bold ring-2 ring-brand-accent dark:ring-brand-gold mx-2 my-1 px-4 py-3;
+  @apply bg-gray-900 dark:bg-gray-800 text-brand-gold font-bold ring-2 ring-brand-accent dark:ring-brand-gold px-3 py-2 mx-auto w-[85%];
 }
