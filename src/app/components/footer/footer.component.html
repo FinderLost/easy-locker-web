@@ -3,9 +3,9 @@
 >
   <div class="container mx-auto px-6 lg:px-8">
     <!-- Main footer content -->
-    <div class="py-16 grid md:grid-cols-4 gap-8">
-      <!-- Brand section -->
-      <div class="md:col-span-2">
+  <div class="py-16 grid grid-cols-4 gap-8 items-start">
+  <!-- Brand section -->
+  <div class="col-span-1 max-w-xs">
         <div class="mb-6">
           <img
             *ngIf="!isDarkMode"
@@ -25,27 +25,6 @@
         </p>
       </div>
 
-      <!-- Quick links -->
-      <div>
-        <h3 class="text-lg font-semibold mb-6 text-white">
-          {{ "footer_quick_links" | translate }}
-        </h3>
-        <div class="space-y-3">
-          <a
-            [href]="getTermsUrl()"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200"
-          >
-            <span class="inline-flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-400">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-              </svg>
-              {{ "footer_terms" | translate }}
-            </span>
-          </a>
-        </div>
-      </div>
 
       <!-- Contact info -->
       <div>
@@ -80,6 +59,58 @@
           </div>
         </div>
       </div>
+
+      <!-- Social Media column -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-white">
+          Redes Sociales
+        </h3>
+        <div class="space-y-4">
+          <a href="https://www.tiktok.com/@easylocker" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v12a3 3 0 1 0 3-3h-3" />
+            </svg>
+            TikTok
+          </a>
+          <a href="https://www.instagram.com/easylocker" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-400">
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17" cy="7" r="1" />
+            </svg>
+            Instagram
+          </a>
+          <a href="https://www.facebook.com/easylocker" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-400">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 8h1V6a2 2 0 1 1 4 0v2h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1v6a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-6H9a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+            </svg>
+            Facebook
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <div>
+        <h3 class="text-lg font-semibold mb-6 text-white">
+          {{ "footer_quick_links" | translate }}
+        </h3>
+        <div class="space-y-3">
+          <a
+            [href]="getTermsUrl()"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="block text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-200"
+          >
+            <span class="inline-flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-400">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+              {{ "footer_terms" | translate }}
+            </span>
+          </a>
+        </div>
+      </div>
+
     </div>
 
     <!-- Bottom bar -->
