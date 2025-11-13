@@ -11,7 +11,8 @@
 
 
 .language-switcher-item {
-  @apply block w-full text-left px-6 py-3 text-base rounded-xl text-gray-700 dark:text-gray-300 cursor-pointer transition-all duration-150 font-semibold;
+  @apply block w-full text-left px-6 py-3 text-base rounded-xl text-gray-700 dark:text-gray-300 cursor-pointer transition-all duration-300 font-semibold;
+  transition-property: color, background, font-weight;
 }
 
 .language-switcher-item:hover {
