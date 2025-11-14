@@ -33,7 +33,7 @@
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
           />
           <div
-            class="absolute inset-0 flex items-center justify-center bg-brand-gray900 text-brand-gray400 dark:text-brand-gray500"
+            class="absolute inset-0 flex items-center justify-center bg-brand-gray900 text-brand-gray400 dark:text-brand-textSecondary"
             style="display: none"
           >
             <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
@@ -52,7 +52,7 @@
             class="text-xl font-bold text-brand-gray800 dark:text-brand-gray100 mb-2"
             [innerHTML]="getTitleHtml(plan.titleKey)"
           ></h3>
-          <p class="text-brand-gray600 dark:text-brand-gray300 text-sm mb-6">
+          <p class="text-brand-textMuted dark:text-brand-gray300 text-sm mb-6">
             {{ plan.descriptionKey | translate }}
           </p>
           <button

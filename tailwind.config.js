@@ -30,8 +30,6 @@ module.exports = {
           gray200: "#e5e7eb", // alias de border, pendiente de eliminación
           gray300: "#d1d5db",
           gray400: "#9ca3af",
-          gray500: "#6b7280", // alias de textSecondary, pendiente de eliminación
-          gray600: "#4b5563", // alias de textMuted, pendiente de eliminación
           gray700: "#374151",
           gray800: "#1f2937",
           gray900: "#111827",
