@@ -20,11 +20,11 @@
     >
       <div
         *ngFor="let plan of plans"
-        class="group bg-brand-surface dark:bg-brand-gray900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-brand-gray200 dark:border-brand-gray700 overflow-hidden"
+  class="group bg-brand-surface dark:bg-brand-darkBackground rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-brand-gray200 dark:border-brand-darkBorder overflow-hidden"
       >
         <!-- Image Placeholder -->
         <div
-          class="relative w-full h-64 bg-brand-gray900 flex items-center justify-center overflow-hidden p-4"
+          class="relative w-full h-64 bg-brand-darkBackground flex items-center justify-center overflow-hidden p-4"
         >
           <img
             [src]="plan.imageKey | translate"
@@ -33,7 +33,7 @@
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
           />
           <div
-            class="absolute inset-0 flex items-center justify-center bg-brand-gray900 text-brand-gray400 dark:text-brand-textSecondary"
+            class="absolute inset-0 flex items-center justify-center bg-brand-darkBackground text-brand-iconMuted dark:text-brand-textSecondary"
             style="display: none"
           >
             <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
