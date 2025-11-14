@@ -1,5 +1,14 @@
 import { Component } from '@angular/core';
-import { EmailIcon, AvailableIcon, WhatsAppIcon, FacebookIcon, InstagramIcon, TikTokIcon, TermsIcon, SecureIcon } from './footer-icons';
+import {
+  EmailIcon,
+  AvailableIcon,
+  WhatsAppIcon,
+  FacebookIcon,
+  InstagramIcon,
+  TikTokIcon,
+  TermsIcon,
+  SecureIcon,
+} from './footer-icons';
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../services/theme.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
