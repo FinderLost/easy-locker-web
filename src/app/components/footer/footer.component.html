@@ -33,7 +33,10 @@
         </h3>
         <div class="space-y-4">
           <div class="flex items-center space-x-3">
-            <span [innerHTML]="emailIcon"></span>
+            <span
+              [innerHTML]="emailIcon"
+              class="text-brand-borderStrong"
+            ></span>
             <a
               href="mailto:info@easy-locker.com"
               class="text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
@@ -42,13 +45,19 @@
             </a>
           </div>
           <div class="flex items-center space-x-3">
-            <span [innerHTML]="availableIcon"></span>
+            <span
+              [innerHTML]="availableIcon"
+              class="text-brand-borderStrong"
+            ></span>
             <span class="text-brand-borderStrong">{{
               "footer_available" | translate
             }}</span>
           </div>
           <div class="flex items-center space-x-3">
-            <span [innerHTML]="whatsappIcon"></span>
+            <span
+              [innerHTML]="whatsappIcon"
+              class="text-brand-borderStrong"
+            ></span>
             <a
               href="https://wa.me/34644123456"
               target="_blank"
@@ -119,7 +128,7 @@
     </div>
 
     <!-- Bottom bar -->
-  <div class="border-t border-brand-borderStrong py-6 px-2">
+    <div class="border-t border-brand-borderStrong py-6 px-2">
       <div
         class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
       >
