@@ -44,6 +44,16 @@
         .addEventListener("change", setFaviconByTheme);
     </script>
     <script src="assets/config/reviews-config.js"></script>
+    <!-- GitHub Pages SPA redirect handler -->
+    <script>
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect != location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <app-root></app-root>
