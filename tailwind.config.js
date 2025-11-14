@@ -24,11 +24,6 @@ module.exports = {
           accent: "#3d8975",
           gold: "#C9A961",
 
-          // Estados
-          success: "#059669",
-          warning: "#D97706",
-          error: "#DC2626",
-
           // Grises
           gray50: "#f9fafb",
           gray100: "#f3f4f6",
