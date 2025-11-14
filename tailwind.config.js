@@ -40,15 +40,6 @@ module.exports = {
           gray700: "#374151",
           gray800: "#1f2937",
           gray900: "#111827",
-
-          // Azules
-          blueDark: "#1e3a8a",
-          blueDarker: "#1e40af",
-          blue100: "#dbeafe",
-
-          // Verdes
-          greenAccent: "#10b981",
-          green100: "#dcfce7",
         },
       },
       fontFamily: {
