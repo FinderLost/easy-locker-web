@@ -7,26 +7,29 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          blueLight: "#f1f5f9",
-          blueDark: "#1e3a8a",
-          blueDarker: "#1e40af",
-          greenAccent: "#10b981",
+          // Neutros y fondos
+          background: "#F8F9FA",
+          surface: "#FFFFFF",
+          light: "#E8E8E8",
+          muted: "#6B7280",
+          border: "#E5E7EB",
+          shadow: "#0F172A",
           blackAlpha: "rgba(0,0,0,0.10)",
           whiteAlpha: "rgba(255,255,255,0.25)",
-          shadow: "#0F172A",
+
+          // Texto
+          text: "#34373A",
           primary: "#34373A",
           secondary: "#5A5D61",
           accent: "#3d8975",
           gold: "#C9A961",
-          background: "#F8F9FA",
-          surface: "#FFFFFF",
-          text: "#34373A",
-          muted: "#6B7280",
-          light: "#E8E8E8",
-          border: "#E5E7EB",
+
+          // Estados
           success: "#059669",
           warning: "#D97706",
           error: "#DC2626",
+
+          // Grises
           gray50: "#f9fafb",
           gray100: "#f3f4f6",
           gray200: "#e5e7eb",
@@ -37,10 +40,20 @@ module.exports = {
           gray700: "#374151",
           gray800: "#1f2937",
           gray900: "#111827",
+
+          // Azules
+          blueLight: "#f1f5f9",
+          blueDark: "#1e3a8a",
+          blueDarker: "#1e40af",
           blue50: "#eff6ff",
           blue100: "#dbeafe",
+
+          // Verdes
+          greenAccent: "#10b981",
           green50: "#f0fdf4",
           green100: "#dcfce7",
+
+          // Amarillos
           yellow500: "#eab308",
         },
       },
