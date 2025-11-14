@@ -9,20 +9,16 @@ module.exports = {
         // Paleta basada en el logo - Elegante y confiable
         brand: {
           // Colores globales encontrados en el proyecto
-          blackAlpha10: "rgba(0, 0, 0, 0.1)",
-          whiteAlpha25: "rgba(255, 255, 255, 0.25)",
-          whiteAlpha18: "rgba(255, 255, 255, 0.18)",
           blueLight: "#f1f5f9",
           blueDark: "#1e3a8a",
           blueDarker: "#1e40af",
           greenAccent: "#10b981",
           greenSuccess: "#059669",
-          shadowLight: "rgba(15, 23, 42, 0.08)",
-          shadowDark: "rgba(15, 23, 42, 0.18)",
-          // Sombra testimonial clara
-          shadowLight: "rgba(15, 23, 42, 0.08)",
-          // Sombra testimonial oscura
-          shadowDark: "rgba(15, 23, 42, 0.18)",
+          blackAlpha10: "#000000",
+          whiteAlpha25: "#FFFFFF",
+          whiteAlpha18: "#FFFFFF",
+          shadowLight: "#0F172A",
+          shadowDark: "#0F172A",
           // Color primario del logo (gris oscuro elegante)
           primary: "#34373A",
 
