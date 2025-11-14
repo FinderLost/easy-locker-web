@@ -1,25 +1,25 @@
-<section class="bg-white dark:bg-gray-800 py-16 lg:py-24 text-brand-text dark:text-gray-100 font-sans transition-colors duration-300">
+<section class="bg-brand-surface dark:bg-brand-gray800 py-16 lg:py-24 text-brand-text dark:text-brand-gray100 font-sans transition-colors duration-300">
   <div class="container mx-auto px-6 lg:px-8">
     <!-- Title -->
     <div class="text-center mb-16">
-      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-4">
+  <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-gray800 dark:text-brand-gray100 mb-4">
         {{ 'pricing_title' | translate }}
       </h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full"></div>
+  <div class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full"></div>
     </div>
     
     <!-- Pricing Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
       <div *ngFor="let plan of plans" 
-           class="group bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-gray-700 overflow-hidden">
+           class="group bg-brand-surface dark:bg-brand-gray900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-brand-gray200 dark:border-brand-gray700 overflow-hidden">
         
         <!-- Image Placeholder -->
-        <div class="relative w-full h-64 bg-gray-900 flex items-center justify-center overflow-hidden p-4">
+  <div class="relative w-full h-64 bg-brand-gray900 flex items-center justify-center overflow-hidden p-4">
           <img [src]="plan.imageKey | translate" 
                [alt]="plan.titleKey | translate"
                class="max-h-full max-w-full object-contain mx-auto"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="absolute inset-0 flex items-center justify-center bg-gray-900 text-gray-400 dark:text-gray-500" style="display: none;">
+          <div class="absolute inset-0 flex items-center justify-center bg-brand-gray900 text-brand-gray400 dark:text-brand-gray500" style="display: none;">
             <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
             </svg>
@@ -28,13 +28,13 @@
         
         <!-- Content -->
         <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2" [innerHTML]="getTitleHtml(plan.titleKey)"></h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm mb-6">
+          <h3 class="text-xl font-bold text-brand-gray800 dark:text-brand-gray100 mb-2" [innerHTML]="getTitleHtml(plan.titleKey)"></h3>
+          <p class="text-brand-gray600 dark:text-brand-gray300 text-sm mb-6">
             {{ plan.descriptionKey | translate }}
           </p>
           <button
             (click)="onReserve()"
-            class="w-full px-6 py-3 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-sm font-semibold rounded-full border-2 border-gray-800 dark:border-gray-300 hover:bg-gray-800 dark:hover:bg-gray-100 hover:text-white dark:hover:text-gray-900 transition-all duration-300"
+            class="w-full px-6 py-3 bg-brand-surface dark:bg-brand-gray800 text-brand-gray800 dark:text-brand-gray100 text-sm font-semibold rounded-full border-2 border-brand-gray800 dark:border-brand-gray300 hover:bg-brand-gray800 dark:hover:bg-brand-gray100 hover:text-brand-surface dark:hover:text-brand-gray900 transition-all duration-300"
           >
             {{ 'pricing_btn_reserve' | translate }}
           </button>
