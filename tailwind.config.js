@@ -35,15 +35,12 @@ module.exports = {
           gray900: "#111827",
 
           // Azules
-          blueLight: "#f1f5f9",
           blueDark: "#1e3a8a",
           blueDarker: "#1e40af",
-          blue50: "#eff6ff",
           blue100: "#dbeafe",
 
           // Verdes
           greenAccent: "#10b981",
-          green50: "#f0fdf4",
           green100: "#dcfce7",
         },
       },
