@@ -1,17 +1,17 @@
 <section
-  class="bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-16 lg:py-24 text-brand-text dark:text-gray-100 font-sans transition-colors duration-300"
+  class="bg-gradient-to-br from-brand-gray50 to-brand-blue50 dark:from-brand-gray900 dark:to-brand-gray800 py-16 lg:py-24 text-brand-text dark:text-brand-gray100 font-sans transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-8">
     <div class="max-w-4xl mx-auto mb-8 text-center">
       <h2
-        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-gray-800 dark:text-gray-100"
+  class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-brand-gray800 dark:text-brand-gray100"
       >
         {{ "faq_title" | translate }}
       </h2>
       <div
         class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full mb-6"
       ></div>
-      <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 mb-8">
+  <p class="text-base md:text-lg text-brand-gray600 dark:text-brand-gray300 mb-8">
         {{ "faq_subtitle" | translate }}
       </p>
     </div>
@@ -19,11 +19,11 @@
     <div class="max-w-4xl mx-auto space-y-4">
       <div
         *ngFor="let faq of faqs; let i = index"
-        class="group bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden"
+  class="group bg-brand-surface dark:bg-brand-gray900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-brand-gray100 dark:border-brand-gray700 overflow-hidden"
       >
         <!-- Question header -->
         <div
-          class="flex items-center justify-between p-5 lg:p-6 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
+          class="flex items-center justify-between p-5 lg:p-6 cursor-pointer hover:bg-brand-gray50 dark:hover:bg-brand-gray800 transition-colors duration-200"
           (click)="toggleFaq(i)"
         >
           <div class="flex items-center space-x-4 flex-1">
@@ -33,14 +33,14 @@
               {{ i + 1 }}
             </div>
             <h3
-              class="text-base lg:text-lg font-semibold text-gray-800 dark:text-gray-100 leading-relaxed"
+              class="text-base lg:text-lg font-semibold text-brand-gray800 dark:text-brand-gray100 leading-relaxed"
             >
               {{ faq.questionKey | translate }}
             </h3>
           </div>
           <div class="ml-4 flex-shrink-0">
             <svg
-              class="w-6 h-6 text-gray-400 dark:text-gray-500 transform transition-transform duration-300"
+              class="w-6 h-6 text-brand-gray400 dark:text-brand-gray500 transform transition-transform duration-300"
               [class.rotate-180]="faq.isOpen"
               fill="none"
               stroke="currentColor"
@@ -68,7 +68,7 @@
                 class="w-full h-px bg-gradient-to-r from-brand-primary/20 to-brand-secondary/20 dark:from-brand-gold/20 dark:to-brand-accent/20 mb-4"
               ></div>
               <p
-                class="text-sm lg:text-base text-gray-600 dark:text-gray-300 leading-relaxed"
+                class="text-sm lg:text-base text-brand-gray600 dark:text-brand-gray300 leading-relaxed"
               >
                 {{ faq.answerKey | translate }}
               </p>
