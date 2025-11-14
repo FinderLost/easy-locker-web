@@ -19,7 +19,7 @@ module.exports = {
           // Bordes
           border: "#e5e7eb",
           borderSubtle: "#f3f4f6",
-          borderStrong: "#FF0000",
+          borderStrong: "#d1d5db",
           darkBorder: "#374151",
 
           // Texto semántico
