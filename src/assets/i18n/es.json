@@ -59,5 +59,16 @@
   "footer_email": "info@easy-locker.com",
   "footer_copyright": "© 2024 Easy Locker. Todos los derechos reservados.",
   "meta_description": "Consignas inteligentes en Córdoba",
-  "meta_title": "Easy Locker | Córdoba"
+  "meta_title": "Easy Locker | Córdoba",
+  "testimonials_title": "Opiniones de clientes",
+  "testimonials_subtitle": "Valoraciones reales de Easy Locker en Google",
+  "testimonials_placeholder": "Aún no hay opiniones disponibles.",
+  "testimonials_placeholder_loading": "Cargando opiniones...",
+  "testimonials_summary_empty": "Sé el primero en dejar tu opinión.",
+  "testimonials_summary_verified": "Todas las opiniones son verificadas en Google.",
+  "testimonials_summary_loading": "Cargando opiniones...",
+  "testimonials_button_profile": "Ver perfil en Google",
+  "testimonials_button_review": "Dejar una reseña",
+  "testimonials_button_profile_aria": "Abrir perfil de Easy Locker en Google",
+  "testimonials_button_review_aria": "Dejar una reseña en Google"
 }

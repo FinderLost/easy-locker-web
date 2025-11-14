@@ -59,5 +59,16 @@
   "footer_email": "info@easy-locker.com",
   "footer_copyright": "© 2024 Easy Locker. All rights reserved.",
   "meta_description": "Smart lockers in Cordoba",
-  "meta_title": "Easy Locker | Cordoba"
+  "meta_title": "Easy Locker | Cordoba",
+  "testimonials_title": "Customer testimonials",
+  "testimonials_subtitle": "Real reviews for Easy Locker on Google",
+  "testimonials_placeholder": "No testimonials available yet.",
+  "testimonials_placeholder_loading": "Loading testimonials...",
+  "testimonials_summary_empty": "Be the first to leave a review.",
+  "testimonials_summary_verified": "All reviews are verified on Google.",
+  "testimonials_summary_loading": "Loading testimonials...",
+  "testimonials_button_profile": "View Google profile",
+  "testimonials_button_review": "Leave a review",
+  "testimonials_button_profile_aria": "Open Easy Locker Google profile",
+  "testimonials_button_review_aria": "Leave a review on Google"
 }

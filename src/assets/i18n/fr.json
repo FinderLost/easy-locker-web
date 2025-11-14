@@ -59,5 +59,16 @@
   "footer_email": "info@easy-locker.com",
   "footer_copyright": "© 2024 Easy Locker. Tous droits réservés.",
   "meta_description": "Consignes intelligentes à Cordoba",
-  "meta_title": "Easy Locker | Cordoba"
+  "meta_title": "Easy Locker | Cordoba",
+  "testimonials_title": "Avis des clients",
+  "testimonials_subtitle": "Avis réels sur Easy Locker sur Google",
+  "testimonials_placeholder": "Aucun avis disponible pour le moment.",
+  "testimonials_placeholder_loading": "Chargement des avis...",
+  "testimonials_summary_empty": "Soyez le premier à laisser un avis.",
+  "testimonials_summary_verified": "Tous les avis sont vérifiés sur Google.",
+  "testimonials_summary_loading": "Chargement des avis...",
+  "testimonials_button_profile": "Voir le profil Google",
+  "testimonials_button_review": "Laisser un avis",
+  "testimonials_button_profile_aria": "Ouvrir le profil Google Easy Locker",
+  "testimonials_button_review_aria": "Laisser un avis sur Google"
 }

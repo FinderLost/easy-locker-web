@@ -59,5 +59,16 @@
   "footer_email": "info@easy-locker.com",
   "footer_copyright": "© 2024 Easy Locker. Alle Rechte vorbehalten.",
   "meta_description": "Intelligente Schliessfächer in Cordoba",
-  "meta_title": "Easy Locker | Cordoba"
+  "meta_title": "Easy Locker | Cordoba",
+  "testimonials_title": "Kundenbewertungen",
+  "testimonials_subtitle": "Echte Bewertungen für Easy Locker auf Google",
+  "testimonials_placeholder": "Noch keine Bewertungen verfügbar.",
+  "testimonials_placeholder_loading": "Bewertungen werden geladen...",
+  "testimonials_summary_empty": "Seien Sie der Erste, der eine Bewertung abgibt.",
+  "testimonials_summary_verified": "Alle Bewertungen sind auf Google verifiziert.",
+  "testimonials_summary_loading": "Bewertungen werden geladen...",
+  "testimonials_button_profile": "Google-Profil ansehen",
+  "testimonials_button_review": "Bewertung abgeben",
+  "testimonials_button_profile_aria": "Easy Locker Google-Profil öffnen",
+  "testimonials_button_review_aria": "Bewertung auf Google abgeben"
 }

@@ -59,5 +59,16 @@
   "footer_email": "info@easy-locker.com",
   "footer_copyright": "© 2024 Easy Locker. Tutti i diritti riservati.",
   "meta_description": "Depositi intelligenti a Cordoba",
-  "meta_title": "Easy Locker | Cordoba"
+  "meta_title": "Easy Locker | Cordoba",
+  "testimonials_title": "Recensioni dei clienti",
+  "testimonials_subtitle": "Recensioni reali su Easy Locker su Google",
+  "testimonials_placeholder": "Nessuna recensione disponibile al momento.",
+  "testimonials_placeholder_loading": "Caricamento delle recensioni...",
+  "testimonials_summary_empty": "Sii il primo a lasciare una recensione.",
+  "testimonials_summary_verified": "Tutte le recensioni sono verificate su Google.",
+  "testimonials_summary_loading": "Caricamento delle recensioni...",
+  "testimonials_button_profile": "Vedi profilo Google",
+  "testimonials_button_review": "Lascia una recensione",
+  "testimonials_button_profile_aria": "Apri il profilo Google di Easy Locker",
+  "testimonials_button_review_aria": "Lascia una recensione su Google"
 }
