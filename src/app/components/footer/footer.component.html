@@ -3,9 +3,9 @@
 >
   <div class="container mx-auto px-6 lg:px-8">
     <!-- Main footer content -->
-  <div class="py-8 px-2 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+    <div class="py-8 px-2 grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
       <!-- Brand section -->
-  <div class="mb-8 md:mb-0 col-span-1 max-w-xs">
+      <div class="mb-8 md:mb-0 col-span-1 max-w-xs">
         <div class="mb-6">
           <img
             *ngIf="!isDarkMode"
@@ -20,12 +20,15 @@
             class="h-12 w-auto"
           />
         </div>
-  <p class="text-brand-gray300 leading-relaxed mb-6 max-w-md" [innerHTML]="footerDescriptionHtml"></p>
+        <p
+          class="text-brand-gray300 leading-relaxed mb-6 max-w-md"
+          [innerHTML]="footerDescriptionHtml"
+        ></p>
       </div>
 
       <!-- Contact info -->
-  <div class="mb-8 md:mb-0">
-  <h3 class="text-lg font-semibold mb-6 text-brand-surface">
+      <div class="mb-8 md:mb-0">
+        <h3 class="text-lg font-semibold mb-6 text-brand-surface">
           {{ "footer_contact_title" | translate }}
         </h3>
         <div class="space-y-4">
@@ -78,9 +81,22 @@
             }}</span>
           </div>
           <div class="flex items-center space-x-3">
-            <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg" fill="none" class="size-6 text-brand-gray400">
-              <path fill="currentColor" d="m60.359 160.867 2.894-5.256a6.003 6.003 0 0 0-4.284-.581l1.39 5.837ZM22 170l-5.837-1.39a6.002 6.002 0 0 0 7.227 7.227L22 170Zm9.133-38.359 5.837 1.39a6.001 6.001 0 0 0-.581-4.284l-5.256 2.894ZM96 176c44.183 0 80-35.817 80-80h-12c0 37.555-30.445 68-68 68v12Zm-38.535-9.877C68.9 172.42 82.04 176 96 176v-12c-11.884 0-23.04-3.043-32.747-8.389l-5.788 10.512Zm-34.075 9.714 38.358-9.133-2.78-11.674-38.358 9.133 2.78 11.674Zm1.906-45.585-9.133 38.358 11.674 2.78 9.133-38.359-11.674-2.779ZM16 96c0 13.959 3.58 27.1 9.877 38.535l10.512-5.788C31.043 119.039 28 107.884 28 96H16Zm80-80c-44.183 0-80 35.817-80 80h12c0-37.555 30.445-68 68-68V16Zm80 80c0-44.183-35.817-80-80-80v12c37.555 0 68 30.445 68 68h12Z"></path>
-              <path stroke="currentColor" stroke-linejoin="round" stroke-width="12" d="M103 130H76V96h27c9.389 0 17 7.611 17 17s-7.611 17-17 17Zm-2-34H76V62h25c9.389 0 17 7.611 17 17s-7.611 17-17 17Z"></path>
+            <svg
+              viewBox="0 0 192 192"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              class="size-6 text-brand-gray400"
+            >
+              <path
+                fill="currentColor"
+                d="m60.359 160.867 2.894-5.256a6.003 6.003 0 0 0-4.284-.581l1.39 5.837ZM22 170l-5.837-1.39a6.002 6.002 0 0 0 7.227 7.227L22 170Zm9.133-38.359 5.837 1.39a6.001 6.001 0 0 0-.581-4.284l-5.256 2.894ZM96 176c44.183 0 80-35.817 80-80h-12c0 37.555-30.445 68-68 68v12Zm-38.535-9.877C68.9 172.42 82.04 176 96 176v-12c-11.884 0-23.04-3.043-32.747-8.389l-5.788 10.512Zm-34.075 9.714 38.358-9.133-2.78-11.674-38.358 9.133 2.78 11.674Zm1.906-45.585-9.133 38.358 11.674 2.78 9.133-38.359-11.674-2.779ZM16 96c0 13.959 3.58 27.1 9.877 38.535l10.512-5.788C31.043 119.039 28 107.884 28 96H16Zm80-80c-44.183 0-80 35.817-80 80h12c0-37.555 30.445-68 68-68V16Zm80 80c0-44.183-35.817-80-80-80v12c37.555 0 68 30.445 68 68h12Z"
+              ></path>
+              <path
+                stroke="currentColor"
+                stroke-linejoin="round"
+                stroke-width="12"
+                d="M103 130H76V96h27c9.389 0 17 7.611 17 17s-7.611 17-17 17Zm-2-34H76V62h25c9.389 0 17 7.611 17 17s-7.611 17-17 17Z"
+              ></path>
             </svg>
             <a
               href="https://wa.me/34644123456"
@@ -95,8 +111,10 @@
       </div>
 
       <!-- Social Media column -->
-  <div class="mb-8 md:mb-0">
-  <h3 class="text-lg font-semibold mb-6 text-brand-surface">Redes Sociales</h3>
+      <div class="mb-8 md:mb-0">
+        <h3 class="text-lg font-semibold mb-6 text-brand-surface">
+          Redes Sociales
+        </h3>
         <div class="space-y-4">
           <a
             href="https://www.facebook.com/share/1Got7XaYUE/?mibextid=wwXIfr"
@@ -193,8 +211,8 @@
       </div>
 
       <!-- Quick links -->
-  <div class="mb-8 md:mb-0">
-  <h3 class="text-lg font-semibold mb-6 text-brand-surface">
+      <div class="mb-8 md:mb-0">
+        <h3 class="text-lg font-semibold mb-6 text-brand-surface">
           {{ "footer_quick_links" | translate }}
         </h3>
         <div class="space-y-3">
@@ -243,9 +261,11 @@
     </div>
 
     <!-- Bottom bar -->
-  <div class="border-t border-brand-gray700 py-6 px-2">
-      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-  <div class="text-brand-gray400 text-sm">
+    <div class="border-t border-brand-gray700 py-6 px-2">
+      <div
+        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+      >
+        <div class="text-brand-gray400 text-sm">
           &copy; {{ currentYear }} {{ "footer_copyright_text" | translate }}
         </div>
         <div class="flex items-center space-x-6">

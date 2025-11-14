@@ -4,14 +4,16 @@
   <div class="container mx-auto px-6 lg:px-8">
     <div class="max-w-4xl mx-auto mb-8 text-center">
       <h2
-  class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-brand-gray800 dark:text-brand-gray100"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-brand-gray800 dark:text-brand-gray100"
       >
         {{ "faq_title" | translate }}
       </h2>
       <div
         class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full mb-6"
       ></div>
-  <p class="text-base md:text-lg text-brand-gray600 dark:text-brand-gray300 mb-8">
+      <p
+        class="text-base md:text-lg text-brand-gray600 dark:text-brand-gray300 mb-8"
+      >
         {{ "faq_subtitle" | translate }}
       </p>
     </div>
@@ -19,7 +21,7 @@
     <div class="max-w-4xl mx-auto space-y-4">
       <div
         *ngFor="let faq of faqs; let i = index"
-  class="group bg-brand-surface dark:bg-brand-gray900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-brand-gray100 dark:border-brand-gray700 overflow-hidden"
+        class="group bg-brand-surface dark:bg-brand-gray900 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-brand-gray100 dark:border-brand-gray700 overflow-hidden"
       >
         <!-- Question header -->
         <div
@@ -82,6 +84,5 @@
         ></div>
       </div>
     </div>
-
   </div>
 </section>
