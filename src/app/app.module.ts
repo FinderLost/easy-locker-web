@@ -15,6 +15,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
+import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -30,6 +32,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LanguageSwitcherComponent,
     PricingComponent,
     TestimonialsComponent,
+    ComingSoonComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
