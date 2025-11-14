@@ -1,4 +1,4 @@
-<section class="relative bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 py-20 lg:py-32 text-center text-brand-text dark:text-gray-100 font-sans overflow-hidden transition-colors duration-300">
+<section class="relative bg-gradient-to-br from-brand-blue50 via-brand-surface to-brand-green50 dark:from-brand-gray900 dark:via-brand-gray800 dark:to-brand-gray900 py-20 lg:py-32 text-center text-brand-text dark:text-brand-gray100 font-sans overflow-hidden transition-colors duration-300">
   <!-- Background decoration -->
   <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
   <div class="absolute top-10 left-10 w-72 h-72 bg-brand-primary/10 dark:bg-brand-accent/10 rounded-full blur-3xl"></div>
@@ -8,30 +8,30 @@
     <div class="max-w-4xl mx-auto">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
         <div class="flex flex-col items-center gap-2">
-          <span class="text-gray-800 dark:text-gray-100">
+          <span class="text-brand-gray800 dark:text-brand-gray100">
             {{ 'hero_title_line1' | translate }}
           </span>
           <span class="bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:via-brand-accent dark:to-brand-gold bg-clip-text text-transparent">
             {{ 'hero_title_line2' | translate }}
           </span>
-          <span class="text-gray-800 dark:text-gray-100">
+          <span class="text-brand-gray800 dark:text-brand-gray100">
             {{ 'hero_title_line3' | translate }}
           </span>
         </div>
       </h1>
-      <p class="text-xl md:text-2xl mt-6 text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+  <p class="text-xl md:text-2xl mt-6 text-brand-gray600 dark:text-brand-gray300 leading-relaxed max-w-3xl mx-auto">
         {{ 'hero_subtitle' | translate }}
       </p>
       <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
         <button
           (click)="onReserve()"
-          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-base font-semibold rounded-full border-2 border-gray-800 dark:border-gray-300 hover:bg-gray-800 dark:hover:bg-gray-100 hover:text-white dark:hover:text-gray-900 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-gray800 text-brand-gray800 dark:text-brand-gray100 text-base font-semibold rounded-full border-2 border-brand-gray800 dark:border-brand-gray300 hover:bg-brand-gray800 dark:hover:bg-brand-gray100 hover:text-brand-surface dark:hover:text-brand-gray900 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
         >
           {{ 'hero_btn_reserve' | translate }}
         </button>
         <button
           (click)="onDirections()"
-          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 text-base font-semibold rounded-full border-2 border-gray-800 dark:border-gray-300 hover:bg-gray-800 dark:hover:bg-gray-100 hover:text-white dark:hover:text-gray-900 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-gray800 text-brand-gray800 dark:text-brand-gray100 text-base font-semibold rounded-full border-2 border-brand-gray800 dark:border-brand-gray300 hover:bg-brand-gray800 dark:hover:bg-brand-gray100 hover:text-brand-surface dark:hover:text-brand-gray900 transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
         >
           {{ 'hero_btn_directions' | translate }}
         </button>
