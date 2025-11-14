@@ -6,9 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Paleta basada en el logo - Elegante y confiable
         brand: {
-          // Colores globales encontrados en el proyecto
           blueLight: "#f1f5f9",
           blueDark: "#1e3a8a",
           blueDarker: "#1e40af",
@@ -19,44 +17,34 @@ module.exports = {
           whiteAlpha18: "#FFFFFF",
           shadowLight: "#0F172A",
           shadowDark: "#0F172A",
-          // Color primario del logo (gris oscuro elegante)
           primary: "#34373A",
-
-          // Color secundario (gris medio sofisticado)
           secondary: "#5A5D61",
-
-          // Acento verde elegante (confianza y seguridad)
           accent: "#3d8975",
-
-          // Acento dorado sutil (premium y confiable)
           gold: "#C9A961",
-
-          // Fondo claro (elegante y limpio)
           background: "#F8F9FA",
-
-          // Superficie blanca
           surface: "#FFFFFF",
-
-          // Texto principal (color del logo)
           text: "#34373A",
-
-          // Texto secundario
           muted: "#6B7280",
-
-          // Texto claro (para fondos oscuros)
           light: "#E8E8E8",
-
-          // Bordes sutiles
           border: "#E5E7EB",
-
-          // Estados de éxito
           success: "#059669",
-
-          // Estados de advertencia
           warning: "#D97706",
-
-          // Estados de error
           error: "#DC2626",
+          gray50: "#f9fafb",
+          gray100: "#f3f4f6",
+          gray200: "#e5e7eb",
+          gray300: "#d1d5db",
+          gray400: "#9ca3af",
+          gray500: "#6b7280",
+          gray600: "#4b5563",
+          gray700: "#374151",
+          gray800: "#1f2937",
+          gray900: "#111827",
+          blue50: "#eff6ff",
+          blue100: "#dbeafe",
+          green50: "#f0fdf4",
+          green100: "#dcfce7",
+          yellow500: "#eab308",
         },
       },
       fontFamily: {
