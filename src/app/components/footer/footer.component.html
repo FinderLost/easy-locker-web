@@ -21,7 +21,7 @@
           />
         </div>
         <p
-          class="text-brand-gray300 leading-relaxed mb-6 max-w-md"
+          class="text-brand-borderStrong leading-relaxed mb-6 max-w-md"
           [innerHTML]="footerDescriptionHtml"
         ></p>
       </div>
@@ -36,14 +36,14 @@
             <span [innerHTML]="emailIcon"></span>
             <a
               href="mailto:info@easy-locker.com"
-              class="text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
+              class="text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
             >
               {{ "footer_email" | translate }}
             </a>
           </div>
           <div class="flex items-center space-x-3">
             <span [innerHTML]="availableIcon"></span>
-            <span class="text-brand-gray300">{{
+            <span class="text-brand-borderStrong">{{
               "footer_available" | translate
             }}</span>
           </div>
@@ -53,7 +53,7 @@
               href="https://wa.me/34644123456"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
+              class="flex items-center gap-3 text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
             >
               {{ "footer_whatsapp" | translate }}
             </a>
@@ -80,7 +80,7 @@
             href="https://www.instagram.com/easylocker.es"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
+            class="flex items-center gap-3 text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
           >
             <span [innerHTML]="instagramIcon"></span>
             Instagram
@@ -89,7 +89,7 @@
             href="https://www.tiktok.com/@easylocker.es"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
+            class="flex items-center gap-3 text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
           >
             <span [innerHTML]="tiktokIcon"></span>
             TikTok
@@ -99,7 +99,7 @@
 
       <!-- Quick links -->
       <div class="mb-8 md:mb-0">
-  <h3 class="text-lg font-semibold mb-6 text-brand-textPrimary">
+        <h3 class="text-lg font-semibold mb-6 text-brand-textPrimary">
           {{ "footer_quick_links" | translate }}
         </h3>
         <div class="space-y-3">
@@ -119,15 +119,17 @@
     </div>
 
     <!-- Bottom bar -->
-    <div class="border-t border-brand-gray700 py-6 px-2">
+    <div class="border-t border-brand-darkBorder py-6 px-2">
       <div
         class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
       >
-  <div class="text-brand-textSecondary text-sm">
+        <div class="text-brand-textSecondary text-sm">
           &copy; {{ currentYear }} {{ "footer_copyright_text" | translate }}
         </div>
         <div class="flex items-center space-x-6">
-    <div class="flex items-center space-x-2 text-brand-textSecondary text-sm">
+          <div
+            class="flex items-center space-x-2 text-brand-textSecondary text-sm"
+          >
             <span [innerHTML]="secureIcon"></span>
             <span>{{ "footer_secure_service" | translate }}</span>
           </div>
