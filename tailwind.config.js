@@ -52,9 +52,6 @@ module.exports = {
           greenAccent: "#10b981",
           green50: "#f0fdf4",
           green100: "#dcfce7",
-
-          // Amarillos
-          yellow500: "#eab308",
         },
       },
       fontFamily: {
