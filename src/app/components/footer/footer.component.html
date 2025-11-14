@@ -71,7 +71,7 @@
             href="https://www.facebook.com/share/1Got7XaYUE/?mibextid=wwXIfr"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center gap-3 text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
+            class="flex items-center gap-3 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-200"
           >
             <span [innerHTML]="facebookIcon"></span>
             Facebook
@@ -99,7 +99,7 @@
 
       <!-- Quick links -->
       <div class="mb-8 md:mb-0">
-        <h3 class="text-lg font-semibold mb-6 text-brand-surface">
+  <h3 class="text-lg font-semibold mb-6 text-brand-textPrimary">
           {{ "footer_quick_links" | translate }}
         </h3>
         <div class="space-y-3">
@@ -107,7 +107,7 @@
             [href]="getTermsUrl()"
             target="_blank"
             rel="noopener noreferrer"
-            class="block text-brand-gray300 hover:text-brand-surface hover:translate-x-1 transition-all duration-200"
+            class="block text-brand-textSecondary hover:text-brand-textPrimary hover:translate-x-1 transition-all duration-200"
           >
             <span class="inline-flex items-center gap-2">
               <span [innerHTML]="termsIcon"></span>
@@ -123,16 +123,16 @@
       <div
         class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
       >
-        <div class="text-brand-gray400 text-sm">
+  <div class="text-brand-textSecondary text-sm">
           &copy; {{ currentYear }} {{ "footer_copyright_text" | translate }}
         </div>
         <div class="flex items-center space-x-6">
-          <div class="flex items-center space-x-2 text-brand-gray400 text-sm">
+    <div class="flex items-center space-x-2 text-brand-textSecondary text-sm">
             <span [innerHTML]="secureIcon"></span>
             <span>{{ "footer_secure_service" | translate }}</span>
           </div>
-          <div class="w-px h-4 bg-brand-gray600"></div>
-          <div class="text-brand-gray400 text-sm">
+          <div class="w-px h-4 bg-brand-textMuted"></div>
+          <div class="text-brand-textSecondary text-sm">
             {{ "footer_made_in_cordoba" | translate }}
           </div>
         </div>

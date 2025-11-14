@@ -11,27 +11,27 @@ module.exports = {
           background: "#F8F9FA",
           surface: "#FFFFFF",
           light: "#E8E8E8",
-          muted: "#6B7280",
           border: "#E5E7EB",
           shadow: "#0F172A",
           blackAlpha: "rgba(0,0,0,0.10)",
           whiteAlpha: "rgba(255,255,255,0.25)",
 
-          // Texto
-          text: "#34373A",
-          primary: "#34373A",
-          secondary: "#5A5D61",
+          // Texto semántico normalizado
+          textPrimary: "#34373A", // antes text y primary
+          textSecondary: "#6B7280", // antes muted y gray500
+          textMuted: "#5A5D61", // antes secondary y gray600
+
           accent: "#3d8975",
           gold: "#C9A961",
 
-          // Grises
+          // Grises (escala técnica, no eliminar aún)
           gray50: "#f9fafb",
           gray100: "#f3f4f6",
-          gray200: "#e5e7eb",
+          gray200: "#e5e7eb", // alias de border, pendiente de eliminación
           gray300: "#d1d5db",
           gray400: "#9ca3af",
-          gray500: "#6b7280",
-          gray600: "#4b5563",
+          gray500: "#6b7280", // alias de textSecondary, pendiente de eliminación
+          gray600: "#4b5563", // alias de textMuted, pendiente de eliminación
           gray700: "#374151",
           gray800: "#1f2937",
           gray900: "#111827",
