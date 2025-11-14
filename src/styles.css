@@ -73,33 +73,33 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: theme('colors.brand.backgroundSoft');
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #1e3a8a, #10b981);
+  background: linear-gradient(to bottom, theme('colors.brand.accentPrimary'), theme('colors.brand.accentSecondary'));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #1e40af, #059669);
+  background: linear-gradient(to bottom, theme('colors.brand.accentPrimary'), theme('colors.brand.accentSecondary'));
 }
 
 /* Focus styles for accessibility */
 .focus-visible:focus {
-  outline: 2px solid #1e3a8a;
+  outline: 2px solid theme('colors.brand.accentPrimary');
   outline-offset: 2px;
 }
 
 /* Glass morphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.25);
+  background: theme('colors.brand.surface')/25%;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid theme('colors.brand.surface')/18%;
 }
 
 /* Gradient text selection */
 ::selection {
-  background: linear-gradient(to right, #1e3a8a, #10b981);
-  color: white;
+  background: linear-gradient(to right, theme('colors.brand.accentPrimary'), theme('colors.brand.accentSecondary'));
+  color: theme('colors.brand.surface');
 }
