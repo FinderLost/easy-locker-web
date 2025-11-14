@@ -28,8 +28,8 @@ module.exports = {
           textMuted: "#5A5D61",
           iconMuted: "#9ca3af",
 
-          accent: "#3d8975",
-          gold: "#C9A961",
+          accentPrimary: "#3d8975",
+          accentSecondary: "#C9A961",
         },
       },
       fontFamily: {

@@ -10,7 +10,7 @@
         {{ "pricing_title" | translate }}
       </h2>
       <div
-        class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accent to-brand-secondary dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full"
+  class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accentPrimary to-brand-secondary dark:from-brand-accentSecondary dark:to-brand-accentPrimary mx-auto rounded-full"
       ></div>
     </div>
 
@@ -52,7 +52,9 @@
             class="text-xl font-bold text-brand-darkSurface dark:text-brand-textPrimary mb-2"
             [innerHTML]="getTitleHtml(plan.titleKey)"
           ></h3>
-          <p class="text-brand-textMuted dark:text-brand-borderStrong text-sm mb-6">
+          <p
+            class="text-brand-textMuted dark:text-brand-borderStrong text-sm mb-6"
+          >
             {{ plan.descriptionKey | translate }}
           </p>
           <button

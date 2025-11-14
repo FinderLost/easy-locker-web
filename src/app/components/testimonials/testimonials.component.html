@@ -10,12 +10,12 @@
         {{ "testimonials_title" | translate }}
       </h2>
       <p
-  class="text-base md:text-lg text-brand-textSecondary dark:text-brand-borderStrong leading-relaxed"
+        class="text-base md:text-lg text-brand-textSecondary dark:text-brand-borderStrong leading-relaxed"
       >
         {{ "testimonials_subtitle" | translate }}
       </p>
       <div
-        class="mt-6 w-24 h-1 bg-gradient-to-r from-brand-textPrimary via-brand-accent to-brand-textMuted dark:from-brand-gold dark:to-brand-accent mx-auto rounded-full"
+  class="mt-6 w-24 h-1 bg-gradient-to-r from-brand-textPrimary via-brand-accentPrimary to-brand-textMuted dark:from-brand-accentSecondary dark:to-brand-accentPrimary mx-auto rounded-full"
       ></div>
     </div>
 
@@ -30,7 +30,7 @@
         >
           <div
             *ngIf="getStars(review.rating).length"
-            class="flex items-center gap-1 text-brand-accent text-xl mb-4"
+            class="flex items-center gap-1 text-brand-accentPrimary text-xl mb-4"
             role="img"
             [attr.aria-label]="
               'testimonials_rating_aria'
@@ -73,7 +73,7 @@
         </div>
       </ng-template>
 
-      <p class="mt-8 text-center text-sm text-brand-accent">
+  <p class="mt-8 text-center text-sm text-brand-accentPrimary">
         {{ summaryTranslationKey | translate }}
       </p>
     </div>
@@ -82,7 +82,7 @@
       class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto"
     >
       <a
-  class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-darkSurface text-brand-textPrimary dark:text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-textPrimary dark:border-brand-borderStrong hover:bg-brand-textPrimary dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
+        class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-darkSurface text-brand-textPrimary dark:text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-textPrimary dark:border-brand-borderStrong hover:bg-brand-textPrimary dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
         [href]="profileUrl"
         target="_blank"
         rel="noopener noreferrer"

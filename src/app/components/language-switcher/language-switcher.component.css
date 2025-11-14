@@ -1,7 +1,7 @@
 /* Language Switcher Custom Styles */
 
 .language-switcher-btn {
-  @apply text-base bg-brand-surface dark:bg-brand-darkBackground border-2 border-brand-accent px-5 py-2 rounded-full shadow-lg text-brand-textPrimary dark:text-brand-textPrimary font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-accent;
+  @apply text-base bg-brand-surface dark:bg-brand-darkBackground border-2 border-brand-accentPrimary px-5 py-2 rounded-full shadow-lg text-brand-textPrimary dark:text-brand-textPrimary font-bold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-accentPrimary;
 }
 
 .language-switcher-dropdown {
@@ -14,9 +14,9 @@
 }
 
 .language-switcher-item:hover {
-  @apply bg-brand-accent/20 dark:bg-brand-accent/30 text-brand-textPrimary dark:text-brand-gold px-3 py-2 mx-auto w-[85%];
+  @apply bg-brand-accentPrimary/20 dark:bg-brand-accentPrimary/30 text-brand-textPrimary dark:text-brand-accentSecondary px-3 py-2 mx-auto w-[85%];
 }
 
 .language-switcher-item-active {
-  @apply bg-brand-darkBackground dark:bg-brand-darkSurface text-brand-gold font-bold ring-2 ring-brand-accent dark:ring-brand-gold px-3 py-2 mx-auto w-[85%];
+  @apply bg-brand-darkBackground dark:bg-brand-darkSurface text-brand-accentSecondary font-bold ring-2 ring-brand-accentPrimary dark:ring-brand-accentSecondary px-3 py-2 mx-auto w-[85%];
 }
