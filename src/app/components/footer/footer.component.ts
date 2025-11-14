@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { EmailIcon, AvailableIcon, WhatsAppIcon, FacebookIcon, InstagramIcon, TikTokIcon, TermsIcon, SecureIcon } from './footer-icons';
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../services/theme.service';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-footer',
@@ -8,6 +10,14 @@ import { ThemeService } from '../../services/theme.service';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
+  emailIcon: SafeHtml;
+  availableIcon: SafeHtml;
+  whatsappIcon: SafeHtml;
+  facebookIcon: SafeHtml;
+  instagramIcon: SafeHtml;
+  tiktokIcon: SafeHtml;
+  termsIcon: SafeHtml;
+  secureIcon: SafeHtml;
   get footerDescriptionHtml(): string {
     const desc = this.translate.instant('footer_description');
     return desc.replace(/\n/g, '<br>');
@@ -17,11 +27,20 @@ export class FooterComponent {
 
   constructor(
     private translate: TranslateService,
-    public themeService: ThemeService
+    public themeService: ThemeService,
+    private sanitizer: DomSanitizer
   ) {
     this.themeService.darkMode$.subscribe((isDark) => {
       this.isDarkMode = isDark;
     });
+    this.emailIcon = this.sanitizer.bypassSecurityTrustHtml(EmailIcon);
+    this.availableIcon = this.sanitizer.bypassSecurityTrustHtml(AvailableIcon);
+    this.whatsappIcon = this.sanitizer.bypassSecurityTrustHtml(WhatsAppIcon);
+    this.facebookIcon = this.sanitizer.bypassSecurityTrustHtml(FacebookIcon);
+    this.instagramIcon = this.sanitizer.bypassSecurityTrustHtml(InstagramIcon);
+    this.tiktokIcon = this.sanitizer.bypassSecurityTrustHtml(TikTokIcon);
+    this.termsIcon = this.sanitizer.bypassSecurityTrustHtml(TermsIcon);
+    this.secureIcon = this.sanitizer.bypassSecurityTrustHtml(SecureIcon);
   }
   getTermsUrl(): string {
     const lang = this.translate.currentLang || 'es';

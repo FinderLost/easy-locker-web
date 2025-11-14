@@ -33,21 +33,7 @@
         </h3>
         <div class="space-y-4">
           <div class="flex items-center space-x-3">
-            <!-- Email icon (SVG Repo) -->
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-6 text-brand-gray400"
-            >
-              <path
-                d="M4 7L10.94 11.3375C11.5885 11.7428 12.4115 11.7428 13.06 11.3375L20 7M5 18H19C20.1046 18 21 17.1046 21 16V8C21 6.89543 20.1046 6 19 6H5C3.89543 6 3 6.89543 3 8V16C3 17.1046 3.89543 18 5 18Z"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
+            <span [innerHTML]="emailIcon"></span>
             <a
               href="mailto:info@easy-locker.com"
               class="text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
@@ -56,48 +42,13 @@
             </a>
           </div>
           <div class="flex items-center space-x-3">
-            <!-- Available icon (SVG Repo) -->
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-6 text-gray-400"
-            >
-              <path
-                d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"
-                stroke="currentColor"
-                stroke-width="1.5"
-              ></path>
-              <path
-                d="M8.5 12.5L10.5 14.5L15.5 9.5"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
+            <span [innerHTML]="availableIcon"></span>
             <span class="text-brand-gray300">{{
               "footer_available" | translate
             }}</span>
           </div>
           <div class="flex items-center space-x-3">
-            <svg
-              viewBox="0 0 192 192"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              class="size-6 text-brand-gray400"
-            >
-              <path
-                fill="currentColor"
-                d="m60.359 160.867 2.894-5.256a6.003 6.003 0 0 0-4.284-.581l1.39 5.837ZM22 170l-5.837-1.39a6.002 6.002 0 0 0 7.227 7.227L22 170Zm9.133-38.359 5.837 1.39a6.001 6.001 0 0 0-.581-4.284l-5.256 2.894ZM96 176c44.183 0 80-35.817 80-80h-12c0 37.555-30.445 68-68 68v12Zm-38.535-9.877C68.9 172.42 82.04 176 96 176v-12c-11.884 0-23.04-3.043-32.747-8.389l-5.788 10.512Zm-34.075 9.714 38.358-9.133-2.78-11.674-38.358 9.133 2.78 11.674Zm1.906-45.585-9.133 38.358 11.674 2.78 9.133-38.359-11.674-2.779ZM16 96c0 13.959 3.58 27.1 9.877 38.535l10.512-5.788C31.043 119.039 28 107.884 28 96H16Zm80-80c-44.183 0-80 35.817-80 80h12c0-37.555 30.445-68 68-68V16Zm80 80c0-44.183-35.817-80-80-80v12c37.555 0 68 30.445 68 68h12Z"
-              ></path>
-              <path
-                stroke="currentColor"
-                stroke-linejoin="round"
-                stroke-width="12"
-                d="M103 130H76V96h27c9.389 0 17 7.611 17 17s-7.611 17-17 17Zm-2-34H76V62h25c9.389 0 17 7.611 17 17s-7.611 17-17 17Z"
-              ></path>
-            </svg>
+            <span [innerHTML]="whatsappIcon"></span>
             <a
               href="https://wa.me/34644123456"
               target="_blank"
@@ -122,19 +73,7 @@
             rel="noopener noreferrer"
             class="flex items-center gap-3 text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-6 text-brand-gray400"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M2 6C2 3.79086 3.79086 2 6 2H18C20.2091 2 22 3.79086 22 6V18C22 20.2091 20.2091 22 18 22H6C3.79086 22 2 20.2091 2 18V6ZM6 4C4.89543 4 4 4.89543 4 6V18C4 19.1046 4.89543 20 6 20H12V13H11C10.4477 13 10 12.5523 10 12C10 11.4477 10.4477 11 11 11H12V9.5C12 7.567 13.567 6 15.5 6H16.1C16.6523 6 17.1 6.44772 17.1 7C17.1 7.55228 16.6523 8 16.1 8H15.5C14.6716 8 14 8.67157 14 9.5V11H16.1C16.6523 11 17.1 11.4477 17.1 12C17.1 12.5523 16.6523 13 16.1 13H14V20H18C19.1046 20 20 19.1046 20 18V6C20 4.89543 19.1046 4 18 4H6Z"
-                fill="currentColor"
-              />
-            </svg>
+            <span [innerHTML]="facebookIcon"></span>
             Facebook
           </a>
           <a
@@ -143,39 +82,7 @@
             rel="noopener noreferrer"
             class="flex items-center gap-3 text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-6 text-brand-gray400"
-            >
-              <rect
-                x="3"
-                y="3"
-                width="18"
-                height="18"
-                rx="5"
-                stroke="currentColor"
-                stroke-width="1.5"
-                fill="none"
-              />
-              <circle
-                cx="12"
-                cy="12"
-                r="4"
-                stroke="currentColor"
-                stroke-width="1.5"
-                fill="none"
-              />
-              <circle
-                cx="17"
-                cy="7"
-                r="1"
-                stroke="currentColor"
-                stroke-width="1.5"
-                fill="none"
-              />
-            </svg>
+            <span [innerHTML]="instagramIcon"></span>
             Instagram
           </a>
           <a
@@ -184,27 +91,7 @@
             rel="noopener noreferrer"
             class="flex items-center gap-3 text-brand-gray300 hover:text-brand-surface transition-colors duration-200"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-6 text-brand-gray400"
-            >
-              <path
-                d="M21 7.33333C17.5307 7.33333 14.0204 5.31371 14.0204 2"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-              <path
-                d="M8.5102 11.4737C5.467 11.4737 3 13.8301 3 16.7368C3 19.6436 5.467 22 8.5102 22C11.5534 22 14.0204 19.6436 14.0204 16.7368V2"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              ></path>
-            </svg>
+            <span [innerHTML]="tiktokIcon"></span>
             TikTok
           </a>
         </div>
@@ -223,36 +110,7 @@
             class="block text-brand-gray300 hover:text-brand-surface hover:translate-x-1 transition-all duration-200"
           >
             <span class="inline-flex items-center gap-2">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="size-6 text-brand-gray400"
-              >
-                <path
-                  d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                ></path>
-                <path
-                  d="M8 12H16"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                ></path>
-                <path
-                  d="M8 8H16"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                ></path>
-                <path
-                  d="M8 16H13"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                ></path>
-              </svg>
+              <span [innerHTML]="termsIcon"></span>
               {{ "footer_terms" | translate }}
             </span>
           </a>
@@ -270,17 +128,7 @@
         </div>
         <div class="flex items-center space-x-6">
           <div class="flex items-center space-x-2 text-brand-gray400 text-sm">
-            <svg
-              class="w-4 h-4 text-brand-greenAccent"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
+            <span [innerHTML]="secureIcon"></span>
             <span>{{ "footer_secure_service" | translate }}</span>
           </div>
           <div class="w-px h-4 bg-brand-gray600"></div>
