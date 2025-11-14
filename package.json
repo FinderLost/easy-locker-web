@@ -5,8 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href /easy-locker-web/",
-    "deploy": "ng build --configuration production --base-href /easy-locker-web/ && npx angular-cli-ghpages --dir=dist/easy-locker-angular",
+    "build:prod": "ng build --configuration production --base-href /",
+    "deploy": "ng build --configuration production --base-href / && npx angular-cli-ghpages --dir=dist/easy-locker-angular",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
