@@ -10,21 +10,38 @@
       content="Consignas inteligentes en Córdoba desde 5 €/día"
     />
     <!-- Favicon SVG para navegadores modernos -->
-    <link id="favicon" rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <link
+      id="favicon"
+      rel="icon"
+      type="image/svg+xml"
+      href="assets/images/favicon.svg"
+    />
     <!-- Favicon PNG para Safari y fallback -->
-    <link rel="icon" type="image/png" href="assets/images/favicon-light.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" href="assets/images/favicon-dark.png" media="(prefers-color-scheme: dark)">
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/favicon-light.png"
+      media="(prefers-color-scheme: light)"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/images/favicon-dark.png"
+      media="(prefers-color-scheme: dark)"
+    />
     <script>
       function setFaviconByTheme(e) {
-        var favicon = document.getElementById('favicon');
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          favicon.href = 'assets/images/favicon-dark.svg';
+        var favicon = document.getElementById("favicon");
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          favicon.href = "assets/images/favicon-dark.svg";
         } else {
-          favicon.href = 'assets/images/favicon.svg';
+          favicon.href = "assets/images/favicon.svg";
         }
       }
       setFaviconByTheme();
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setFaviconByTheme);
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", setFaviconByTheme);
     </script>
     <script src="assets/config/reviews-config.js"></script>
   </head>
