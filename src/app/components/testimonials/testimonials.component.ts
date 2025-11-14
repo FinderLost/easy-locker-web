@@ -30,11 +30,12 @@ interface GoogleReviewsConfig {
 @Component({
   selector: 'app-testimonials',
   templateUrl: './testimonials.component.html',
-  styleUrls: ['./testimonials.component.css']
+  styleUrls: ['./testimonials.component.css'],
 })
 export class TestimonialsComponent implements OnInit {
   private readonly maxReviews = 6;
-  private readonly googleApiUrl = 'https://maps.googleapis.com/maps/api/place/details/json';
+  private readonly googleApiUrl =
+    'https://maps.googleapis.com/maps/api/place/details/json';
 
   readonly profileUrl = 'https://share.google/Mz0YZ1RFwkV0uToTK';
   readonly reviewUrl = 'https://g.page/r/Cdlcmss1Q8AFEBM/review';
@@ -74,7 +75,9 @@ export class TestimonialsComponent implements OnInit {
   private fetchReviews(): void {
     const config = this.getGoogleReviewsConfig();
     if (!config) {
-      console.warn('Testimonials section: missing Google Reviews configuration');
+      console.warn(
+        'Testimonials section: missing Google Reviews configuration'
+      );
       this.isLoading = false;
       this.reviews = [];
       return;
@@ -90,12 +93,15 @@ export class TestimonialsComponent implements OnInit {
     this.http
       .get<GooglePlaceReviewResponse>(this.googleApiUrl, {
         params,
-        headers: { 'Cache-Control': 'no-store' }
+        headers: { 'Cache-Control': 'no-store' },
       })
       .pipe(
         map((payload) => this.normalizeGooglePayload(payload)),
         catchError((error) => {
-          console.warn('Testimonials section: unable to fetch Google reviews', error);
+          console.warn(
+            'Testimonials section: unable to fetch Google reviews',
+            error
+          );
           return of([] as GoogleReview[]);
         })
       )
@@ -121,8 +127,14 @@ export class TestimonialsComponent implements OnInit {
     return null;
   }
 
-  private normalizeGooglePayload(payload: GooglePlaceReviewResponse): GoogleReview[] {
-    if (!payload || payload.status === 'ZERO_RESULTS' || payload.status === 'NOT_FOUND') {
+  private normalizeGooglePayload(
+    payload: GooglePlaceReviewResponse
+  ): GoogleReview[] {
+    if (
+      !payload ||
+      payload.status === 'ZERO_RESULTS' ||
+      payload.status === 'NOT_FOUND'
+    ) {
       return [];
     }
 
@@ -134,7 +146,8 @@ export class TestimonialsComponent implements OnInit {
         author: review.author_name.trim(),
         text: review.text.trim(),
         rating: this.normalizeRating(review.rating),
-        date: review.relative_time_description ?? this.formatTimestamp(review.time)
+        date:
+          review.relative_time_description ?? this.formatTimestamp(review.time),
       }))
       .slice(0, this.maxReviews);
   }
@@ -159,7 +172,10 @@ export class TestimonialsComponent implements OnInit {
 
     try {
       const date = new Date(timestamp * 1000);
-      return new Intl.DateTimeFormat(undefined, { month: 'short', year: 'numeric' }).format(date);
+      return new Intl.DateTimeFormat(undefined, {
+        month: 'short',
+        year: 'numeric',
+      }).format(date);
     } catch (error) {
       console.warn('Testimonials section: unable to format review date', error);
       return undefined;

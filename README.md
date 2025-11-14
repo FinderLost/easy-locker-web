@@ -20,8 +20,8 @@ The testimonials section pulls real data from Google Business Profile. Before de
 
 ```js
 (function () {
-	window.EASY_LOCKER_GOOGLE_PLACE_ID = 'YOUR_PLACE_ID';
-	window.EASY_LOCKER_GOOGLE_API_KEY = 'YOUR_PUBLIC_BROWSER_KEY';
+  window.EASY_LOCKER_GOOGLE_PLACE_ID = "YOUR_PLACE_ID";
+  window.EASY_LOCKER_GOOGLE_API_KEY = "YOUR_PUBLIC_BROWSER_KEY";
 })();
 ```
 

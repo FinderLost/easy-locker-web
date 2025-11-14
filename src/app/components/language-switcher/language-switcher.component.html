@@ -1,13 +1,27 @@
 <div class="relative inline-block text-left font-sans">
-  <button (click)="toggleDropdown()" class="language-switcher-btn" aria-haspopup="listbox" [attr.aria-expanded]="open">
+  <button
+    (click)="toggleDropdown()"
+    class="language-switcher-btn"
+    aria-haspopup="listbox"
+    [attr.aria-expanded]="open"
+  >
     {{ getCurrentLanguageName() }}
   </button>
 
-  <div *ngIf="open" class="language-switcher-dropdown" role="listbox" aria-label="Seleccionar idioma">
+  <div
+    *ngIf="open"
+    class="language-switcher-dropdown"
+    role="listbox"
+    aria-label="Seleccionar idioma"
+  >
     <button
       *ngFor="let lang of languages"
       (click)="changeLanguage(lang.code)"
-      [ngClass]="lang.code === currentLanguage ? 'language-switcher-item language-switcher-item-active' : 'language-switcher-item'"
+      [ngClass]="
+        lang.code === currentLanguage
+          ? 'language-switcher-item language-switcher-item-active'
+          : 'language-switcher-item'
+      "
       role="option"
       [attr.aria-selected]="lang.code === currentLanguage"
     >

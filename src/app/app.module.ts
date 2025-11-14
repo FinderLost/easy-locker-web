@@ -35,7 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     LanguageSwitcherComponent,
     PricingComponent,
-    TestimonialsComponent
+    TestimonialsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,12 +45,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
-      defaultLanguage: 'es'
-    })
+      defaultLanguage: 'es',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
