@@ -25,7 +25,7 @@
       <!-- Dark Mode Toggle -->
       <button
         (click)="toggleTheme()"
-        class="p-2 rounded-lg border border-brand-border hover:border-brand-borderStrong hover:bg-brand-borderSubtle transition-colors duration-200"
+        class="control-compact"
         [attr.aria-label]="
           isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
         "
@@ -33,7 +33,7 @@
         <!-- Sun Icon (Light Mode) -->
         <svg
           *ngIf="isDarkMode"
-          class="w-5 h-5 text-brand-accentSecondary"
+          class="w-5 h-5 text-brand-textPrimary"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -48,7 +48,7 @@
         <!-- Moon Icon (Dark Mode) -->
         <svg
           *ngIf="!isDarkMode"
-          class="w-5 h-5 text-brand-border"
+          class="w-5 h-5 text-brand-textPrimary"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

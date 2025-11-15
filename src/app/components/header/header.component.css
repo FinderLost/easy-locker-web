@@ -1,0 +1,8 @@
+/* Compact control base style for theme and language selectors */
+.control-compact {
+	@apply flex items-center justify-center rounded-lg bg-brand-surface border border-brand-border px-3 py-2 text-brand-textPrimary transition-colors focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong;
+}
+
+.control-compact:hover {
+	@apply bg-brand-backgroundSoft border-brand-borderStrong;
+}

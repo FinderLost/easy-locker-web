@@ -1,3 +1,22 @@
+/* Compact control base style for language selector */
+.control-compact {
+  @apply flex items-center justify-center rounded-lg bg-brand-surface border border-brand-border px-3 py-2 text-brand-textPrimary transition-colors focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong;
+}
+
+.control-compact:hover {
+  @apply bg-brand-backgroundSoft border-brand-borderStrong;
+}
+
+/* Dropdown items */
+.dropdown-item {
+  @apply flex items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-semibold text-brand-textSecondary border border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong hover:bg-brand-backgroundSoft hover:border-brand-borderStrong;
+}
+
+/* Active dropdown item */
+.dropdown-item-active {
+  @apply bg-brand-backgroundSoft border-brand-borderStrong text-brand-textPrimary;
+}
+
 /* Language Switcher Custom Styles */
 
 .language-switcher {
@@ -5,27 +24,11 @@
 }
 
 .language-switcher-btn {
-  @apply flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full border border-brand-border bg-brand-surface text-brand-textPrimary shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:border-brand-borderStrong focus-visible:ring-2 focus-visible:ring-brand-accentPrimary;
-}
-
-.language-switcher-btn:hover {
-  @apply bg-brand-background;
+  @apply flex items-center gap-2 text-sm font-semibold;
 }
 
 .language-switcher-dropdown {
   @apply absolute right-0 mt-3 w-48 bg-brand-surface border border-brand-border rounded-2xl shadow-xl p-2 flex flex-col gap-1 z-50;
-}
-
-.language-switcher-item {
-  @apply flex items-center justify-between w-full px-4 py-2 rounded-xl text-sm font-semibold text-brand-textSecondary transition-colors duration-200 border border-transparent focus-visible:outline-none focus-visible:border-brand-borderStrong;
-}
-
-.language-switcher-item:hover {
-  @apply bg-brand-background text-brand-textPrimary;
-}
-
-.language-switcher-item-active {
-  @apply border border-brand-borderStrong bg-brand-backgroundSoft text-brand-textPrimary;
 }
 
 .language-switcher-indicator {

@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-pricing',
   templateUrl: './pricing.component.html',
-  styleUrls: ['./pricing.component.css']
+  styleUrls: ['./pricing.component.css'],
 })
 export class PricingComponent {
   public getTitleHtml(key: string): string {
@@ -15,20 +15,20 @@ export class PricingComponent {
       imageKey: 'pricing_plan1_image',
       titleKey: 'pricing_plan1_title',
       descriptionKey: 'pricing_plan1_description',
-      featured: false
+      featured: false,
     },
     {
       imageKey: 'pricing_plan2_image',
       titleKey: 'pricing_plan2_title',
       descriptionKey: 'pricing_plan2_description',
-      featured: true
+      featured: true,
     },
     {
       imageKey: 'pricing_plan3_image',
       titleKey: 'pricing_plan3_title',
       descriptionKey: 'pricing_plan3_description',
-      featured: false
-    }
+      featured: false,
+    },
   ];
 
   constructor(private translate: TranslateService) {}
