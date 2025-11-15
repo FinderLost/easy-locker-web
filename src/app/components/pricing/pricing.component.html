@@ -20,7 +20,8 @@
     >
       <div
         *ngFor="let plan of plans"
-        class="group bg-brand-surface rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-brand-border dark:border-brand-darkBorder overflow-hidden"
+        class="group bg-brand-surface rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border overflow-hidden"
+        [ngClass]="plan.featured ? 'border-brand-borderStrong' : 'border-brand-border'"
       >
         <!-- Image Placeholder -->
         <div
@@ -33,7 +34,7 @@
             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
           />
           <div
-            class="absolute inset-0 flex items-center justify-center bg-brand-darkBackground text-brand-iconMuted dark:text-brand-textSecondary"
+            class="absolute inset-0 flex items-center justify-center bg-brand-background text-brand-iconMuted"
             style="display: none"
           >
             <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
@@ -57,7 +58,8 @@
           </p>
           <button
             (click)="onReserve()"
-            class="w-full px-6 py-3 bg-brand-surface dark:bg-brand-darkSurface text-brand-textPrimary text-sm font-semibold rounded-full border-2 border-brand-borderStrong hover:bg-brand-darkSurface dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transition-all duration-300"
+            class="w-full px-6 py-3 bg-brand-surface text-brand-textPrimary text-sm font-semibold rounded-full border-2 transition-all duration-300"
+            [ngClass]="plan.featured ? 'border-brand-borderStrong' : 'border-brand-border'"
           >
             {{ "pricing_btn_reserve" | translate }}
           </button>

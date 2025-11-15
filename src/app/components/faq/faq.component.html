@@ -23,7 +23,7 @@
       >
         <!-- Question header -->
         <div
-          class="flex items-center justify-between p-5 lg:p-6 cursor-pointer hover:bg-brand-backgroundSoft hover:bg-brand-surface transition-colors duration-200"
+          class="flex items-center justify-between p-5 lg:p-6 cursor-pointer border-b border-brand-borderSubtle hover:bg-brand-backgroundSoft transition-colors duration-200"
           (click)="toggleFaq(i)"
         >
           <div class="flex items-center space-x-4 flex-1">
@@ -62,11 +62,10 @@
           [class.max-h-0]="!faq.isOpen"
           [class.max-h-48]="faq.isOpen"
         >
-          <div class="px-5 lg:px-6 pb-5 lg:pb-6">
+          <div
+            class="px-5 lg:px-6 pb-5 lg:pb-6 border-t border-brand-borderSubtle"
+          >
             <div class="pl-12">
-              <div
-                class="w-full h-px bg-gradient-to-r from-brand-textPrimary/20 to-brand-textMuted/20 mb-4"
-              ></div>
               <p
                 class="text-sm lg:text-base text-brand-textSecondary leading-relaxed"
               >

@@ -1,5 +1,5 @@
 <header
-  class="bg-brand-surface/95 bg-brand-background/95 backdrop-blur-sm border-b border-brand-border/50 border-brand-border/50 sticky top-0 z-50 shadow-sm transition-colors duration-300"
+  class="bg-brand-surface/95 bg-brand-background/95 backdrop-blur-sm border-b border-brand-borderSubtle sticky top-0 z-50 shadow-sm transition-colors duration-300"
 >
   <div
     class="container mx-auto flex items-center justify-between py-4 px-6 lg:px-12 max-w-7xl"
@@ -25,7 +25,7 @@
       <!-- Dark Mode Toggle -->
       <button
         (click)="toggleTheme()"
-        class="p-2 rounded-lg hover:bg-brand-borderSubtle hover:bg-brand-surface transition-colors duration-200"
+        class="p-2 rounded-lg border border-brand-border hover:border-brand-borderStrong hover:bg-brand-borderSubtle transition-colors duration-200"
         [attr.aria-label]="
           isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
         "
@@ -42,7 +42,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 0 018 0z"
           ></path>
         </svg>
         <!-- Moon Icon (Dark Mode) -->

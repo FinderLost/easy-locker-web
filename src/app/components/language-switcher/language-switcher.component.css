@@ -5,7 +5,7 @@
 }
 
 .language-switcher-btn {
-  @apply flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full border border-brand-border bg-brand-surface text-brand-textPrimary shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accentPrimary;
+  @apply flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full border border-brand-border bg-brand-surface text-brand-textPrimary shadow-sm transition-all duration-200 focus-visible:outline-none focus-visible:border-brand-borderStrong focus-visible:ring-2 focus-visible:ring-brand-accentPrimary;
 }
 
 .language-switcher-btn:hover {
@@ -17,7 +17,7 @@
 }
 
 .language-switcher-item {
-  @apply flex items-center justify-between w-full px-4 py-2 rounded-xl text-sm font-semibold text-brand-textSecondary transition-colors duration-200;
+  @apply flex items-center justify-between w-full px-4 py-2 rounded-xl text-sm font-semibold text-brand-textSecondary transition-colors duration-200 border border-transparent focus-visible:outline-none focus-visible:border-brand-borderStrong;
 }
 
 .language-switcher-item:hover {
@@ -25,7 +25,7 @@
 }
 
 .language-switcher-item-active {
-  @apply border border-brand-accentPrimary bg-brand-surface text-brand-accentPrimary;
+  @apply border border-brand-borderStrong bg-brand-backgroundSoft text-brand-textPrimary;
 }
 
 .language-switcher-indicator {

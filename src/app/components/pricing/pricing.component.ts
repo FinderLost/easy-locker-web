@@ -11,20 +11,23 @@ export class PricingComponent {
     return this.translate.instant(key).replace(/\n/g, '<br>');
   }
   plans = [
-    { 
+    {
       imageKey: 'pricing_plan1_image',
       titleKey: 'pricing_plan1_title',
-      descriptionKey: 'pricing_plan1_description'
+      descriptionKey: 'pricing_plan1_description',
+      featured: false
     },
-    { 
+    {
       imageKey: 'pricing_plan2_image',
       titleKey: 'pricing_plan2_title',
-      descriptionKey: 'pricing_plan2_description'
+      descriptionKey: 'pricing_plan2_description',
+      featured: true
     },
-    { 
+    {
       imageKey: 'pricing_plan3_image',
       titleKey: 'pricing_plan3_title',
-      descriptionKey: 'pricing_plan3_description'
+      descriptionKey: 'pricing_plan3_description',
+      featured: false
     }
   ];
 

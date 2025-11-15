@@ -4,17 +4,17 @@
   <!-- Background decoration -->
   <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
   <div
-    class="absolute top-10 left-10 w-72 h-72 bg-brand-primary/10 dark:bg-brand-accentPrimary/10 rounded-full blur-3xl"
+    class="absolute top-10 left-10 w-72 h-72 bg-brand-accentPrimary/10 rounded-full blur-3xl"
   ></div>
   <div
-    class="absolute bottom-10 right-10 w-96 h-96 bg-brand-secondary/10 dark:bg-brand-accentSecondary/10 rounded-full blur-3xl"
+    class="absolute bottom-10 right-10 w-96 h-96 bg-brand-accentSecondary/10 rounded-full blur-3xl"
   ></div>
 
   <div class="container mx-auto px-6 lg:px-8 relative z-10">
     <div class="max-w-4xl mx-auto">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
         <div class="flex flex-col items-center gap-2">
-          <span class="text-brand-darkSurface">
+          <span class="text-brand-textPrimary">
             {{ "hero_title_line1" | translate }}
           </span>
           <span
@@ -37,13 +37,13 @@
       >
         <button
           (click)="onReserve()"
-          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface text-brand-darkSurface text-base font-semibold rounded-full border-2 border-brand-darkSurface dark:border-brand-borderStrong hover:bg-brand-darkSurface dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-borderStrong hover:bg-brand-background hover:text-brand-textPrimary transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
         >
           {{ "hero_btn_reserve" | translate }}
         </button>
         <button
           (click)="onDirections()"
-          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface text-brand-darkSurface text-base font-semibold rounded-full border-2 border-brand-darkSurface dark:border-brand-borderStrong hover:bg-brand-darkSurface dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
+          class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-border hover:border-brand-borderStrong hover:bg-brand-background hover:text-brand-textPrimary transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl"
         >
           {{ "hero_btn_directions" | translate }}
         </button>
