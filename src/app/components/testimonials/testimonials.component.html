@@ -1,21 +1,19 @@
 <section
-  class="bg-brand-background dark:bg-brand-darkBackground py-16 lg:py-24 text-brand-textPrimary dark:text-brand-textPrimary transition-colors duration-300"
+  class="bg-brand-background py-16 lg:py-24 text-brand-textPrimary dark:text-brand-textPrimary transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-8">
     <div class="text-center max-w-3xl mx-auto">
       <h2
         id="easy-locker-testimonials-title"
-        class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary dark:text-brand-textPrimary mb-4"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary mb-4"
       >
         {{ "testimonials_title" | translate }}
       </h2>
-      <p
-        class="text-base md:text-lg text-brand-textSecondary dark:text-brand-borderStrong leading-relaxed"
-      >
+      <p class="text-base md:text-lg text-brand-textSecondary leading-relaxed">
         {{ "testimonials_subtitle" | translate }}
       </p>
       <div
-        class="mt-6 w-24 h-1 bg-gradient-to-r from-brand-textPrimary via-brand-accentPrimary to-brand-textMuted dark:from-brand-accentSecondary dark:to-brand-accentPrimary mx-auto rounded-full"
+        class="mt-6 w-24 h-1 bg-gradient-to-r from-brand-textPrimary via-brand-accentPrimary to-brand-textMuted mx-auto rounded-full"
       ></div>
     </div>
 
@@ -25,7 +23,7 @@
         class="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
       >
         <article
-          class="testimonial-card bg-brand-surface dark:bg-brand-darkBackground border border-brand-border dark:border-brand-darkBorder rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
+          class="testimonial-card bg-brand-surface border border-brand-border dark:border-brand-darkBorder rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
           *ngFor="let review of reviews; trackBy: trackByAuthor"
         >
           <div
@@ -41,18 +39,13 @@
               >★</span
             >
           </div>
-          <p
-            class="text-base text-brand-textSecondary dark:text-brand-border leading-relaxed flex-1"
-          >
+          <p class="text-base text-brand-textSecondary leading-relaxed flex-1">
             {{ review.text }}
           </p>
-          <div
-            class="mt-6 flex flex-col text-sm text-brand-textSecondary dark:text-brand-iconMuted"
-          >
-            <span
-              class="font-semibold text-brand-textPrimary dark:text-brand-textPrimary"
-              >{{ review.author }}</span
-            >
+          <div class="mt-6 flex flex-col text-sm text-brand-textSecondary">
+            <span class="font-semibold text-brand-textPrimary">{{
+              review.author
+            }}</span>
             <small *ngIf="review.date">{{ review.date }}</small>
           </div>
         </article>
@@ -60,7 +53,7 @@
 
       <ng-template #testimonialsFallback>
         <div
-          class="bg-brand-surface dark:bg-brand-darkBackground border border-dashed border-brand-borderStrong dark:border-brand-darkBorder rounded-2xl px-6 py-16 text-center text-brand-textSecondary dark:text-brand-borderStrong"
+          class="bg-brand-surface dark:bg-brand-darkBackground border border-dashed border-brand-borderStrong rounded-2xl px-6 py-16 text-center text-brand-textSecondary"
         >
           <p class="text-base" *ngIf="isLoading; else testimonialsEmpty">
             {{ "testimonials_placeholder_loading" | translate }}
@@ -82,7 +75,7 @@
       class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto"
     >
       <a
-        class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-darkSurface text-brand-textPrimary dark:text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-textPrimary dark:border-brand-borderStrong hover:bg-brand-textPrimary dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
+        class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-darkSurface text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-textPrimary hover:bg-brand-textPrimary dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
         [href]="profileUrl"
         target="_blank"
         rel="noopener noreferrer"
@@ -91,7 +84,7 @@
         {{ "testimonials_button_profile" | translate }}
       </a>
       <a
-        class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-darkSurface text-brand-textPrimary dark:text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-textPrimary dark:border-brand-borderStrong hover:bg-brand-textPrimary dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
+        class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface dark:bg-brand-darkSurface text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-textPrimary hover:bg-brand-textPrimary dark:hover:bg-brand-textPrimary hover:text-brand-surface dark:hover:text-brand-darkBackground transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
         [href]="reviewUrl"
         target="_blank"
         rel="noopener noreferrer"

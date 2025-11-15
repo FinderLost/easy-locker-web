@@ -1,38 +1,79 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+:root {
+  /* Light mode */
+  --brand-background: #f4f5f6;
+  --brand-surface: #ffffff;
+  --brand-background-soft: #e8e8e8;
+  --brand-info-background: #e5efff;
+  --brand-success-background: #e7f8ee;
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap');
+  --brand-border: #d5d7db;
+  --brand-border-subtle: #e8e8e8;
+  --brand-border-strong: #b3b7be;
+
+  --brand-text-primary: #34373a;
+  --brand-text-secondary: #5a5d61;
+  --brand-text-muted: #7e8288;
+  --brand-icon-muted: #a5a9b0;
+
+  --brand-accent-primary: #3d8975;
+  --brand-accent-secondary: #c9a961;
+}
+
+.dark {
+  /* Dark mode */
+  --brand-background: #ff0000;
+  --brand-surface: #404348;
+  --brand-background-soft: #23272a;
+  --brand-info-background: #232b3a;
+  --brand-success-background: #1b2a22;
+
+  --brand-border: #4b4f55;
+  --brand-border-subtle: #34373a;
+  --brand-border-strong: #23272a;
+
+  --brand-text-primary: #f4f5f6;
+  --brand-text-secondary: #b3b7be;
+  --brand-text-muted: #a5a9b0;
+  --brand-icon-muted: #7e8288;
+
+  --brand-accent-primary: #3d8975;
+  --brand-accent-secondary: #c9a961;
+}
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800;900&display=swap");
 
 /* Custom animations and utilities */
 @layer utilities {
   .bg-grid-pattern {
-    background-image: 
-      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
       linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
     background-size: 20px 20px;
   }
-  
+
   .animate-float {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
-  
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out forwards;
   }
-  
+
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out forwards;
   }
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -73,33 +114,45 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.brand.backgroundSoft');
+  background: theme("colors.brand.backgroundSoft");
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, theme('colors.brand.accentPrimary'), theme('colors.brand.accentSecondary'));
+  background: linear-gradient(
+    to bottom,
+    theme("colors.brand.accentPrimary"),
+    theme("colors.brand.accentSecondary")
+  );
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, theme('colors.brand.accentPrimary'), theme('colors.brand.accentSecondary'));
+  background: linear-gradient(
+    to bottom,
+    theme("colors.brand.accentPrimary"),
+    theme("colors.brand.accentSecondary")
+  );
 }
 
 /* Focus styles for accessibility */
 .focus-visible:focus {
-  outline: 2px solid theme('colors.brand.accentPrimary');
+  outline: 2px solid theme("colors.brand.accentPrimary");
   outline-offset: 2px;
 }
 
 /* Glass morphism effect */
 .glass {
-  background: theme('colors.brand.surface')/25%;
+  background: theme("colors.brand.surface") / 25%;
   backdrop-filter: blur(10px);
-  border: 1px solid theme('colors.brand.surface')/18%;
+  border: 1px solid theme("colors.brand.surface") / 18%;
 }
 
 /* Gradient text selection */
 ::selection {
-  background: linear-gradient(to right, theme('colors.brand.accentPrimary'), theme('colors.brand.accentSecondary'));
-  color: theme('colors.brand.surface');
+  background: linear-gradient(
+    to right,
+    theme("colors.brand.accentPrimary"),
+    theme("colors.brand.accentSecondary")
+  );
+  color: theme("colors.brand.surface");
 }
