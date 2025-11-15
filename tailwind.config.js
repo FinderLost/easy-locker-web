@@ -9,6 +9,8 @@ module.exports = {
         brand: {
           background: "var(--brand-background)",
           surface: "var(--brand-surface)",
+          surfaceStrong: "var(--brand-surface-strong)",
+          surfaceSubtle: "var(--brand-surface-subtle)",
           backgroundSoft: "var(--brand-background-soft)",
           infoBackground: "var(--brand-info-background)",
           successBackground: "var(--brand-success-background)",

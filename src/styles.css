@@ -5,6 +5,8 @@
   --brand-background-soft: #e8e8e8;
   --brand-info-background: #e5efff;
   --brand-success-background: #e7f8ee;
+  --brand-surface-strong: #eceff3;
+  --brand-surface-subtle: #f8f9fb;
 
   --brand-border: #d5d7db;
   --brand-border-subtle: #e8e8e8;
@@ -26,6 +28,8 @@
   --brand-background-soft: #23272a;
   --brand-info-background: #232b3a;
   --brand-success-background: #1b2a22;
+  --brand-surface-strong: #4c5055;
+  --brand-surface-subtle: #3b3f44;
 
   --brand-border: #4b4f55;
   --brand-border-subtle: #34373a;
@@ -69,6 +73,21 @@
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out forwards;
   }
+}
+
+@layer components {
+  .control-compact {
+    @apply flex items-center justify-center rounded-2xl bg-brand-surface border border-brand-border px-3 py-2 text-brand-textPrimary transition-colors focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .control-compact:hover {
+    @apply bg-brand-surfaceStrong border-brand-borderStrong;
+  }
+}
+
+.dark .control-compact {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 @keyframes float {

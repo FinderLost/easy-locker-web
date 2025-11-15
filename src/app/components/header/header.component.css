@@ -1,8 +1,12 @@
-/* Compact control base style for theme and language selectors */
-.control-compact {
-	@apply flex items-center justify-center rounded-lg bg-brand-surface border border-brand-border px-3 py-2 text-brand-textPrimary transition-colors focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong;
+
+.theme-toggle-btn {
+	@apply flex items-center justify-center h-10 w-10 rounded-xl bg-brand-surface text-brand-textPrimary border border-brand-border shadow-[0_2px_4px_rgba(0,0,0,0.25)] transition-colors duration-150;
 }
 
-.control-compact:hover {
-	@apply bg-brand-backgroundSoft border-brand-borderStrong;
+.theme-toggle-btn:hover {
+	@apply bg-brand-surfaceStrong border-brand-borderStrong;
+}
+
+.theme-toggle-btn:focus-visible {
+	@apply outline-none ring-0 border-brand-borderStrong;
 }

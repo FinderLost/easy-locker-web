@@ -2,7 +2,8 @@
   <button
     type="button"
     (click)="toggleDropdown()"
-    class="control-compact language-switcher-btn"
+    class="language-switcher-btn"
+    [ngClass]="{ 'language-switcher-btn-open': open }"
     aria-haspopup="listbox"
     [attr.aria-expanded]="open"
     aria-label="Seleccionar idioma"
@@ -29,7 +30,7 @@
 
   <div
     *ngIf="open"
-    class="language-switcher-dropdown"
+    class="language-switcher-dropdown space-y-1"
     role="listbox"
     aria-label="Idiomas disponibles"
   >
@@ -48,8 +49,8 @@
       <span
         *ngIf="lang.code === currentLanguage"
         class="language-switcher-indicator"
-        >●</span
-      >
+        aria-hidden="true"
+      ></span>
     </button>
   </div>
 </div>

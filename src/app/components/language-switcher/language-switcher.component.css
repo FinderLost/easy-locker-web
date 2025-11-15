@@ -1,20 +1,16 @@
-/* Compact control base style for language selector */
-.control-compact {
-  @apply flex items-center justify-center rounded-lg bg-brand-surface border border-brand-border px-3 py-2 text-brand-textPrimary transition-colors focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong;
-}
-
-.control-compact:hover {
-  @apply bg-brand-backgroundSoft border-brand-borderStrong;
-}
-
 /* Dropdown items */
+
 .dropdown-item {
-  @apply flex items-center justify-between w-full px-4 py-2 rounded-lg text-sm font-semibold text-brand-textSecondary border border-transparent transition-colors duration-200 focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong hover:bg-brand-backgroundSoft hover:border-brand-borderStrong;
+  @apply flex items-center justify-between w-full px-4 py-2 rounded-xl text-brand-textPrimary border border-brand-borderSubtle bg-transparent transition-colors duration-150 focus-visible:outline-none focus-visible:ring-0 focus-visible:border-brand-borderStrong hover:border-brand-border hover:bg-brand-backgroundSoft dark:hover:bg-brand-surfaceStrong list-none;
 }
 
 /* Active dropdown item */
 .dropdown-item-active {
-  @apply bg-brand-backgroundSoft border-brand-borderStrong text-brand-textPrimary;
+  @apply bg-brand-backgroundSoft dark:bg-brand-surface border border-brand-border font-semibold rounded-xl;
+}
+
+.dropdown-item-active:hover {
+  @apply bg-brand-surfaceSubtle dark:bg-brand-surfaceStrong border-brand-borderStrong;
 }
 
 /* Language Switcher Custom Styles */
@@ -24,13 +20,31 @@
 }
 
 .language-switcher-btn {
-  @apply flex items-center gap-2 text-sm font-semibold;
+  @apply flex items-center gap-2 text-sm font-semibold rounded-xl h-10 px-3 py-2 bg-brand-surface text-brand-textPrimary border border-brand-border shadow-[0_2px_4px_rgba(0,0,0,0.25)] transition-colors duration-150;
 }
 
+.language-switcher-btn-open {
+  @apply bg-brand-surfaceStrong border-brand-borderStrong;
+}
+
+.language-switcher-btn:hover {
+  @apply bg-brand-surfaceStrong border-brand-borderStrong;
+}
+
+.language-switcher-btn:focus-visible {
+  @apply outline-none ring-0 border-brand-borderStrong;
+}
+
+
 .language-switcher-dropdown {
-  @apply absolute right-0 mt-3 w-48 bg-brand-surface border border-brand-border rounded-2xl shadow-xl p-2 flex flex-col gap-1 z-50;
+  @apply absolute right-0 mt-3 w-48 rounded-2xl border border-brand-border bg-brand-surface dark:bg-brand-surface px-2 py-2 flex flex-col z-50;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .language-switcher-dropdown {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
 }
 
 .language-switcher-indicator {
-  @apply text-brand-accentPrimary text-xs font-bold tracking-wider;
+  @apply inline-block w-2 h-2 rounded-full bg-brand-accentPrimary ml-3;
 }
