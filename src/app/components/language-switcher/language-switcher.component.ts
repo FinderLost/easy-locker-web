@@ -1,10 +1,28 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-switcher',
   templateUrl: './language-switcher.component.html',
   styleUrls: ['./language-switcher.component.css'],
+  animations: [
+    trigger('dropdownAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(-4px)' }),
+        animate(
+          '180ms ease-out',
+          style({ opacity: 1, transform: 'translateY(0)' })
+        ),
+      ]),
+      transition(':leave', [
+        animate(
+          '160ms ease-in',
+          style({ opacity: 0, transform: 'translateY(-4px)' })
+        ),
+      ]),
+    ]),
+  ],
 })
 export class LanguageSwitcherComponent implements OnInit {
   open = false;

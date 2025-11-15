@@ -9,6 +9,8 @@ module.exports = {
         brand: {
           background: "var(--brand-background)",
           surface: "var(--brand-surface)",
+          surfaceStrong: "var(--brand-surface-strong)",
+          surfaceSubtle: "var(--brand-surface-subtle)",
           backgroundSoft: "var(--brand-background-soft)",
           infoBackground: "var(--brand-info-background)",
           successBackground: "var(--brand-success-background)",
@@ -21,9 +23,35 @@ module.exports = {
           textSecondary: "var(--brand-text-secondary)",
           textMuted: "var(--brand-text-muted)",
           iconMuted: "var(--brand-icon-muted)",
+          darkSurface: "var(--brand-dark-surface)",
+          darkSurfaceHover: "var(--brand-dark-surface-hover)",
+          darkText: "var(--brand-dark-text)",
+          darkTextStrong: "var(--brand-dark-text-strong)",
 
           accentPrimary: "var(--brand-accent-primary)",
           accentSecondary: "var(--brand-accent-secondary)",
+        },
+        easy: {
+          surfaceElevatedLight: "var(--easy-surface-elevated-light)",
+          surfaceElevatedHoverLight: "var(--easy-surface-elevated-hover-light)",
+          surfaceSelectedLight: "var(--easy-surface-selected-light)",
+          dropdownHoverLight: "var(--easy-dropdown-hover-light)",
+          borderSubtleLight: "var(--easy-border-subtle-light)",
+          textSecondaryLight: "var(--easy-text-secondary-light)",
+
+          surfaceElevated: "var(--easy-surface-elevated)",
+          surfaceElevatedHover: "var(--easy-surface-elevated-hover)",
+          surfaceSelectedDark: "var(--easy-surface-selected-dark)",
+          dropdownHoverDark: "var(--easy-dropdown-hover-dark)",
+          borderSubtleDark: "var(--easy-border-subtle-dark)",
+          textSecondaryDark: "var(--easy-text-secondary-dark)",
+          headerPillBg: "var(--easy-header-pill-bg)",
+          headerPillBgHover: "var(--easy-header-pill-bg-hover)",
+          headerPillFg: "var(--easy-header-pill-fg)",
+          paletteActionStrong: "var(--easy-palette-action-strong)",
+          paletteDepthMid: "var(--easy-palette-depth-mid)",
+
+          indicator: "var(--easy-indicator-color)",
         },
       },
       fontFamily: {
@@ -47,6 +75,11 @@ module.exports = {
 
         // separación vertical estándar entre secciones
         section: "4rem",
+      },
+      boxShadow: {
+        easyElevated: "var(--easy-shadow-elevated)",
+        "brand-soft": "var(--brand-shadow-soft)",
+        "brand-strong": "var(--brand-shadow-strong)",
       },
     },
   },

@@ -2,16 +2,16 @@
   <button
     type="button"
     (click)="toggleDropdown()"
-    class="control-compact language-switcher-btn"
+    class="easy-pill-btn language-switcher-btn"
     aria-haspopup="listbox"
     [attr.aria-expanded]="open"
     aria-label="Seleccionar idioma"
   >
-    <span class="uppercase tracking-widest text-brand-textPrimary">{{
-      getCurrentLanguageName()
-    }}</span>
+    <span class="language-switcher-label">
+      {{ getCurrentLanguageName() }}
+    </span>
     <svg
-      class="w-4 h-4 text-brand-textPrimary transition-transform duration-200"
+      class="language-switcher-arrow"
       [class.rotate-180]="open"
       fill="none"
       stroke="currentColor"
@@ -29,27 +29,26 @@
 
   <div
     *ngIf="open"
-    class="language-switcher-dropdown"
+    class="language-switcher-panel"
     role="listbox"
     aria-label="Idiomas disponibles"
+    [@dropdownAnimation]="open ? 'open' : 'closed'"
   >
     <button
       type="button"
       *ngFor="let lang of languages"
       (click)="changeLanguage(lang.code)"
-      [ngClass]="{
-        'dropdown-item-active': lang.code === currentLanguage,
-        'dropdown-item': true
-      }"
+      class="language-option"
+      [class.language-option--active]="lang.code === currentLanguage"
       role="option"
       [attr.aria-selected]="lang.code === currentLanguage"
     >
       <span class="uppercase tracking-widest">{{ lang.name }}</span>
       <span
         *ngIf="lang.code === currentLanguage"
-        class="language-switcher-indicator"
-        >●</span
-      >
+        class="language-dot"
+        aria-hidden="true"
+      ></span>
     </button>
   </div>
 </div>

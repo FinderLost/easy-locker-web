@@ -1,8 +1,8 @@
 <header
-  class="bg-brand-surface/95 bg-brand-background/95 backdrop-blur-sm border-b border-brand-borderSubtle sticky top-0 z-50 shadow-sm transition-colors duration-300"
+  class="sticky top-0 z-50 w-full border-b border-brand-borderSubtle bg-brand-surface/95 dark:bg-brand-darkSurface/95 shadow-brand-soft backdrop-blur-md transition-colors duration-300"
 >
   <div
-    class="container mx-auto flex items-center justify-between py-4 px-6 lg:px-12 max-w-7xl"
+    class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12"
   >
     <!-- Logo -->
     <div class="flex items-center">
@@ -25,7 +25,7 @@
       <!-- Dark Mode Toggle -->
       <button
         (click)="toggleTheme()"
-        class="control-compact"
+        class="easy-pill-btn theme-toggle-btn"
         [attr.aria-label]="
           isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
         "
@@ -33,7 +33,7 @@
         <!-- Sun Icon (Light Mode) -->
         <svg
           *ngIf="isDarkMode"
-          class="w-5 h-5 text-brand-textPrimary"
+          class="theme-toggle-icon"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -48,7 +48,7 @@
         <!-- Moon Icon (Dark Mode) -->
         <svg
           *ngIf="!isDarkMode"
-          class="w-5 h-5 text-brand-textPrimary"
+          class="theme-toggle-icon"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

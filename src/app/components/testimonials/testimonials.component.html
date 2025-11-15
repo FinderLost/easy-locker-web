@@ -75,22 +75,22 @@
       class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto"
     >
       <a
-        class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-borderStrong hover:bg-brand-textPrimary hover:text-brand-surface transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
-        [href]="profileUrl"
-        target="_blank"
-        rel="noopener noreferrer"
-        [attr.aria-label]="'testimonials_button_profile_aria' | translate"
-      >
-        {{ "testimonials_button_profile" | translate }}
-      </a>
-      <a
-        class="w-full sm:w-auto min-w-[280px] px-10 py-4 bg-brand-surface text-brand-textPrimary text-base font-semibold rounded-full border-2 border-brand-borderStrong hover:bg-brand-textPrimary hover:text-brand-surface transform hover:-translate-y-1 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-xl text-center"
+        class="easy-pill-btn easy-cta-primary w-full min-w-[280px] text-center sm:w-auto"
         [href]="reviewUrl"
         target="_blank"
         rel="noopener noreferrer"
         [attr.aria-label]="'testimonials_button_review_aria' | translate"
       >
         {{ "testimonials_button_review" | translate }}
+      </a>
+      <a
+        class="easy-pill-btn easy-cta-secondary w-full min-w-[280px] text-center sm:w-auto"
+        [href]="profileUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        [attr.aria-label]="'testimonials_button_profile_aria' | translate"
+      >
+        {{ "testimonials_button_profile" | translate }}
       </a>
     </div>
   </div>
