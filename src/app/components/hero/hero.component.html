@@ -1,5 +1,5 @@
 <section
-  class="relative bg-gradient-to-br from-brand-infoBackground via-brand-surface to-brand-successBackground py-20 lg:py-32 text-center text-brand-textPrimary font-sans overflow-hidden transition-colors duration-300"
+  class="relative flex flex-col items-center justify-center bg-gradient-to-br from-brand-infoBackground via-brand-surface to-brand-successBackground py-20 md:py-24 lg:py-28 text-center text-brand-textPrimary font-sans overflow-hidden transition-colors duration-300"
 >
   <!-- Background decoration -->
   <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
@@ -12,28 +12,22 @@
 
   <div class="container mx-auto px-6 lg:px-8 relative z-10">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-        <div class="flex flex-col items-center gap-2">
-          <span class="text-brand-textPrimary">
-            {{ "hero_title_line1" | translate }}
-          </span>
-          <span
-            class="bg-gradient-to-r from-brand-primary via-brand-accentPrimary to-brand-secondary bg-clip-text text-transparent"
-          >
-            {{ "hero_title_line2" | translate }}
-          </span>
-          <span class="text-brand-textPrimary">
-            {{ "hero_title_line3" | translate }}
-          </span>
-        </div>
+      <h1 class="easy-hero-title text-5xl md:text-6xl lg:text-7xl leading-tight">
+        <span class="easy-hero-title-line">
+          {{ "hero_title_line1" | translate }}
+        </span>
+        <span class="easy-hero-title-line easy-hero-title-smart">
+          {{ "hero_title_line2" | translate }}
+        </span>
+        <span class="easy-hero-title-line">
+          {{ "hero_title_line3" | translate }}
+        </span>
       </h1>
-      <p
-        class="text-xl md:text-2xl mt-6 text-brand-textMuted leading-relaxed max-w-3xl mx-auto"
-      >
+      <p class="easy-hero-subtitle mt-6 leading-relaxed max-w-3xl mx-auto">
         {{ "hero_subtitle" | translate }}
       </p>
       <div
-        class="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto"
+        class="easy-hero-cta-group mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center max-w-2xl mx-auto"
       >
         <button
           (click)="onReserve()"
