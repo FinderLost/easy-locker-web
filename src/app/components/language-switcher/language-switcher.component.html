@@ -2,7 +2,7 @@
   <button
     type="button"
     (click)="toggleDropdown()"
-    class="easy-pill-btn language-switcher-btn"
+    class="easy-pill-btn language-switcher-btn easy-focus-reset easy-focus-ring"
     aria-haspopup="listbox"
     [attr.aria-expanded]="open"
     aria-label="Seleccionar idioma"
@@ -38,7 +38,7 @@
       type="button"
       *ngFor="let lang of languages"
       (click)="changeLanguage(lang.code)"
-      class="language-option"
+      class="language-option easy-focus-reset easy-focus-ring"
       [class.language-option--active]="lang.code === currentLanguage"
       role="option"
       [attr.aria-selected]="lang.code === currentLanguage"

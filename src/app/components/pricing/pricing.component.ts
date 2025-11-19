@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+
+interface LockerPlan {
+  image: string;
+  nameKey: string;
+  dimensionsKey: string;
+  descriptionKey: string;
+}
 
 @Component({
   selector: 'app-pricing',
@@ -7,35 +13,24 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./pricing.component.css'],
 })
 export class PricingComponent {
-  public getTitleHtml(key: string): string {
-    return this.translate.instant(key).replace(/\n/g, '<br>');
-  }
-  plans = [
+  plans: LockerPlan[] = [
     {
-      imageKey: 'pricing_plan1_image',
-      titleKey: 'pricing_plan1_title',
-      descriptionKey: 'pricing_plan1_description',
-      featured: false,
+      image: 'assets/images/box-type-m.png',
+      nameKey: 'lockerSizes.plans.m.name',
+      dimensionsKey: 'lockerSizes.plans.m.dimensions',
+      descriptionKey: 'lockerSizes.plans.m.description',
     },
     {
-      imageKey: 'pricing_plan2_image',
-      titleKey: 'pricing_plan2_title',
-      descriptionKey: 'pricing_plan2_description',
-      featured: true,
+      image: 'assets/images/box-type-l.png',
+      nameKey: 'lockerSizes.plans.l.name',
+      dimensionsKey: 'lockerSizes.plans.l.dimensions',
+      descriptionKey: 'lockerSizes.plans.l.description',
     },
     {
-      imageKey: 'pricing_plan3_image',
-      titleKey: 'pricing_plan3_title',
-      descriptionKey: 'pricing_plan3_description',
-      featured: false,
+      image: 'assets/images/box-type-xl.png',
+      nameKey: 'lockerSizes.plans.xl.name',
+      dimensionsKey: 'lockerSizes.plans.xl.dimensions',
+      descriptionKey: 'lockerSizes.plans.xl.description',
     },
   ];
-
-  constructor(private translate: TranslateService) {}
-
-  onReserve() {
-    this.translate.get('pricing_reserve_link').subscribe((link: string) => {
-      window.open(link, '_blank');
-    });
-  }
 }

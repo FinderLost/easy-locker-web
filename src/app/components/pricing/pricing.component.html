@@ -1,65 +1,44 @@
 <section
-  class="bg-brand-surface py-16 lg:py-24 text-brand-textPrimary font-sans transition-colors duration-300"
+  class="py-16 lg:py-24 text-brand-textPrimary font-sans transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-8">
-    <!-- Title -->
-    <div class="text-center mb-16">
+    <!-- Section Header -->
+    <header class="section-heading text-center mb-10 md:mb-12 max-w-3xl mx-auto">
       <h2
-        class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary mb-4"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary text-center dark:text-brand-darkTextStrong"
       >
-        {{ "pricing_title" | translate }}
+        {{ "lockerSizes.title" | translate }}
       </h2>
-      <div
-        class="w-24 h-1 bg-gradient-to-r from-brand-primary via-brand-accentPrimary to-brand-secondary mx-auto rounded-full"
-      ></div>
-    </div>
-
-    <!-- Pricing Cards -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto"
-    >
-      <div
-        *ngFor="let plan of plans"
-        class="group bg-brand-surface rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border overflow-hidden"
-        [ngClass]="
-          plan.featured ? 'border-brand-borderStrong' : 'border-brand-border'
-        "
+      <p
+        class="mt-2 text-base md:text-lg text-brand-textSecondary text-center max-w-xl mx-auto"
       >
-        <!-- Image Placeholder -->
-        <div
-          class="relative w-full h-64 flex items-center justify-center overflow-hidden p-4"
-        >
-          <img
-            [src]="plan.imageKey | translate"
-            [alt]="plan.titleKey | translate"
-            class="max-h-full max-w-full object-contain mx-auto"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
-          />
-          <div
-            class="absolute inset-0 flex items-center justify-center bg-brand-background text-brand-iconMuted"
-            style="display: none"
-          >
-            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                fill-rule="evenodd"
-                d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </div>
-        </div>
+        {{ "lockerSizes.subtitle" | translate }}
+      </p>
+      <div class="easy-section-underline"></div>
+    </header>
 
-        <!-- Content -->
-        <div class="p-6">
-          <h3
-            class="text-xl font-bold text-brand-textPrimary mb-2"
-            [innerHTML]="getTitleHtml(plan.titleKey)"
-          ></h3>
-          <p class="text-brand-textMuted text-sm mb-6">
+    <!-- Locker Size Cards -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto">
+      <article class="easy-plan-card" *ngFor="let plan of plans">
+        <div class="plan-card__media">
+          <img
+            [src]="plan.image"
+            [alt]="plan.nameKey | translate"
+            loading="lazy"
+          />
+        </div>
+        <div class="plan-card__body">
+          <h3 class="plan-card__title">
+            {{ plan.nameKey | translate }}
+          </h3>
+          <p class="plan-card__dimensions">
+            {{ plan.dimensionsKey | translate }}
+          </p>
+          <p class="plan-card__description">
             {{ plan.descriptionKey | translate }}
           </p>
         </div>
-      </div>
+      </article>
     </div>
   </div>
 </section>

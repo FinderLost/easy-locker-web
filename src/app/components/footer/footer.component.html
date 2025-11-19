@@ -1,152 +1,151 @@
-<footer
-  class="bg-gradient-to-br from-brand-background via-brand-surface to-brand-background text-brand-surface font-sans"
->
-  <div class="container mx-auto px-6 lg:px-8">
-    <!-- Main footer content -->
-    <div
-      class="py-8 px-2 grid grid-cols-1 md:grid-cols-4 gap-8 items-start border-t border-brand-borderSubtle"
-    >
-      <!-- Brand section -->
-      <div class="mb-8 md:mb-0 col-span-1 max-w-xs">
-        <div class="mb-6">
-          <img
-            *ngIf="!isDarkMode"
-            src="assets/images/landscape-light.svg"
-            alt="Easy Locker"
-            class="h-12 w-auto"
-          />
-          <img
-            *ngIf="isDarkMode"
-            src="assets/images/landscape-dark.svg"
-            alt="Easy Locker"
-            class="h-12 w-auto"
-          />
-        </div>
-        <p
-          class="text-brand-borderStrong leading-relaxed mb-6 max-w-md"
-          [innerHTML]="footerDescriptionHtml"
-        ></p>
-      </div>
-
-      <!-- Contact info -->
-      <div class="mb-8 md:mb-0">
-        <h3 class="text-lg font-semibold mb-6 text-brand-surface">
-          {{ "footer_contact_title" | translate }}
-        </h3>
-        <div class="space-y-4">
-          <div class="flex items-center space-x-3">
-            <span
-              [innerHTML]="emailIcon"
-              class="text-brand-borderStrong"
-            ></span>
-            <a
-              href="mailto:info@easy-locker.com"
-              class="text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
-            >
-              {{ "footer_email" | translate }}
-            </a>
-          </div>
-          <div class="flex items-center space-x-3">
-            <span
-              [innerHTML]="availableIcon"
-              class="text-brand-borderStrong"
-            ></span>
-            <span class="text-brand-borderStrong">{{
-              "footer_available" | translate
-            }}</span>
-          </div>
-          <div class="flex items-center space-x-3">
-            <span
-              [innerHTML]="whatsappIcon"
-              class="text-brand-borderStrong"
-            ></span>
-            <a
-              href="https://wa.me/34644123456"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="flex items-center gap-3 text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
-            >
-              {{ "footer_whatsapp" | translate }}
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Media column -->
-      <div class="mb-8 md:mb-0">
-        <h3 class="text-lg font-semibold mb-6 text-brand-surface">
-          Redes Sociales
-        </h3>
-        <div class="space-y-4">
-          <a
-            href="https://www.facebook.com/share/1Got7XaYUE/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 text-brand-borderStrong hover:text-brand-textPrimary transition-colors duration-200"
-          >
-            <span [innerHTML]="facebookIcon"></span>
-            Facebook
-          </a>
-          <a
-            href="https://www.instagram.com/easylocker.es"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
-          >
-            <span [innerHTML]="instagramIcon"></span>
-            Instagram
-          </a>
-          <a
-            href="https://www.tiktok.com/@easylocker.es"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 text-brand-borderStrong hover:text-brand-surface transition-colors duration-200"
-          >
-            <span [innerHTML]="tiktokIcon"></span>
-            TikTok
-          </a>
-        </div>
-      </div>
-
-      <!-- Quick links -->
-      <div class="mb-8 md:mb-0">
-        <h3 class="text-lg font-semibold mb-6 text-brand-textPrimary">
-          {{ "footer_quick_links" | translate }}
-        </h3>
-        <div class="space-y-3">
-          <a
-            [href]="getTermsUrl()"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="block text-brand-borderStrong hover:text-brand-textPrimary hover:translate-x-1 transition-all duration-200"
-          >
-            <span class="inline-flex items-center gap-2">
-              <span [innerHTML]="termsIcon"></span>
-              {{ "footer_terms" | translate }}
-            </span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- Bottom bar -->
-    <div class="border-t border-brand-borderStrong py-6 px-2">
+<footer class="bg-brand-background text-brand-textSecondary">
+  <div class="border-t border-brand-borderSubtle/70">
+    <div class="container mx-auto px-4 lg:px-6 py-10 lg:py-12">
       <div
-        class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0"
+        class="grid gap-10 md:grid-cols-[1.3fr,1fr,1fr] lg:grid-cols-[1.4fr,1fr,1fr] items-start"
       >
-        <div class="text-brand-textSecondary text-sm">
-          &copy; {{ currentYear }} {{ "footer_copyright_text" | translate }}
-        </div>
-        <div class="flex items-center space-x-6">
-          <div
-            class="flex items-center space-x-2 text-brand-textSecondary text-sm"
-          >
-            <span [innerHTML]="secureIcon"></span>
-            <span>{{ "footer_secure_service" | translate }}</span>
+        <div class="space-y-4 text-center md:text-left">
+          <div class="flex justify-center md:justify-start">
+            <img
+              *ngIf="!isDarkMode"
+              src="assets/images/landscape-light.svg"
+              alt="Easy Locker"
+              class="h-12 w-auto"
+            />
+            <img
+              *ngIf="isDarkMode"
+              src="assets/images/landscape-dark.svg"
+              alt="Easy Locker"
+              class="h-12 w-auto"
+            />
           </div>
-          <div class="w-px h-4 bg-brand-textMuted"></div>
-          <div class="text-brand-textSecondary text-sm">
-            {{ "footer_made_in_cordoba" | translate }}
+          <p class="max-w-sm text-sm leading-relaxed text-brand-textSecondary mx-auto md:mx-0">
+            {{ 'footer_description' | translate }}
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <h3
+            class="text-xs font-semibold tracking-[0.18em] uppercase text-brand-textMuted"
+          >
+            {{ 'footer_quick_links' | translate }}
+          </h3>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a
+                href="mailto:info@easy-locker.com"
+                class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+              >
+                <span
+                  class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+                  [innerHTML]="emailIcon"
+                ></span>
+                <span>{{ 'footer_email' | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <a
+                [href]="getTermsUrl()"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+              >
+                <span
+                  class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+                  [innerHTML]="termsIcon"
+                ></span>
+                <span>{{ 'footer_terms' | translate }}</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://wa.me/34644123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+              >
+                <span
+                  class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+                  [innerHTML]="whatsappIcon"
+                ></span>
+                <span>{{ 'footer_whatsapp' | translate }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h3
+            class="text-xs font-semibold tracking-[0.18em] uppercase text-brand-textMuted"
+          >
+            {{ 'footer_connect_title' | translate }}
+          </h3>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a
+                href="https://www.facebook.com/share/1Got7XaYUE/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+              >
+                <span
+                  class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+                  [innerHTML]="facebookIcon"
+                ></span>
+                <span>Facebook</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/easylocker.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+              >
+                <span
+                  class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+                  [innerHTML]="instagramIcon"
+                ></span>
+                <span>Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.tiktok.com/@easylocker.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+              >
+                <span
+                  class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+                  [innerHTML]="tiktokIcon"
+                ></span>
+                <span>TikTok</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="mt-8 pt-6 border-t border-brand-borderSubtle/60 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-brand-textMuted"
+      >
+        <p>
+          © {{ currentYear }} Easy Locker · Córdoba. {{ 'footer_all_rights' | translate }}
+        </p>
+        <div class="flex flex-wrap items-center gap-4 text-brand-textSecondary">
+          <div class="inline-flex items-center gap-2">
+            <span
+              class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+              [innerHTML]="secureIcon"
+            ></span>
+            <span>{{ 'footer_badge_secure_service' | translate }}</span>
+          </div>
+          <span class="hidden h-4 w-px bg-brand-borderSubtle/60 md:inline-block"></span>
+          <div class="inline-flex items-center gap-1.5">
+            <span>{{ 'footer_badge_made_with' | translate }}</span>
+            <span class="text-sm">❤️</span>
+            <span>{{ 'footer_badge_in_cordoba' | translate }}</span>
           </div>
         </div>
       </div>

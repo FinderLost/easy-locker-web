@@ -1,28 +1,54 @@
 {
-  "hero_title_line1": "CONSIGNAS",
-  "hero_title_line2": "INTELIGENTES",
-  "hero_title_line3": "EN CÓRDOBA",
-  "hero_subtitle": "Explora más, carga menos",
-  "hero_btn_reserve": "Reservar ahora",
-  "hero_btn_directions": "Cómo llegar",
-  "hero_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=es",
-  "hero_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain",
+  "hero": {
+    "title": {
+      "line1": "CONSIGNAS",
+      "line2": "INTELIGENTES",
+      "line3": "EN CÓRDOBA"
+    },
+    "subtitle": "Explora más, carga menos",
+    "buttons": {
+      "reserve": "Reservar ahora",
+      "directions": "Cómo llegar"
+    },
+    "links": {
+      "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=es",
+      "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
 
-  "pricing_title": "PLANES Y PRECIOS",
-  "pricing_plan1_title": "Tamaño M\n28 cm x 41 cm x 56 cm",
-  "pricing_plan1_description": "Cabe una maleta pequeña o mochila.",
-  "pricing_plan1_image": "assets/images/box-type-m.png",
-  "pricing_plan2_title": "Tamaño L\n50 cm x 41 cm x 56 cm",
-  "pricing_plan2_description": "Caben dos maletas pequeñas, dos mochilas o una maleta grande.",
-  "pricing_plan2_image": "assets/images/box-type-l.png",
-  "pricing_plan3_title": "Tamaño XL\n82 cm x 41 cm x 56 cm",
-  "pricing_plan3_description": "Cabe una maleta grande y dos pequeñas, cuatro maletas pequeñas o cuatro mochilas.",
-  "pricing_plan3_image": "assets/images/box-type-xl.png",
-  "pricing_btn_reserve": "RESERVA",
-  "pricing_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=es",
+  "lockerSizes": {
+    "title": "Planes de consigna",
+    "subtitle": "Elige el espacio que mejor encaja con tu equipaje",
+    "plans": {
+      "m": {
+        "name": "Tamaño M",
+        "dimensions": "28 cm x 41 cm x 56 cm",
+        "description": "Cabe una maleta pequeña o mochila."
+      },
+      "l": {
+        "name": "Tamaño L",
+        "dimensions": "50 cm x 41 cm x 56 cm",
+        "description": "Caben dos maletas pequeñas, dos mochilas o una maleta grande."
+      },
+      "xl": {
+        "name": "Tamaño XL",
+        "dimensions": "82 cm x 41 cm x 56 cm",
+        "description": "Cabe una maleta grande y dos pequeñas, cuatro maletas pequeñas o cuatro mochilas."
+      }
+    }
+  },
 
-  "faq_title": "FAQS",
-  "faq_subtitle": "Resolvemos tus dudas más frecuentes",
+  "sections": {
+    "testimonials": {
+      "title": "Opiniones de clientes",
+      "subtitle": "Valoraciones reales de Easy Locker en Google"
+    },
+    "faq": {
+      "title": "FAQs",
+      "subtitle": "Resolvemos tus dudas más frecuentes"
+    }
+  },
+
   "faq_contact_title": "¿Tienes más preguntas?",
   "faq_contact_desc": "Contáctanos y te responderemos lo antes posible.",
   "faq_contact_btn": "Enviar email",
@@ -48,11 +74,16 @@
   "footer_contact": "Contacto",
   "footer_whatsapp": "WhatsApp",
   "footer_available": "24/7 Disponible",
-  "footer_description": "Tu solución de confianza para guardar equipaje seguro en Córdoba.\nExplora más, carga menos",
+  "footer_description": "Tu solución de confianza para guardar equipaje seguro en Córdoba. Explora más, carga menos",
   "footer_quick_links": "Enlaces Rápidos",
+  "footer_connect_title": "Síguenos",
   "footer_contact_title": "Contacto",
   "footer_secure_service": "Servicio Seguro",
   "footer_made_in_cordoba": "Hecho con ❤️ en Córdoba",
+  "footer_all_rights": "Todos los derechos reservados.",
+  "footer_badge_secure_service": "Servicio seguro",
+  "footer_badge_made_with": "Hecho con",
+  "footer_badge_in_cordoba": "en Córdoba",
   "footer_copyright_text": "Easy Locker · Córdoba. Todos los derechos reservados.",
   "footer_terms": "Términos y condiciones",
   "footer_privacy": "Política de privacidad",
@@ -60,15 +91,18 @@
   "footer_copyright": "© 2024 Easy Locker. Todos los derechos reservados.",
   "meta_description": "Consignas inteligentes en Córdoba",
   "meta_title": "Easy Locker | Córdoba",
-  "testimonials_title": "Opiniones de clientes",
-  "testimonials_subtitle": "Valoraciones reales de Easy Locker en Google",
   "testimonials_placeholder": "Aún no hay opiniones disponibles.",
   "testimonials_placeholder_loading": "Cargando opiniones...",
   "testimonials_summary_empty": "Sé el primero en dejar tu opinión.",
   "testimonials_summary_verified": "Todas las opiniones son verificadas en Google.",
   "testimonials_summary_loading": "Cargando opiniones...",
+  "testimonials_empty_title": "Todavía no hay opiniones publicadas",
+  "testimonials_empty_body": "¿Has utilizado Easy Locker en Córdoba? Ayuda a otros viajeros dejando tu reseña en Google.",
+  "testimonials_empty_trust": "Las opiniones se muestran directamente desde Google y no pueden editarse desde esta web.",
   "testimonials_button_profile": "Ver perfil en Google",
   "testimonials_button_review": "Dejar una reseña",
   "testimonials_button_profile_aria": "Abrir perfil de Easy Locker en Google",
-  "testimonials_button_review_aria": "Dejar una reseña en Google"
+  "testimonials_button_review_aria": "Dejar una reseña en Google",
+  "testimonials_button_all_reviews": "Ver todas las reseñas en Google",
+  "testimonials_button_all_reviews_aria": "Abrir listado de reseñas de Easy Locker en Google"
 }

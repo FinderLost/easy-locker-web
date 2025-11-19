@@ -27,10 +27,6 @@ export class FooterComponent {
   tiktokIcon: SafeHtml;
   termsIcon: SafeHtml;
   secureIcon: SafeHtml;
-  get footerDescriptionHtml(): string {
-    const desc = this.translate.instant('footer_description');
-    return desc.replace(/\n/g, '<br>');
-  }
   currentYear = new Date().getFullYear();
   isDarkMode = false;
 

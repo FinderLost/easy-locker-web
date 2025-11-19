@@ -12,34 +12,42 @@
 
   <div class="container mx-auto px-6 lg:px-8 relative z-10">
     <div class="max-w-4xl mx-auto">
-      <h1 class="easy-hero-title text-5xl md:text-6xl lg:text-7xl leading-tight">
-        <span class="easy-hero-title-line">
-          {{ "hero_title_line1" | translate }}
+      <h1
+        class="easy-hero-title hero-title tracking-tight text-[2.1rem] md:text-6xl lg:text-7xl leading-[1.1] md:leading-tight"
+      >
+        <span
+          class="easy-hero-title-line hero-line hero-line-1 text-brand-textPrimary dark:text-brand-darkTextStrong"
+        >
+          {{ "hero.title.line1" | translate }}
         </span>
-        <span class="easy-hero-title-line easy-hero-title-smart">
-          {{ "hero_title_line2" | translate }}
+        <span
+          class="easy-hero-title-line hero-line hero-line-accent text-brand-accentPrimary"
+        >
+          {{ "hero.title.line2" | translate }}
         </span>
-        <span class="easy-hero-title-line">
-          {{ "hero_title_line3" | translate }}
+        <span
+          class="easy-hero-title-line hero-line hero-line-3 text-brand-textPrimary dark:text-brand-darkTextStrong"
+        >
+          {{ "hero.title.line3" | translate }}
         </span>
       </h1>
-      <p class="easy-hero-subtitle mt-6 leading-relaxed max-w-3xl mx-auto">
-        {{ "hero_subtitle" | translate }}
+      <p class="easy-hero-subtitle hero-subtitle max-w-3xl mx-auto">
+        {{ "hero.subtitle" | translate }}
       </p>
       <div
-        class="easy-hero-cta-group mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center max-w-2xl mx-auto"
+        class="easy-hero-cta-group md:flex-row md:justify-center md:items-center md:gap-6 md:max-w-2xl"
       >
         <button
           (click)="onReserve()"
-          class="easy-pill-btn easy-cta-primary w-full min-w-[280px] sm:w-auto"
+          class="easy-pill-btn easy-cta-primary w-full min-w-[280px] md:w-auto"
         >
-          {{ "hero_btn_reserve" | translate }}
+          {{ "hero.buttons.reserve" | translate }}
         </button>
         <button
           (click)="onDirections()"
-          class="easy-pill-btn easy-cta-secondary w-full min-w-[280px] sm:w-auto"
+          class="easy-pill-btn easy-cta-secondary w-full min-w-[280px] md:w-auto"
         >
-          {{ "hero_btn_directions" | translate }}
+          {{ "hero.buttons.directions" | translate }}
         </button>
       </div>
     </div>
