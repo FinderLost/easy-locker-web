@@ -201,6 +201,77 @@
     outline-offset: 2px;
   }
 
+  .header-picker {
+    @apply relative inline-flex;
+  }
+
+  .header-picker-btn {
+    @apply h-10 items-center gap-2 px-4;
+    --easy-pill-bg: color-mix(in srgb, var(--brand-surface) 92%, transparent);
+    --easy-pill-hover-bg: var(--brand-surface-subtle);
+    --easy-pill-fg: var(--brand-text-primary);
+    --easy-pill-border: color-mix(in srgb, var(--brand-border) 65%, transparent);
+    --easy-pill-shadow: var(--brand-shadow-soft);
+    --easy-pill-hover-shadow: var(--brand-shadow-strong);
+  }
+
+  .dark .header-picker-btn {
+    --easy-pill-bg: color-mix(in srgb, var(--brand-dark-surface) 92%, transparent);
+    --easy-pill-hover-bg: var(--brand-dark-surface-hover);
+    --easy-pill-fg: var(--brand-dark-text);
+    --easy-pill-border: color-mix(in srgb, var(--brand-border-subtle) 70%, transparent);
+  }
+
+  .header-picker-label {
+    @apply text-xs font-semibold tracking-widest;
+  }
+
+  .header-picker-chevron {
+    @apply h-3.5 w-3.5 transition-transform duration-150;
+    opacity: 0.75;
+  }
+
+  .header-picker-menu {
+    @apply absolute right-0 z-40 flex min-w-[13rem] flex-col gap-1 rounded-2xl border border-brand-borderSubtle p-3 shadow-brand-soft;
+    top: calc(100% + 0.5rem);
+    background-color: var(--brand-surface);
+    color: var(--brand-text-primary);
+  }
+
+  .dark .header-picker-menu {
+    background-color: var(--brand-dark-surface);
+    color: var(--brand-dark-text);
+    border-color: color-mix(in srgb, var(--brand-border-subtle) 70%, transparent);
+  }
+
+  .header-picker-option {
+    @apply flex w-full items-center justify-between rounded-xl px-3 py-2 text-left transition-colors duration-150 cursor-pointer select-none;
+    border: 1px solid transparent;
+    color: inherit;
+  }
+
+  .header-picker-option:hover {
+    background-color: var(--brand-surface-subtle);
+  }
+
+  .dark .header-picker-option:hover {
+    background-color: var(--brand-dark-surface-hover);
+  }
+
+  .header-picker-option--active {
+    border-color: color-mix(in srgb, var(--brand-accent-primary) 35%, transparent);
+    background-color: color-mix(in srgb, var(--brand-accent-primary) 12%, transparent);
+  }
+
+  .dark .header-picker-option--active {
+    background-color: color-mix(in srgb, var(--brand-accent-primary) 25%, transparent);
+  }
+
+  .header-picker-indicator {
+    @apply inline-flex h-2 w-2 rounded-full;
+    background-color: var(--brand-accent-primary);
+  }
+
   .easy-cta-primary,
   .easy-cta-secondary {
     @apply inline-flex items-center justify-center rounded-full px-8 py-4 text-base font-semibold transition-all duration-150 ease-out;
