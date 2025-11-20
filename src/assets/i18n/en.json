@@ -1,28 +1,54 @@
 {
-  "hero_title_line1": "LOCKERS",
-  "hero_title_line2": "SMART",
-  "hero_title_line3": "IN CORDOBA",
-  "hero_subtitle": "Explora más, carga menos",
-  "hero_btn_reserve": "Book now",
-  "hero_btn_directions": "Get directions",
-  "hero_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=en",
-  "hero_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain",
+  "hero": {
+    "title": {
+      "line1": "LOCKERS",
+      "line2": "SMART",
+      "line3": "IN CORDOBA"
+    },
+    "subtitle": "Explora más, carga menos",
+    "buttons": {
+      "reserve": "Book now",
+      "directions": "Get directions"
+    },
+    "links": {
+      "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=en",
+      "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
 
-  "pricing_title": "PLANS AND PRICES",
-  "pricing_plan1_title": "Size M\n28 cm x 41 cm x 56 cm",
-  "pricing_plan1_description": "Fits one small suitcase or backpack.",
-  "pricing_plan1_image": "assets/images/box-type-m.png",
-  "pricing_plan2_title": "Size L\n50 cm x 41 cm x 56 cm",
-  "pricing_plan2_description": "Fits two small suitcases, two backpacks or one large suitcase.",
-  "pricing_plan2_image": "assets/images/box-type-l.png",
-  "pricing_plan3_title": "Size XL\n82 cm x 41 cm x 56 cm",
-  "pricing_plan3_description": "Fits one large suitcase and two small ones, four small suitcases or four backpacks.",
-  "pricing_plan3_image": "assets/images/box-type-xl.png",
-  "pricing_btn_reserve": "BOOK",
-  "pricing_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=en",
+  "lockerSizes": {
+    "title": "Locker plans",
+    "subtitle": "Choose the space that best fits your luggage",
+    "plans": {
+      "m": {
+        "name": "Locker Size M",
+        "dimensions": "28 cm x 41 cm x 56 cm",
+        "description": "Fits one small suitcase or backpack."
+      },
+      "l": {
+        "name": "Locker Size L",
+        "dimensions": "50 cm x 41 cm x 56 cm",
+        "description": "Fits two small suitcases, two backpacks or one large suitcase."
+      },
+      "xl": {
+        "name": "Locker Size XL",
+        "dimensions": "82 cm x 41 cm x 56 cm",
+        "description": "Fits one large suitcase and two small ones, four small suitcases or four backpacks."
+      }
+    }
+  },
 
-  "faq_title": "FAQS",
-  "faq_subtitle": "We solve your most frequent questions",
+  "sections": {
+    "testimonials": {
+      "title": "Customer testimonials",
+      "subtitle": "Real reviews for Easy Locker on Google"
+    },
+    "faq": {
+      "title": "FAQs",
+      "subtitle": "We solve your most frequent questions"
+    }
+  },
+
   "faq_contact_title": "Do you have more questions?",
   "faq_contact_desc": "Contact us and we will reply as soon as possible.",
   "faq_contact_btn": "Send email",
@@ -48,11 +74,16 @@
   "footer_contact": "Contact",
   "footer_whatsapp": "WhatsApp",
   "footer_available": "24/7 Available",
-  "footer_description": "Your trusted solution for secure luggage storage in Cordoba.\nExplore more, carry less",
+  "footer_description": "Your trusted solution for secure luggage storage in Cordoba. Explore more, carry less",
   "footer_quick_links": "Quick Links",
+  "footer_connect_title": "Stay connected",
   "footer_contact_title": "Contact",
-  "footer_secure_service": "Secure Service",
+  "footer_secure_service": "Secure service",
   "footer_made_in_cordoba": "Made with ❤️ in Cordoba",
+  "footer_all_rights": "All rights reserved.",
+  "footer_badge_secure_service": "Secure service",
+  "footer_badge_made_with": "Made with",
+  "footer_badge_in_cordoba": "in Cordoba",
   "footer_copyright_text": "Easy Locker · Cordoba. All rights reserved.",
   "footer_terms": "Terms and conditions",
   "footer_privacy": "Privacy policy",
@@ -60,15 +91,18 @@
   "footer_copyright": "© 2024 Easy Locker. All rights reserved.",
   "meta_description": "Smart lockers in Cordoba",
   "meta_title": "Easy Locker | Cordoba",
-  "testimonials_title": "Customer testimonials",
-  "testimonials_subtitle": "Real reviews for Easy Locker on Google",
   "testimonials_placeholder": "No testimonials available yet.",
   "testimonials_placeholder_loading": "Loading testimonials...",
   "testimonials_summary_empty": "Be the first to leave a review.",
   "testimonials_summary_verified": "All reviews are verified on Google.",
   "testimonials_summary_loading": "Loading testimonials...",
+  "testimonials_empty_title": "No reviews published yet",
+  "testimonials_empty_body": "Used Easy Locker in Cordoba? Help other travelers by leaving your review on Google.",
+  "testimonials_empty_trust": "Reviews are pulled directly from Google and cannot be edited on this site.",
   "testimonials_button_profile": "View Google profile",
   "testimonials_button_review": "Leave a review",
   "testimonials_button_profile_aria": "Open Easy Locker Google profile",
-  "testimonials_button_review_aria": "Leave a review on Google"
+  "testimonials_button_review_aria": "Leave a review on Google",
+  "testimonials_button_all_reviews": "View all Google reviews",
+  "testimonials_button_all_reviews_aria": "Open the Easy Locker reviews list on Google"
 }

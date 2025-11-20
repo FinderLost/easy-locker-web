@@ -1,87 +1,81 @@
 <section
-  class="bg-gradient-to-br from-brand-backgroundSoft to-brand-infoBackground dark:from-brand-darkBackground dark:to-brand-darkSurface py-16 lg:py-24 text-brand-textPrimary dark:text-brand-textPrimary font-sans transition-colors duration-300"
+  class="py-16 lg:py-24 text-brand-textPrimary font-sans transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto mb-8 text-center">
+    <header class="section-heading text-center max-w-4xl mx-auto mb-10 md:mb-12">
       <h2
-        class="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-brand-textPrimary dark:text-brand-textPrimary"
+        class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary text-center dark:text-brand-darkTextStrong"
       >
-        {{ "faq_title" | translate }}
+        {{ "sections.faq.title" | translate }}
       </h2>
-      <div
-        class="w-24 h-1 bg-gradient-to-r from-brand-textPrimary via-brand-accentPrimary to-brand-textMuted dark:from-brand-accentSecondary dark:to-brand-accentPrimary mx-auto rounded-full mb-6"
-      ></div>
       <p
-        class="text-base md:text-lg text-brand-textSecondary dark:text-brand-borderStrong mb-8"
+        class="mt-2 text-base md:text-lg text-brand-textSecondary text-center max-w-xl mx-auto"
       >
-        {{ "faq_subtitle" | translate }}
+        {{ "sections.faq.subtitle" | translate }}
       </p>
-    </div>
+      <div class="easy-section-underline"></div>
+    </header>
 
     <div class="max-w-4xl mx-auto space-y-4">
-      <div
-        *ngFor="let faq of faqs; let i = index"
-        class="group bg-brand-surface dark:bg-brand-darkBackground rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-brand-borderSubtle dark:border-brand-darkBorder overflow-hidden"
-      >
-        <!-- Question header -->
-        <div
-          class="flex items-center justify-between p-5 lg:p-6 cursor-pointer hover:bg-brand-backgroundSoft dark:hover:bg-brand-darkSurface transition-colors duration-200"
-          (click)="toggleFaq(i)"
+      <div *ngFor="let faq of faqs; let i = index" class="group">
+        <article
+          class="easy-faq-item group"
+          [ngClass]="{
+            'easy-faq-item--open': faq.isOpen,
+            'easy-faq-item--hover': !faq.isOpen
+          }"
         >
-          <div class="flex items-center space-x-4 flex-1">
-            <div
-              class="w-8 h-8 bg-gradient-to-r from-brand-textPrimary to-brand-textMuted dark:from-brand-accentSecondary dark:to-brand-accentPrimary rounded-full flex items-center justify-center text-brand-surface font-bold text-sm flex-shrink-0"
-            >
-              {{ i + 1 }}
+          <button
+            type="button"
+            class="easy-faq-header easy-focus-reset easy-focus-ring"
+            (click)="toggleFaq(i)"
+            [attr.aria-expanded]="faq.isOpen"
+            [attr.aria-controls]="'faq-panel-' + i"
+            [id]="'faq-header-' + i"
+          >
+            <div class="flex items-center gap-4">
+              <span class="easy-faq-step-badge mr-4">
+                {{ i + 1 }}
+              </span>
+              <span class="easy-faq-title">
+                {{ faq.questionKey | translate }}
+              </span>
             </div>
-            <h3
-              class="text-base lg:text-lg font-semibold text-brand-textPrimary dark:text-brand-textPrimary leading-relaxed"
+            <span
+              class="easy-faq-chevron"
+              [ngClass]="{ 'easy-faq-chevron--open': faq.isOpen }"
             >
-              {{ faq.questionKey | translate }}
-            </h3>
-          </div>
-          <div class="ml-4 flex-shrink-0">
-            <svg
-              class="w-6 h-6 text-brand-textSecondary dark:text-brand-textSecondary transform transition-transform duration-300"
-              [class.rotate-180]="faq.isOpen"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M19 9l-7 7-7-7"
-              ></path>
-            </svg>
-          </div>
-        </div>
-
-        <!-- Answer content -->
-        <div
-          class="overflow-hidden transition-all duration-300"
-          [class.max-h-0]="!faq.isOpen"
-          [class.max-h-48]="faq.isOpen"
-        >
-          <div class="px-5 lg:px-6 pb-5 lg:pb-6">
-            <div class="pl-12">
-              <div
-                class="w-full h-px bg-gradient-to-r from-brand-textPrimary/20 to-brand-textMuted/20 dark:from-brand-accentSecondary/20 dark:to-brand-accentPrimary/20 mb-4"
-              ></div>
-              <p
-                class="text-sm lg:text-base text-brand-textSecondary dark:text-brand-borderStrong leading-relaxed"
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                {{ faq.answerKey | translate }}
-              </p>
-            </div>
-          </div>
-        </div>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
+            </span>
+          </button>
 
-        <!-- Accent line -->
-        <div
-          class="h-0.5 bg-gradient-to-r from-brand-textPrimary to-brand-textMuted dark:from-brand-accentSecondary dark:to-brand-accentPrimary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
-        ></div>
+          <div
+            [id]="'faq-panel-' + i"
+            role="region"
+            [attr.aria-labelledby]="'faq-header-' + i"
+            class="overflow-hidden transition-all duration-200 ease-out"
+            [ngClass]="{
+              'max-h-0 opacity-0': !faq.isOpen,
+              'max-h-96 opacity-100 mt-3': faq.isOpen
+            }"
+          >
+            <p class="easy-faq-body">
+              {{ faq.answerKey | translate }}
+            </p>
+          </div>
+        </article>
       </div>
     </div>
   </div>

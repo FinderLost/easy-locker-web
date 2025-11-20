@@ -1,28 +1,54 @@
 {
-  "hero_title_line1": "SCHLIESSFÄCHER",
-  "hero_title_line2": "INTELLIGENTE",
-  "hero_title_line3": "IN CORDOBA",
-  "hero_subtitle": "Explora más, carga menos",
-  "hero_btn_reserve": "Jetzt reservieren",
-  "hero_btn_directions": "Route anzeigen",
-  "hero_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=de",
-  "hero_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain",
+  "hero": {
+    "title": {
+      "line1": "SCHLIESSFÄCHER",
+      "line2": "INTELLIGENTE",
+      "line3": "IN CÓRDOBA"
+    },
+    "subtitle": "Explora más, carga menos",
+    "buttons": {
+      "reserve": "Jetzt reservieren",
+      "directions": "Route anzeigen"
+    },
+    "links": {
+      "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=de",
+      "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
 
-  "pricing_title": "TARIFE UND PREISE",
-  "pricing_plan1_title": "Größe M\n28 cm x 41 cm x 56 cm",
-  "pricing_plan1_description": "Für einen kleinen Koffer oder Rucksack geeignet.",
-  "pricing_plan1_image": "assets/images/box-type-m.png",
-  "pricing_plan2_title": "Größe L\n50 cm x 41 cm x 56 cm",
-  "pricing_plan2_description": "Geeignet für zwei kleine Koffer, zwei Rucksäcke oder einen großen Koffer.",
-  "pricing_plan2_image": "assets/images/box-type-l.png",
-  "pricing_plan3_title": "Größe XL\n82 cm x 41 cm x 56 cm",
-  "pricing_plan3_description": "Geeignet für einen großen Koffer und zwei kleine, vier kleine Koffer oder vier Rucksäcke.",
-  "pricing_plan3_image": "assets/images/box-type-xl.png",
-  "pricing_btn_reserve": "RESERVIEREN",
-  "pricing_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=de",
+  "lockerSizes": {
+    "title": "Schließfach-Tarife",
+    "subtitle": "Wähle den Platz, der am besten zu deinem Gepäck passt",
+    "plans": {
+      "m": {
+        "name": "Schließfachgröße M",
+        "dimensions": "28 cm x 41 cm x 56 cm",
+        "description": "Für einen kleinen Koffer oder Rucksack geeignet."
+      },
+      "l": {
+        "name": "Schließfachgröße L",
+        "dimensions": "50 cm x 41 cm x 56 cm",
+        "description": "Geeignet für zwei kleine Koffer, zwei Rucksäcke oder einen großen Koffer."
+      },
+      "xl": {
+        "name": "Schließfachgröße XL",
+        "dimensions": "82 cm x 41 cm x 56 cm",
+        "description": "Geeignet für einen großen Koffer und zwei kleine, vier kleine Koffer oder vier Rucksäcke."
+      }
+    }
+  },
 
-  "faq_title": "FAQS",
-  "faq_subtitle": "Wir beantworten Ihre häufigsten Fragen",
+  "sections": {
+    "testimonials": {
+      "title": "Kundenbewertungen",
+      "subtitle": "Echte Bewertungen für Easy Locker auf Google"
+    },
+    "faq": {
+      "title": "FAQs",
+      "subtitle": "Wir beantworten Ihre häufigsten Fragen"
+    }
+  },
+
   "faq_contact_title": "Haben Sie weitere Fragen?",
   "faq_contact_desc": "Kontaktieren Sie uns und wir antworten so schnell wie möglich.",
   "faq_contact_btn": "E-Mail senden",
@@ -48,11 +74,16 @@
   "footer_contact": "Kontakt",
   "footer_whatsapp": "WhatsApp",
   "footer_available": "24/7 Verfügbar",
-  "footer_description": "Ihre vertrauenswürdige Lösung für die sichere Gepäckaufbewahrung in Córdoba.\nEntdecke mehr, trage weniger",
+  "footer_description": "Ihre vertrauenswürdige Lösung für die sichere Gepäckaufbewahrung in Córdoba. Entdecke mehr, trage weniger",
   "footer_quick_links": "Schnellzugriffe",
+  "footer_connect_title": "Bleib verbunden",
   "footer_contact_title": "Kontakt",
   "footer_secure_service": "Sicherer Service",
   "footer_made_in_cordoba": "Hergestellt mit ❤️ in Córdoba",
+  "footer_all_rights": "Alle Rechte vorbehalten.",
+  "footer_badge_secure_service": "Sicherer Service",
+  "footer_badge_made_with": "Hergestellt mit",
+  "footer_badge_in_cordoba": "in Córdoba",
   "footer_copyright_text": "Easy Locker · Córdoba. Alle Rechte vorbehalten.",
   "footer_terms": "Allgemeine Geschäftsbedingungen",
   "footer_privacy": "Datenschutzrichtlinie",
@@ -60,15 +91,18 @@
   "footer_copyright": "© 2024 Easy Locker. Alle Rechte vorbehalten.",
   "meta_description": "Intelligente Schliessfächer in Cordoba",
   "meta_title": "Easy Locker | Cordoba",
-  "testimonials_title": "Kundenbewertungen",
-  "testimonials_subtitle": "Echte Bewertungen für Easy Locker auf Google",
   "testimonials_placeholder": "Noch keine Bewertungen verfügbar.",
   "testimonials_placeholder_loading": "Bewertungen werden geladen...",
   "testimonials_summary_empty": "Seien Sie der Erste, der eine Bewertung abgibt.",
   "testimonials_summary_verified": "Alle Bewertungen sind auf Google verifiziert.",
   "testimonials_summary_loading": "Bewertungen werden geladen...",
+  "testimonials_empty_title": "Noch keine Bewertungen veröffentlicht",
+  "testimonials_empty_body": "Hast du Easy Locker in Córdoba genutzt? Hilf anderen Reisenden und hinterlasse deine Bewertung auf Google.",
+  "testimonials_empty_trust": "Bewertungen werden direkt von Google übernommen und können auf dieser Website nicht bearbeitet werden.",
   "testimonials_button_profile": "Google-Profil ansehen",
   "testimonials_button_review": "Bewertung abgeben",
   "testimonials_button_profile_aria": "Easy Locker Google-Profil öffnen",
-  "testimonials_button_review_aria": "Bewertung auf Google abgeben"
+  "testimonials_button_review_aria": "Bewertung auf Google abgeben",
+  "testimonials_button_all_reviews": "Alle Google-Bewertungen ansehen",
+  "testimonials_button_all_reviews_aria": "Liste der Easy Locker Bewertungen auf Google öffnen"
 }

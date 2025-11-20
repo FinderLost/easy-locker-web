@@ -1,28 +1,54 @@
 {
-  "hero_title_line1": "DEPOSITI",
-  "hero_title_line2": "INTELLIGENTI",
-  "hero_title_line3": "A CORDOBA",
-  "hero_subtitle": "Esplora di più, porta di meno",
-  "hero_btn_reserve": "Prenota ora",
-  "hero_btn_directions": "Ottieni indicazioni",
-  "hero_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=it",
-  "hero_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain",
+  "hero": {
+    "title": {
+      "line1": "DEPOSITI",
+      "line2": "INTELLIGENTI",
+      "line3": "A CORDOBA"
+    },
+    "subtitle": "Esplora di più, porta di meno",
+    "buttons": {
+      "reserve": "Prenota ora",
+      "directions": "Ottieni indicazioni"
+    },
+    "links": {
+      "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=it",
+      "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
 
-  "pricing_title": "PIANI E PREZZI",
-  "pricing_plan1_title": "Misura M\n28 cm x 41 cm x 56 cm",
-  "pricing_plan1_description": "Adatto a una piccola valigia o zaino.",
-  "pricing_plan1_image": "assets/images/box-type-m.png",
-  "pricing_plan2_title": "Misura L\n50 cm x 41 cm x 56 cm",
-  "pricing_plan2_description": "Adatto a due piccole valigie, due zaini o una grande valigia.",
-  "pricing_plan2_image": "assets/images/box-type-l.png",
-  "pricing_plan3_title": "Misura XL\n82 cm x 41 cm x 56 cm",
-  "pricing_plan3_description": "Adatto a una grande valigia e due piccole, quattro piccole valigie o quattro zaini.",
-  "pricing_plan3_image": "assets/images/box-type-xl.png",
-  "pricing_btn_reserve": "PRENOTA",
-  "pricing_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=it",
+  "lockerSizes": {
+    "title": "Piani di deposito bagagli",
+    "subtitle": "Scegli lo spazio che meglio si adatta al tuo bagaglio",
+    "plans": {
+      "m": {
+        "name": "Locker misura M",
+        "dimensions": "28 cm x 41 cm x 56 cm",
+        "description": "Adatto a una piccola valigia o zaino."
+      },
+      "l": {
+        "name": "Locker misura L",
+        "dimensions": "50 cm x 41 cm x 56 cm",
+        "description": "Adatto a due piccole valigie, due zaini o una grande valigia."
+      },
+      "xl": {
+        "name": "Locker misura XL",
+        "dimensions": "82 cm x 41 cm x 56 cm",
+        "description": "Adatto a una grande valigia e due piccole, quattro piccole valigie o quattro zaini."
+      }
+    }
+  },
 
-  "faq_title": "FAQS",
-  "faq_subtitle": "Rispondiamo alle tue domande più frequenti",
+  "sections": {
+    "testimonials": {
+      "title": "Recensioni dei clienti",
+      "subtitle": "Recensioni reali su Easy Locker su Google"
+    },
+    "faq": {
+      "title": "FAQs",
+      "subtitle": "Rispondiamo alle tue domande più frequenti"
+    }
+  },
+
   "faq_contact_title": "Hai altre domande?",
   "faq_contact_desc": "Contattaci e ti risponderemo il prima possibile.",
   "faq_contact_btn": "Invia email",
@@ -48,11 +74,16 @@
   "footer_contact": "Contatti",
   "footer_whatsapp": "WhatsApp",
   "footer_available": "24/7 Disponibile",
-  "footer_description": "La tua soluzione di fiducia per la custodia sicura dei bagagli a Cordova.\nEsplora di più, porta di meno",
+  "footer_description": "La tua soluzione di fiducia per la custodia sicura dei bagagli a Cordova. Esplora di più, porta di meno",
   "footer_quick_links": "Link Rapidi",
+  "footer_connect_title": "Resta in contatto",
   "footer_contact_title": "Contatti",
   "footer_secure_service": "Servizio Sicuro",
   "footer_made_in_cordoba": "Fatto con ❤️ a Cordova",
+  "footer_all_rights": "Tutti i diritti riservati.",
+  "footer_badge_secure_service": "Servizio sicuro",
+  "footer_badge_made_with": "Fatto con",
+  "footer_badge_in_cordoba": "a Cordova",
   "footer_copyright_text": "Easy Locker · Cordova. Tutti i diritti riservati.",
   "footer_terms": "Termini e condizioni",
   "footer_privacy": "Informativa sulla privacy",
@@ -60,15 +91,18 @@
   "footer_copyright": "© 2024 Easy Locker. Tutti i diritti riservati.",
   "meta_description": "Depositi intelligenti a Cordoba",
   "meta_title": "Easy Locker | Cordoba",
-  "testimonials_title": "Recensioni dei clienti",
-  "testimonials_subtitle": "Recensioni reali su Easy Locker su Google",
   "testimonials_placeholder": "Nessuna recensione disponibile al momento.",
   "testimonials_placeholder_loading": "Caricamento delle recensioni...",
   "testimonials_summary_empty": "Sii il primo a lasciare una recensione.",
   "testimonials_summary_verified": "Tutte le recensioni sono verificate su Google.",
   "testimonials_summary_loading": "Caricamento delle recensioni...",
+  "testimonials_empty_title": "Non ci sono ancora recensioni pubblicate",
+  "testimonials_empty_body": "Hai usato Easy Locker a Cordova? Aiuta altri viaggiatori lasciando la tua recensione su Google.",
+  "testimonials_empty_trust": "Le recensioni vengono mostrate direttamente da Google e non possono essere modificate su questo sito.",
   "testimonials_button_profile": "Vedi profilo Google",
   "testimonials_button_review": "Lascia una recensione",
   "testimonials_button_profile_aria": "Apri il profilo Google di Easy Locker",
-  "testimonials_button_review_aria": "Lascia una recensione su Google"
+  "testimonials_button_review_aria": "Lascia una recensione su Google",
+  "testimonials_button_all_reviews": "Vedi tutte le recensioni su Google",
+  "testimonials_button_all_reviews_aria": "Apri l'elenco delle recensioni di Easy Locker su Google"
 }
