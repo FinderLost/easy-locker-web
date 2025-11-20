@@ -11,15 +11,15 @@ Este directorio contiene las imágenes para los planes de precios.
 ## Cómo agregar las imágenes:
 
 1. Coloca tus imágenes en este directorio con los nombres exactos mencionados arriba
-2. Las imágenes se mostrarán automáticamente en la sección "PLANES Y PRECIOS"
+2. Las imágenes se mostrarán automáticamente en la sección "Tamaños de consignas"
 3. Tamaño recomendado: 800x600 píxeles o similar (proporción 4:3)
 
 ## Editar textos y descripciones:
 
-Para cambiar los títulos y descripciones de los planes, edita el archivo:
+Para cambiar los títulos, dimensiones o descripciones de los planes, edita el archivo:
 `src/assets/i18n/es.json`
 
-Busca las claves:
-- `pricing_plan1_title` y `pricing_plan1_description`
-- `pricing_plan2_title` y `pricing_plan2_description`
-- `pricing_plan3_title` y `pricing_plan3_description`
+Busca las claves dentro de `lockerSizes.plans`:
+- `lockerSizes.plans.m.*`
+- `lockerSizes.plans.l.*`
+- `lockerSizes.plans.xl.*`

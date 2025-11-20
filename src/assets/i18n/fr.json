@@ -1,28 +1,54 @@
 {
-  "hero_title_line1": "CONSIGNES",
-  "hero_title_line2": "INTELLIGENTES",
-  "hero_title_line3": "À CORDOBA",
-  "hero_subtitle": "Explore plus, charge moins",
-  "hero_btn_reserve": "Réserver",
-  "hero_btn_directions": "Itinéraire",
-  "hero_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=fr",
-  "hero_maps_link": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain",
+  "hero": {
+    "title": {
+      "line1": "CONSIGNES",
+      "line2": "INTELLIGENTES",
+      "line3": "À CORDOBA"
+    },
+    "subtitle": "Explore plus, charge moins",
+    "buttons": {
+      "reserve": "Réserver",
+      "directions": "Itinéraire"
+    },
+    "links": {
+      "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=fr",
+      "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
 
-  "pricing_title": "FORFAITS ET TARIFS",
-  "pricing_plan1_title": "Taille M\n28 cm x 41 cm x 56 cm",
-  "pricing_plan1_description": "Convient à une petite valise ou un sac à dos.",
-  "pricing_plan1_image": "assets/images/box-type-m.png",
-  "pricing_plan2_title": "Taille L\n50 cm x 41 cm x 56 cm",
-  "pricing_plan2_description": "Convient à deux petites valises, deux sacs à dos ou une grande valise.",
-  "pricing_plan2_image": "assets/images/box-type-l.png",
-  "pricing_plan3_title": "Taille XL\n82 cm x 41 cm x 56 cm",
-  "pricing_plan3_description": "Convient à une grande valise et deux petites, quatre petites valises ou quatre sacs à dos.",
-  "pricing_plan3_image": "assets/images/box-type-xl.png",
-  "pricing_btn_reserve": "RÉSERVER",
-  "pricing_reserve_link": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=fr",
+  "lockerSizes": {
+    "title": "Formules de consigne",
+    "subtitle": "Choisissez l'espace qui s'adapte le mieux à vos bagages",
+    "plans": {
+      "m": {
+        "name": "Casier taille M",
+        "dimensions": "28 cm x 41 cm x 56 cm",
+        "description": "Convient à une petite valise ou un sac à dos."
+      },
+      "l": {
+        "name": "Casier taille L",
+        "dimensions": "50 cm x 41 cm x 56 cm",
+        "description": "Convient à deux petites valises, deux sacs à dos ou une grande valise."
+      },
+      "xl": {
+        "name": "Casier taille XL",
+        "dimensions": "82 cm x 41 cm x 56 cm",
+        "description": "Convient à une grande valise et deux petites, quatre petites valises ou quatre sacs à dos."
+      }
+    }
+  },
 
-  "faq_title": "FAQS",
-  "faq_subtitle": "Nous résolvons vos questions les plus fréquentes",
+  "sections": {
+    "testimonials": {
+      "title": "Avis des clients",
+      "subtitle": "Avis réels sur Easy Locker sur Google"
+    },
+    "faq": {
+      "title": "FAQs",
+      "subtitle": "Nous résolvons vos questions les plus fréquentes"
+    }
+  },
+
   "faq_contact_title": "Vous avez d'autres questions ?",
   "faq_contact_desc": "Contactez-nous et nous vous répondrons dès que possible.",
   "faq_contact_btn": "Envoyer un email",
@@ -48,11 +74,16 @@
   "footer_contact": "Contact",
   "footer_whatsapp": "WhatsApp",
   "footer_available": "24/7 Disponible",
-  "footer_description": "Votre solution de confiance pour le stockage sécurisé des bagages à Cordoue.\nExplorez plus, portez moins",
+  "footer_description": "Votre solution de confiance pour le stockage sécurisé des bagages à Cordoue. Explorez plus, portez moins",
   "footer_quick_links": "Liens rapides",
+  "footer_connect_title": "Restez connectés",
   "footer_contact_title": "Contact",
   "footer_secure_service": "Service sécurisé",
   "footer_made_in_cordoba": "Fait avec ❤️ à Cordoue",
+  "footer_all_rights": "Tous droits réservés.",
+  "footer_badge_secure_service": "Service sécurisé",
+  "footer_badge_made_with": "Fait avec",
+  "footer_badge_in_cordoba": "à Cordoue",
   "footer_copyright_text": "Easy Locker · Cordoue. Tous droits réservés.",
   "footer_terms": "Conditions générales",
   "footer_privacy": "Politique de confidentialité",
@@ -60,15 +91,18 @@
   "footer_copyright": "© 2024 Easy Locker. Tous droits réservés.",
   "meta_description": "Consignes intelligentes à Cordoba",
   "meta_title": "Easy Locker | Cordoba",
-  "testimonials_title": "Avis des clients",
-  "testimonials_subtitle": "Avis réels sur Easy Locker sur Google",
   "testimonials_placeholder": "Aucun avis disponible pour le moment.",
   "testimonials_placeholder_loading": "Chargement des avis...",
   "testimonials_summary_empty": "Soyez le premier à laisser un avis.",
   "testimonials_summary_verified": "Tous les avis sont vérifiés sur Google.",
   "testimonials_summary_loading": "Chargement des avis...",
+  "testimonials_empty_title": "Aucun avis publié pour l'instant",
+  "testimonials_empty_body": "Vous avez utilisé Easy Locker à Cordoue ? Aidez les autres voyageurs en laissant votre avis sur Google.",
+  "testimonials_empty_trust": "Les avis proviennent directement de Google et ne peuvent pas être modifiés sur ce site.",
   "testimonials_button_profile": "Voir le profil Google",
   "testimonials_button_review": "Laisser un avis",
   "testimonials_button_profile_aria": "Ouvrir le profil Google Easy Locker",
-  "testimonials_button_review_aria": "Laisser un avis sur Google"
+  "testimonials_button_review_aria": "Laisser un avis sur Google",
+  "testimonials_button_all_reviews": "Voir tous les avis sur Google",
+  "testimonials_button_all_reviews_aria": "Ouvrir la liste des avis Easy Locker sur Google"
 }

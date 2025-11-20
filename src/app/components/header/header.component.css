@@ -1,0 +1,8 @@
+.theme-toggle-btn {
+  @apply h-10 px-4;
+}
+
+.theme-toggle-icon {
+  @apply h-5 w-5;
+  color: currentColor;
+}
