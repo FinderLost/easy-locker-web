@@ -1,4 +1,11 @@
 {
+  "seo": {
+    "home": {
+      "title": "Easy Locker | Cordoue",
+      "description": "Consignes intelligentes à Cordoue dès 5 €/jour"
+    }
+  },
+
   "hero": {
     "title": {
       "line1": "CONSIGNES",

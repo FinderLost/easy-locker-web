@@ -1,4 +1,11 @@
 {
+  "seo": {
+    "home": {
+      "title": "Easy Locker | Cordoba",
+      "description": "Smart luggage lockers in Cordoba from 5 €/day"
+    }
+  },
+
   "hero": {
     "title": {
       "line1": "LOCKERS",
