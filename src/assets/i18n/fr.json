@@ -5,7 +5,7 @@
       "line2": "INTELLIGENTES",
       "line3": "À CORDOBA"
     },
-    "subtitle": "Explore plus, charge moins",
+    "subtitle": "Explorez plus, portez moins",
     "buttons": {
       "reserve": "Réserver",
       "directions": "Itinéraire"
@@ -13,6 +13,41 @@
     "links": {
       "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=fr",
       "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
+
+  "header": {
+    "theme": {
+      "srLabel": "Préférences de thème",
+      "buttonAria": "Préférence de thème : {{mode}}",
+      "menuLabel": "Configuration du thème",
+      "options": {
+        "light": {
+          "label": "Clair",
+          "description": "Toujours utiliser le mode clair"
+        },
+        "dark": {
+          "label": "Sombre",
+          "description": "Toujours utiliser le mode sombre"
+        },
+        "system": {
+          "label": "Système",
+          "description": "Synchroniser avec l'appareil"
+        }
+      }
+    },
+    "language": {
+      "srLabel": "Sélecteur de langue",
+      "buttonAria": "Langue sélectionnée : {{language}}",
+      "menuLabel": "Langues disponibles",
+      "options": {
+        "es": "Español",
+        "en": "English",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "unknown": "Langue"
+      }
     }
   },
 
@@ -84,6 +119,11 @@
   "footer_badge_secure_service": "Service sécurisé",
   "footer_badge_made_with": "Fait avec",
   "footer_badge_in_cordoba": "à Cordoue",
+  "footer_social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok"
+  },
   "footer_copyright_text": "Easy Locker · Cordoue. Tous droits réservés.",
   "footer_terms": "Conditions générales",
   "footer_privacy": "Politique de confidentialité",
@@ -91,6 +131,7 @@
   "footer_copyright": "© 2024 Easy Locker. Tous droits réservés.",
   "meta_description": "Consignes intelligentes à Cordoba",
   "meta_title": "Easy Locker | Cordoba",
+  "testimonials_rating_aria": "Note : {{rating}} sur 5 étoiles",
   "testimonials_placeholder": "Aucun avis disponible pour le moment.",
   "testimonials_placeholder_loading": "Chargement des avis...",
   "testimonials_summary_empty": "Soyez le premier à laisser un avis.",
@@ -104,5 +145,10 @@
   "testimonials_button_profile_aria": "Ouvrir le profil Google Easy Locker",
   "testimonials_button_review_aria": "Laisser un avis sur Google",
   "testimonials_button_all_reviews": "Voir tous les avis sur Google",
-  "testimonials_button_all_reviews_aria": "Ouvrir la liste des avis Easy Locker sur Google"
+  "testimonials_button_all_reviews_aria": "Ouvrir la liste des avis Easy Locker sur Google",
+  "comingSoon": {
+    "subtitle": "Nous travaillons sur quelque chose d'incroyable",
+    "description": "Easy Locker est en développement. Vous pourrez bientôt profiter de la meilleure solution pour gérer vos consignes en toute sécurité et efficacité.",
+    "footer": "© {{year}} Easy Locker. Tous droits réservés."
+  }
 }

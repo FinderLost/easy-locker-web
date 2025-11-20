@@ -14,6 +14,22 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Theme and language preferences
+
+### Theme (light / dark)
+
+- The app auto-detects the OS theme via `prefers-color-scheme` and applies it on first paint (see the inline script in `src/index.html`).
+- Users can pick **Claro**, **Oscuro** or **Sistema** from the header toggle. Their choice is saved under the `theme-preference` key in `localStorage`.
+- The `ThemeService` (`src/app/services/theme.service.ts`) exposes `setPreference()` and observables for both the preference and the resolved dark-mode flag. Components that need to react to theme changes should subscribe there instead of re-implementing detection.
+- To tweak colors, edit the CSS variables declared in `src/styles.css`—no extra logic is required.
+
+### Languages
+
+- Supported locales live in `src/app/services/language.service.ts` (default is English). Each locale must also have its JSON file inside `src/assets/i18n/`.
+- On startup the `LanguageService` resolves the language in this order: stored override → browser preference (by normalizing `navigator.languages`/`navigator.language`) → English fallback.
+- Manual changes through the language switcher persist in `localStorage` (`language` key) and immediately call `translate.use(...)` from `ngx-translate`.
+- To add a new language: add the JSON file, register its code and label in the `supportedLanguages` array, and (optionally) expose it in the language switcher UI.
+
 ## Google Reviews configuration
 
 The testimonials section pulls real data from Google Business Profile. Before deploying, set your credentials in `src/assets/config/reviews-config.js`:

@@ -6,12 +6,12 @@
     </div>
     <!-- Subtítulo -->
     <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8">
-      Estamos trabajando en algo increíble
+      {{ 'comingSoon.subtitle' | translate }}
     </p>
 
     <!-- Descripción -->
     <p class="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-xl mx-auto">
-      Easy Locker está en desarrollo. Pronto podrás disfrutar de la mejor solución para gestionar tus casilleros de forma segura y eficiente.
+      {{ 'comingSoon.description' | translate }}
     </p>
 
     <!-- Decoración -->
@@ -23,7 +23,7 @@
 
     <!-- Footer -->
     <p class="text-sm text-gray-400 dark:text-gray-500">
-      © 2025 Easy Locker. Todos los derechos reservados.
+      {{ 'comingSoon.footer' | translate: { year: currentYear } }}
     </p>
   </div>
 </div>

@@ -30,6 +30,22 @@
       media="(prefers-color-scheme: dark)"
     />
     <script>
+      (function applyInitialTheme() {
+        var storageKey = 'theme-preference';
+        var classList = document.documentElement.classList;
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        try {
+          var storedPreference = localStorage.getItem(storageKey);
+          var shouldUseDark =
+            storedPreference === 'dark' ||
+            ((!storedPreference || storedPreference === 'system') && prefersDark.matches);
+          classList.toggle('dark', shouldUseDark);
+        } catch (error) {
+          classList.toggle('dark', prefersDark.matches);
+        }
+      })();
+    </script>
+    <script>
       function setFaviconByTheme(e) {
         var favicon = document.getElementById("favicon");
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {

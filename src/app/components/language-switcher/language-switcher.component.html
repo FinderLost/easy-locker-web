@@ -1,17 +1,17 @@
-<div class="language-switcher">
+<div class="language-switcher header-picker">
   <button
     type="button"
     (click)="toggleDropdown()"
-    class="easy-pill-btn language-switcher-btn easy-focus-reset easy-focus-ring"
+    class="easy-pill-btn header-picker-btn easy-focus-reset easy-focus-ring"
     aria-haspopup="listbox"
     [attr.aria-expanded]="open"
-    aria-label="Seleccionar idioma"
+    [attr.aria-label]="('header.language.buttonAria' | translate: { language: (getCurrentLanguageLabelKey() | translate) })"
   >
-    <span class="language-switcher-label">
-      {{ getCurrentLanguageName() }}
+    <span class="header-picker-label language-switcher-label">
+      {{ getCurrentLanguageLabelKey() | translate }}
     </span>
     <svg
-      class="language-switcher-arrow"
+      class="header-picker-chevron language-switcher-arrow"
       [class.rotate-180]="open"
       fill="none"
       stroke="currentColor"
@@ -29,24 +29,24 @@
 
   <div
     *ngIf="open"
-    class="language-switcher-panel"
+    class="header-picker-menu language-switcher-panel"
     role="listbox"
-    aria-label="Idiomas disponibles"
+    [attr.aria-label]="'header.language.menuLabel' | translate"
     [@dropdownAnimation]="open ? 'open' : 'closed'"
   >
     <button
       type="button"
       *ngFor="let lang of languages"
       (click)="changeLanguage(lang.code)"
-      class="language-option easy-focus-reset easy-focus-ring"
-      [class.language-option--active]="lang.code === currentLanguage"
+      class="header-picker-option easy-focus-reset easy-focus-ring language-option"
+      [class.header-picker-option--active]="lang.code === currentLanguage"
       role="option"
       [attr.aria-selected]="lang.code === currentLanguage"
     >
-      <span class="uppercase tracking-widest">{{ lang.name }}</span>
+      <span class="language-option-label">{{ lang.labelKey | translate }}</span>
       <span
         *ngIf="lang.code === currentLanguage"
-        class="language-dot"
+        class="header-picker-indicator"
         aria-hidden="true"
       ></span>
     </button>

@@ -22,45 +22,116 @@
 
     <!-- Actions -->
     <div class="flex items-center space-x-3 lg:space-x-6">
-      <!-- Dark Mode Toggle -->
-      <button
-        (click)="toggleTheme()"
-        class="easy-pill-btn theme-toggle-btn"
-        [attr.aria-label]="
-          isDarkMode ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'
-        "
-      >
-        <!-- Sun Icon (Light Mode) -->
-        <svg
-          *ngIf="isDarkMode"
-          class="theme-toggle-icon"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      <!-- Theme Preference Dropdown -->
+      <div class="header-picker">
+        <button
+          type="button"
+          (click)="toggleThemeMenu()"
+          class="easy-pill-btn header-picker-btn theme-toggle-btn easy-focus-reset easy-focus-ring"
+          aria-haspopup="listbox"
+          [attr.aria-expanded]="themeMenuOpen"
+          [attr.aria-label]="('header.theme.buttonAria' | translate: { mode: (getThemeLabelKey() | translate) })"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 0 018 0z"
-          ></path>
-        </svg>
-        <!-- Moon Icon (Dark Mode) -->
-        <svg
-          *ngIf="!isDarkMode"
-          class="theme-toggle-icon"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+          <span class="sr-only">{{ 'header.theme.srLabel' | translate }}</span>
+          <ng-container [ngSwitch]="currentPreference">
+            <svg
+              *ngSwitchCase="'light'"
+              class="theme-toggle-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 0 018 0z"
+              ></path>
+            </svg>
+            <svg
+              *ngSwitchCase="'dark'"
+              class="theme-toggle-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+              ></path>
+            </svg>
+            <svg
+              *ngSwitchDefault
+              class="theme-toggle-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3c.132 0 .263.003.394.01a7 7 0 017.596 7.596A8 8 0 1112 3z"
+              ></path>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 5v2m0 10v2m7-7h-2M7 12H5m12.071 5.071l-1.414-1.414M8.343 8.343L6.929 6.929m0 10.142l1.414-1.414m9.314-9.314l1.414-1.414"
+              ></path>
+            </svg>
+          </ng-container>
+          <span class="header-picker-label theme-toggle-label hidden md:inline-flex">{{ getThemeLabelKey() | translate }}</span>
+          <svg
+            class="header-picker-chevron"
+            [class.rotate-180]="themeMenuOpen"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+
+        <div
+          *ngIf="themeMenuOpen"
+          class="header-picker-menu"
+          role="listbox"
+          [attr.aria-label]="'header.theme.menuLabel' | translate"
+          [@dropdownAnimation]="themeMenuOpen ? 'open' : 'closed'"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-          ></path>
-        </svg>
-      </button>
+          <button
+            type="button"
+            *ngFor="let option of themeOptions"
+            (click)="selectTheme(option.value)"
+            class="header-picker-option easy-focus-reset easy-focus-ring"
+            [class.header-picker-option--active]="option.value === currentPreference"
+            role="option"
+            [attr.aria-selected]="option.value === currentPreference"
+          >
+            <div class="flex flex-col text-left">
+              <span class="text-sm font-semibold">{{ option.labelKey | translate }}</span>
+              <span class="text-xs text-brand-textMuted">{{ option.descriptionKey | translate }}</span>
+            </div>
+            <span
+              *ngIf="option.value === currentPreference"
+              class="header-picker-indicator"
+              aria-hidden="true"
+            ></span>
+          </button>
+        </div>
+      </div>
 
       <!-- Language Switcher -->
       <app-language-switcher></app-language-switcher>
