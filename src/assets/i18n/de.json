@@ -1,4 +1,11 @@
 {
+  "seo": {
+    "home": {
+      "title": "Easy Locker | Córdoba",
+      "description": "Intelligente Gepäckschließfächer in Córdoba ab 5 €/Tag"
+    }
+  },
+
   "hero": {
     "title": {
       "line1": "SCHLIESSFÄCHER",

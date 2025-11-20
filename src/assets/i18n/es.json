@@ -1,4 +1,11 @@
 {
+  "seo": {
+    "home": {
+      "title": "Easy Locker | Córdoba",
+      "description": "Consignas inteligentes en Córdoba desde 5 €/día"
+    }
+  },
+
   "hero": {
     "title": {
       "line1": "CONSIGNAS",

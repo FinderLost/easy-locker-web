@@ -1,4 +1,11 @@
 {
+  "seo": {
+    "home": {
+      "title": "Easy Locker | Cordoba",
+      "description": "Depositi bagagli smart a Cordoba da 5 €/giorno"
+    }
+  },
+
   "hero": {
     "title": {
       "line1": "DEPOSITI",
