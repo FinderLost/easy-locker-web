@@ -1,39 +1,101 @@
-import { Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
+export type ThemePreference = 'light' | 'dark' | 'system';
+
+const THEME_STORAGE_KEY = 'theme-preference';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ThemeService {
+export class ThemeService implements OnDestroy {
+  private preference = new BehaviorSubject<ThemePreference>('system');
   private darkMode = new BehaviorSubject<boolean>(false);
-  public darkMode$ = this.darkMode.asObservable();
+  private mediaQuery?: MediaQueryList;
 
-  constructor() {
-    // Check localStorage or system preference
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
-    this.setDarkMode(isDark);
+  preference$ = this.preference.asObservable();
+  darkMode$ = this.darkMode.asObservable();
+
+  private mediaListener = (event: MediaQueryListEvent) => {
+    if (this.preference.value === 'system') {
+      this.applyDarkMode(event.matches);
+    }
+  };
+
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    if (typeof window !== 'undefined') {
+      this.mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      this.mediaQuery.addEventListener('change', this.mediaListener);
+    }
+
+    const storedPreference = this.readStoredPreference();
+    this.setPreference(storedPreference, false);
   }
 
-  toggleDarkMode(): void {
-    this.setDarkMode(!this.darkMode.value);
-  }
-
-  setDarkMode(isDark: boolean): void {
-    this.darkMode.next(isDark);
-    
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+  ngOnDestroy(): void {
+    if (this.mediaQuery) {
+      this.mediaQuery.removeEventListener('change', this.mediaListener);
     }
   }
 
-  isDarkMode(): boolean {
-    return this.darkMode.value;
+  setPreference(preference: ThemePreference, persist = true): void {
+    this.preference.next(preference);
+    const shouldUseDark = this.resolveIsDark(preference);
+    this.applyDarkMode(shouldUseDark);
+
+    if (!persist) {
+      return;
+    }
+
+    if (preference === 'system') {
+      localStorage.removeItem(THEME_STORAGE_KEY);
+    } else {
+      localStorage.setItem(THEME_STORAGE_KEY, preference);
+    }
+  }
+
+  cyclePreference(): void {
+    const order: ThemePreference[] = ['light', 'dark', 'system'];
+    const currentIndex = order.indexOf(this.preference.value);
+    const nextPreference = order[(currentIndex + 1) % order.length];
+    this.setPreference(nextPreference);
+  }
+
+  private resolveIsDark(preference: ThemePreference): boolean {
+    if (preference === 'dark') {
+      return true;
+    }
+    if (preference === 'light') {
+      return false;
+    }
+    return this.mediaQuery ? this.mediaQuery.matches : false;
+  }
+
+  private applyDarkMode(isDark: boolean): void {
+    this.darkMode.next(isDark);
+    const classList = this.document?.documentElement.classList;
+    if (!classList) {
+      return;
+    }
+    classList.toggle('dark', isDark);
+  }
+
+  private readStoredPreference(): ThemePreference {
+    if (typeof localStorage === 'undefined') {
+      return 'system';
+    }
+    const stored = localStorage.getItem(THEME_STORAGE_KEY) as ThemePreference | null;
+    if (stored === 'light' || stored === 'dark') {
+      return stored;
+    }
+
+    const legacy = localStorage.getItem('theme') as ThemePreference | null;
+    if (legacy === 'light' || legacy === 'dark') {
+      localStorage.removeItem('theme');
+      localStorage.setItem(THEME_STORAGE_KEY, legacy);
+      return legacy;
+    }
+    return 'system';
   }
 }

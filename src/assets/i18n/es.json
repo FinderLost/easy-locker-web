@@ -16,6 +16,41 @@
     }
   },
 
+  "header": {
+    "theme": {
+      "srLabel": "Preferencias de tema",
+      "buttonAria": "Preferencia de tema: {{mode}}",
+      "menuLabel": "Configuración de tema",
+      "options": {
+        "light": {
+          "label": "Claro",
+          "description": "Usar siempre el modo claro"
+        },
+        "dark": {
+          "label": "Oscuro",
+          "description": "Usar siempre el modo oscuro"
+        },
+        "system": {
+          "label": "Sistema",
+          "description": "Sincronizar con el dispositivo"
+        }
+      }
+    },
+    "language": {
+      "srLabel": "Selector de idioma",
+      "buttonAria": "Idioma seleccionado: {{language}}",
+      "menuLabel": "Idiomas disponibles",
+      "options": {
+        "es": "Español",
+        "en": "English",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "unknown": "Idioma"
+      }
+    }
+  },
+
   "lockerSizes": {
     "title": "Planes de consigna",
     "subtitle": "Elige el espacio que mejor encaja con tu equipaje",
@@ -84,6 +119,11 @@
   "footer_badge_secure_service": "Servicio seguro",
   "footer_badge_made_with": "Hecho con",
   "footer_badge_in_cordoba": "en Córdoba",
+  "footer_social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok"
+  },
   "footer_copyright_text": "Easy Locker · Córdoba. Todos los derechos reservados.",
   "footer_terms": "Términos y condiciones",
   "footer_privacy": "Política de privacidad",
@@ -91,6 +131,7 @@
   "footer_copyright": "© 2024 Easy Locker. Todos los derechos reservados.",
   "meta_description": "Consignas inteligentes en Córdoba",
   "meta_title": "Easy Locker | Córdoba",
+  "testimonials_rating_aria": "Valoración: {{rating}} de 5 estrellas",
   "testimonials_placeholder": "Aún no hay opiniones disponibles.",
   "testimonials_placeholder_loading": "Cargando opiniones...",
   "testimonials_summary_empty": "Sé el primero en dejar tu opinión.",
@@ -104,5 +145,10 @@
   "testimonials_button_profile_aria": "Abrir perfil de Easy Locker en Google",
   "testimonials_button_review_aria": "Dejar una reseña en Google",
   "testimonials_button_all_reviews": "Ver todas las reseñas en Google",
-  "testimonials_button_all_reviews_aria": "Abrir listado de reseñas de Easy Locker en Google"
+  "testimonials_button_all_reviews_aria": "Abrir listado de reseñas de Easy Locker en Google",
+  "comingSoon": {
+    "subtitle": "Estamos trabajando en algo increíble",
+    "description": "Easy Locker está en desarrollo. Pronto podrás disfrutar de la mejor solución para gestionar tus casilleros de forma segura y eficiente.",
+    "footer": "© {{year}} Easy Locker. Todos los derechos reservados."
+  }
 }

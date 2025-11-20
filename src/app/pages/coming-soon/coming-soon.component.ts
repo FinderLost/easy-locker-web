@@ -6,4 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./coming-soon.component.css']
 })
 export class ComingSoonComponent {
+  readonly currentYear = new Date().getFullYear();
 }

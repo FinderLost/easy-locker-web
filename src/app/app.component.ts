@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +9,9 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent implements OnInit {
   title = 'easy-locker-angular';
 
-  constructor(private translate: TranslateService) {
-    // Set default language
-    translate.setDefaultLang('es');
-  }
+  constructor(private languageService: LanguageService) {}
 
-  ngOnInit() {
-    // Initialize language from localStorage or use default
-    const savedLanguage = localStorage.getItem('language') || 'es';
-    this.translate.use(savedLanguage);
+  ngOnInit(): void {
+    this.languageService.init();
   }
 }

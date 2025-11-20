@@ -16,6 +16,41 @@
     }
   },
 
+  "header": {
+    "theme": {
+      "srLabel": "Preferenze tema",
+      "buttonAria": "Preferenza tema: {{mode}}",
+      "menuLabel": "Configura il tema",
+      "options": {
+        "light": {
+          "label": "Chiaro",
+          "description": "Usa sempre il tema chiaro"
+        },
+        "dark": {
+          "label": "Scuro",
+          "description": "Usa sempre il tema scuro"
+        },
+        "system": {
+          "label": "Sistema",
+          "description": "Sincronizza con il dispositivo"
+        }
+      }
+    },
+    "language": {
+      "srLabel": "Selettore lingua",
+      "buttonAria": "Lingua selezionata: {{language}}",
+      "menuLabel": "Lingue disponibili",
+      "options": {
+        "es": "Español",
+        "en": "English",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "unknown": "Lingua"
+      }
+    }
+  },
+
   "lockerSizes": {
     "title": "Piani di deposito bagagli",
     "subtitle": "Scegli lo spazio che meglio si adatta al tuo bagaglio",
@@ -84,6 +119,11 @@
   "footer_badge_secure_service": "Servizio sicuro",
   "footer_badge_made_with": "Fatto con",
   "footer_badge_in_cordoba": "a Cordova",
+  "footer_social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok"
+  },
   "footer_copyright_text": "Easy Locker · Cordova. Tutti i diritti riservati.",
   "footer_terms": "Termini e condizioni",
   "footer_privacy": "Informativa sulla privacy",
@@ -91,6 +131,7 @@
   "footer_copyright": "© 2024 Easy Locker. Tutti i diritti riservati.",
   "meta_description": "Depositi intelligenti a Cordoba",
   "meta_title": "Easy Locker | Cordoba",
+  "testimonials_rating_aria": "Valutazione: {{rating}} su 5 stelle",
   "testimonials_placeholder": "Nessuna recensione disponibile al momento.",
   "testimonials_placeholder_loading": "Caricamento delle recensioni...",
   "testimonials_summary_empty": "Sii il primo a lasciare una recensione.",
@@ -104,5 +145,10 @@
   "testimonials_button_profile_aria": "Apri il profilo Google di Easy Locker",
   "testimonials_button_review_aria": "Lascia una recensione su Google",
   "testimonials_button_all_reviews": "Vedi tutte le recensioni su Google",
-  "testimonials_button_all_reviews_aria": "Apri l'elenco delle recensioni di Easy Locker su Google"
+  "testimonials_button_all_reviews_aria": "Apri l'elenco delle recensioni di Easy Locker su Google",
+  "comingSoon": {
+    "subtitle": "Stiamo lavorando a qualcosa di incredibile",
+    "description": "Easy Locker è in fase di sviluppo. Presto potrai usufruire della migliore soluzione per gestire i tuoi locker in modo sicuro ed efficiente.",
+    "footer": "© {{year}} Easy Locker. Tutti i diritti riservati."
+  }
 }
