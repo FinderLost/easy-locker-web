@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AnalyticsService } from '../../core/analytics/analytics.service';
 
@@ -9,6 +9,7 @@ interface LockerPlan {
   dimensionsKey: string;
   descriptionKey: string;
   sizeCm: string;
+  link?: string;
 }
 
 @Component({
@@ -16,9 +17,10 @@ interface LockerPlan {
   templateUrl: './pricing.component.html',
   styleUrls: ['./pricing.component.css'],
 })
-export class PricingComponent implements AfterViewInit, OnDestroy {
+export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
   private plansObserver?: IntersectionObserver;
   private hasLoggedView = false;
+  bookingLink = '';
   plans: LockerPlan[] = [
     {
       id: 'M',
@@ -52,6 +54,16 @@ export class PricingComponent implements AfterViewInit, OnDestroy {
     private translate: TranslateService
   ) {}
 
+  ngOnInit(): void {
+    this.translate
+      .get('hero.links.reserve')
+      .subscribe((link: string) => {
+        const trimmed = link?.trim() ?? '';
+        this.bookingLink = trimmed;
+        this.plans = this.plans.map((plan) => ({ ...plan, link: trimmed }));
+      });
+  }
+
   ngAfterViewInit(): void {
     this.observePlansSection();
   }
@@ -72,15 +84,7 @@ export class PricingComponent implements AfterViewInit, OnDestroy {
 
     this.analytics.logEvent('plan_card_click', payload);
 
-    this.translate
-      .get('hero.links.reserve')
-      .subscribe((link: string) => {
-        const target = link?.trim();
-        if (!target || typeof window === 'undefined') {
-          return;
-        }
-        window.open(target, '_blank');
-      });
+    // navigation handled by anchor element in template
   }
 
   private observePlansSection(): void {

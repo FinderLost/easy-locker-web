@@ -17,40 +17,38 @@
     </header>
 
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto">
-      <article
-        class="easy-plan-card group bg-brand-surface rounded-2xl border border-brand-border shadow-lg hover:shadow-xl transition-all duration-300"
+      <a
         *ngFor="let plan of plans"
+        class="group block h-full rounded-2xl border border-brand-border bg-brand-surface shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-brand-surfaceStrong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accentPrimary active:scale-[0.99]"
+        [href]="plan.link || '#'"
+        target="_blank"
+        rel="noopener noreferrer"
+        role="link"
+        [attr.aria-label]="('hero.buttons.reserve' | translate) + ' ' + (plan.nameKey | translate)"
+        (click)="onPlanSelected(plan)"
       >
-        <div class="plan-card__media border-b border-brand-borderSubtle bg-brand-background">
-          <img
-            [src]="plan.image"
-            [alt]="plan.nameKey | translate"
-            loading="lazy"
-            class="mx-auto h-48 w-auto object-contain"
-          />
-        </div>
-        <div class="plan-card__body p-6 flex flex-col gap-3 text-center">
-          <h3 class="plan-card__title text-2xl font-semibold text-brand-textPrimary">
-            {{ plan.nameKey | translate }}
-          </h3>
-          <p class="plan-card__dimensions text-brand-textMuted text-sm uppercase tracking-[0.2em]">
-            {{ plan.dimensionsKey | translate }}
-          </p>
-          <p class="plan-card__description text-brand-textSecondary">
-            {{ plan.descriptionKey | translate }}
-          </p>
-          <span class="mt-2 inline-flex items-center justify-center rounded-full bg-brand-infoBackground/30 px-4 py-1 text-sm font-medium text-brand-info">
-            {{ plan.sizeCm }} cm
-          </span>
-          <button
-            type="button"
-            class="easy-pill-btn easy-cta-primary mt-4 w-full justify-center"
-            (click)="onPlanSelected(plan)"
-          >
-            {{ 'hero.buttons.reserve' | translate }}
-          </button>
-        </div>
-      </article>
+        <article class="flex h-full flex-col gap-4 p-6 text-center">
+          <div class="flex justify-center">
+            <img
+              [src]="plan.image"
+              [alt]="plan.nameKey | translate"
+              loading="lazy"
+              class="h-48 w-auto object-contain"
+            />
+          </div>
+          <div class="flex flex-col gap-3">
+            <h3 class="text-2xl font-semibold text-brand-textPrimary">
+              {{ plan.nameKey | translate }}
+            </h3>
+            <p class="text-brand-textMuted text-sm uppercase tracking-[0.2em]">
+              {{ plan.dimensionsKey | translate }}
+            </p>
+            <p class="text-brand-textSecondary">
+              {{ plan.descriptionKey | translate }}
+            </p>
+          </div>
+        </article>
+      </a>
     </div>
   </div>
 </section>
