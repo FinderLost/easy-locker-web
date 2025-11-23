@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map, of } from 'rxjs';
+import { AnalyticsService } from '../../core/analytics/analytics.service';
 
 interface GoogleReview {
   author: string;
@@ -32,7 +33,7 @@ interface GoogleReviewsConfig {
   templateUrl: './testimonials.component.html',
   styleUrls: ['./testimonials.component.css'],
 })
-export class TestimonialsComponent implements OnInit {
+export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly maxReviews = 6;
   private readonly googleApiUrl =
     'https://maps.googleapis.com/maps/api/place/details/json';
@@ -42,11 +43,26 @@ export class TestimonialsComponent implements OnInit {
 
   reviews: GoogleReview[] = [];
   isLoading = true;
+  private hasLoggedView = false;
+  private sectionVisible = false;
+  private visibilityObserver?: IntersectionObserver;
 
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    private analytics: AnalyticsService,
+    private elementRef: ElementRef<HTMLElement>
+  ) {}
 
   ngOnInit(): void {
     this.fetchReviews();
+  }
+
+  ngAfterViewInit(): void {
+    this.observeSection();
+  }
+
+  ngOnDestroy(): void {
+    this.visibilityObserver?.disconnect();
   }
 
   get hasReviews(): boolean {
@@ -72,6 +88,18 @@ export class TestimonialsComponent implements OnInit {
     return `${review.author}-${review.date ?? index}`;
   }
 
+  onLeaveReviewClick(): void {
+    this.analytics.logEvent('reviews_click_leave_review', {
+      destination: 'google_reviews',
+    });
+  }
+
+  onViewProfileClick(): void {
+    this.analytics.logEvent('reviews_click_view_profile', {
+      destination: 'google_business_profile',
+    });
+  }
+
   private fetchReviews(): void {
     const config = this.getGoogleReviewsConfig();
     if (!config) {
@@ -80,6 +108,7 @@ export class TestimonialsComponent implements OnInit {
       );
       this.isLoading = false;
       this.reviews = [];
+      this.maybeLogReviewsView();
       return;
     }
 
@@ -108,8 +137,47 @@ export class TestimonialsComponent implements OnInit {
       .subscribe((reviews) => {
         this.reviews = reviews;
         this.isLoading = false;
+        this.maybeLogReviewsView();
       });
   }
+
+  private observeSection(): void {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      this.sectionVisible = true;
+      this.maybeLogReviewsView();
+      return;
+    }
+
+    this.visibilityObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            this.sectionVisible = true;
+            this.maybeLogReviewsView();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    this.visibilityObserver.observe(this.elementRef.nativeElement);
+  }
+
+  private maybeLogReviewsView(): void {
+    if (this.hasLoggedView || !this.sectionVisible || this.isLoading) {
+      return;
+    }
+    this.hasLoggedView = true;
+    this.analytics.logEvent('reviews_view', {
+      has_reviews: this.hasReviews,
+    });
+    this.visibilityObserver?.disconnect();
+  }
+
 
   private getGoogleReviewsConfig(): GoogleReviewsConfig | null {
     const globalWindow = window as Window & {

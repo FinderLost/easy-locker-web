@@ -35,6 +35,7 @@
               <a
                 href="mailto:info@easy-locker.com"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+                (click)="onQuickLinkClick('email', 'mailto:info@easy-locker.com')"
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
@@ -49,6 +50,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+                (click)="onQuickLinkClick('terms', getTermsUrl())"
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
@@ -63,6 +65,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+                (click)="onQuickLinkClick('whatsapp', 'https://wa.me/34644123456')"
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
@@ -87,6 +90,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+                (click)="onSocialClick('facebook', 'https://www.facebook.com/share/1Got7XaYUE/?mibextid=wwXIfr')"
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
@@ -101,6 +105,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+                (click)="onSocialClick('instagram', 'https://www.instagram.com/easylocker.es')"
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
@@ -115,6 +120,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+                (click)="onSocialClick('tiktok', 'https://www.tiktok.com/@easylocker.es')"
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"

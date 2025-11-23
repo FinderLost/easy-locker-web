@@ -1,6 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
+import { AnalyticsService } from '../core/analytics/analytics.service';
 
 export interface LanguageOption {
   code: string;
@@ -23,7 +25,11 @@ export class LanguageService {
 
   language$ = this.languageSubject.asObservable();
 
-  constructor(private translate: TranslateService) {}
+  constructor(
+    private translate: TranslateService,
+    @Inject(DOCUMENT) private document: Document,
+    private analytics: AnalyticsService
+  ) {}
 
   init(): void {
     if (this.initialized) {
@@ -59,18 +65,26 @@ export class LanguageService {
   private applyLanguage(languageCode: string, persist: boolean): void {
     const normalized = this.normalizeLocale(languageCode);
     const finalLang = this.isSupported(normalized) ? normalized : this.defaultLanguage;
+    const previous = this.languageSubject.value;
     this.translate.use(finalLang);
     this.languageSubject.next(finalLang);
+    this.updateDocumentLanguage(finalLang);
     if (persist) {
-      try {
-        localStorage.setItem(this.storageKey, finalLang);
-      } catch (error) {
-        // Ignore storage errors (e.g., privacy mode)
+      this.persistLanguage(finalLang);
+
+      if (previous !== finalLang) {
+        this.analytics.logEvent('nav_change_language', {
+          previous_lang: previous,
+          new_lang: finalLang,
+        });
       }
     }
   }
 
   private getStoredLanguage(): string | null {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      return null;
+    }
     try {
       const stored = localStorage.getItem(this.storageKey);
       return stored && this.isSupported(stored) ? stored : null;
@@ -108,5 +122,26 @@ export class LanguageService {
 
   private isSupported(code: string): boolean {
     return this.supportedLanguages.some((lang) => lang.code === code);
+  }
+
+  private updateDocumentLanguage(lang: string): void {
+    try {
+      if (this.document?.documentElement) {
+        this.document.documentElement.lang = lang;
+      }
+    } catch (error) {
+      // ignore document write errors
+    }
+  }
+
+  private persistLanguage(lang: string): void {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      return;
+    }
+    try {
+      localStorage.setItem(this.storageKey, lang);
+    } catch (error) {
+      // Ignore storage errors (e.g., privacy mode)
+    }
   }
 }
