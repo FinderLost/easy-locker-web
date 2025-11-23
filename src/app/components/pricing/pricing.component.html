@@ -2,7 +2,6 @@
   class="py-16 lg:py-24 text-brand-textPrimary font-sans transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-8">
-    <!-- Section Header -->
     <header class="section-heading text-center mb-10 md:mb-12 max-w-3xl mx-auto">
       <h2
         class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary text-center dark:text-brand-darkTextStrong"
@@ -17,26 +16,39 @@
       <div class="easy-section-underline"></div>
     </header>
 
-    <!-- Locker Size Cards -->
     <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto">
-      <article class="easy-plan-card" *ngFor="let plan of plans">
-        <div class="plan-card__media">
+      <article
+        class="easy-plan-card group bg-brand-surface rounded-2xl border border-brand-border shadow-lg hover:shadow-xl transition-all duration-300"
+        *ngFor="let plan of plans"
+      >
+        <div class="plan-card__media border-b border-brand-borderSubtle bg-brand-background">
           <img
             [src]="plan.image"
             [alt]="plan.nameKey | translate"
             loading="lazy"
+            class="mx-auto h-48 w-auto object-contain"
           />
         </div>
-        <div class="plan-card__body">
-          <h3 class="plan-card__title">
+        <div class="plan-card__body p-6 flex flex-col gap-3 text-center">
+          <h3 class="plan-card__title text-2xl font-semibold text-brand-textPrimary">
             {{ plan.nameKey | translate }}
           </h3>
-          <p class="plan-card__dimensions">
+          <p class="plan-card__dimensions text-brand-textMuted text-sm uppercase tracking-[0.2em]">
             {{ plan.dimensionsKey | translate }}
           </p>
-          <p class="plan-card__description">
+          <p class="plan-card__description text-brand-textSecondary">
             {{ plan.descriptionKey | translate }}
           </p>
+          <span class="mt-2 inline-flex items-center justify-center rounded-full bg-brand-infoBackground/30 px-4 py-1 text-sm font-medium text-brand-info">
+            {{ plan.sizeCm }} cm
+          </span>
+          <button
+            type="button"
+            class="easy-pill-btn easy-cta-primary mt-4 w-full justify-center"
+            (click)="onPlanSelected(plan)"
+          >
+            {{ 'hero.buttons.reserve' | translate }}
+          </button>
         </div>
       </article>
     </div>

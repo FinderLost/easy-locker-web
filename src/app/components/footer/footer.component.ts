@@ -12,6 +12,7 @@ import {
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../services/theme.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { AnalyticsService } from '../../core/analytics/analytics.service';
 
 @Component({
   selector: 'app-footer',
@@ -33,7 +34,8 @@ export class FooterComponent {
   constructor(
     private translate: TranslateService,
     public themeService: ThemeService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private analytics: AnalyticsService
   ) {
     this.themeService.darkMode$.subscribe((isDark) => {
       this.isDarkMode = isDark;
@@ -62,5 +64,19 @@ export class FooterComponent {
       default:
         return 'https://easylocker.drop-point.com/booking-engine/legal?locale=es';
     }
+  }
+
+  onQuickLinkClick(linkType: 'email' | 'whatsapp' | 'terms', href: string): void {
+    this.analytics.logEvent('footer_click_quick_link', {
+      link_type: linkType,
+      href,
+    });
+  }
+
+  onSocialClick(network: 'facebook' | 'instagram' | 'tiktok', href: string): void {
+    this.analytics.logEvent('footer_click_social', {
+      network,
+      href,
+    });
   }
 }

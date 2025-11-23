@@ -4,6 +4,7 @@ import { Title, Meta } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { AnalyticsService } from './core/analytics/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private languageService: LanguageService,
     private titleService: Title,
     private metaService: Meta,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private readonly _analyticsService: AnalyticsService
   ) {}
 
   ngOnInit(): void {

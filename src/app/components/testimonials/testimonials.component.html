@@ -95,6 +95,7 @@
                 [href]="reviewUrl"
                 target="_blank"
                 rel="noopener noreferrer"
+                (click)="onLeaveReviewClick()"
                 [attr.aria-label]="'testimonials_button_review_aria' | translate"
               >
                 {{ "testimonials_button_review" | translate }}
@@ -104,6 +105,7 @@
                 [href]="profileUrl"
                 target="_blank"
                 rel="noopener noreferrer"
+                (click)="onViewProfileClick()"
                 [attr.aria-label]="'testimonials_button_profile_aria' | translate"
               >
                 {{ "testimonials_button_profile" | translate }}
@@ -132,6 +134,7 @@
           [href]="profileUrl"
           target="_blank"
           rel="noopener noreferrer"
+          (click)="onViewProfileClick()"
           [attr.aria-label]="'testimonials_button_all_reviews_aria' | translate"
         >
           {{ "testimonials_button_all_reviews" | translate }}
