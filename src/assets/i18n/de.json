@@ -5,7 +5,6 @@
       "description": "Intelligente Gepäckschließfächer in Córdoba ab 5 €/Tag"
     }
   },
-
   "hero": {
     "title": {
       "line1": "SCHLIESSFÄCHER",
@@ -183,11 +182,6 @@
       "policy": "Cookie-Richtlinie",
       "manage": "Cookies verwalten"
     }
-  },
-  "comingSoon": {
-    "subtitle": "Wir arbeiten an etwas Großartigem",
-    "description": "Easy Locker befindet sich in Entwicklung. Bald genießt du die beste Lösung, um deine Schließfächer sicher und effizient zu verwalten.",
-    "footer": "© {{year}} Easy Locker. Alle Rechte vorbehalten."
   },
   "cookiePolicy": {
     "title": "Cookie-Richtlinie",

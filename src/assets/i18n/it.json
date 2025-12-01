@@ -5,7 +5,6 @@
       "description": "Depositi bagagli smart a Cordoba da 5 €/giorno"
     }
   },
-
   "hero": {
     "title": {
       "line1": "DEPOSITI",
@@ -183,11 +182,6 @@
       "policy": "Informativa sui cookie",
       "manage": "Gestisci cookie"
     }
-  },
-  "comingSoon": {
-    "subtitle": "Stiamo lavorando a qualcosa di incredibile",
-    "description": "Easy Locker è in fase di sviluppo. Presto potrai usufruire della migliore soluzione per gestire i tuoi locker in modo sicuro ed efficiente.",
-    "footer": "© {{year}} Easy Locker. Tutti i diritti riservati."
   },
   "cookiePolicy": {
     "title": "Informativa sui cookie",

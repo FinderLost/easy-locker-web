@@ -5,7 +5,6 @@
       "description": "Consignes intelligentes à Cordoue dès 5 €/jour"
     }
   },
-
   "hero": {
     "title": {
       "line1": "CONSIGNES",
@@ -183,11 +182,6 @@
       "policy": "Politique de cookies",
       "manage": "Gérer les cookies"
     }
-  },
-  "comingSoon": {
-    "subtitle": "Nous travaillons sur quelque chose d'incroyable",
-    "description": "Easy Locker est en développement. Vous pourrez bientôt profiter de la meilleure solution pour gérer vos consignes en toute sécurité et efficacité.",
-    "footer": "© {{year}} Easy Locker. Tous droits réservés."
   },
   "cookiePolicy": {
     "title": "Politique de cookies",

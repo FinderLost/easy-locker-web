@@ -15,7 +15,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LanguageSwitcherComponent } from './components/language-switcher/language-switcher.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
-import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
 import { CookiePreferencesComponent } from './shared/components/cookie-preferences/cookie-preferences.component';
@@ -35,7 +34,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     LanguageSwitcherComponent,
     PricingComponent,
     TestimonialsComponent,
-    ComingSoonComponent,
     HomeComponent,
     CookieBannerComponent,
     CookiePreferencesComponent,

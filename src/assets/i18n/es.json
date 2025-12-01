@@ -184,11 +184,6 @@
       "manage": "Gestionar cookies"
     }
   },
-  "comingSoon": {
-    "subtitle": "Estamos trabajando en algo increíble",
-    "description": "Easy Locker está en desarrollo. Pronto podrás disfrutar de la mejor solución para gestionar tus casilleros de forma segura y eficiente.",
-    "footer": "© {{year}} Easy Locker. Todos los derechos reservados."
-  },
   "cookiePolicy": {
     "title": "Política de cookies",
     "summary": "Esta política explica cómo Easy Locker utiliza cookies para prestar el servicio, mejorar la experiencia y medir de forma anónima el rendimiento del sitio web.",

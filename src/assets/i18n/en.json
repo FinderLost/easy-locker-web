@@ -5,7 +5,6 @@
       "description": "Smart luggage lockers in Cordoba from 5 €/day"
     }
   },
-
   "hero": {
     "title": {
       "line1": "LOCKERS",
@@ -183,11 +182,6 @@
       "policy": "Cookie policy",
       "manage": "Manage cookies"
     }
-  },
-  "comingSoon": {
-    "subtitle": "We're working on something amazing",
-    "description": "Easy Locker is in development. Soon you'll enjoy the best way to manage your lockers safely and efficiently.",
-    "footer": "© {{year}} Easy Locker. All rights reserved."
   },
   "cookiePolicy": {
     "title": "Cookie policy",

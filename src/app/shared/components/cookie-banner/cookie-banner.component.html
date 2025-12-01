@@ -108,7 +108,9 @@
                 [class.bg-brand-accentPrimary]="cookieConsent.analyticsEnabled"
                 [class.bg-brand-border]="!cookieConsent.analyticsEnabled"
                 (click)="
-                  cookieConsent.analyticsEnabled ? acceptEssential() : acceptAll()
+                  cookieConsent.analyticsEnabled
+                    ? acceptEssential()
+                    : acceptAll()
                 "
                 [attr.aria-pressed]="cookieConsent.analyticsEnabled"
               >
@@ -123,7 +125,9 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+      <div
+        class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end"
+      >
         <button
           type="button"
           class="easy-pill-btn easy-cta-secondary w-full min-h-[44px] sm:w-auto"
@@ -146,10 +150,7 @@
         </button>
       </div>
       <p class="text-xs text-brand-textMuted">
-        <a
-          routerLink="/politica-cookies"
-          class="underline"
-        >
+        <a routerLink="/politica-cookies" class="underline">
           {{
             "cookies.action.policy"
               | translate : { default: "Política de cookies" }
