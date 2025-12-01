@@ -68,7 +68,7 @@ export class FooterComponent {
   }
 
   onQuickLinkClick(
-    linkType: 'email' | 'whatsapp' | 'terms',
+    linkType: 'email' | 'whatsapp' | 'terms' | 'cookie-policy',
     href: string
   ): void {
     this.analytics.trackEvent('footer_click_quick_link', {

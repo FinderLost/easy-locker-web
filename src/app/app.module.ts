@@ -19,6 +19,7 @@ import { ComingSoonComponent } from './pages/coming-soon/coming-soon.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CookieBannerComponent } from './shared/components/cookie-banner/cookie-banner.component';
 import { CookiePreferencesComponent } from './shared/components/cookie-preferences/cookie-preferences.component';
+import { CookiePolicyComponent } from './pages/cookie-policy/cookie-policy.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -38,6 +39,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     CookieBannerComponent,
     CookiePreferencesComponent,
+    CookiePolicyComponent,
   ],
   imports: [
     BrowserModule,

@@ -188,5 +188,93 @@
     "subtitle": "Wir arbeiten an etwas Großartigem",
     "description": "Easy Locker befindet sich in Entwicklung. Bald genießt du die beste Lösung, um deine Schließfächer sicher und effizient zu verwalten.",
     "footer": "© {{year}} Easy Locker. Alle Rechte vorbehalten."
+  },
+  "cookiePolicy": {
+    "title": "Cookie-Richtlinie",
+    "summary": "Diese Richtlinie erklärt, wie Easy Locker Cookies nutzt, um den Service bereitzustellen, das Erlebnis zu verbessern und die Leistung der Website anonym zu messen.",
+    "sections": {
+      "responsible": {
+        "title": "1. Wer ist verantwortlich?",
+        "body": "Easy Locker Córdoba (im Folgenden \"Easy Locker\") ist für die Verarbeitung der Daten verantwortlich, die mit der Nutzung von Cookies auf dieser Website zusammenhängen.",
+        "list": {
+          "email": "Kontakt-E-Mail:",
+          "purpose": "Wir setzen Cookies und ähnliche Technologien ein, um unsere Dienste bereitzustellen, die Nutzererfahrung zu verbessern und anonymisierte Nutzungsstatistiken zu erhalten."
+        },
+        "note": "Wenn du vollständige Unternehmensdaten oder weitere Informationen benötigst, melde dich unter info@easy-locker.com."
+      },
+      "definition": {
+        "title": "2. Was sind Cookies?",
+        "body": "Ein Cookie ist eine kleine Datei, die im Browser gespeichert wird und dabei hilft, Einstellungen zu merken oder zu verstehen, wie du die Website verwendest. Cookies können von easy-locker.com oder von Drittanbietern (z. B. Google) stammen und sind Sitzungs- oder dauerhafte Cookies."
+      },
+      "types": {
+        "title": "3. Welche Cookies verwenden wir?",
+        "essential": {
+          "title": "3.1 Essenzielle Cookies (erforderlich)",
+          "intro": "Sie sind notwendig, damit die Website korrekt funktioniert, und können in der Banner-Einstellung nicht deaktiviert werden.",
+          "items": {
+            "language": "Die Sprache der Oberfläche merken.",
+            "theme": "Das Design (hell/dunkel/system) speichern.",
+            "consent": "Deine Entscheidung zur Cookie-Nutzung sichern."
+          },
+          "legal": "Rechtsgrundlage: berechtigtes Interesse und Leistungserbringung (ohne sie würde die Website nicht funktionieren)."
+        },
+        "analytics": {
+          "title": "3.2 Analyse-Cookies (optional)",
+          "intro": "Wir verwenden Google Analytics / Firebase Analytics, um zu wissen, wie viele Besuche wir erhalten, welche Bereiche am meisten genutzt werden und wie wir die Leistung verbessern können.",
+          "dataTitle": "Erfasste Daten:",
+          "dataItems": {
+            "device": "Anonymer Geräte- oder Browser-Identifikator.",
+            "tech": "Grundlegende technische Angaben (Browser, Auflösung, ungefähres Land usw.).",
+            "usage": "Nutzungsinformationen (besuchte Seiten, Verweildauer, Ereignisse wie \"Jetzt reservieren\"-Klicks oder Sprachwechsel)."
+          },
+          "notStoredTitle": "Wir speichern nicht:",
+          "notStoredItems": {
+            "names": "Vor- und Nachnamen.",
+            "contact": "E-Mail, Telefonnummern oder Zahlungsdaten.",
+            "booking": "Buchungscodes oder andere direkt identifizierende Daten."
+          },
+          "legal": "Rechtsgrundlage: deine Einwilligung, die du im Banner oder über \"Cookies verwalten\" im Footer erteilen oder widerrufen kannst. Anbieter: Google LLC (USA) mit Standardvertragsklauseln."
+        }
+      },
+      "list": {
+        "title": "4. Konkrete Cookies",
+        "table": {
+          "name": "Name",
+          "type": "Typ",
+          "purpose": "Zweck"
+        },
+        "labels": {
+          "essential": "Essentiell",
+          "analytics": "Analyse"
+        },
+        "rows": {
+          "easyLang": {
+            "purpose": "Merkt sich die gewählte Sprache."
+          },
+          "easyTheme": {
+            "purpose": "Behält die Licht/Dunkel/System-Einstellung."
+          },
+          "easyConsent": {
+            "purpose": "Speichert, ob Analyse-Cookies akzeptiert oder abgelehnt wurden."
+          },
+          "ga": {
+            "purpose": "Misst Besuche und Verhalten, sobald du zugestimmt hast."
+          }
+        },
+        "notice": "Wir prüfen regelmäßig, welche Cookies wir einsetzen, und aktualisieren diese Tabelle bei jeder Änderung."
+      },
+      "manage": {
+        "title": "5. Wie kann ich meine Einwilligung verwalten?",
+        "body": "Beim ersten Besuch zeigen wir ein Banner, damit du nur essenzielle Cookies oder alle akzeptieren kannst. Du kannst deine Entscheidung jederzeit über den Link \"Cookies verwalten\" im Footer ändern. Wenn du Analyse deaktivierst, senden wir keine Events mehr an Google/Firebase und lesen vorhandene Cookies nicht weiter aus."
+      },
+      "transfer": {
+        "title": "6. Internationale Datenübermittlungen",
+        "body": "Die Nutzung von Google/Firebase kann Datenübermittlungen in die USA beinhalten. Google LLC erklärt, Standardvertragsklauseln und weitere EU-konforme Garantien zu verwenden."
+      },
+      "updates": {
+        "title": "7. Aktualisierungen dieser Richtlinie",
+        "body": "Wir können diese Richtlinie an rechtliche oder technische Änderungen anpassen. Bei wesentlichen Änderungen fragen wir deine Zustimmung erneut über das Cookie-Banner ab."
+      }
+    }
   }
 }

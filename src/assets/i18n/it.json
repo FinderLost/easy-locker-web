@@ -188,5 +188,93 @@
     "subtitle": "Stiamo lavorando a qualcosa di incredibile",
     "description": "Easy Locker è in fase di sviluppo. Presto potrai usufruire della migliore soluzione per gestire i tuoi locker in modo sicuro ed efficiente.",
     "footer": "© {{year}} Easy Locker. Tutti i diritti riservati."
+  },
+  "cookiePolicy": {
+    "title": "Informativa sui cookie",
+    "summary": "Questa informativa spiega come Easy Locker utilizza i cookie per offrire il servizio, migliorare l'esperienza e misurare in modo anonimo le prestazioni del sito.",
+    "sections": {
+      "responsible": {
+        "title": "1. Chi è il responsabile?",
+        "body": "Easy Locker Cordoba (di seguito \"Easy Locker\") è responsabile del trattamento dei dati legati all'uso dei cookie su questo sito web.",
+        "list": {
+          "email": "Email di contatto:",
+          "purpose": "Utilizziamo cookie e tecnologie simili per offrire i nostri servizi, migliorare l'esperienza utente e ottenere statistiche anonime di utilizzo."
+        },
+        "note": "Per ottenere tutti i dati societari o ulteriori informazioni, scrivici a info@easy-locker.com."
+      },
+      "definition": {
+        "title": "2. Cosa sono i cookie?",
+        "body": "Un cookie è un piccolo file salvato nel browser che permette di ricordare preferenze o capire come utilizzi il sito. Possono essere di first party (easy-locker.com) o di terze parti (es. Google) e avere durata di sessione o persistente."
+      },
+      "types": {
+        "title": "3. Tipi di cookie che utilizziamo",
+        "essential": {
+          "title": "3.1 Cookie essenziali (necessari)",
+          "intro": "Sono indispensabili per il corretto funzionamento del sito e non possono essere disattivati dal banner.",
+          "items": {
+            "language": "Ricordano la lingua dell'interfaccia.",
+            "theme": "Ricordano il tema chiaro/scuro/sistema.",
+            "consent": "Salvano la tua scelta sull'uso dei cookie."
+          },
+          "legal": "Base giuridica: legittimo interesse ed esecuzione del servizio (senza di essi il sito non funzionerebbe)."
+        },
+        "analytics": {
+          "title": "3.2 Cookie di analisi (facoltativi)",
+          "intro": "Usiamo Google Analytics / Firebase Analytics per sapere quante visite riceviamo, quali sezioni sono più utilizzate e come migliorare le prestazioni.",
+          "dataTitle": "Dati raccolti:",
+          "dataItems": {
+            "device": "Identificativo anonimo del dispositivo o del browser.",
+            "tech": "Informazioni tecniche di base (browser, risoluzione, paese approssimativo, ecc.).",
+            "usage": "Informazioni d'uso (pagine visitate, tempo trascorso, eventi come clic su \"Prenota ora\" o cambio lingua)."
+          },
+          "notStoredTitle": "Non conserviamo:",
+          "notStoredItems": {
+            "names": "Nome e cognome.",
+            "contact": "Email, telefono o dati di pagamento.",
+            "booking": "Codici di prenotazione o altri dati che ti identificano direttamente."
+          },
+          "legal": "Base giuridica: il tuo consenso, che puoi concedere o revocare dal banner o dal link \"Gestisci cookie\" nel footer. Fornitore: Google LLC (USA) con clausole contrattuali standard."
+        }
+      },
+      "list": {
+        "title": "4. Cookie specifici",
+        "table": {
+          "name": "Nome",
+          "type": "Tipo",
+          "purpose": "Finalità"
+        },
+        "labels": {
+          "essential": "Essenziale",
+          "analytics": "Analitico"
+        },
+        "rows": {
+          "easyLang": {
+            "purpose": "Ricorda la lingua selezionata."
+          },
+          "easyTheme": {
+            "purpose": "Mantiene la preferenza di tema (chiaro/scuro/sistema)."
+          },
+          "easyConsent": {
+            "purpose": "Salva se hai accettato o rifiutato i cookie di analisi."
+          },
+          "ga": {
+            "purpose": "Misura visite e comportamento quando presti il consenso."
+          }
+        },
+        "notice": "Rivediamo periodicamente i cookie utilizzati e aggiorniamo questa tabella ogni volta che aggiungiamo o rimuoviamo strumenti."
+      },
+      "manage": {
+        "title": "5. Come gestisco o revoco il consenso?",
+        "body": "Al primo accesso mostriamo un banner per accettare solo i cookie essenziali o tutti i cookie. Puoi cambiare scelta in qualsiasi momento tramite il link \"Gestisci cookie\" nel footer. Se disattivi l'analisi smetteremo di inviare eventi a Google/Firebase e di leggere i cookie esistenti."
+      },
+      "transfer": {
+        "title": "6. Trasferimenti internazionali",
+        "body": "L'uso di Google/Firebase può comportare trasferimenti di dati verso gli Stati Uniti. Google LLC dichiara di applicare Clausole Contrattuali Standard e altre garanzie conformi al diritto europeo."
+      },
+      "updates": {
+        "title": "7. Aggiornamenti di questa informativa",
+        "body": "Possiamo aggiornare questa informativa per adeguarla a cambiamenti legali o tecnici. In caso di modifiche rilevanti richiederemo nuovamente il tuo consenso tramite il banner dei cookie."
+      }
+    }
   }
 }

@@ -65,6 +65,24 @@
             </li>
             <li>
               <a
+                routerLink="/politica-cookies"
+                class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
+                (click)="onQuickLinkClick('cookie-policy', '/politica-cookies')"
+              >
+                <span
+                  class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
+                  [innerHTML]="termsIcon"
+                ></span>
+                <span>
+                  {{
+                    'cookies.action.policy'
+                      | translate : { default: 'Política de cookies' }
+                  }}
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
                 href="https://wa.me/34644123456"
                 target="_blank"
                 rel="noopener noreferrer"
