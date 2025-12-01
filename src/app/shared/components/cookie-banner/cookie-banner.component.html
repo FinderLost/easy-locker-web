@@ -1,0 +1,163 @@
+<div
+  class="fixed inset-0 z-50 flex items-end justify-center bg-black/40 px-4 pb-6 pt-4 md:items-end md:justify-end md:px-8 md:pb-8"
+  role="presentation"
+>
+  <section
+    class="mx-auto mt-auto mb-6 w-full max-w-[480px] rounded-2xl border border-brand-border bg-brand-surface px-5 py-5 shadow-2xl transition-all md:mx-0 md:mb-0 md:max-w-md md:px-6 md:py-5 md:shadow-xl"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Aviso de cookies"
+    tabindex="-1"
+  >
+    <div class="flex flex-col gap-4">
+      <div>
+        <h2 class="text-lg font-semibold text-brand-textPrimary">
+          {{
+            "cookies.banner.title"
+              | translate : { default: "Tus preferencias de cookies" }
+          }}
+        </h2>
+        <p class="mt-1 text-sm text-brand-textSecondary">
+          {{
+            "cookies.banner.body"
+              | translate
+                : {
+                    default:
+                      "Usamos cookies esenciales para que el sitio funcione y analíticas opcionales para mejorar la experiencia. Puedes aceptar solo las necesarias o todas."
+                  }
+          }}
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col gap-3 rounded-xl bg-brand-background px-4 py-3 text-sm text-brand-textSecondary"
+      >
+        <div class="flex items-center justify-between">
+          <span class="font-medium text-brand-textPrimary">
+            {{
+              "cookies.categories.essential"
+                | translate : { default: "Esenciales" }
+            }}
+          </span>
+          <span
+            class="rounded-full bg-green-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-green-700"
+          >
+            {{
+              "cookies.state.required"
+                | translate : { default: "Siempre activas" }
+            }}
+          </span>
+        </div>
+        <p>
+          {{
+            "cookies.categories.essential_desc"
+              | translate
+                : {
+                    default:
+                      "Idioma, tema y funciones básicas necesarias para que Easy Locker funcione."
+                  }
+          }}
+        </p>
+        <div class="border-t border-brand-border pt-3">
+          <div class="flex items-center justify-between">
+            <span class="font-medium text-brand-textPrimary">
+              {{
+                "cookies.categories.analytics"
+                  | translate : { default: "Analíticas" }
+              }}
+            </span>
+            <button
+              type="button"
+              class="rounded-full border border-brand-border px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-textPrimary"
+              (click)="togglePreferences()"
+            >
+              {{
+                showPreferences
+                  ? ("cookies.action.hide" | translate : { default: "Ocultar" })
+                  : ("cookies.action.configure"
+                    | translate : { default: "Configurar" })
+              }}
+            </button>
+          </div>
+          <p class="mt-1">
+            {{
+              "cookies.categories.analytics_desc"
+                | translate
+                  : {
+                      default:
+                        "Nos ayudan a entender el uso del sitio y mejorar nuestros servicios."
+                    }
+            }}
+          </p>
+          <div
+            *ngIf="showPreferences"
+            class="mt-3 rounded-xl border border-brand-border p-3"
+          >
+            <label
+              class="flex items-center justify-between gap-4 text-sm font-medium text-brand-textPrimary"
+            >
+              <span>
+                {{
+                  "cookies.preferences.analytics_label"
+                    | translate : { default: "Permitir cookies de análisis" }
+                }}
+              </span>
+              <button
+                type="button"
+                class="relative inline-flex h-6 w-11 items-center rounded-full transition-colors"
+                [class.bg-brand-accentPrimary]="cookieConsent.analyticsEnabled"
+                [class.bg-brand-border]="!cookieConsent.analyticsEnabled"
+                (click)="
+                  cookieConsent.analyticsEnabled ? acceptEssential() : acceptAll()
+                "
+                [attr.aria-pressed]="cookieConsent.analyticsEnabled"
+              >
+                <span
+                  class="inline-block h-4 w-4 rounded-full bg-white transition-transform"
+                  [class.translate-x-5]="cookieConsent.analyticsEnabled"
+                  [class.translate-x-1]="!cookieConsent.analyticsEnabled"
+                ></span>
+              </button>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+        <button
+          type="button"
+          class="easy-pill-btn easy-cta-secondary w-full min-h-[44px] sm:w-auto"
+          (click)="acceptEssential()"
+        >
+          {{
+            "cookies.action.essential_only"
+              | translate : { default: "Aceptar solo esenciales" }
+          }}
+        </button>
+        <button
+          type="button"
+          class="easy-pill-btn easy-cta-primary w-full min-h-[44px] sm:w-auto"
+          (click)="acceptAll()"
+        >
+          {{
+            "cookies.action.accept_all"
+              | translate : { default: "Aceptar todas" }
+          }}
+        </button>
+      </div>
+      <p class="text-xs text-brand-textMuted">
+        <a
+          href="/politica-cookies"
+          class="underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{
+            "cookies.action.policy"
+              | translate : { default: "Política de cookies" }
+          }}
+        </a>
+      </p>
+    </div>
+  </section>
+</div>

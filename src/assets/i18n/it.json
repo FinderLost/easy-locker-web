@@ -153,6 +153,37 @@
   "testimonials_button_review_aria": "Lascia una recensione su Google",
   "testimonials_button_all_reviews": "Vedi tutte le recensioni su Google",
   "testimonials_button_all_reviews_aria": "Apri l'elenco delle recensioni di Easy Locker su Google",
+  "cookies": {
+    "banner": {
+      "title": "Le tue preferenze sui cookie",
+      "body": "Usiamo cookie essenziali per far funzionare il sito e cookie di analisi opzionali per migliorare l'esperienza. Puoi accettare solo quelli necessari o tutti."
+    },
+    "modal": {
+      "title": "Preferenze cookie",
+      "body": "Puoi attivare o disattivare i cookie di analisi in qualsiasi momento. I cookie essenziali sono sempre abilitati affinché il sito funzioni."
+    },
+    "categories": {
+      "essential": "Essenziali",
+      "essential_desc": "Lingua, tema e funzioni di base necessarie al funzionamento di Easy Locker.",
+      "analytics": "Analitiche",
+      "analytics_desc": "Ci aiutano a capire l'utilizzo del sito e a migliorare i nostri servizi."
+    },
+    "state": {
+      "required": "Sempre attivi"
+    },
+    "preferences": {
+      "analytics_label": "Consenti i cookie di analisi"
+    },
+    "action": {
+      "close": "Chiudi",
+      "hide": "Nascondi",
+      "configure": "Configura",
+      "essential_only": "Accetta solo gli essenziali",
+      "accept_all": "Accetta tutti",
+      "policy": "Informativa sui cookie",
+      "manage": "Gestisci cookie"
+    }
+  },
   "comingSoon": {
     "subtitle": "Stiamo lavorando a qualcosa di incredibile",
     "description": "Easy Locker è in fase di sviluppo. Presto potrai usufruire della migliore soluzione per gestire i tuoi locker in modo sicuro ed efficiente.",

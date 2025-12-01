@@ -4,7 +4,7 @@ import { AnalyticsService } from '../../core/analytics/analytics.service';
 @Component({
   selector: 'app-faq',
   templateUrl: './faq.component.html',
-  styleUrls: ['./faq.component.css']
+  styleUrls: ['./faq.component.css'],
 })
 export class FaqComponent implements AfterViewInit, OnDestroy {
   faqs = [
@@ -16,7 +16,7 @@ export class FaqComponent implements AfterViewInit, OnDestroy {
     { questionKey: 'faq_q6', answerKey: 'faq_a6', isOpen: false },
     { questionKey: 'faq_q7', answerKey: 'faq_a7', isOpen: false },
     { questionKey: 'faq_q8', answerKey: 'faq_a8', isOpen: false },
-    { questionKey: 'faq_q9', answerKey: 'faq_a9', isOpen: false }
+    { questionKey: 'faq_q9', answerKey: 'faq_a9', isOpen: false },
   ];
 
   private hasLoggedView = false;
@@ -38,7 +38,7 @@ export class FaqComponent implements AfterViewInit, OnDestroy {
   toggleFaq(index: number): void {
     const faq = this.faqs[index];
     faq.isOpen = !faq.isOpen;
-    this.analytics.logEvent('faq_toggle', {
+    this.analytics.trackEvent('faq_toggle', {
       faq_id: index,
       faq_question_key: faq.questionKey,
       is_open: faq.isOpen,
@@ -74,7 +74,7 @@ export class FaqComponent implements AfterViewInit, OnDestroy {
       return;
     }
     this.hasLoggedView = true;
-    this.analytics.logEvent('faq_view', {
+    this.analytics.trackEvent('faq_view', {
       faq_count: this.faqs.length,
     });
     this.observer?.disconnect();

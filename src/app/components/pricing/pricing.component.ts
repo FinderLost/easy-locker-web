@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AnalyticsService } from '../../core/analytics/analytics.service';
 
@@ -55,13 +61,11 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.translate
-      .get('hero.links.reserve')
-      .subscribe((link: string) => {
-        const trimmed = link?.trim() ?? '';
-        this.bookingLink = trimmed;
-        this.plans = this.plans.map((plan) => ({ ...plan, link: trimmed }));
-      });
+    this.translate.get('hero.links.reserve').subscribe((link: string) => {
+      const trimmed = link?.trim() ?? '';
+      this.bookingLink = trimmed;
+      this.plans = this.plans.map((plan) => ({ ...plan, link: trimmed }));
+    });
   }
 
   ngAfterViewInit(): void {
@@ -82,7 +86,7 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       cta_variant: 'plan_card_cta',
     };
 
-    this.analytics.logEvent('plan_card_click', payload);
+    this.analytics.trackEvent('plan_card_click', payload);
 
     // navigation handled by anchor element in template
   }
@@ -116,7 +120,7 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
     this.hasLoggedView = true;
-    this.analytics.logEvent('plans_view', { method });
+    this.analytics.trackEvent('plans_view', { method });
     this.plansObserver?.disconnect();
   }
 }

@@ -30,6 +30,7 @@ export class FooterComponent {
   secureIcon: SafeHtml;
   currentYear = new Date().getFullYear();
   isDarkMode = false;
+  showCookiePreferences = false;
 
   constructor(
     private translate: TranslateService,
@@ -66,17 +67,32 @@ export class FooterComponent {
     }
   }
 
-  onQuickLinkClick(linkType: 'email' | 'whatsapp' | 'terms', href: string): void {
-    this.analytics.logEvent('footer_click_quick_link', {
+  onQuickLinkClick(
+    linkType: 'email' | 'whatsapp' | 'terms',
+    href: string
+  ): void {
+    this.analytics.trackEvent('footer_click_quick_link', {
       link_type: linkType,
       href,
     });
   }
 
-  onSocialClick(network: 'facebook' | 'instagram' | 'tiktok', href: string): void {
-    this.analytics.logEvent('footer_click_social', {
+  onSocialClick(
+    network: 'facebook' | 'instagram' | 'tiktok',
+    href: string
+  ): void {
+    this.analytics.trackEvent('footer_click_social', {
       network,
       href,
     });
+  }
+
+  onManageCookies(): void {
+    this.showCookiePreferences = true;
+    this.analytics.trackEvent('footer_manage_cookies_open');
+  }
+
+  onPreferencesClosed(): void {
+    this.showCookiePreferences = false;
   }
 }

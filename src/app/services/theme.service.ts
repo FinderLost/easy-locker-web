@@ -8,7 +8,7 @@ export type ThemePreference = 'light' | 'dark' | 'system';
 const THEME_STORAGE_KEY = 'theme-preference';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService implements OnDestroy {
   private preference = new BehaviorSubject<ThemePreference>('system');
@@ -56,7 +56,7 @@ export class ThemeService implements OnDestroy {
     this.persistPreference(preference);
 
     if (previous !== preference) {
-      this.analytics.logEvent('nav_change_theme', {
+      this.analytics.trackEvent('nav_change_theme', {
         previous_theme: previous,
         new_theme: preference,
       });
@@ -95,7 +95,9 @@ export class ThemeService implements OnDestroy {
     }
 
     try {
-      const stored = localStorage.getItem(THEME_STORAGE_KEY) as ThemePreference | null;
+      const stored = localStorage.getItem(
+        THEME_STORAGE_KEY
+      ) as ThemePreference | null;
       if (stored === 'light' || stored === 'dark') {
         return stored;
       }

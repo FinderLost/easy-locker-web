@@ -153,6 +153,37 @@
   "testimonials_button_review_aria": "Bewertung auf Google abgeben",
   "testimonials_button_all_reviews": "Alle Google-Bewertungen ansehen",
   "testimonials_button_all_reviews_aria": "Liste der Easy Locker Bewertungen auf Google öffnen",
+  "cookies": {
+    "banner": {
+      "title": "Deine Cookie-Einstellungen",
+      "body": "Wir verwenden notwendige Cookies, damit die Seite funktioniert, und optionale Analyse-Cookies, um dein Erlebnis zu verbessern. Du kannst nur die notwendigen oder alle akzeptieren."
+    },
+    "modal": {
+      "title": "Cookie-Einstellungen",
+      "body": "Du kannst Analyse-Cookies jederzeit ein- oder ausschalten. Notwendige Cookies sind immer aktiv, damit die Website funktioniert."
+    },
+    "categories": {
+      "essential": "Essentiell",
+      "essential_desc": "Sprache, Design und grundlegende Funktionen, die Easy Locker zum Arbeiten benötigt.",
+      "analytics": "Analyse",
+      "analytics_desc": "Sie helfen uns, die Seitennutzung zu verstehen und unsere Services zu verbessern."
+    },
+    "state": {
+      "required": "Immer aktiv"
+    },
+    "preferences": {
+      "analytics_label": "Analyse-Cookies erlauben"
+    },
+    "action": {
+      "close": "Schließen",
+      "hide": "Ausblenden",
+      "configure": "Konfigurieren",
+      "essential_only": "Nur notwendige akzeptieren",
+      "accept_all": "Alle akzeptieren",
+      "policy": "Cookie-Richtlinie",
+      "manage": "Cookies verwalten"
+    }
+  },
   "comingSoon": {
     "subtitle": "Wir arbeiten an etwas Großartigem",
     "description": "Easy Locker befindet sich in Entwicklung. Bald genießt du die beste Lösung, um deine Schließfächer sicher und effizient zu verwalten.",

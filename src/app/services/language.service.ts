@@ -64,7 +64,9 @@ export class LanguageService {
 
   private applyLanguage(languageCode: string, persist: boolean): void {
     const normalized = this.normalizeLocale(languageCode);
-    const finalLang = this.isSupported(normalized) ? normalized : this.defaultLanguage;
+    const finalLang = this.isSupported(normalized)
+      ? normalized
+      : this.defaultLanguage;
     const previous = this.languageSubject.value;
     this.translate.use(finalLang);
     this.languageSubject.next(finalLang);
@@ -73,7 +75,7 @@ export class LanguageService {
       this.persistLanguage(finalLang);
 
       if (previous !== finalLang) {
-        this.analytics.logEvent('nav_change_language', {
+        this.analytics.trackEvent('nav_change_language', {
           previous_lang: previous,
           new_lang: finalLang,
         });
@@ -97,11 +99,12 @@ export class LanguageService {
     if (typeof window === 'undefined' || typeof navigator === 'undefined') {
       return null;
     }
-    const preferred = navigator.languages && navigator.languages.length > 0
-      ? navigator.languages
-      : navigator.language
-      ? [navigator.language]
-      : [];
+    const preferred =
+      navigator.languages && navigator.languages.length > 0
+        ? navigator.languages
+        : navigator.language
+        ? [navigator.language]
+        : [];
 
     for (const locale of preferred) {
       const normalized = this.normalizeLocale(locale);

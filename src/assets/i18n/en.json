@@ -153,6 +153,37 @@
   "testimonials_button_review_aria": "Leave a review on Google",
   "testimonials_button_all_reviews": "View all Google reviews",
   "testimonials_button_all_reviews_aria": "Open the Easy Locker reviews list on Google",
+  "cookies": {
+    "banner": {
+      "title": "Your cookie preferences",
+      "body": "We use essential cookies to keep the site running and optional analytics to improve your experience. You can accept only the necessary ones or all of them."
+    },
+    "modal": {
+      "title": "Cookie preferences",
+      "body": "You can turn analytics cookies on or off at any time. Essential cookies are always enabled so the site works."
+    },
+    "categories": {
+      "essential": "Essential",
+      "essential_desc": "Language, theme and core features required for Easy Locker to work.",
+      "analytics": "Analytics",
+      "analytics_desc": "They help us understand site usage and improve our services."
+    },
+    "state": {
+      "required": "Always on"
+    },
+    "preferences": {
+      "analytics_label": "Allow analytics cookies"
+    },
+    "action": {
+      "close": "Close",
+      "hide": "Hide",
+      "configure": "Configure",
+      "essential_only": "Accept essentials only",
+      "accept_all": "Accept all",
+      "policy": "Cookie policy",
+      "manage": "Manage cookies"
+    }
+  },
   "comingSoon": {
     "subtitle": "We're working on something amazing",
     "description": "Easy Locker is in development. Soon you'll enjoy the best way to manage your lockers safely and efficiently.",

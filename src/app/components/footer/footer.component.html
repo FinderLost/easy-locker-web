@@ -19,8 +19,10 @@
               class="h-12 w-auto"
             />
           </div>
-          <p class="max-w-sm text-sm leading-relaxed text-brand-textSecondary mx-auto md:mx-0">
-            {{ 'footer_description' | translate }}
+          <p
+            class="max-w-sm text-sm leading-relaxed text-brand-textSecondary mx-auto md:mx-0"
+          >
+            {{ "footer_description" | translate }}
           </p>
         </div>
 
@@ -28,20 +30,22 @@
           <h3
             class="text-xs font-semibold tracking-[0.18em] uppercase text-brand-textMuted"
           >
-            {{ 'footer_quick_links' | translate }}
+            {{ "footer_quick_links" | translate }}
           </h3>
           <ul class="space-y-3 text-sm">
             <li>
               <a
                 href="mailto:info@easy-locker.com"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
-                (click)="onQuickLinkClick('email', 'mailto:info@easy-locker.com')"
+                (click)="
+                  onQuickLinkClick('email', 'mailto:info@easy-locker.com')
+                "
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
                   [innerHTML]="emailIcon"
                 ></span>
-                <span>{{ 'footer_email' | translate }}</span>
+                <span>{{ "footer_email" | translate }}</span>
               </a>
             </li>
             <li>
@@ -56,7 +60,7 @@
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
                   [innerHTML]="termsIcon"
                 ></span>
-                <span>{{ 'footer_terms' | translate }}</span>
+                <span>{{ "footer_terms" | translate }}</span>
               </a>
             </li>
             <li>
@@ -65,13 +69,15 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
-                (click)="onQuickLinkClick('whatsapp', 'https://wa.me/34644123456')"
+                (click)="
+                  onQuickLinkClick('whatsapp', 'https://wa.me/34644123456')
+                "
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
                   [innerHTML]="whatsappIcon"
                 ></span>
-                <span>{{ 'footer_whatsapp' | translate }}</span>
+                <span>{{ "footer_whatsapp" | translate }}</span>
               </a>
             </li>
           </ul>
@@ -81,7 +87,7 @@
           <h3
             class="text-xs font-semibold tracking-[0.18em] uppercase text-brand-textMuted"
           >
-            {{ 'footer_connect_title' | translate }}
+            {{ "footer_connect_title" | translate }}
           </h3>
           <ul class="space-y-2 text-sm">
             <li>
@@ -90,13 +96,18 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
-                (click)="onSocialClick('facebook', 'https://www.facebook.com/share/1Got7XaYUE/?mibextid=wwXIfr')"
+                (click)="
+                  onSocialClick(
+                    'facebook',
+                    'https://www.facebook.com/share/1Got7XaYUE/?mibextid=wwXIfr'
+                  )
+                "
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
                   [innerHTML]="facebookIcon"
                 ></span>
-                <span>{{ 'footer_social.facebook' | translate }}</span>
+                <span>{{ "footer_social.facebook" | translate }}</span>
               </a>
             </li>
             <li>
@@ -105,13 +116,18 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
-                (click)="onSocialClick('instagram', 'https://www.instagram.com/easylocker.es')"
+                (click)="
+                  onSocialClick(
+                    'instagram',
+                    'https://www.instagram.com/easylocker.es'
+                  )
+                "
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
                   [innerHTML]="instagramIcon"
                 ></span>
-                <span>{{ 'footer_social.instagram' | translate }}</span>
+                <span>{{ "footer_social.instagram" | translate }}</span>
               </a>
             </li>
             <li>
@@ -120,13 +136,18 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center gap-2 text-brand-textSecondary hover:text-brand-textPrimary transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-easy-indicator focus-visible:ring-offset-2 focus-visible:ring-offset-brand-background rounded-full px-0.5 -mx-0.5"
-                (click)="onSocialClick('tiktok', 'https://www.tiktok.com/@easylocker.es')"
+                (click)="
+                  onSocialClick(
+                    'tiktok',
+                    'https://www.tiktok.com/@easylocker.es'
+                  )
+                "
               >
                 <span
                   class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-brand-surface/5 text-current"
                   [innerHTML]="tiktokIcon"
                 ></span>
-                <span>{{ 'footer_social.tiktok' | translate }}</span>
+                <span>{{ "footer_social.tiktok" | translate }}</span>
               </a>
             </li>
           </ul>
@@ -137,7 +158,8 @@
         class="mt-8 pt-6 border-t border-brand-borderSubtle/60 flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-xs text-brand-textMuted"
       >
         <p>
-          © {{ currentYear }} Easy Locker · Córdoba. {{ 'footer_all_rights' | translate }}
+          © {{ currentYear }} Easy Locker · Córdoba.
+          {{ "footer_all_rights" | translate }}
         </p>
         <div class="flex flex-wrap items-center gap-4 text-brand-textSecondary">
           <div class="inline-flex items-center gap-2">
@@ -145,16 +167,32 @@
               class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand-surface/5 text-current"
               [innerHTML]="secureIcon"
             ></span>
-            <span>{{ 'footer_badge_secure_service' | translate }}</span>
+            <span>{{ "footer_badge_secure_service" | translate }}</span>
           </div>
-          <span class="hidden h-4 w-px bg-brand-borderSubtle/60 md:inline-block"></span>
+          <span
+            class="hidden h-4 w-px bg-brand-borderSubtle/60 md:inline-block"
+          ></span>
           <div class="inline-flex items-center gap-1.5">
-            <span>{{ 'footer_badge_made_with' | translate }}</span>
+            <span>{{ "footer_badge_made_with" | translate }}</span>
             <span class="text-sm">❤️</span>
-            <span>{{ 'footer_badge_in_cordoba' | translate }}</span>
+            <span>{{ "footer_badge_in_cordoba" | translate }}</span>
           </div>
+          <button
+            type="button"
+            class="easy-focus-reset underline decoration-dotted underline-offset-4"
+            (click)="onManageCookies()"
+          >
+            {{
+              "cookies.action.manage"
+                | translate : { default: "Gestionar cookies" }
+            }}
+          </button>
         </div>
       </div>
     </div>
   </div>
+  <app-cookie-preferences
+    *ngIf="showCookiePreferences"
+    (closed)="onPreferencesClosed()"
+  ></app-cookie-preferences>
 </footer>

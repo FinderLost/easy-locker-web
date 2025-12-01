@@ -4,12 +4,12 @@ import { Title, Meta } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { AnalyticsService } from './core/analytics/analytics.service';
+import { CookieConsentService } from './core/services/cookie-consent.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'easy-locker-angular';
@@ -20,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     private titleService: Title,
     private metaService: Meta,
     private translate: TranslateService,
-    private readonly _analyticsService: AnalyticsService
+    public cookieConsent: CookieConsentService
   ) {}
 
   ngOnInit(): void {
@@ -41,10 +41,19 @@ export class AppComponent implements OnInit, OnDestroy {
     const seoDescription = this.translate.instant('seo.home.description');
 
     this.titleService.setTitle(seoTitle);
-    this.metaService.updateTag({ name: 'description', content: seoDescription });
+    this.metaService.updateTag({
+      name: 'description',
+      content: seoDescription,
+    });
     this.metaService.updateTag({ property: 'og:title', content: seoTitle });
-    this.metaService.updateTag({ property: 'og:description', content: seoDescription });
+    this.metaService.updateTag({
+      property: 'og:description',
+      content: seoDescription,
+    });
     this.metaService.updateTag({ name: 'twitter:title', content: seoTitle });
-    this.metaService.updateTag({ name: 'twitter:description', content: seoDescription });
+    this.metaService.updateTag({
+      name: 'twitter:description',
+      content: seoDescription,
+    });
   }
 }

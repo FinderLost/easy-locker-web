@@ -153,6 +153,37 @@
   "testimonials_button_review_aria": "Dejar una reseña en Google",
   "testimonials_button_all_reviews": "Ver todas las reseñas en Google",
   "testimonials_button_all_reviews_aria": "Abrir listado de reseñas de Easy Locker en Google",
+  "cookies": {
+    "banner": {
+      "title": "Tus preferencias de cookies",
+      "body": "Usamos cookies esenciales para que el sitio funcione y analíticas opcionales para mejorar la experiencia. Puedes aceptar solo las necesarias o todas."
+    },
+    "modal": {
+      "title": "Preferencias de cookies",
+      "body": "Puedes activar o desactivar las cookies de análisis en cualquier momento. Las cookies esenciales siempre están habilitadas para que el sitio funcione."
+    },
+    "categories": {
+      "essential": "Esenciales",
+      "essential_desc": "Idioma, tema y funciones básicas necesarias para que Easy Locker funcione.",
+      "analytics": "Analíticas",
+      "analytics_desc": "Nos ayudan a entender el uso del sitio y mejorar nuestros servicios."
+    },
+    "state": {
+      "required": "Siempre activas"
+    },
+    "preferences": {
+      "analytics_label": "Permitir cookies de análisis"
+    },
+    "action": {
+      "close": "Cerrar",
+      "hide": "Ocultar",
+      "configure": "Configurar",
+      "essential_only": "Aceptar solo esenciales",
+      "accept_all": "Aceptar todas",
+      "policy": "Política de cookies",
+      "manage": "Gestionar cookies"
+    }
+  },
   "comingSoon": {
     "subtitle": "Estamos trabajando en algo increíble",
     "description": "Easy Locker está en desarrollo. Pronto podrás disfrutar de la mejor solución para gestionar tus casilleros de forma segura y eficiente.",

@@ -5,17 +5,16 @@ import { AnalyticsService } from '../../core/analytics/analytics.service';
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent {
-
   constructor(
     private translate: TranslateService,
     private analytics: AnalyticsService
   ) {}
 
   onReserve() {
-    this.analytics.logEvent('hero_click_book_now', {
+    this.analytics.trackEvent('hero_click_book_now', {
       position: 'hero',
       cta_variant: 'primary',
     });
@@ -25,7 +24,7 @@ export class HeroComponent {
   }
 
   onDirections() {
-    this.analytics.logEvent('hero_click_get_directions', {
+    this.analytics.trackEvent('hero_click_get_directions', {
       position: 'hero',
       destination: 'google_maps',
     });

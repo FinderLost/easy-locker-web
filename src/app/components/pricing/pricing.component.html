@@ -2,7 +2,9 @@
   class="py-16 lg:py-24 text-brand-textPrimary font-sans transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-8">
-    <header class="section-heading text-center mb-10 md:mb-12 max-w-3xl mx-auto">
+    <header
+      class="section-heading text-center mb-10 md:mb-12 max-w-3xl mx-auto"
+    >
       <h2
         class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary text-center dark:text-brand-darkTextStrong"
       >
@@ -16,7 +18,9 @@
       <div class="easy-section-underline"></div>
     </header>
 
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto">
+    <div
+      class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto"
+    >
       <a
         *ngFor="let plan of plans"
         class="group block h-full rounded-2xl border border-brand-border bg-brand-surface shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-brand-surfaceStrong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accentPrimary active:scale-[0.99]"
@@ -24,7 +28,11 @@
         target="_blank"
         rel="noopener noreferrer"
         role="link"
-        [attr.aria-label]="('hero.buttons.reserve' | translate) + ' ' + (plan.nameKey | translate)"
+        [attr.aria-label]="
+          ('hero.buttons.reserve' | translate) +
+          ' ' +
+          (plan.nameKey | translate)
+        "
         (click)="onPlanSelected(plan)"
       >
         <article class="flex h-full flex-col gap-4 p-6 text-center">

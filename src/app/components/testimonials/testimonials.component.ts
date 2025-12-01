@@ -1,4 +1,10 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+} from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { catchError, map, of } from 'rxjs';
 import { AnalyticsService } from '../../core/analytics/analytics.service';
@@ -89,13 +95,13 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   onLeaveReviewClick(): void {
-    this.analytics.logEvent('reviews_click_leave_review', {
+    this.analytics.trackEvent('reviews_click_leave_review', {
       destination: 'google_reviews',
     });
   }
 
   onViewProfileClick(): void {
-    this.analytics.logEvent('reviews_click_view_profile', {
+    this.analytics.trackEvent('reviews_click_view_profile', {
       destination: 'google_business_profile',
     });
   }
@@ -172,12 +178,11 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
     this.hasLoggedView = true;
-    this.analytics.logEvent('reviews_view', {
+    this.analytics.trackEvent('reviews_view', {
       has_reviews: this.hasReviews,
     });
     this.visibilityObserver?.disconnect();
   }
-
 
   private getGoogleReviewsConfig(): GoogleReviewsConfig | null {
     const globalWindow = window as Window & {

@@ -153,6 +153,37 @@
   "testimonials_button_review_aria": "Laisser un avis sur Google",
   "testimonials_button_all_reviews": "Voir tous les avis sur Google",
   "testimonials_button_all_reviews_aria": "Ouvrir la liste des avis Easy Locker sur Google",
+  "cookies": {
+    "banner": {
+      "title": "Vos préférences de cookies",
+      "body": "Nous utilisons des cookies essentiels pour faire fonctionner le site et des cookies d'analyse optionnels pour améliorer votre expérience. Vous pouvez accepter uniquement les nécessaires ou tous."
+    },
+    "modal": {
+      "title": "Préférences de cookies",
+      "body": "Vous pouvez activer ou désactiver les cookies d'analyse à tout moment. Les cookies essentiels sont toujours activés pour que le site fonctionne."
+    },
+    "categories": {
+      "essential": "Essentielles",
+      "essential_desc": "Langue, thème et fonctions de base nécessaires au bon fonctionnement d'Easy Locker.",
+      "analytics": "Analytiques",
+      "analytics_desc": "Ils nous aident à comprendre l'utilisation du site et à améliorer nos services."
+    },
+    "state": {
+      "required": "Toujours actifs"
+    },
+    "preferences": {
+      "analytics_label": "Autoriser les cookies d'analyse"
+    },
+    "action": {
+      "close": "Fermer",
+      "hide": "Masquer",
+      "configure": "Configurer",
+      "essential_only": "Accepter seulement l'essentiel",
+      "accept_all": "Tout accepter",
+      "policy": "Politique de cookies",
+      "manage": "Gérer les cookies"
+    }
+  },
   "comingSoon": {
     "subtitle": "Nous travaillons sur quelque chose d'incroyable",
     "description": "Easy Locker est en développement. Vous pourrez bientôt profiter de la meilleure solution pour gérer vos consignes en toute sécurité et efficacité.",

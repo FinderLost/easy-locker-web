@@ -4,5 +4,6 @@
   <!-- Forzar generación de la clase y variable CSS de Tailwind -->
   <div class="bg-brand-background" style="display: none"></div>
 
+  <app-cookie-banner *ngIf="!cookieConsent.hasAnswered"></app-cookie-banner>
   <router-outlet></router-outlet>
 </main>
