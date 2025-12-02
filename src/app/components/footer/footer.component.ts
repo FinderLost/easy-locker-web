@@ -3,9 +3,7 @@ import {
   EmailIcon,
   AvailableIcon,
   WhatsAppIcon,
-  FacebookIcon,
-  InstagramIcon,
-  TikTokIcon,
+  FOOTER_SOCIAL_ICONS,
   TermsIcon,
   SecureIcon,
 } from './footer-icons';
@@ -23,9 +21,7 @@ export class FooterComponent {
   emailIcon: SafeHtml;
   availableIcon: SafeHtml;
   whatsappIcon: SafeHtml;
-  facebookIcon: SafeHtml;
-  instagramIcon: SafeHtml;
-  tiktokIcon: SafeHtml;
+  socialIcons: Record<'facebook' | 'instagram' | 'tiktok', SafeHtml>;
   termsIcon: SafeHtml;
   secureIcon: SafeHtml;
   currentYear = new Date().getFullYear();
@@ -44,9 +40,17 @@ export class FooterComponent {
     this.emailIcon = this.sanitizer.bypassSecurityTrustHtml(EmailIcon);
     this.availableIcon = this.sanitizer.bypassSecurityTrustHtml(AvailableIcon);
     this.whatsappIcon = this.sanitizer.bypassSecurityTrustHtml(WhatsAppIcon);
-    this.facebookIcon = this.sanitizer.bypassSecurityTrustHtml(FacebookIcon);
-    this.instagramIcon = this.sanitizer.bypassSecurityTrustHtml(InstagramIcon);
-    this.tiktokIcon = this.sanitizer.bypassSecurityTrustHtml(TikTokIcon);
+    this.socialIcons = {
+      facebook: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_SOCIAL_ICONS.facebook
+      ),
+      instagram: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_SOCIAL_ICONS.instagram
+      ),
+      tiktok: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_SOCIAL_ICONS.tiktok
+      ),
+    };
     this.termsIcon = this.sanitizer.bypassSecurityTrustHtml(TermsIcon);
     this.secureIcon = this.sanitizer.bypassSecurityTrustHtml(SecureIcon);
   }
