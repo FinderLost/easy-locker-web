@@ -63,16 +63,19 @@
     "plans": {
       "m": {
         "name": "Casier taille M",
+        "price": "5 €/jour",
         "dimensions": "28 cm x 41 cm x 56 cm",
         "description": "Convient à une petite valise ou un sac à dos."
       },
       "l": {
         "name": "Casier taille L",
+        "price": "7 €/jour",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "Convient à deux petites valises, deux sacs à dos ou une grande valise."
       },
       "xl": {
         "name": "Casier taille XL",
+        "price": "10 €/jour",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "Convient à une grande valise et deux petites, quatre petites valises ou quatre sacs à dos."
       }

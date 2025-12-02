@@ -64,16 +64,19 @@
     "plans": {
       "m": {
         "name": "Tamaño M",
+        "price": "5 €/día",
         "dimensions": "28 cm x 41 cm x 56 cm",
         "description": "Cabe una maleta pequeña o mochila."
       },
       "l": {
         "name": "Tamaño L",
+        "price": "7 €/día",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "Caben dos maletas pequeñas, dos mochilas o una maleta grande."
       },
       "xl": {
         "name": "Tamaño XL",
+        "price": "10 €/día",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "Cabe una maleta grande y dos pequeñas, cuatro maletas pequeñas o cuatro mochilas."
       }

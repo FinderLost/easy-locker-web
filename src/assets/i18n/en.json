@@ -63,16 +63,19 @@
     "plans": {
       "m": {
         "name": "Locker Size M",
+        "price": "5 €/day",
         "dimensions": "28 cm x 41 cm x 56 cm",
         "description": "Fits one small suitcase or backpack."
       },
       "l": {
         "name": "Locker Size L",
+        "price": "7 €/day",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "Fits two small suitcases, two backpacks or one large suitcase."
       },
       "xl": {
         "name": "Locker Size XL",
+        "price": "10 €/day",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "Fits one large suitcase and two small ones, four small suitcases or four backpacks."
       }

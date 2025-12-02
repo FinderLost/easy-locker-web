@@ -12,6 +12,7 @@ interface LockerPlan {
   id: 'M' | 'L' | 'XL';
   image: string;
   nameKey: string;
+  priceKey: string;
   dimensionsKey: string;
   descriptionKey: string;
   sizeCm: string;
@@ -32,6 +33,7 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'M',
       image: 'assets/images/box-type-m.png',
       nameKey: 'lockerSizes.plans.m.name',
+      priceKey: 'lockerSizes.plans.m.price',
       dimensionsKey: 'lockerSizes.plans.m.dimensions',
       descriptionKey: 'lockerSizes.plans.m.description',
       sizeCm: '28x41x56',
@@ -40,6 +42,7 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'L',
       image: 'assets/images/box-type-l.png',
       nameKey: 'lockerSizes.plans.l.name',
+      priceKey: 'lockerSizes.plans.l.price',
       dimensionsKey: 'lockerSizes.plans.l.dimensions',
       descriptionKey: 'lockerSizes.plans.l.description',
       sizeCm: '50x41x56',
@@ -48,6 +51,7 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       id: 'XL',
       image: 'assets/images/box-type-xl.png',
       nameKey: 'lockerSizes.plans.xl.name',
+      priceKey: 'lockerSizes.plans.xl.price',
       dimensionsKey: 'lockerSizes.plans.xl.dimensions',
       descriptionKey: 'lockerSizes.plans.xl.description',
       sizeCm: '82x41x56',
