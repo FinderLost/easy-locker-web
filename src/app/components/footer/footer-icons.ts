@@ -50,7 +50,7 @@ export const FOOTER_SOCIAL_ICONS = {
 };
 
 export const FOOTER_LINK_ICONS = {
-	email: `
+  email: `
 		<svg
 			viewBox="0 0 24 24"
 			aria-hidden="true"
@@ -70,7 +70,7 @@ export const FOOTER_LINK_ICONS = {
 			/>
 		</svg>
 	`,
-	terms: `
+  terms: `
 		<svg
 			viewBox="0 0 24 24"
 			aria-hidden="true"
@@ -92,7 +92,7 @@ export const FOOTER_LINK_ICONS = {
 			/>
 		</svg>
 	`,
-	cookies: `
+  cookies: `
 		<svg
 			viewBox="0 0 24 24"
 			aria-hidden="true"
@@ -108,7 +108,7 @@ export const FOOTER_LINK_ICONS = {
 			/>
 		</svg>
 	`,
-	whatsapp: `
+  whatsapp: `
 		<svg
 			viewBox="0 0 24 24"
 			aria-hidden="true"

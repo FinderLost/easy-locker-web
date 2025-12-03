@@ -7,11 +7,8 @@
   },
 
   "hero": {
-    "title": {
-      "line1": "CONSIGNAS",
-      "line2": "INTELIGENTES",
-      "line3": "EN CÓRDOBA"
-    },
+    "availability": "Acceso 24/7",
+    "title": "Consignas inteligentes en Córdoba",
     "subtitle": "Explora más, carga menos",
     "buttons": {
       "reserve": "Reservar ahora",

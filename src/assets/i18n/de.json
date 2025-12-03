@@ -6,11 +6,8 @@
     }
   },
   "hero": {
-    "title": {
-      "line1": "SCHLIESSFÄCHER",
-      "line2": "INTELLIGENTE",
-      "line3": "IN CÓRDOBA"
-    },
+    "availability": "24/7 geöffnet",
+    "title": "Intelligente Schließfächer in Córdoba",
     "subtitle": "Entdecke mehr, trage weniger",
     "buttons": {
       "reserve": "Jetzt reservieren",

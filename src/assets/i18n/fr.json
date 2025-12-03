@@ -6,11 +6,8 @@
     }
   },
   "hero": {
-    "title": {
-      "line1": "CONSIGNES",
-      "line2": "INTELLIGENTES",
-      "line3": "À CORDOBA"
-    },
+    "availability": "Ouvert 24/7",
+    "title": "Consignes intelligentes à Cordoue",
     "subtitle": "Explorez plus, portez moins",
     "buttons": {
       "reserve": "Réserver",

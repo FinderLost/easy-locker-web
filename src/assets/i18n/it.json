@@ -6,11 +6,8 @@
     }
   },
   "hero": {
-    "title": {
-      "line1": "DEPOSITI",
-      "line2": "INTELLIGENTI",
-      "line3": "A CORDOBA"
-    },
+    "availability": "Aperto 24/7",
+    "title": "Depositi intelligenti a Cordova",
     "subtitle": "Esplora di più, porta di meno",
     "buttons": {
       "reserve": "Prenota ora",

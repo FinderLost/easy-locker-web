@@ -6,11 +6,8 @@
     }
   },
   "hero": {
-    "title": {
-      "line1": "LOCKERS",
-      "line2": "SMART",
-      "line3": "IN CORDOBA"
-    },
+    "availability": "Open 24/7",
+    "title": "Smart lockers in Cordoba",
     "subtitle": "Explore more, carry less",
     "buttons": {
       "reserve": "Book now",

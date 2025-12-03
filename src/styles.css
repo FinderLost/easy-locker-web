@@ -451,11 +451,6 @@
     color: var(--brand-dark-text-strong);
   }
 
-  .easy-hero-title-line,
-  .hero-line {
-    display: block;
-  }
-
   .easy-hero-subtitle,
   .hero-subtitle {
     @apply text-center;
@@ -469,11 +464,6 @@
   .dark .easy-hero-subtitle,
   .dark .hero-subtitle {
     color: var(--brand-text-secondary);
-  }
-
-  .easy-hero-title-smart,
-  .hero-line-accent {
-    color: var(--brand-accent-primary);
   }
 
   .easy-hero-cta-group {
