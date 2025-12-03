@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import {
-  EmailIcon,
-  AvailableIcon,
-  WhatsAppIcon,
   FOOTER_SOCIAL_ICONS,
-  TermsIcon,
+  FOOTER_LINK_ICONS,
   SecureIcon,
 } from './footer-icons';
 import { TranslateService } from '@ngx-translate/core';
@@ -18,11 +15,8 @@ import { AnalyticsService } from '../../core/analytics/analytics.service';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
-  emailIcon: SafeHtml;
-  availableIcon: SafeHtml;
-  whatsappIcon: SafeHtml;
   socialIcons: Record<'facebook' | 'instagram' | 'tiktok', SafeHtml>;
-  termsIcon: SafeHtml;
+  linkIcons: Record<'email' | 'terms' | 'cookies' | 'whatsapp', SafeHtml>;
   secureIcon: SafeHtml;
   currentYear = new Date().getFullYear();
   isDarkMode = false;
@@ -37,9 +31,6 @@ export class FooterComponent {
     this.themeService.darkMode$.subscribe((isDark) => {
       this.isDarkMode = isDark;
     });
-    this.emailIcon = this.sanitizer.bypassSecurityTrustHtml(EmailIcon);
-    this.availableIcon = this.sanitizer.bypassSecurityTrustHtml(AvailableIcon);
-    this.whatsappIcon = this.sanitizer.bypassSecurityTrustHtml(WhatsAppIcon);
     this.socialIcons = {
       facebook: this.sanitizer.bypassSecurityTrustHtml(
         FOOTER_SOCIAL_ICONS.facebook
@@ -51,7 +42,16 @@ export class FooterComponent {
         FOOTER_SOCIAL_ICONS.tiktok
       ),
     };
-    this.termsIcon = this.sanitizer.bypassSecurityTrustHtml(TermsIcon);
+    this.linkIcons = {
+      email: this.sanitizer.bypassSecurityTrustHtml(FOOTER_LINK_ICONS.email),
+      terms: this.sanitizer.bypassSecurityTrustHtml(FOOTER_LINK_ICONS.terms),
+      cookies: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_LINK_ICONS.cookies
+      ),
+      whatsapp: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_LINK_ICONS.whatsapp
+      ),
+    };
     this.secureIcon = this.sanitizer.bypassSecurityTrustHtml(SecureIcon);
   }
   getTermsUrl(): string {
