@@ -1,0 +1,251 @@
+<section class="mx-auto max-w-4xl px-4 py-12 text-brand-textPrimary">
+  <div class="mb-6 flex justify-end">
+    <app-language-switcher
+      aria-label="Selector de idiomas"
+    ></app-language-switcher>
+  </div>
+  <header class="mb-10">
+    <p
+      class="text-xs font-semibold uppercase tracking-[0.3em] text-brand-textMuted"
+    >
+      Easy Locker
+    </p>
+    <h1 class="mt-2 text-3xl font-bold text-brand-textPrimary">
+      {{ "cookiePolicy.title" | translate }}
+    </h1>
+    <p class="mt-3 text-base text-brand-textSecondary">
+      {{ "cookiePolicy.summary" | translate }}
+    </p>
+  </header>
+
+  <article
+    class="space-y-10 text-base leading-relaxed text-brand-textSecondary"
+  >
+    <section id="responsable" class="space-y-3">
+      <h2 class="text-2xl font-semibold text-brand-textPrimary">
+        {{ "cookiePolicy.sections.responsible.title" | translate }}
+      </h2>
+      <p>
+        {{ "cookiePolicy.sections.responsible.body" | translate }}
+      </p>
+      <ul class="list-disc space-y-1 pl-6">
+        <li>
+          {{ "cookiePolicy.sections.responsible.list.email" | translate }}
+          <a class="underline" href="mailto:info@easy-locker.com"
+            >info@easy-locker.com</a
+          >
+        </li>
+        <li>
+          {{ "cookiePolicy.sections.responsible.list.purpose" | translate }}
+        </li>
+      </ul>
+      <p class="text-sm text-brand-textMuted">
+        {{ "cookiePolicy.sections.responsible.note" | translate }}
+      </p>
+    </section>
+
+    <section id="definicion" class="space-y-3">
+      <h2 class="text-2xl font-semibold text-brand-textPrimary">
+        {{ "cookiePolicy.sections.definition.title" | translate }}
+      </h2>
+      <p>
+        {{ "cookiePolicy.sections.definition.body" | translate }}
+      </p>
+    </section>
+
+    <section id="tipos" class="space-y-3">
+      <h2 class="text-2xl font-semibold text-brand-textPrimary">
+        {{ "cookiePolicy.sections.types.title" | translate }}
+      </h2>
+      <div
+        class="rounded-2xl border border-brand-border bg-brand-surface p-5 shadow-sm"
+      >
+        <h3 class="text-xl font-semibold text-brand-textPrimary">
+          {{ "cookiePolicy.sections.types.essential.title" | translate }}
+        </h3>
+        <p class="mt-2">
+          {{ "cookiePolicy.sections.types.essential.intro" | translate }}
+        </p>
+        <ul class="mt-2 list-disc space-y-1 pl-6">
+          <li>
+            {{
+              "cookiePolicy.sections.types.essential.items.language" | translate
+            }}
+          </li>
+          <li>
+            {{
+              "cookiePolicy.sections.types.essential.items.theme" | translate
+            }}
+          </li>
+          <li>
+            {{
+              "cookiePolicy.sections.types.essential.items.consent" | translate
+            }}
+          </li>
+        </ul>
+        <p class="mt-2">
+          {{ "cookiePolicy.sections.types.essential.legal" | translate }}
+        </p>
+      </div>
+      <div
+        class="rounded-2xl border border-brand-border bg-brand-surface p-5 shadow-sm"
+      >
+        <h3 class="text-xl font-semibold text-brand-textPrimary">
+          {{ "cookiePolicy.sections.types.analytics.title" | translate }}
+        </h3>
+        <p class="mt-2">
+          {{ "cookiePolicy.sections.types.analytics.intro" | translate }}
+        </p>
+        <p class="mt-3 font-semibold text-brand-textPrimary">
+          {{ "cookiePolicy.sections.types.analytics.dataTitle" | translate }}
+        </p>
+        <ul class="list-disc space-y-1 pl-6">
+          <li>
+            {{
+              "cookiePolicy.sections.types.analytics.dataItems.device"
+                | translate
+            }}
+          </li>
+          <li>
+            {{
+              "cookiePolicy.sections.types.analytics.dataItems.tech" | translate
+            }}
+          </li>
+          <li>
+            {{
+              "cookiePolicy.sections.types.analytics.dataItems.usage"
+                | translate
+            }}
+          </li>
+        </ul>
+        <p class="mt-3 font-semibold text-brand-textPrimary">
+          {{
+            "cookiePolicy.sections.types.analytics.notStoredTitle" | translate
+          }}
+        </p>
+        <ul class="list-disc space-y-1 pl-6">
+          <li>
+            {{
+              "cookiePolicy.sections.types.analytics.notStoredItems.names"
+                | translate
+            }}
+          </li>
+          <li>
+            {{
+              "cookiePolicy.sections.types.analytics.notStoredItems.contact"
+                | translate
+            }}
+          </li>
+          <li>
+            {{
+              "cookiePolicy.sections.types.analytics.notStoredItems.booking"
+                | translate
+            }}
+          </li>
+        </ul>
+        <p class="mt-2">
+          {{ "cookiePolicy.sections.types.analytics.legal" | translate }}
+        </p>
+      </div>
+    </section>
+
+    <section id="lista" class="space-y-3">
+      <h2 class="text-2xl font-semibold text-brand-textPrimary">
+        {{ "cookiePolicy.sections.list.title" | translate }}
+      </h2>
+      <div class="overflow-hidden rounded-2xl border border-brand-border">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-brand-background text-brand-textPrimary">
+            <tr>
+              <th class="px-4 py-2">
+                {{ "cookiePolicy.sections.list.table.name" | translate }}
+              </th>
+              <th class="px-4 py-2">
+                {{ "cookiePolicy.sections.list.table.type" | translate }}
+              </th>
+              <th class="px-4 py-2">
+                {{ "cookiePolicy.sections.list.table.purpose" | translate }}
+              </th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-brand-border bg-brand-surface">
+            <tr>
+              <td class="px-4 py-3 font-medium">easy-lang</td>
+              <td class="px-4 py-3">
+                {{ "cookiePolicy.sections.list.labels.essential" | translate }}
+              </td>
+              <td class="px-4 py-3">
+                {{
+                  "cookiePolicy.sections.list.rows.easyLang.purpose" | translate
+                }}
+              </td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">easy-theme</td>
+              <td class="px-4 py-3">
+                {{ "cookiePolicy.sections.list.labels.essential" | translate }}
+              </td>
+              <td class="px-4 py-3">
+                {{
+                  "cookiePolicy.sections.list.rows.easyTheme.purpose"
+                    | translate
+                }}
+              </td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">easy-cookie-consent</td>
+              <td class="px-4 py-3">
+                {{ "cookiePolicy.sections.list.labels.essential" | translate }}
+              </td>
+              <td class="px-4 py-3">
+                {{
+                  "cookiePolicy.sections.list.rows.easyConsent.purpose"
+                    | translate
+                }}
+              </td>
+            </tr>
+            <tr>
+              <td class="px-4 py-3 font-medium">_ga, _ga_*</td>
+              <td class="px-4 py-3">
+                {{ "cookiePolicy.sections.list.labels.analytics" | translate }}
+              </td>
+              <td class="px-4 py-3">
+                {{ "cookiePolicy.sections.list.rows.ga.purpose" | translate }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-brand-textMuted">
+        {{ "cookiePolicy.sections.list.notice" | translate }}
+      </p>
+    </section>
+
+    <section id="gestion" class="space-y-3">
+      <h2 class="text-2xl font-semibold text-brand-textPrimary">
+        {{ "cookiePolicy.sections.manage.title" | translate }}
+      </h2>
+      <p>
+        {{ "cookiePolicy.sections.manage.body" | translate }}
+      </p>
+    </section>
+
+    <section id="transferencias" class="space-y-3">
+      <h2 class="text-2xl font-semibold text-brand-textPrimary">
+        {{ "cookiePolicy.sections.transfer.title" | translate }}
+      </h2>
+      <p>
+        {{ "cookiePolicy.sections.transfer.body" | translate }}
+      </p>
+    </section>
+
+    <section id="actualizaciones" class="space-y-3">
+      <h2 class="text-2xl font-semibold text-brand-textPrimary">
+        {{ "cookiePolicy.sections.updates.title" | translate }}
+      </h2>
+      <p>
+        {{ "cookiePolicy.sections.updates.body" | translate }}
+      </p>
+    </section>
+  </article>
+</section>

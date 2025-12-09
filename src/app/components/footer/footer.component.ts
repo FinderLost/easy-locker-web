@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
 import {
-  EmailIcon,
-  AvailableIcon,
-  WhatsAppIcon,
-  FacebookIcon,
-  InstagramIcon,
-  TikTokIcon,
-  TermsIcon,
+  FOOTER_SOCIAL_ICONS,
+  FOOTER_LINK_ICONS,
   SecureIcon,
 } from './footer-icons';
 import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../services/theme.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { AnalyticsService } from '../../core/analytics/analytics.service';
 
 @Component({
   selector: 'app-footer',
@@ -19,32 +15,43 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
-  emailIcon: SafeHtml;
-  availableIcon: SafeHtml;
-  whatsappIcon: SafeHtml;
-  facebookIcon: SafeHtml;
-  instagramIcon: SafeHtml;
-  tiktokIcon: SafeHtml;
-  termsIcon: SafeHtml;
+  socialIcons: Record<'facebook' | 'instagram' | 'tiktok', SafeHtml>;
+  linkIcons: Record<'email' | 'terms' | 'cookies' | 'whatsapp', SafeHtml>;
   secureIcon: SafeHtml;
   currentYear = new Date().getFullYear();
   isDarkMode = false;
+  showCookiePreferences = false;
 
   constructor(
     private translate: TranslateService,
     public themeService: ThemeService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private analytics: AnalyticsService
   ) {
     this.themeService.darkMode$.subscribe((isDark) => {
       this.isDarkMode = isDark;
     });
-    this.emailIcon = this.sanitizer.bypassSecurityTrustHtml(EmailIcon);
-    this.availableIcon = this.sanitizer.bypassSecurityTrustHtml(AvailableIcon);
-    this.whatsappIcon = this.sanitizer.bypassSecurityTrustHtml(WhatsAppIcon);
-    this.facebookIcon = this.sanitizer.bypassSecurityTrustHtml(FacebookIcon);
-    this.instagramIcon = this.sanitizer.bypassSecurityTrustHtml(InstagramIcon);
-    this.tiktokIcon = this.sanitizer.bypassSecurityTrustHtml(TikTokIcon);
-    this.termsIcon = this.sanitizer.bypassSecurityTrustHtml(TermsIcon);
+    this.socialIcons = {
+      facebook: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_SOCIAL_ICONS.facebook
+      ),
+      instagram: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_SOCIAL_ICONS.instagram
+      ),
+      tiktok: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_SOCIAL_ICONS.tiktok
+      ),
+    };
+    this.linkIcons = {
+      email: this.sanitizer.bypassSecurityTrustHtml(FOOTER_LINK_ICONS.email),
+      terms: this.sanitizer.bypassSecurityTrustHtml(FOOTER_LINK_ICONS.terms),
+      cookies: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_LINK_ICONS.cookies
+      ),
+      whatsapp: this.sanitizer.bypassSecurityTrustHtml(
+        FOOTER_LINK_ICONS.whatsapp
+      ),
+    };
     this.secureIcon = this.sanitizer.bypassSecurityTrustHtml(SecureIcon);
   }
   getTermsUrl(): string {
@@ -62,5 +69,34 @@ export class FooterComponent {
       default:
         return 'https://easylocker.drop-point.com/booking-engine/legal?locale=es';
     }
+  }
+
+  onQuickLinkClick(
+    linkType: 'email' | 'whatsapp' | 'terms' | 'cookie-policy',
+    href: string
+  ): void {
+    this.analytics.trackEvent('footer_click_quick_link', {
+      link_type: linkType,
+      href,
+    });
+  }
+
+  onSocialClick(
+    network: 'facebook' | 'instagram' | 'tiktok',
+    href: string
+  ): void {
+    this.analytics.trackEvent('footer_click_social', {
+      network,
+      href,
+    });
+  }
+
+  onManageCookies(): void {
+    this.showCookiePreferences = true;
+    this.analytics.trackEvent('footer_manage_cookies_open');
+  }
+
+  onPreferencesClosed(): void {
+    this.showCookiePreferences = false;
   }
 }

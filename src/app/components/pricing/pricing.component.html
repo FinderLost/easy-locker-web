@@ -2,8 +2,9 @@
   class="py-16 lg:py-24 text-brand-textPrimary font-sans transition-colors duration-300"
 >
   <div class="container mx-auto px-6 lg:px-8">
-    <!-- Section Header -->
-    <header class="section-heading text-center mb-10 md:mb-12 max-w-3xl mx-auto">
+    <header
+      class="section-heading text-center mb-10 md:mb-12 max-w-3xl mx-auto"
+    >
       <h2
         class="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-textPrimary text-center dark:text-brand-darkTextStrong"
       >
@@ -17,28 +18,48 @@
       <div class="easy-section-underline"></div>
     </header>
 
-    <!-- Locker Size Cards -->
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto">
-      <article class="easy-plan-card" *ngFor="let plan of plans">
-        <div class="plan-card__media">
-          <img
-            [src]="plan.image"
-            [alt]="plan.nameKey | translate"
-            loading="lazy"
-          />
-        </div>
-        <div class="plan-card__body">
-          <h3 class="plan-card__title">
-            {{ plan.nameKey | translate }}
-          </h3>
-          <p class="plan-card__dimensions">
-            {{ plan.dimensionsKey | translate }}
-          </p>
-          <p class="plan-card__description">
-            {{ plan.descriptionKey | translate }}
-          </p>
-        </div>
-      </article>
+    <div
+      class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto"
+    >
+      <a
+        *ngFor="let plan of plans"
+        class="group block h-full rounded-2xl border border-brand-border bg-brand-surface shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-brand-surfaceStrong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accentPrimary active:scale-[0.99]"
+        [href]="plan.link || '#'"
+        target="_blank"
+        rel="noopener noreferrer"
+        role="link"
+        [attr.aria-label]="
+          ('hero.buttons.reserve' | translate) +
+          ' ' +
+          (plan.nameKey | translate)
+        "
+        (click)="onPlanSelected(plan)"
+      >
+        <article class="flex h-full flex-col gap-4 p-6 text-center">
+          <div class="flex justify-center">
+            <img
+              [src]="plan.image"
+              [alt]="plan.nameKey | translate"
+              loading="lazy"
+              class="h-48 w-auto object-contain"
+            />
+          </div>
+          <div class="flex flex-col gap-3">
+            <h3 class="text-2xl font-semibold text-brand-textPrimary">
+              {{ plan.nameKey | translate }}
+            </h3>
+            <p class="text-brand-accentPrimary text-xl font-semibold">
+              {{ plan.priceKey | translate }}
+            </p>
+            <p class="text-brand-textMuted text-sm uppercase tracking-[0.2em]">
+              {{ plan.dimensionsKey | translate }}
+            </p>
+            <p class="text-brand-textSecondary">
+              {{ plan.descriptionKey | translate }}
+            </p>
+          </div>
+        </article>
+      </a>
     </div>
   </div>
 </section>

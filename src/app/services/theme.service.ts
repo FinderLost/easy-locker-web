@@ -1,13 +1,14 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { AnalyticsService } from '../core/analytics/analytics.service';
 
 export type ThemePreference = 'light' | 'dark' | 'system';
 
 const THEME_STORAGE_KEY = 'theme-preference';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ThemeService implements OnDestroy {
   private preference = new BehaviorSubject<ThemePreference>('system');
@@ -23,7 +24,10 @@ export class ThemeService implements OnDestroy {
     }
   };
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    private analytics: AnalyticsService
+  ) {
     if (typeof window !== 'undefined') {
       this.mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
       this.mediaQuery.addEventListener('change', this.mediaListener);
@@ -40,6 +44,7 @@ export class ThemeService implements OnDestroy {
   }
 
   setPreference(preference: ThemePreference, persist = true): void {
+    const previous = this.preference.value;
     this.preference.next(preference);
     const shouldUseDark = this.resolveIsDark(preference);
     this.applyDarkMode(shouldUseDark);
@@ -48,10 +53,13 @@ export class ThemeService implements OnDestroy {
       return;
     }
 
-    if (preference === 'system') {
-      localStorage.removeItem(THEME_STORAGE_KEY);
-    } else {
-      localStorage.setItem(THEME_STORAGE_KEY, preference);
+    this.persistPreference(preference);
+
+    if (previous !== preference) {
+      this.analytics.trackEvent('nav_change_theme', {
+        previous_theme: previous,
+        new_theme: preference,
+      });
     }
   }
 
@@ -82,20 +90,44 @@ export class ThemeService implements OnDestroy {
   }
 
   private readStoredPreference(): ThemePreference {
-    if (typeof localStorage === 'undefined') {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
       return 'system';
     }
-    const stored = localStorage.getItem(THEME_STORAGE_KEY) as ThemePreference | null;
-    if (stored === 'light' || stored === 'dark') {
-      return stored;
+
+    try {
+      const stored = localStorage.getItem(
+        THEME_STORAGE_KEY
+      ) as ThemePreference | null;
+      if (stored === 'light' || stored === 'dark') {
+        return stored;
+      }
+
+      const legacy = localStorage.getItem('theme') as ThemePreference | null;
+      if (legacy === 'light' || legacy === 'dark') {
+        localStorage.removeItem('theme');
+        localStorage.setItem(THEME_STORAGE_KEY, legacy);
+        return legacy;
+      }
+    } catch (error) {
+      // Ignore storage failures and fall back to system
     }
 
-    const legacy = localStorage.getItem('theme') as ThemePreference | null;
-    if (legacy === 'light' || legacy === 'dark') {
-      localStorage.removeItem('theme');
-      localStorage.setItem(THEME_STORAGE_KEY, legacy);
-      return legacy;
-    }
     return 'system';
+  }
+
+  private persistPreference(preference: ThemePreference): void {
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+      return;
+    }
+
+    try {
+      if (preference === 'system') {
+        localStorage.removeItem(THEME_STORAGE_KEY);
+      } else {
+        localStorage.setItem(THEME_STORAGE_KEY, preference);
+      }
+    } catch (error) {
+      // Ignore storage access issues (e.g., private mode)
+    }
   }
 }

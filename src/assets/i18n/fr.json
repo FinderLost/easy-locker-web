@@ -1,10 +1,13 @@
 {
+  "seo": {
+    "home": {
+      "title": "Easy Locker | Cordoue",
+      "description": "Consignes intelligentes à Cordoue dès 5 €/jour"
+    }
+  },
   "hero": {
-    "title": {
-      "line1": "CONSIGNES",
-      "line2": "INTELLIGENTES",
-      "line3": "À CORDOBA"
-    },
+    "availability": "Ouvert 24/7",
+    "title": "Consignes intelligentes à Cordoue",
     "subtitle": "Explorez plus, portez moins",
     "buttons": {
       "reserve": "Réserver",
@@ -57,16 +60,19 @@
     "plans": {
       "m": {
         "name": "Casier taille M",
+        "price": "5 €/jour",
         "dimensions": "28 cm x 41 cm x 56 cm",
         "description": "Convient à une petite valise ou un sac à dos."
       },
       "l": {
         "name": "Casier taille L",
+        "price": "7 €/jour",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "Convient à deux petites valises, deux sacs à dos ou une grande valise."
       },
       "xl": {
         "name": "Casier taille XL",
+        "price": "10 €/jour",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "Convient à une grande valise et deux petites, quatre petites valises ou quatre sacs à dos."
       }
@@ -146,9 +152,123 @@
   "testimonials_button_review_aria": "Laisser un avis sur Google",
   "testimonials_button_all_reviews": "Voir tous les avis sur Google",
   "testimonials_button_all_reviews_aria": "Ouvrir la liste des avis Easy Locker sur Google",
-  "comingSoon": {
-    "subtitle": "Nous travaillons sur quelque chose d'incroyable",
-    "description": "Easy Locker est en développement. Vous pourrez bientôt profiter de la meilleure solution pour gérer vos consignes en toute sécurité et efficacité.",
-    "footer": "© {{year}} Easy Locker. Tous droits réservés."
+  "cookies": {
+    "banner": {
+      "title": "Vos préférences de cookies",
+      "body": "Nous utilisons des cookies essentiels pour faire fonctionner le site et des cookies d'analyse optionnels pour améliorer votre expérience. Vous pouvez accepter uniquement les nécessaires ou tous."
+    },
+    "modal": {
+      "title": "Préférences de cookies",
+      "body": "Vous pouvez activer ou désactiver les cookies d'analyse à tout moment. Les cookies essentiels sont toujours activés pour que le site fonctionne."
+    },
+    "categories": {
+      "essential": "Essentielles",
+      "essential_desc": "Langue, thème et fonctions de base nécessaires au bon fonctionnement d'Easy Locker.",
+      "analytics": "Analytiques",
+      "analytics_desc": "Ils nous aident à comprendre l'utilisation du site et à améliorer nos services."
+    },
+    "state": {
+      "required": "Toujours actifs"
+    },
+    "preferences": {
+      "analytics_label": "Autoriser les cookies d'analyse"
+    },
+    "action": {
+      "close": "Fermer",
+      "hide": "Masquer",
+      "configure": "Configurer",
+      "essential_only": "Accepter seulement l'essentiel",
+      "accept_all": "Tout accepter",
+      "policy": "Politique de cookies",
+      "manage": "Gérer les cookies"
+    }
+  },
+  "cookiePolicy": {
+    "title": "Politique de cookies",
+    "summary": "Cette politique explique comment Easy Locker utilise les cookies pour fournir le service, améliorer l'expérience et mesurer les performances du site de manière anonyme.",
+    "sections": {
+      "responsible": {
+        "title": "1. Qui est le responsable ?",
+        "body": "Easy Locker Cordoue (ci-après \"Easy Locker\") est responsable du traitement des données liées à l'utilisation des cookies sur ce site web.",
+        "list": {
+          "email": "Email de contact :",
+          "purpose": "Nous utilisons des cookies et technologies similaires pour offrir nos services, améliorer l'expérience utilisateur et obtenir des statistiques d'utilisation anonymes."
+        },
+        "note": "Pour obtenir les informations juridiques complètes ou toute précision supplémentaire, écrivez-nous à info@easy-locker.com."
+      },
+      "definition": {
+        "title": "2. Qu'est-ce qu'un cookie ?",
+        "body": "Un cookie est un petit fichier enregistré dans votre navigateur qui permet de mémoriser des préférences ou de comprendre votre utilisation du site. Ils peuvent provenir d'easy-locker.com ou de tiers (ex. Google) et être de session ou persistants."
+      },
+      "types": {
+        "title": "3. Types de cookies utilisés",
+        "essential": {
+          "title": "3.1 Cookies essentiels (nécessaires)",
+          "intro": "Ils sont indispensables au bon fonctionnement du site et ne peuvent pas être désactivés depuis la bannière.",
+          "items": {
+            "language": "Mémoriser la langue de l'interface.",
+            "theme": "Mémoriser le mode clair/sombre/système.",
+            "consent": "Enregistrer votre choix concernant l'utilisation des cookies."
+          },
+          "legal": "Base légale : intérêt légitime et exécution du service (sans eux le site ne fonctionnerait pas)."
+        },
+        "analytics": {
+          "title": "3.2 Cookies d'analyse (optionnels)",
+          "intro": "Nous utilisons Google Analytics / Firebase Analytics pour connaître le nombre de visites, les sections les plus consultées et améliorer les performances.",
+          "dataTitle": "Données collectées :",
+          "dataItems": {
+            "device": "Identifiant anonyme de l'appareil ou du navigateur.",
+            "tech": "Informations techniques de base (navigateur, résolution, pays approximatif, etc.).",
+            "usage": "Informations d'utilisation (pages visitées, temps passé, événements comme les clics sur \"Réserver\" ou les changements de langue)."
+          },
+          "notStoredTitle": "Nous n'enregistrons pas :",
+          "notStoredItems": {
+            "names": "Nom et prénom.",
+            "contact": "Email, téléphone ou données de paiement.",
+            "booking": "Codes de réservation ou données permettant de vous identifier directement."
+          },
+          "legal": "Base légale : votre consentement, que vous pouvez accepter ou refuser dans la bannière ou via \"Gérer les cookies\" dans le footer. Fournisseur : Google LLC (États-Unis) appliquant les clauses contractuelles types."
+        }
+      },
+      "list": {
+        "title": "4. Cookies spécifiques",
+        "table": {
+          "name": "Nom",
+          "type": "Type",
+          "purpose": "Finalité"
+        },
+        "labels": {
+          "essential": "Essentiel",
+          "analytics": "Analytiques"
+        },
+        "rows": {
+          "easyLang": {
+            "purpose": "Mémorise la langue sélectionnée."
+          },
+          "easyTheme": {
+            "purpose": "Maintient la préférence de thème (clair/sombre/système)."
+          },
+          "easyConsent": {
+            "purpose": "Enregistre si vous avez accepté ou refusé les cookies d'analyse."
+          },
+          "ga": {
+            "purpose": "Mesure les visites et l'usage lorsque vous avez donné votre consentement."
+          }
+        },
+        "notice": "Nous révisons régulièrement les cookies utilisés et mettons ce tableau à jour lors de chaque ajout ou suppression d’outils."
+      },
+      "manage": {
+        "title": "5. Comment gérer ou retirer mon consentement ?",
+        "body": "Lors de votre première visite nous affichons une bannière pour accepter uniquement les cookies essentiels ou tous les cookies. Vous pouvez modifier votre choix à tout moment via le lien \"Gérer les cookies\" présent dans le footer. Si vous désactivez l'analyse, nous cessons d'envoyer des événements à Google/Firebase et de lire les cookies existants."
+      },
+      "transfer": {
+        "title": "6. Transferts internationaux",
+        "body": "L'utilisation de Google/Firebase peut impliquer des transferts de données vers les États-Unis. Google LLC indique appliquer des clauses contractuelles types et d'autres garanties conformes au droit européen."
+      },
+      "updates": {
+        "title": "7. Mises à jour de cette politique",
+        "body": "Nous pouvons mettre à jour cette politique pour l'adapter à des changements juridiques ou techniques. En cas de modification importante, nous vous demanderons à nouveau votre consentement via la bannière de cookies."
+      }
+    }
   }
 }

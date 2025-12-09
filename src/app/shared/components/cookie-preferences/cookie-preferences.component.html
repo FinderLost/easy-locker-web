@@ -1,0 +1,91 @@
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4"
+>
+  <div
+    class="w-full max-w-lg rounded-3xl border border-brand-border bg-brand-surface p-6 shadow-2xl"
+  >
+    <div class="flex items-start justify-between gap-4">
+      <div>
+        <h2 class="text-xl font-semibold text-brand-textPrimary">
+          {{
+            "cookies.modal.title"
+              | translate : { default: "Preferencias de cookies" }
+          }}
+        </h2>
+        <p class="mt-2 text-sm text-brand-textSecondary">
+          {{
+            "cookies.modal.body"
+              | translate
+                : {
+                    default:
+                      "Puedes activar o desactivar las cookies de análisis en cualquier momento. Las cookies esenciales siempre están habilitadas para que el sitio funcione."
+                  }
+          }}
+        </p>
+      </div>
+      <button
+        type="button"
+        class="text-brand-textMuted hover:text-brand-textPrimary"
+        [attr.aria-label]="
+          'cookies.action.close' | translate : { default: 'Cerrar' }
+        "
+        (click)="close()"
+      >
+        ✕
+      </button>
+    </div>
+
+    <div
+      class="mt-6 rounded-2xl border border-brand-borderSubtle bg-brand-background p-4"
+    >
+      <div
+        class="flex flex-wrap items-center gap-4 sm:flex-nowrap sm:justify-between"
+      >
+        <div class="min-w-0 flex-1">
+          <p class="text-base font-semibold text-brand-textPrimary">
+            {{
+              "cookies.categories.analytics"
+                | translate : { default: "Analíticas" }
+            }}
+          </p>
+          <p class="text-sm text-brand-textSecondary">
+            {{
+              "cookies.categories.analytics_desc"
+                | translate
+                  : {
+                      default:
+                        "Recopilan información anónima para mejorar nuestro servicio."
+                    }
+            }}
+          </p>
+        </div>
+        <button
+          type="button"
+          class="relative inline-flex h-7 w-12 flex-shrink-0 items-center rounded-full transition-colors self-start sm:self-auto sm:ml-4"
+          [class.bg-brand-accentPrimary]="cookieConsent.analyticsEnabled"
+          [class.bg-brand-border]="!cookieConsent.analyticsEnabled"
+          (click)="toggleAnalytics()"
+          [attr.aria-pressed]="cookieConsent.analyticsEnabled"
+        >
+          <span
+            class="inline-block h-5 w-5 rounded-full bg-white transition-transform"
+            [class.translate-x-6]="cookieConsent.analyticsEnabled"
+            [class.translate-x-1]="!cookieConsent.analyticsEnabled"
+          ></span>
+        </button>
+      </div>
+    </div>
+
+    <div
+      class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end"
+    >
+      <button
+        type="button"
+        class="easy-pill-btn easy-cta-secondary w-full sm:w-auto"
+        (click)="close()"
+      >
+        {{ "cookies.action.close" | translate : { default: "Cerrar" } }}
+      </button>
+    </div>
+  </div>
+</div>

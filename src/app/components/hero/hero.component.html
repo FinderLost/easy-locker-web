@@ -12,24 +12,15 @@
 
   <div class="container mx-auto px-6 lg:px-8 relative z-10">
     <div class="max-w-4xl mx-auto">
-      <h1
-        class="easy-hero-title hero-title tracking-tight text-[2.1rem] md:text-6xl lg:text-7xl leading-[1.1] md:leading-tight"
+      <p
+        class="easy-hero-meta text-xs md:text-sm text-brand-textMuted tracking-[0.18em] uppercase mb-3 md:mb-4"
       >
-        <span
-          class="easy-hero-title-line hero-line hero-line-1 text-brand-textPrimary dark:text-brand-darkTextStrong"
-        >
-          {{ "hero.title.line1" | translate }}
-        </span>
-        <span
-          class="easy-hero-title-line hero-line hero-line-accent text-brand-accentPrimary"
-        >
-          {{ "hero.title.line2" | translate }}
-        </span>
-        <span
-          class="easy-hero-title-line hero-line hero-line-3 text-brand-textPrimary dark:text-brand-darkTextStrong"
-        >
-          {{ "hero.title.line3" | translate }}
-        </span>
+        {{ "hero.availability" | translate }}
+      </p>
+      <h1
+        class="easy-hero-title hero-title tracking-tight text-[2.1rem] md:text-6xl lg:text-7xl leading-[1.1] md:leading-tight text-brand-textPrimary dark:text-brand-darkTextStrong"
+      >
+        {{ "hero.title" | translate }}
       </h1>
       <p class="easy-hero-subtitle hero-subtitle max-w-3xl mx-auto">
         {{ "hero.subtitle" | translate }}
