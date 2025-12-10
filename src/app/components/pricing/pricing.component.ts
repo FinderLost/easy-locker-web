@@ -17,6 +17,8 @@ interface LockerPlan {
   descriptionKey: string;
   sizeCm: string;
   link?: string;
+  width: number;
+  height: number;
 }
 
 @Component({
@@ -37,6 +39,8 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       dimensionsKey: 'lockerSizes.plans.m.dimensions',
       descriptionKey: 'lockerSizes.plans.m.description',
       sizeCm: '28x41x56',
+      width: 360,
+      height: 360,
     },
     {
       id: 'L',
@@ -46,6 +50,8 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       dimensionsKey: 'lockerSizes.plans.l.dimensions',
       descriptionKey: 'lockerSizes.plans.l.description',
       sizeCm: '50x41x56',
+      width: 360,
+      height: 360,
     },
     {
       id: 'XL',
@@ -55,6 +61,8 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
       dimensionsKey: 'lockerSizes.plans.xl.dimensions',
       descriptionKey: 'lockerSizes.plans.xl.description',
       sizeCm: '82x41x56',
+      width: 287,
+      height: 360,
     },
   ];
 
