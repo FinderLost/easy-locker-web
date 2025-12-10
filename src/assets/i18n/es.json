@@ -1,9 +1,15 @@
 {
   "seo": {
     "home": {
-      "title": "Easy Locker | Córdoba",
-      "description": "Consignas inteligentes en Córdoba desde 5 €/día"
+      "title": "Consigna de equipaje en Córdoba | Easy Locker",
+      "description": "Guarda tus maletas en Córdoba junto a la estación de tren y autobús. Consignas seguras 24 horas, acceso con código y precios desde 5€.",
+      "keywords": "consigna equipaje Córdoba, taquillas maletas Córdoba, guardar maletas estación Córdoba, lockers Córdoba, luggage storage Cordoba"
     }
+  },
+
+  "h1": "Consignas de equipaje en Córdoba | Easy Locker",
+  "home": {
+    "description": "Guarda tus maletas de forma segura junto a la estación de tren y autobús de Córdoba. Acceso 24h con código, cámaras de seguridad y precios desde 5€. Perfecto para turistas y viajeros de paso."
   },
 
   "hero": {

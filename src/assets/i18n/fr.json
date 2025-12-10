@@ -1,9 +1,15 @@
 {
   "seo": {
     "home": {
-      "title": "Easy Locker | Cordoue",
-      "description": "Consignes intelligentes à Cordoue dès 5 €/jour"
+      "title": "Consigne bagages à Cordoue | Easy Locker",
+      "description": "Déposez vos bagages à Cordoue près de la gare et de la station de bus. Consignes sécurisées 24h/24 avec code dès 5 €.",
+      "keywords": "consigne bagages Cordoue, lockers gare Cordoue, dépôt valises Cordoue, stockage bagages Cordoue"
     }
+  },
+
+  "h1": "Consigne bagages à Cordoue près de la gare | Easy Locker",
+  "home": {
+    "description": "Déposez vos bagages en toute sécurité près de la gare et de la station de bus de Cordoue. Accès 24h/24 par code, caméras de sécurité et tarifs dès 5 €. Idéal pour les touristes et voyageurs de passage."
   },
   "hero": {
     "availability": "Ouvert 24/7",

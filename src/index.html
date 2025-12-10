@@ -62,17 +62,18 @@
     />
     <script>
       (function applyInitialTheme() {
-        var storageKey = 'theme-preference';
+        var storageKey = "theme-preference";
         var classList = document.documentElement.classList;
-        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
         try {
           var storedPreference = localStorage.getItem(storageKey);
           var shouldUseDark =
-            storedPreference === 'dark' ||
-            ((!storedPreference || storedPreference === 'system') && prefersDark.matches);
-          classList.toggle('dark', shouldUseDark);
+            storedPreference === "dark" ||
+            ((!storedPreference || storedPreference === "system") &&
+              prefersDark.matches);
+          classList.toggle("dark", shouldUseDark);
         } catch (error) {
-          classList.toggle('dark', prefersDark.matches);
+          classList.toggle("dark", prefersDark.matches);
         }
       })();
     </script>
@@ -90,10 +91,10 @@
         .matchMedia("(prefers-color-scheme: dark)")
         .addEventListener("change", setFaviconByTheme);
     </script>
-    <script src="assets/config/reviews-config.js"></script>
+    <script src="assets/config/reviews-config.js" defer></script>
     <!-- GitHub Pages SPA redirect handler -->
     <script>
-      (function() {
+      (function () {
         var redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;
         if (redirect && redirect != location.href) {

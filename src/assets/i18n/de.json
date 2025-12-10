@@ -1,9 +1,15 @@
 {
   "seo": {
     "home": {
-      "title": "Easy Locker | Córdoba",
-      "description": "Intelligente Gepäckschließfächer in Córdoba ab 5 €/Tag"
+      "title": "Gepäckaufbewahrung in Córdoba | Easy Locker",
+      "description": "Lagere dein Gepäck in Córdoba direkt an Bahn- und Busbahnhof. Sichere 24/7 Schließfächer mit Zahlencode ab 5 € pro Tag.",
+      "keywords": "Gepäckaufbewahrung Córdoba, Schließfächer Bahnhof Córdoba, luggage storage Cordoba, Koffer abstellen Córdoba"
     }
+  },
+
+  "h1": "Gepäckaufbewahrung in Córdoba nahe dem Bahnhof | Easy Locker",
+  "home": {
+    "description": "Lagere dein Gepäck sicher direkt am Bahnhof und Busbahnhof von Córdoba. 24/7 Zugang per Code, Überwachungskameras und Preise ab 5 €. Perfekt für Touristen und Reisende auf der Durchreise."
   },
   "hero": {
     "availability": "24/7 geöffnet",
