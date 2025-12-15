@@ -1,3 +1,13 @@
+---
+title: Cambios realizados (changelog)
+description: Resumen funcional de cambios aplicados al sitio Easy Locker Web.
+tags: [reference, changelog, release-notes]
+owner: web-team
+last_updated: 2025-12-15
+status: approved
+llm_summary: Changelog narrativo con secciones hero, pricing, FAQ, footer y archivos tocados en la última iteración.
+---
+
 # ✅ Cambios Realizados - Easy Locker Web
 
 ## 📋 Resumen de Actualizaciones
@@ -67,9 +77,9 @@ Se ha actualizado la web según el mockup proporcionado, manteniendo los colores
    - `src/app/components/pricing/pricing.component.css`
 
 2. **Documentación:**
-   - `INSTRUCCIONES_EDICION.md` - Guía completa de edición
-   - `src/assets/images/README.md` - Instrucciones para imágenes
-   - `CAMBIOS_REALIZADOS.md` - Este archivo
+   - `docs/how-to/editar-contenido.md` - Guía completa de edición
+   - `docs/how-to/imagenes-planes.md` - Instrucciones para imágenes
+   - `docs/reference/cambios-realizados.md` - Este archivo
 
 3. **Directorio:**
    - `src/assets/images/` - Para las imágenes de los planes
@@ -145,4 +155,4 @@ Agrega más elementos al array `faqs`
 
 ## 📞 Soporte
 
-Para más información, consulta `INSTRUCCIONES_EDICION.md`
+Para más información, consulta `docs/how-to/editar-contenido.md`
