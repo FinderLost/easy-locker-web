@@ -6,8 +6,9 @@ import {
   OnInit,
 } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { catchError, map, of } from 'rxjs';
+import { Subscription, catchError, map, of } from 'rxjs';
 import { AnalyticsService } from '../../core/analytics/analytics.service';
+import { LanguageService } from '../../services/language.service';
 
 interface GoogleReview {
   author: string;
@@ -16,14 +17,22 @@ interface GoogleReview {
   date?: string;
 }
 
+interface LocalizedReview {
+  author: string;
+  rating?: number;
+  date?: string;
+  original?: { language?: string; text?: string };
+  translations: Record<string, string>;
+}
+
 interface GooglePlaceReviewResponse {
   reviews?: Array<{
     authorAttribution?: { displayName?: string };
     rating?: number;
     relativePublishTimeDescription?: string;
     publishTime?: string;
-    originalText?: { text?: string };
-    text?: { text?: string };
+    originalText?: { text?: string; languageCode?: string };
+    text?: { text?: string; languageCode?: string };
   }>;
   status?: string;
 }
@@ -50,14 +59,20 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private hasLoggedView = false;
   private sectionVisible = false;
   private visibilityObserver?: IntersectionObserver;
+  private localizedReviews: LocalizedReview[] = [];
+  private languageSubscription?: Subscription;
 
   constructor(
     private readonly http: HttpClient,
     private analytics: AnalyticsService,
-    private elementRef: ElementRef<HTMLElement>
+    private elementRef: ElementRef<HTMLElement>,
+    private languageService: LanguageService
   ) {}
 
   ngOnInit(): void {
+    this.languageSubscription = this.languageService.language$.subscribe(
+      (lang) => this.applyLanguageToReviews(lang)
+    );
     this.loadCachedReviews();
   }
 
@@ -67,6 +82,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.visibilityObserver?.disconnect();
+    this.languageSubscription?.unsubscribe();
   }
 
   get hasReviews(): boolean {
@@ -106,20 +122,19 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private loadCachedReviews(): void {
     this.http
-      .get<GoogleReview[]>('assets/data/google-reviews.json', {
+      .get<LocalizedReview[]>('assets/data/google-reviews.json', {
         headers: { 'Cache-Control': 'no-store' },
       })
-      .pipe(catchError(() => of([] as GoogleReview[])))
+      .pipe(catchError(() => of([] as LocalizedReview[])))
       .subscribe((cached) => {
-        const normalized = this.normalizeCachedReviews(cached);
-        if (normalized.length) {
-          this.reviews = normalized;
+        this.localizedReviews = this.normalizeCachedReviews(cached);
+        if (this.localizedReviews.length) {
+          this.applyLanguageToReviews(this.languageService.getCurrentLanguage());
           this.isLoading = false;
           this.maybeLogReviewsView();
-          return;
+        } else {
+          this.fetchReviews();
         }
-
-        this.fetchReviews();
       });
   }
 
@@ -137,8 +152,12 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.isLoading = true;
 
+    const lang = this.languageService.getCurrentLanguage();
     const url = `${this.googleApiUrl}/${config.placeId}`;
-    const params = new HttpParams().set('fields', 'reviews').set('key', config.apiKey);
+    const params = new HttpParams()
+      .set('fields', 'reviews')
+      .set('key', config.apiKey)
+      .set('languageCode', lang);
 
     this.http
       .get<GooglePlaceReviewResponse>(url, {
@@ -146,17 +165,18 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
         headers: { 'Cache-Control': 'no-store' },
       })
       .pipe(
-        map((payload) => this.normalizeGooglePayload(payload)),
+        map((payload) => this.normalizeGooglePayload(payload, lang)),
         catchError((error) => {
           console.warn(
             'Testimonials section: unable to fetch Google reviews',
             error
           );
-          return of([] as GoogleReview[]);
+          return of([] as LocalizedReview[]);
         })
       )
       .subscribe((reviews) => {
-        this.reviews = reviews;
+        this.localizedReviews = reviews;
+        this.applyLanguageToReviews(lang);
         this.isLoading = false;
         this.maybeLogReviewsView();
       });
@@ -216,8 +236,9 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private normalizeGooglePayload(
-    payload: GooglePlaceReviewResponse
-  ): GoogleReview[] {
+    payload: GooglePlaceReviewResponse,
+    lang: string
+  ): LocalizedReview[] {
     if (!payload || payload.status === 'ZERO_RESULTS' || payload.status === 'NOT_FOUND') {
       return [];
     }
@@ -227,26 +248,30 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     return rawReviews
       .map((review) => ({
         author: review.authorAttribution?.displayName?.trim() || 'Google user',
-        text:
-          review.originalText?.text?.trim() ||
-          review.text?.text?.trim() ||
-          '',
         rating: this.normalizeRating(review.rating),
         date:
           review.relativePublishTimeDescription ||
           this.formatTimestamp(review.publishTime),
+        original: {
+          language: review.originalText?.languageCode || review.text?.languageCode || lang,
+          text:
+            review.originalText?.text?.trim() ||
+            review.text?.text?.trim() ||
+            '',
+        },
+        translations: {
+          [lang]: review.text?.text?.trim() || review.originalText?.text?.trim() || '',
+        },
       }))
-      .filter((review) => !!review.text && !!review.author)
+      .filter((review) => !!review.translations[lang] && !!review.author)
       .map((review) => ({
+        ...review,
         author: review.author.trim(),
-        text: review.text.trim(),
-        rating: this.normalizeRating(review.rating),
-        date: review.date,
       }))
       .slice(0, this.maxReviews);
   }
 
-  private normalizeCachedReviews(source: GoogleReview[] | undefined): GoogleReview[] {
+  private normalizeCachedReviews(source: LocalizedReview[] | undefined): LocalizedReview[] {
     if (!Array.isArray(source)) {
       return [];
     }
@@ -254,12 +279,41 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     return source
       .map((review, index) => ({
         author: review.author?.trim?.() || `cached-author-${index}`,
-        text: review.text?.trim?.() || '',
         rating: this.normalizeRating(review.rating),
         date: review.date,
+        original: {
+          language: review.original?.language,
+          text: review.original?.text?.trim?.() || '',
+        },
+        translations: Object.fromEntries(
+          Object.entries(review.translations || {}).map(([k, v]) => [k, v?.trim?.() || ''])
+        ),
       }))
-      .filter((review) => !!review.author && !!review.text)
+      .filter((review) => !!review.author)
       .slice(0, this.maxReviews);
+  }
+
+  private applyLanguageToReviews(lang: string): void {
+    if (!this.localizedReviews.length) {
+      return;
+    }
+
+    this.reviews = this.localizedReviews
+      .map((review) => {
+        const text =
+          review.translations?.[lang] ||
+          review.translations?.[review.original?.language ?? ''] ||
+          review.original?.text ||
+          '';
+
+        return {
+          author: review.author,
+          text: text,
+          rating: review.rating,
+          date: review.date,
+        } as GoogleReview;
+      })
+      .filter((review) => !!review.text && !!review.author);
   }
 
   private normalizeRating(value?: number | string): number {
