@@ -41,6 +41,23 @@ jobs:
           };
           EOF
 
+      - name: Generate reviews-config.js from secrets
+        run: |
+          if [ -z "${{ secrets.GOOGLE_API_KEY }}" ] || [ -z "${{ secrets.GOOGLE_PLACE_ID }}" ]; then
+            echo "Missing GOOGLE_API_KEY or GOOGLE_PLACE_ID secret for Google Reviews" >&2
+            exit 1
+          fi
+
+          cat << 'EOF' > src/assets/config/reviews-config.js
+          (function () {
+            if (typeof window === 'undefined') {
+              return;
+            }
+            window.EASY_LOCKER_GOOGLE_PLACE_ID = '${{ secrets.GOOGLE_PLACE_ID }}';
+            window.EASY_LOCKER_GOOGLE_API_KEY = '${{ secrets.GOOGLE_API_KEY }}';
+          })();
+          EOF
+
       - name: Install dependencies
         run: npm ci
 

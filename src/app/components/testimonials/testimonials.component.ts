@@ -17,15 +17,14 @@ interface GoogleReview {
 }
 
 interface GooglePlaceReviewResponse {
-  result?: {
-    reviews?: Array<{
-      author_name: string;
-      text: string;
-      rating?: number;
-      relative_time_description?: string;
-      time?: number;
-    }>;
-  };
+  reviews?: Array<{
+    authorAttribution?: { displayName?: string };
+    rating?: number;
+    relativePublishTimeDescription?: string;
+    publishTime?: string;
+    originalText?: { text?: string };
+    text?: { text?: string };
+  }>;
   status?: string;
 }
 
@@ -41,8 +40,7 @@ interface GoogleReviewsConfig {
 })
 export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly maxReviews = 6;
-  private readonly googleApiUrl =
-    'https://maps.googleapis.com/maps/api/place/details/json';
+  private readonly googleApiUrl = 'https://places.googleapis.com/v1/places';
 
   readonly profileUrl = 'https://share.google/Mz0YZ1RFwkV0uToTK';
   readonly reviewUrl = 'https://g.page/r/Cdlcmss1Q8AFEBM/review';
@@ -60,7 +58,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    this.fetchReviews();
+    this.loadCachedReviews();
   }
 
   ngAfterViewInit(): void {
@@ -106,6 +104,25 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     });
   }
 
+  private loadCachedReviews(): void {
+    this.http
+      .get<GoogleReview[]>('assets/data/google-reviews.json', {
+        headers: { 'Cache-Control': 'no-store' },
+      })
+      .pipe(catchError(() => of([] as GoogleReview[])))
+      .subscribe((cached) => {
+        const normalized = this.normalizeCachedReviews(cached);
+        if (normalized.length) {
+          this.reviews = normalized;
+          this.isLoading = false;
+          this.maybeLogReviewsView();
+          return;
+        }
+
+        this.fetchReviews();
+      });
+  }
+
   private fetchReviews(): void {
     const config = this.getGoogleReviewsConfig();
     if (!config) {
@@ -120,13 +137,11 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.isLoading = true;
 
-    const params = new HttpParams()
-      .set('place_id', config.placeId)
-      .set('fields', 'reviews')
-      .set('key', config.apiKey);
+    const url = `${this.googleApiUrl}/${config.placeId}`;
+    const params = new HttpParams().set('fields', 'reviews').set('key', config.apiKey);
 
     this.http
-      .get<GooglePlaceReviewResponse>(this.googleApiUrl, {
+      .get<GooglePlaceReviewResponse>(url, {
         params,
         headers: { 'Cache-Control': 'no-store' },
       })
@@ -203,25 +218,47 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private normalizeGooglePayload(
     payload: GooglePlaceReviewResponse
   ): GoogleReview[] {
-    if (
-      !payload ||
-      payload.status === 'ZERO_RESULTS' ||
-      payload.status === 'NOT_FOUND'
-    ) {
+    if (!payload || payload.status === 'ZERO_RESULTS' || payload.status === 'NOT_FOUND') {
       return [];
     }
 
-    const rawReviews = payload.result?.reviews ?? [];
+    const rawReviews = payload.reviews ?? [];
 
     return rawReviews
-      .filter((review) => !!review?.text && !!review?.author_name)
       .map((review) => ({
-        author: review.author_name.trim(),
-        text: review.text.trim(),
+        author: review.authorAttribution?.displayName?.trim() || 'Google user',
+        text:
+          review.originalText?.text?.trim() ||
+          review.text?.text?.trim() ||
+          '',
         rating: this.normalizeRating(review.rating),
         date:
-          review.relative_time_description ?? this.formatTimestamp(review.time),
+          review.relativePublishTimeDescription ||
+          this.formatTimestamp(review.publishTime),
       }))
+      .filter((review) => !!review.text && !!review.author)
+      .map((review) => ({
+        author: review.author.trim(),
+        text: review.text.trim(),
+        rating: this.normalizeRating(review.rating),
+        date: review.date,
+      }))
+      .slice(0, this.maxReviews);
+  }
+
+  private normalizeCachedReviews(source: GoogleReview[] | undefined): GoogleReview[] {
+    if (!Array.isArray(source)) {
+      return [];
+    }
+
+    return source
+      .map((review, index) => ({
+        author: review.author?.trim?.() || `cached-author-${index}`,
+        text: review.text?.trim?.() || '',
+        rating: this.normalizeRating(review.rating),
+        date: review.date,
+      }))
+      .filter((review) => !!review.author && !!review.text)
       .slice(0, this.maxReviews);
   }
 
@@ -238,13 +275,13 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     return Math.max(0, Math.min(5, Math.round(parsed)));
   }
 
-  private formatTimestamp(timestamp?: number): string | undefined {
+  private formatTimestamp(timestamp?: number | string): string | undefined {
     if (!timestamp) {
       return undefined;
     }
 
     try {
-      const date = new Date(timestamp * 1000);
+      const date = typeof timestamp === 'number' ? new Date(timestamp * 1000) : new Date(timestamp);
       return new Intl.DateTimeFormat(undefined, {
         month: 'short',
         year: 'numeric',

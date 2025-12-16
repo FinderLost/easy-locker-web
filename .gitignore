@@ -43,3 +43,6 @@ Thumbs.db
 
 # Firebase local config
 src/environments/firebase.config.ts
+
+# Google Reviews runtime config (secrets injected per env)
+src/assets/config/reviews-config.js
