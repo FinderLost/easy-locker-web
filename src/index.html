@@ -77,7 +77,7 @@
         }
       })();
     </script>
-    <script>
+    <script defer>
       function setFaviconByTheme(e) {
         var favicon = document.getElementById("favicon");
         if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -93,7 +93,7 @@
     </script>
     <script src="assets/config/reviews-config.js" defer></script>
     <!-- GitHub Pages SPA redirect handler -->
-    <script>
+    <script defer>
       (function () {
         var redirect = sessionStorage.redirect;
         delete sessionStorage.redirect;

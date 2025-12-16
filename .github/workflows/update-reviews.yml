@@ -1,0 +1,90 @@
+name: Update Google Reviews Cache
+
+on:
+  schedule:
+    - cron: '0 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-reviews:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Fetch Google reviews (multi-language cache)
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_PLACE_ID: ${{ secrets.GOOGLE_PLACE_ID }}
+        run: |
+          if [ -z "$GOOGLE_API_KEY" ] || [ -z "$GOOGLE_PLACE_ID" ]; then
+            echo "Missing GOOGLE_API_KEY or GOOGLE_PLACE_ID" >&2
+            exit 1
+          fi
+
+          mkdir -p src/assets/data
+
+          LANGS=(en es fr de it)
+
+          # Fetch base in English to get stable ordering and author info
+          curl -s "https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}?fields=reviews&key=${GOOGLE_API_KEY}&languageCode=en" \
+            | jq '{ reviews: (.reviews // []) }' > /tmp/reviews-en.json
+
+          # Build base array with originals and en translation
+          jq '.reviews | map({
+              author: (.authorAttribution.displayName // "Google user"),
+              rating: (.rating // 0),
+              date: (.relativePublishTimeDescription // .publishTime // ""),
+              original: {
+                language: (.originalText.languageCode // .text.languageCode // ""),
+                text: (.originalText.text // .text.text // "")
+              },
+              translations: {
+                "en": (.text.text // .originalText.text // "")
+              }
+            }) | map(select((.author != "") and (.translations.en != ""))) | .[0:6]' /tmp/reviews-en.json \
+            > /tmp/reviews.json
+
+          # Enrich with other languages
+          for lang in "${LANGS[@]}"; do
+            if [ "$lang" = "en" ]; then
+              continue
+            fi
+            curl -s "https://places.googleapis.com/v1/places/${GOOGLE_PLACE_ID}?fields=reviews&key=${GOOGLE_API_KEY}&languageCode=${lang}" \
+              | jq '.reviews // []' > /tmp/reviews-${lang}.json
+
+            jq --arg lang "$lang" --slurpfile tr /tmp/reviews-${lang}.json \
+              'reduce range(0; length) as $i (. ;
+                .[$i].translations[$lang] = ($tr[0][$i].text.text // $tr[0][$i].originalText.text // "")
+              )' /tmp/reviews.json > /tmp/reviews-updated.json && mv /tmp/reviews-updated.json /tmp/reviews.json
+          done
+
+          # Final normalize: drop empties, trim to 6
+          jq 'map({
+              author,
+              rating,
+              date,
+              original,
+              translations: (to_entries | reduce .[] as $e ({}; .[$e.key]=($e.value|tostring)) )
+            }) | map(select(.author != "")) | .[0:6]' /tmp/reviews.json \
+            > src/assets/data/google-reviews.json
+
+      - name: Commit changes
+        run: |
+          if git status --porcelain src/assets/data/google-reviews.json | grep -q .; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add src/assets/data/google-reviews.json
+            git commit -m "chore: refresh google reviews cache"
+            git push
+          else
+            echo "No review updates to commit"
+          fi
