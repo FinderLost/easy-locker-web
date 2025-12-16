@@ -17,4 +17,54 @@
 	box-sizing: border-box;
 }
 
+.carousel-viewport {
+	position: relative;
+	/* Smooth edge fade without changing carousel logic */
+	-webkit-mask-image: linear-gradient(
+		to right,
+		transparent 0%,
+		black 8%,
+		black 92%,
+		transparent 100%
+	);
+	mask-image: linear-gradient(
+		to right,
+		transparent 0%,
+		black 8%,
+		black 92%,
+		transparent 100%
+	);
+}
+
+@supports not (mask-image: linear-gradient(to right, transparent, black)) {
+	.carousel-viewport::before,
+	.carousel-viewport::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 12%;
+		pointer-events: none;
+		z-index: 5;
+	}
+
+	.carousel-viewport::before {
+		left: 0;
+		background: linear-gradient(
+			to right,
+			var(--color-page-bg, #0f172a) 0%,
+			rgba(15, 23, 42, 0) 100%
+		);
+	}
+
+	.carousel-viewport::after {
+		right: 0;
+		background: linear-gradient(
+			to left,
+			var(--color-page-bg, #0f172a) 0%,
+			rgba(15, 23, 42, 0) 100%
+		);
+	}
+}
+
 

@@ -66,7 +66,7 @@
             </svg>
           </button>
 
-          <div class="overflow-hidden">
+          <div class="overflow-hidden carousel-viewport">
             <div
               class="flex items-stretch transition-transform ease-out"
               [style.transform]="sliderTransform"
@@ -192,6 +192,13 @@
         class="mt-8 text-center text-sm text-brand-accentPrimary"
       >
         {{ summaryTranslationKey | translate }}
+      </p>
+
+      <p
+        *ngIf="hasReviews && lastUpdatedDisplay"
+        class="mt-2 text-center text-xs text-brand-textMuted"
+      >
+        {{ lastUpdatedDisplay }}
       </p>
 
       <div

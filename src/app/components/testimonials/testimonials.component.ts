@@ -58,6 +58,13 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly tabletVisibleCount = 2;
   private readonly mobileVisibleCount = 1;
   readonly autoSlideMs = 5500;
+  readonly lastUpdatedCopy: Record<string, string> = {
+    es: 'Última actualización',
+    en: 'Last update',
+    fr: 'Dernière mise à jour',
+    de: 'Letzte Aktualisierung',
+    it: 'Ultimo aggiornamento',
+  };
 
   reviews: GoogleReview[] = [];
   isLoading = true;
@@ -70,6 +77,8 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private currentIndex = 0;
   private currentVisibleCount = this.desktopVisibleCount;
   private transitionEnabled = true;
+  lastUpdatedDisplay?: string;
+  private cachedLastModified?: string;
 
   carouselReviews: GoogleReview[] = [];
 
@@ -186,12 +195,21 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     this.http
       .get<LocalizedReview[]>('assets/data/google-reviews.json', {
         headers: { 'Cache-Control': 'no-store' },
+        observe: 'response',
       })
-      .pipe(catchError(() => of([] as LocalizedReview[])))
+      .pipe(
+        map((response) => {
+          this.cachedLastModified = response.headers.get('last-modified') ?? undefined;
+          return response.body ?? [];
+        }),
+        catchError(() => of([] as LocalizedReview[]))
+      )
       .subscribe((cached) => {
         this.localizedReviews = this.normalizeCachedReviews(cached);
         if (this.localizedReviews.length) {
-          this.applyLanguageToReviews(this.languageService.getCurrentLanguage());
+          const lang = this.languageService.getCurrentLanguage();
+          this.applyLanguageToReviews(lang);
+          this.updateLastUpdatedLabel(lang);
           this.isLoading = false;
           this.maybeLogReviewsView();
           this.startAutoSlide();
@@ -240,6 +258,8 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe((reviews) => {
         this.localizedReviews = reviews;
         this.applyLanguageToReviews(lang);
+        this.cachedLastModified = new Date().toISOString();
+        this.updateLastUpdatedLabel(lang);
         this.isLoading = false;
         this.maybeLogReviewsView();
         this.startAutoSlide();
@@ -380,6 +400,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       .filter((review) => !!review.text && !!review.author);
 
     this.rebuildCarousel();
+    this.updateLastUpdatedLabel(lang);
   }
 
   get slideWidthPercentage(): number {
@@ -499,6 +520,35 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       }).format(date);
     } catch (error) {
       console.warn('Testimonials section: unable to format review date', error);
+      return undefined;
+    }
+  }
+
+  private updateLastUpdatedLabel(lang: string): void {
+    const formatted = this.formatLastUpdated(lang);
+    this.lastUpdatedDisplay = formatted
+      ? `${this.lastUpdatedCopy[lang] ?? this.lastUpdatedCopy['en']}: ${formatted}`
+      : undefined;
+  }
+
+  private formatLastUpdated(lang: string): string | undefined {
+    if (!this.cachedLastModified) {
+      return undefined;
+    }
+
+    try {
+      const parsed = new Date(this.cachedLastModified);
+      if (Number.isNaN(parsed.getTime())) {
+        return undefined;
+      }
+
+      return new Intl.DateTimeFormat(lang, {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      }).format(parsed);
+    } catch (error) {
+      console.warn('Testimonials section: unable to format last-updated date', error);
       return undefined;
     }
   }

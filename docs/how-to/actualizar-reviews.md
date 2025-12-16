@@ -38,5 +38,7 @@ Archivo: `.github/workflows/update-reviews.yml`.
 - El componente sigue teniendo fallback al endpoint en vivo; en producción evitamos llamadas si el JSON contiene datos.
 - No subas claves al repo: `src/assets/config/reviews-config.js` está en `.gitignore` para usos locales.
 - Las traducciones se basan en el endpoint de Google; si alguna lengua viene vacía, el frontend mostrará el texto original como fallback.
+- Cumplimiento TOS: el cache es semanal y solo para uso interno de la web (no se redistribuye). Google permite cache corto para mejorar UX/coste; no lo guardes meses ni expongas el JSON como servicio.
+- Transparencia al usuario: la sección muestra "Última actualización" tomando el encabezado `Last-Modified` del JSON cacheado (o la fecha de la última descarga en vivo). Si ves `N/A`, revisa que el servidor sirva ese encabezado o que el workflow haya corrido.
 
 **See also:** [Desplegar a producción](desplegar.md) | [Config Google Reviews](../reference/cambios-realizados.md)
