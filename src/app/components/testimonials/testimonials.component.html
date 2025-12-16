@@ -18,37 +18,106 @@
     </header>
 
     <div class="mt-10">
-      <div
-        *ngIf="hasReviews; else testimonialsFallback"
-        class="grid grid-cols-1 gap-6 mt-10 md:grid-cols-2 lg:grid-cols-3"
-      >
-        <article
-          class="testimonial-card bg-brand-surface border border-brand-border rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col"
-          *ngFor="let review of reviews; trackBy: trackByAuthor"
-        >
-          <div
-            *ngIf="getStars(review.rating).length"
-            class="flex items-center gap-1 text-brand-accentPrimary text-xl mb-4"
-            role="img"
-            [attr.aria-label]="
-              'testimonials_rating_aria'
-                | translate : { rating: review.rating || 0 }
-            "
+      <div *ngIf="hasReviews; else testimonialsFallback" class="mt-10">
+        <div class="relative max-w-6xl mx-auto">
+          <button
+            type="button"
+            class="control-compact absolute -left-5 md:-left-10 top-1/2 -translate-y-1/2 z-10"
+            (click)="onPrevClick()"
+            [disabled]="!canNavigate"
+            [class.opacity-50]="!canNavigate"
+            [class.pointer-events-none]="!canNavigate"
           >
-            <span *ngFor="let _ of getStars(review.rating)" aria-hidden="true"
-              >★</span
+            <span class="sr-only">Anterior</span>
+            <svg
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
             >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            class="control-compact absolute -right-5 md:-right-10 top-1/2 -translate-y-1/2 z-10"
+            (click)="onNextClick()"
+            [disabled]="!canNavigate"
+            [class.opacity-50]="!canNavigate"
+            [class.pointer-events-none]="!canNavigate"
+          >
+            <span class="sr-only">Siguiente</span>
+            <svg
+              class="h-4 w-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </button>
+
+          <div class="overflow-hidden">
+            <div
+              class="flex items-stretch transition-transform ease-out"
+              [style.transform]="sliderTransform"
+              [style.will-change]="'transform'"
+              [style.transitionDuration]="trackTransitionDuration"
+              (transitionend)="onTrackTransitionEnd()"
+            >
+              <div
+                *ngFor="let review of carouselReviews; trackBy: trackByAuthor"
+                class="flex-none box-border px-3 lg:px-4"
+                [style.width.%]="slideWidthPercentage"
+              >
+                <app-easy-card
+                  as="div"
+                  [interactive]="true"
+                  align="left"
+                  paddingClass="p-0"
+                >
+                  <article class="testimonial-card flex flex-col gap-4 p-6">
+                    <div
+                      *ngIf="getStars(review.rating).length"
+                      class="flex items-center gap-1 text-brand-accentPrimary text-xl"
+                      role="img"
+                      [attr.aria-label]="
+                        'testimonials_rating_aria'
+                          | translate : { rating: review.rating || 0 }
+                      "
+                    >
+                      <span
+                        *ngFor="let _ of getStars(review.rating)"
+                        aria-hidden="true"
+                        >★</span
+                      >
+                    </div>
+                    <p
+                      class="text-sm text-brand-textSecondary leading-relaxed whitespace-pre-line break-words"
+                    >
+                      {{ review.text }}
+                    </p>
+                    <div class="mt-2 flex flex-col text-sm text-brand-textSecondary">
+                      <span class="font-semibold text-brand-textPrimary truncate">
+                        {{ review.author }}
+                      </span>
+                      <small *ngIf="review.date" class="truncate">{{ review.date }}</small>
+                    </div>
+                  </article>
+                </app-easy-card>
+              </div>
+            </div>
           </div>
-          <p class="text-base text-brand-textSecondary leading-relaxed flex-1">
-            {{ review.text }}
-          </p>
-          <div class="mt-6 flex flex-col text-sm text-brand-textSecondary">
-            <span class="font-semibold text-brand-textPrimary">{{
-              review.author
-            }}</span>
-            <small *ngIf="review.date">{{ review.date }}</small>
-          </div>
-        </article>
+        </div>
       </div>
 
       <ng-template #testimonialsFallback>

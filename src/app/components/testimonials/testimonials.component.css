@@ -1,17 +1,20 @@
+
+.text-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.text-clamp-5 {
+	display: -webkit-box;
+	-webkit-line-clamp: 5;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
 .testimonial-card {
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.08);
+	box-sizing: border-box;
 }
 
-.testimonial-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 35px 70px rgba(15, 23, 42, 0.18);
-}
 
-@media (prefers-reduced-motion: reduce) {
-  .testimonial-card,
-  .testimonial-card:hover {
-    transition: none;
-    transform: none;
-  }
-}

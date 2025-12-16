@@ -18,50 +18,52 @@
       <div class="easy-section-underline"></div>
     </header>
 
-    <div
-      class="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8 items-stretch max-w-7xl mx-auto"
-    >
-      <a
-        *ngFor="let plan of plans"
-        class="group block h-full rounded-2xl border border-brand-border bg-brand-surface shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-brand-surfaceStrong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accentPrimary active:scale-[0.99]"
-        [href]="plan.link || '#'"
-        target="_blank"
-        rel="noopener noreferrer"
-        role="link"
-        [attr.aria-label]="
-          ('hero.buttons.reserve' | translate) +
-          ' ' +
-          (plan.nameKey | translate)
-        "
-        (click)="onPlanSelected(plan)"
-      >
-        <article class="flex h-full flex-col gap-4 p-6 text-center">
-          <div class="flex justify-center">
-            <img
-              [src]="plan.image"
-              [alt]="plan.nameKey | translate"
-              loading="lazy"
-              [attr.width]="plan.width"
-              [attr.height]="plan.height"
-              class="h-48 w-auto object-contain"
-            />
-          </div>
-          <div class="flex flex-col gap-3">
-            <h3 class="text-2xl font-semibold text-brand-textPrimary">
-              {{ plan.nameKey | translate }}
-            </h3>
-            <p class="text-brand-accentPrimary text-xl font-semibold">
-              {{ plan.priceKey | translate }}
-            </p>
-            <p class="text-brand-textMuted text-sm uppercase tracking-[0.2em]">
-              {{ plan.dimensionsKey | translate }}
-            </p>
-            <p class="text-brand-textSecondary">
-              {{ plan.descriptionKey | translate }}
-            </p>
-          </div>
-        </article>
-      </a>
-    </div>
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <li *ngFor="let plan of plans" class="h-full">
+        <app-easy-card
+          as="a"
+          class="h-full"
+          align="center"
+          paddingClass="p-6"
+          [interactive]="true"
+          [href]="plan.link || '#'"
+          target="_blank"
+          rel="noopener noreferrer"
+          [ariaLabel]="
+            ('hero.buttons.reserve' | translate) +
+            ' ' +
+            (plan.nameKey | translate)
+          "
+          (click)="onPlanClick(plan)"
+        >
+          <article class="flex h-full flex-col gap-4 text-center">
+            <div class="flex justify-center">
+              <img
+                [src]="plan.image"
+                [alt]="plan.nameKey | translate"
+                loading="lazy"
+                [attr.width]="plan.width"
+                [attr.height]="plan.height"
+                class="h-48 w-auto object-contain"
+              />
+            </div>
+            <div class="flex flex-col gap-3">
+              <h3 class="text-2xl font-semibold text-brand-textPrimary">
+                {{ plan.nameKey | translate }}
+              </h3>
+              <p class="text-brand-accentPrimary text-xl font-semibold">
+                {{ plan.priceKey | translate }}
+              </p>
+              <p class="text-brand-textMuted text-sm uppercase tracking-[0.2em]">
+                {{ plan.dimensionsKey | translate }}
+              </p>
+              <p class="text-brand-textSecondary">
+                {{ plan.descriptionKey | translate }}
+              </p>
+            </div>
+          </article>
+        </app-easy-card>
+      </li>
+    </ul>
   </div>
 </section>

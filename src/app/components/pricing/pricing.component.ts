@@ -103,6 +103,10 @@ export class PricingComponent implements OnInit, AfterViewInit, OnDestroy {
     // navigation handled by anchor element in template
   }
 
+  onPlanClick(plan: LockerPlan): void {
+    this.onPlanSelected(plan);
+  }
+
   private observePlansSection(): void {
     if (typeof window === 'undefined') {
       return;

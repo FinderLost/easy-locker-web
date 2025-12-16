@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   Component,
   ElementRef,
+  HostListener,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -53,6 +54,10 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   readonly profileUrl = 'https://share.google/Mz0YZ1RFwkV0uToTK';
   readonly reviewUrl = 'https://g.page/r/Cdlcmss1Q8AFEBM/review';
+  private readonly desktopVisibleCount = 3;
+  private readonly tabletVisibleCount = 2;
+  private readonly mobileVisibleCount = 1;
+  readonly autoSlideMs = 5500;
 
   reviews: GoogleReview[] = [];
   isLoading = true;
@@ -61,6 +66,12 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private visibilityObserver?: IntersectionObserver;
   private localizedReviews: LocalizedReview[] = [];
   private languageSubscription?: Subscription;
+  private autoSlideTimer?: ReturnType<typeof setInterval>;
+  private currentIndex = 0;
+  private currentVisibleCount = this.desktopVisibleCount;
+  private transitionEnabled = true;
+
+  carouselReviews: GoogleReview[] = [];
 
   constructor(
     private readonly http: HttpClient,
@@ -83,10 +94,27 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.visibilityObserver?.disconnect();
     this.languageSubscription?.unsubscribe();
+    this.stopAutoSlide();
+  }
+
+  @HostListener('window:resize')
+  onWindowResize(): void {
+    if (!this.reviews.length) {
+      return;
+    }
+    this.updateVisibleCount();
   }
 
   get hasReviews(): boolean {
     return this.reviews.length > 0;
+  }
+
+  get canNavigate(): boolean {
+    return this.reviews.length > this.currentVisibleCount;
+  }
+
+  get trackTransitionDuration(): string {
+    return this.transitionEnabled ? '500ms' : '0ms';
   }
 
   get summaryTranslationKey(): string {
@@ -105,7 +133,41 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   trackByAuthor(index: number, review: GoogleReview): string {
-    return `${review.author}-${review.date ?? index}`;
+    return `${index}-${review.author}-${review.date ?? ''}`;
+  }
+
+  onPrevClick(): void {
+    if (!this.canNavigate) {
+      return;
+    }
+    this.stopAutoSlide();
+    this.prevSlide();
+    this.startAutoSlide();
+  }
+
+  onNextClick(): void {
+    if (!this.canNavigate) {
+      return;
+    }
+    this.stopAutoSlide();
+    this.nextSlide();
+    this.startAutoSlide();
+  }
+
+  onTrackTransitionEnd(): void {
+    if (!this.canNavigate) {
+      return;
+    }
+
+    const buffer = Math.min(this.currentVisibleCount, this.reviews.length);
+    const firstRealIndex = buffer;
+    const lastRealIndex = buffer + this.reviews.length - 1;
+
+    if (this.currentIndex > lastRealIndex) {
+      this.jumpToIndex(firstRealIndex);
+    } else if (this.currentIndex < firstRealIndex) {
+      this.jumpToIndex(lastRealIndex);
+    }
   }
 
   onLeaveReviewClick(): void {
@@ -132,6 +194,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
           this.applyLanguageToReviews(this.languageService.getCurrentLanguage());
           this.isLoading = false;
           this.maybeLogReviewsView();
+          this.startAutoSlide();
         } else {
           this.fetchReviews();
         }
@@ -179,6 +242,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.applyLanguageToReviews(lang);
         this.isLoading = false;
         this.maybeLogReviewsView();
+        this.startAutoSlide();
       });
   }
 
@@ -314,6 +378,99 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
         } as GoogleReview;
       })
       .filter((review) => !!review.text && !!review.author);
+
+    this.rebuildCarousel();
+  }
+
+  get slideWidthPercentage(): number {
+    return 100 / this.currentVisibleCount;
+  }
+
+  get sliderTransform(): string {
+    const offset = this.currentIndex * this.slideWidthPercentage;
+    return `translateX(-${offset}%)`;
+  }
+
+  private prevSlide(): void {
+    if (!this.canNavigate) {
+      return;
+    }
+    this.transitionEnabled = true;
+    this.currentIndex = this.currentIndex - 1;
+  }
+
+  private nextSlide(): void {
+    if (!this.canNavigate) {
+      return;
+    }
+    this.transitionEnabled = true;
+    this.currentIndex = this.currentIndex + 1;
+  }
+
+  private startAutoSlide(): void {
+    this.stopAutoSlide();
+    if (!this.canNavigate) {
+      return;
+    }
+    this.autoSlideTimer = setInterval(() => this.nextSlide(), this.autoSlideMs);
+  }
+
+  private stopAutoSlide(): void {
+    if (this.autoSlideTimer) {
+      clearInterval(this.autoSlideTimer);
+      this.autoSlideTimer = undefined;
+    }
+  }
+
+  private updateVisibleCount(): void {
+    const width = typeof window !== 'undefined' ? window.innerWidth : 1440;
+    const next = width < 768
+      ? this.mobileVisibleCount
+      : width < 1024
+      ? this.tabletVisibleCount
+      : this.desktopVisibleCount;
+
+    if (next !== this.currentVisibleCount) {
+      this.currentVisibleCount = next;
+      this.rebuildCarousel();
+    }
+  }
+
+  private rebuildCarousel(): void {
+    if (!this.reviews.length) {
+      this.carouselReviews = [];
+      this.currentIndex = 0;
+      this.transitionEnabled = true;
+      return;
+    }
+
+    if (!this.canNavigate) {
+      this.carouselReviews = [...this.reviews];
+      this.currentIndex = 0;
+      this.transitionEnabled = true;
+      this.stopAutoSlide();
+      return;
+    }
+
+    const buffer = Math.min(this.currentVisibleCount, this.reviews.length);
+    const head = this.reviews.slice(0, buffer);
+    const tail = this.reviews.slice(-buffer);
+    this.carouselReviews = [...tail, ...this.reviews, ...head];
+
+    this.transitionEnabled = false;
+    this.currentIndex = buffer;
+    setTimeout(() => {
+      this.transitionEnabled = true;
+      this.startAutoSlide();
+    }, 0);
+  }
+
+  private jumpToIndex(index: number): void {
+    this.transitionEnabled = false;
+    this.currentIndex = index;
+    setTimeout(() => {
+      this.transitionEnabled = true;
+    }, 0);
   }
 
   private normalizeRating(value?: number | string): number {

@@ -1,0 +1,29 @@
+<ng-template #content>
+  <ng-content></ng-content>
+</ng-template>
+
+<a
+  *ngIf="tag === 'a'"
+  [href]="normalizedHref"
+  [target]="target"
+  [rel]="rel"
+  [attr.role]="role"
+  [attr.aria-label]="ariaLabel"
+  [attr.aria-labelledby]="ariaLabelledBy"
+  [attr.aria-describedby]="ariaDescribedBy"
+  [class]="wrapperClasses"
+>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</a>
+
+<div
+  *ngIf="tag === 'div'"
+  [attr.role]="role"
+  [attr.aria-label]="ariaLabel"
+  [attr.aria-labelledby]="ariaLabelledBy"
+  [attr.aria-describedby]="ariaDescribedBy"
+  [class]="wrapperClasses"
+  [attr.tabindex]="tabIndex"
+>
+  <ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
