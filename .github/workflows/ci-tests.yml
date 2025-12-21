@@ -42,7 +42,8 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Expose Playwright Chromium for Karma
-        run: echo "CHROME_BIN=$(node -e \"console.log(require('playwright').chromium.executablePath())\")" >> $GITHUB_ENV
+        shell: bash
+        run: node -e "console.log('CHROME_BIN=' + require('playwright').chromium.executablePath())" >> "$GITHUB_ENV"
 
       - name: Unit tests
         run: npm test -- --watch=false --browsers=ChromeHeadless
