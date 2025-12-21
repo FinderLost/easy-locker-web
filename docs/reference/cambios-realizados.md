@@ -3,12 +3,17 @@ title: Cambios realizados (changelog)
 description: Resumen funcional de cambios aplicados al sitio Easy Locker Web.
 tags: [reference, changelog, release-notes]
 owner: web-team
-last_updated: 2025-12-15
+last_updated: 2025-12-21
 status: approved
 llm_summary: Changelog narrativo con secciones hero, pricing, FAQ, footer y archivos tocados en la última iteración.
 ---
 
 # ✅ Cambios Realizados - Easy Locker Web
+
+## 2025-12-21 - Idioma coreano (ko)
+- Se añadió la traducción completa `src/assets/i18n/ko.json` y se habilitó el selector con la etiqueta localizada.
+- `language.service.ts` incorpora `ko` y se actualizó `.github/workflows/update-reviews.yml` para cachear reseñas en coreano.
+- Se añadieron las etiquetas de idioma en todos los JSON existentes para mantener coherencia en el selector.
 
 ## 📋 Resumen de Actualizaciones
 
