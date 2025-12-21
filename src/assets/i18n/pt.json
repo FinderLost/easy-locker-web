@@ -1,0 +1,284 @@
+{
+  "seo": {
+    "home": {
+      "title": "Depósito de bagagens em Córdoba | Easy Locker",
+      "description": "Guarde as suas malas em Córdoba, ao lado da estação de comboios e de autocarros. Consignas seguras 24h com acesso por código e preços desde 5€.",
+      "keywords": "consigna bagagens Córdoba, cacifos para malas Córdoba, guardar malas estação Córdoba, lockers Córdoba, luggage storage Cordoba"
+    }
+  },
+
+  "h1": "Depósito de bagagens em Córdoba | Easy Locker",
+  "home": {
+    "description": "Guarde as suas malas com segurança ao lado da estação de comboios e de autocarros de Córdoba. Acesso 24h por código, câmaras de segurança e preços desde 5€. Perfeito para turistas e viajantes de passagem."
+  },
+
+  "hero": {
+    "availability": "Aberto 24/7",
+    "title": "Lockers inteligentes em Córdoba",
+    "subtitle": "Explore mais, carregue menos",
+    "buttons": {
+      "reserve": "Reservar agora",
+      "directions": "Como chegar"
+    },
+    "links": {
+      "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=pt",
+      "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
+
+  "header": {
+    "theme": {
+      "srLabel": "Preferências de tema",
+      "buttonAria": "Preferência de tema: {{mode}}",
+      "menuLabel": "Configuração de tema",
+      "options": {
+        "light": {
+          "label": "Claro",
+          "description": "Usar sempre o modo claro"
+        },
+        "dark": {
+          "label": "Escuro",
+          "description": "Usar sempre o modo escuro"
+        },
+        "system": {
+          "label": "Sistema",
+          "description": "Sincronizar com o dispositivo"
+        }
+      }
+    },
+    "language": {
+      "srLabel": "Seletor de idioma",
+      "buttonAria": "Idioma selecionado: {{language}}",
+      "menuLabel": "Idiomas disponíveis",
+      "options": {
+        "es": "Espanhol",
+        "en": "Inglês",
+        "pt": "Português",
+        "fr": "Francês",
+        "de": "Alemão",
+        "it": "Italiano",
+        "unknown": "Idioma"
+      }
+    }
+  },
+
+  "lockerSizes": {
+    "title": "Planos de consigna",
+    "subtitle": "Escolha o espaço que melhor se adapta à sua bagagem",
+    "plans": {
+      "m": {
+        "name": "Tamanho M",
+        "price": "5 €/dia",
+        "dimensions": "28 cm x 41 cm x 56 cm",
+        "description": "Cabe uma mala pequena ou mochila."
+      },
+      "l": {
+        "name": "Tamanho L",
+        "price": "7 €/dia",
+        "dimensions": "50 cm x 41 cm x 56 cm",
+        "description": "Cabem duas malas pequenas, duas mochilas ou uma mala grande."
+      },
+      "xl": {
+        "name": "Tamanho XL",
+        "price": "10 €/dia",
+        "dimensions": "82 cm x 41 cm x 56 cm",
+        "description": "Cabe uma mala grande e duas pequenas, quatro malas pequenas ou quatro mochilas."
+      }
+    }
+  },
+
+  "sections": {
+    "testimonials": {
+      "title": "Opiniões de clientes",
+      "subtitle": "Avaliações reais da Easy Locker no Google"
+    },
+    "faq": {
+      "title": "FAQs",
+      "subtitle": "Respondemos às dúvidas mais frequentes"
+    }
+  },
+
+  "faq_contact_title": "Tem mais perguntas?",
+  "faq_contact_desc": "Contacte-nos e responderemos o mais rápido possível.",
+  "faq_contact_btn": "Enviar email",
+  "faq_q1": "Como funciona o serviço?",
+  "faq_a1": "É muito simples. Você reserva e paga tudo online no nosso site. Depois de confirmada a reserva, receberá um código que lhe permite entrar no local e abrir a consigna que reservou.",
+  "faq_q2": "Posso reservar uma consigna com antecedência?",
+  "faq_a2": "Sim, pode reservar com antecedência. Recomendamos fazê-lo o mais cedo possível, especialmente em época alta.",
+  "faq_q3": "O que acontece se recolher tarde?",
+  "faq_a3": "Se ultrapassar o tempo contratado, podemos cobrar uma extensão e a recolha poderá ser adiada para o horário seguinte. Avise-nos se prever um atraso.",
+  "faq_q4": "Posso aceder várias vezes durante o dia?",
+  "faq_a4": "Sim, pode aceder à sua consigna quantas vezes precisar durante a reserva usando o código fornecido.",
+  "faq_q5": "Posso aceder várias vezes durante a minha reserva?",
+  "faq_a5": "Sim. Pode abrir e fechar a consigna sempre que precisar dentro do horário.",
+  "faq_q6": "É seguro?",
+  "faq_a6": "Sim. O local tem videovigilância 24/7, acesso por código e consignas metálicas. Os códigos são renovados automaticamente após cada utilização.",
+  "faq_q7": "Que métodos de pagamento aceitam?",
+  "faq_a7": "O pagamento é apenas com cartão através de uma gateway segura.",
+  "faq_q8": "Como pago?",
+  "faq_a8": "O pagamento é totalmente seguro e é feito com cartão ao confirmar a reserva.",
+  "faq_q9": "Perdi o código / o meu telemóvel ficou sem bateria",
+  "faq_a9": "Contacte-nos. Depois de verificar a sua identidade, ajudaremos a recuperar o acesso.",
+
+  "footer_contact": "Contacto",
+  "footer_whatsapp": "WhatsApp",
+  "footer_available": "24/7 Disponível",
+  "footer_description": "A sua solução de confiança para guardar bagagens em segurança em Córdoba. Explore mais, carregue menos",
+  "footer_quick_links": "Links rápidos",
+  "footer_connect_title": "Siga-nos",
+  "footer_contact_title": "Contacto",
+  "footer_secure_service": "Serviço seguro",
+  "footer_made_in_cordoba": "Feito com ❤️ em Córdoba",
+  "footer_all_rights": "Todos os direitos reservados.",
+  "footer_badge_secure_service": "Serviço seguro",
+  "footer_badge_made_with": "Feito com",
+  "footer_badge_in_cordoba": "em Córdoba",
+  "footer_social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok"
+  },
+  "footer_copyright_text": "Easy Locker · Córdoba. Todos os direitos reservados.",
+  "footer_terms": "Termos e condições",
+  "footer_privacy": "Política de privacidade",
+  "footer_email": "info@easy-locker.com",
+  "footer_copyright": "© 2024 Easy Locker. Todos os direitos reservados.",
+  "meta_description": "Lockers inteligentes em Córdoba",
+  "meta_title": "Easy Locker | Córdoba",
+  "testimonials_rating_aria": "Avaliação: {{rating}} de 5 estrelas",
+  "testimonials_placeholder": "Ainda não há opiniões disponíveis.",
+  "testimonials_placeholder_loading": "A carregar opiniões...",
+  "testimonials_summary_empty": "Seja o primeiro a deixar a sua opinião.",
+  "testimonials_summary_verified": "Todas as opiniões são verificadas no Google.",
+  "testimonials_summary_loading": "A carregar opiniões...",
+  "testimonials_empty_title": "Ainda não há opiniões publicadas",
+  "testimonials_empty_body": "Usou a Easy Locker em Córdoba? Ajude outros viajantes deixando a sua avaliação no Google.",
+  "testimonials_empty_trust": "As opiniões são mostradas diretamente do Google e não podem ser editadas neste site.",
+  "testimonials_button_profile": "Ver perfil no Google",
+  "testimonials_button_review": "Deixar uma avaliação",
+  "testimonials_button_profile_aria": "Abrir perfil da Easy Locker no Google",
+  "testimonials_button_review_aria": "Deixar uma avaliação no Google",
+  "testimonials_button_all_reviews": "Ver todas as avaliações no Google",
+  "testimonials_button_all_reviews_aria": "Abrir a lista de avaliações da Easy Locker no Google",
+
+  "cookies": {
+    "banner": {
+      "title": "As suas preferências de cookies",
+      "body": "Usamos cookies essenciais para que o site funcione e cookies de análise opcionais para melhorar a experiência. Pode aceitar só as essenciais ou todas."
+    },
+    "modal": {
+      "title": "Preferências de cookies",
+      "body": "Pode ativar ou desativar as cookies de análise a qualquer momento. As cookies essenciais estão sempre ativas para que o site funcione."
+    },
+    "categories": {
+      "essential": "Essenciais",
+      "essential_desc": "Idioma, tema e funcionalidades básicas necessárias para o Easy Locker funcionar.",
+      "analytics": "Analíticas",
+      "analytics_desc": "Ajudam-nos a perceber o uso do site e a melhorar os nossos serviços."
+    },
+    "state": {
+      "required": "Sempre ativas"
+    },
+    "preferences": {
+      "analytics_label": "Permitir cookies de análise"
+    },
+    "action": {
+      "close": "Fechar",
+      "hide": "Ocultar",
+      "configure": "Configurar",
+      "essential_only": "Aceitar só essenciais",
+      "accept_all": "Aceitar todas",
+      "policy": "Política de cookies",
+      "manage": "Gerir cookies"
+    }
+  },
+
+  "cookiePolicy": {
+    "title": "Política de cookies",
+    "summary": "Esta política explica como a Easy Locker utiliza cookies para prestar o serviço, melhorar a experiência e medir de forma anónima o desempenho do site.",
+    "sections": {
+      "responsible": {
+        "title": "1. Quem é o responsável?",
+        "body": "A Easy Locker Córdoba (doravante, «Easy Locker») é responsável pelo tratamento dos dados ligados ao uso de cookies neste site.",
+        "list": {
+          "email": "Email de contacto:",
+          "purpose": "Usamos cookies e tecnologias semelhantes para prestar os nossos serviços, melhorar a experiência do utilizador e obter estatísticas de uso anónimas."
+        },
+        "note": "Se precisar dos dados societários completos ou de mais informação, escreva-nos para info@easy-locker.com."
+      },
+      "definition": {
+        "title": "2. O que são cookies?",
+        "body": "Uma cookie é um pequeno ficheiro que fica guardado no seu navegador e permite recordar preferências ou entender como utiliza a web. Podem ser próprias (easy-locker.com) ou de terceiros (por exemplo, Google) e podem durar apenas a sessão ou ser persistentes."
+      },
+      "types": {
+        "title": "3. Tipos de cookies que usamos",
+        "essential": {
+          "title": "3.1 Cookies essenciais (necessárias)",
+          "intro": "São imprescindíveis para que o site funcione corretamente e não podem ser desativadas a partir do painel.",
+          "items": {
+            "language": "Recordar o idioma da interface.",
+            "theme": "Recordar o modo claro/escuro/sistema.",
+            "consent": "Guardar a sua escolha sobre o uso de cookies."
+          },
+          "legal": "Base legal: interesse legítimo e prestação do serviço (sem elas o site deixaria de funcionar)."
+        },
+        "analytics": {
+          "title": "3.2 Cookies de análise (opcionais)",
+          "intro": "Usamos Google Analytics / Firebase Analytics para saber quantas visitas recebemos, que secções geram mais interação e melhorar o desempenho.",
+          "dataTitle": "Dados recolhidos:",
+          "dataItems": {
+            "device": "Identificador anónimo do dispositivo ou navegador.",
+            "tech": "Informação técnica básica (navegador, resolução, país aproximado, etc.).",
+            "usage": "Informação de uso (páginas visitadas, tempo em cada secção, eventos como cliques em «Reservar» ou mudanças de idioma)."
+          },
+          "notStoredTitle": "Não guardamos:",
+          "notStoredItems": {
+            "names": "Nome e apelidos.",
+            "contact": "Email, telefone ou dados de pagamento.",
+            "booking": "Códigos de reserva ou outros dados que o identifiquem diretamente."
+          },
+          "legal": "Base legal: o seu consentimento, que pode aceitar ou rejeitar no banner ou em «Gerir cookies» no footer. Fornecedor: Google LLC (EUA), que aplica cláusulas contratuais-tipo."
+        }
+      },
+      "list": {
+        "title": "4. Cookies concretas",
+        "table": {
+          "name": "Nome",
+          "type": "Tipo",
+          "purpose": "Finalidade"
+        },
+        "labels": {
+          "essential": "Essencial",
+          "analytics": "Analítica"
+        },
+        "rows": {
+          "easyLang": {
+            "purpose": "Recordar o idioma selecionado."
+          },
+          "easyTheme": {
+            "purpose": "Manter o modo claro/escuro/sistema."
+          },
+          "easyConsent": {
+            "purpose": "Guardar se aceitou ou rejeitou as cookies de análise."
+          },
+          "ga": {
+            "purpose": "Medir visitas e comportamento quando dá o seu consentimento."
+          }
+        },
+        "notice": "Revisamos periodicamente as cookies em uso e atualizaremos esta tabela quando adicionarmos novas ferramentas."
+      },
+      "manage": {
+        "title": "5. Como gerir ou retirar o consentimento?",
+        "body": "Ao entrar pela primeira vez mostramos um banner para aceitar apenas as cookies essenciais ou todas. Pode mudar a decisão a qualquer momento através do link «Gerir cookies» no footer. Se desativar a analítica deixaremos de enviar eventos ao Google/Firebase e deixaremos de ler as cookies existentes."
+      },
+      "transfer": {
+        "title": "6. Transferências internacionais",
+        "body": "O uso do Google/Firebase pode implicar transferências de dados para os Estados Unidos. A Google LLC indica que aplica cláusulas contratuais-tipo e garantias adicionais em conformidade com a legislação europeia."
+      },
+      "updates": {
+        "title": "7. Atualizações desta política",
+        "body": "Podemos modificar esta política para a adaptar a mudanças legais ou técnicas. Se a alteração for relevante, voltaremos a solicitar o seu consentimento através do banner de cookies."
+      }
+    }
+  }
+}
