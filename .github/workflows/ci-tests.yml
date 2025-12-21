@@ -46,7 +46,9 @@ jobs:
         run: node -e "console.log('CHROME_BIN=' + require('playwright').chromium.executablePath())" >> "$GITHUB_ENV"
 
       - name: Unit tests
-        run: npm test -- --watch=false --browsers=ChromeHeadless
+        env:
+          CHROME_BIN: ${{ env.CHROME_BIN }}
+        run: npm test -- --watch=false
 
       - name: E2E tests (Playwright)
         run: npm run test:e2e -- --workers=1
