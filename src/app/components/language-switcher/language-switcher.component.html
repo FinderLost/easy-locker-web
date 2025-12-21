@@ -6,6 +6,7 @@
     aria-haspopup="listbox"
     [attr.aria-expanded]="open"
     [attr.aria-label]="('header.language.buttonAria' | translate: { language: (getCurrentLanguageLabelKey() | translate) })"
+    data-testid="language-switcher-toggle"
   >
     <span class="header-picker-label language-switcher-label">
       {{ getCurrentLanguageLabelKey() | translate }}
@@ -33,6 +34,7 @@
     role="listbox"
     [attr.aria-label]="'header.language.menuLabel' | translate"
     [@dropdownAnimation]="open ? 'open' : 'closed'"
+    data-testid="language-switcher-menu"
   >
     <button
       type="button"
@@ -42,6 +44,7 @@
       [class.header-picker-option--active]="lang.code === currentLanguage"
       role="option"
       [attr.aria-selected]="lang.code === currentLanguage"
+      [attr.data-testid]="'language-option-' + lang.code"
     >
       <span class="language-option-label">{{ lang.labelKey | translate }}</span>
       <span
