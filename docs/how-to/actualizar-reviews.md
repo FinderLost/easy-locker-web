@@ -3,9 +3,9 @@ title: Actualizar reseñas de Google (cache semanal y multilenguaje)
 description: Cómo refrescar las reseñas de Google, con textos en varios idiomas, y servirlas desde assets usando el workflow programado.
 tags: [how-to, reviews, google, cache, i18n]
 owner: web-team
-last_updated: 2025-12-16
+last_updated: 2025-12-21
 status: approved
-llm_summary: Explica el workflow programado que trae reviews de Google Places v1 cada semana, genera traducciones para en/es/fr/de/it y las guarda en assets/data/google-reviews.json; incluye cómo lanzarlo manualmente y probar en local.
+llm_summary: Explica el workflow programado que trae reviews de Google Places v1 cada semana, genera traducciones para en/es/fr/de/it/pt y las guarda en assets/data/google-reviews.json; incluye cómo lanzarlo manualmente y probar en local.
 ---
 
 # Actualizar reseñas de Google (cache semanal)
@@ -21,7 +21,7 @@ Este sitio sirve las reseñas desde un JSON estático que se refresca con un wor
 Archivo: `.github/workflows/update-reviews.yml`.
 - Programación: lunes 03:00 UTC (`cron: 0 3 * * 1`).
 - También se puede lanzar manualmente desde GitHub Actions (`workflow_dispatch`).
-- Pasos: descarga reviews desde Places v1 en varios idiomas (`en es fr de it`) usando `languageCode`, combina por índice, normaliza campos (autor, rating, fecha, idioma original) y genera un JSON con traducciones por idioma en `src/assets/data/google-reviews.json` (máx. 6 reviews). Si hay cambios, hace commit/push.
+- Pasos: descarga reviews desde Places v1 en varios idiomas (`en es fr de it pt`) usando `languageCode`, combina por índice, normaliza campos (autor, rating, fecha, idioma original) y genera un JSON con traducciones por idioma en `src/assets/data/google-reviews.json` (máx. 6 reviews). Si hay cambios, hace commit/push.
 - Permisos: usa `contents: write` con `GITHUB_TOKEN`.
 
 ## Lanzar manualmente
