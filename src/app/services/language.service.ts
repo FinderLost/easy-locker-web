@@ -20,6 +20,7 @@ export class LanguageService {
     { code: 'fr', labelKey: 'header.language.options.fr' },
     { code: 'de', labelKey: 'header.language.options.de' },
     { code: 'it', labelKey: 'header.language.options.it' },
+    { code: 'ko', labelKey: 'header.language.options.ko' },
   ];
   private initialized = false;
   private languageSubject = new BehaviorSubject<string>(this.defaultLanguage);
