@@ -3,6 +3,12 @@ import { LanguageOption, LanguageService } from '../../services/language.service
 import { Subscription } from 'rxjs';
 import { DropdownCoordinatorService } from '../../services/dropdown-coordinator.service';
 import { dropdownAnimation } from '../../animations/dropdown.animation';
+import { Router } from '@angular/router';
+import {
+  COOKIE_POLICY_LANG_BY_SLUG,
+  COOKIE_POLICY_SLUGS,
+  getCookiePolicySlug,
+} from '../../core/models/cookie-policy-routing';
 
 @Component({
   selector: 'app-language-switcher',
@@ -20,7 +26,8 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
   constructor(
     private languageService: LanguageService,
     private elementRef: ElementRef<HTMLElement>,
-    private dropdownCoordinator: DropdownCoordinatorService
+    private dropdownCoordinator: DropdownCoordinatorService,
+    private router: Router
   ) {
     this.languages = this.languageService.getSupportedLanguages();
   }
@@ -55,6 +62,12 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
     }
 
     this.languageService.setLanguage(langCode);
+
+    if (this.isCookiePolicyPage()) {
+      const targetSlug = getCookiePolicySlug(langCode) ?? COOKIE_POLICY_SLUGS['en'];
+      this.router.navigateByUrl(`/${targetSlug}`);
+    }
+
     this.dropdownCoordinator.close(this.dropdownId);
   }
 
@@ -78,5 +91,14 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
   @HostListener('document:keydown.escape')
   onEscape(): void {
     this.dropdownCoordinator.close(this.dropdownId);
+  }
+
+  private isCookiePolicyPage(): boolean {
+    const currentPath = this.normalizePath(this.router.url);
+    return Boolean(COOKIE_POLICY_LANG_BY_SLUG[currentPath]);
+  }
+
+  private normalizePath(url: string): string {
+    return url.replace(/^\//, '').split('?')[0].split('#')[0];
   }
 }
