@@ -1,0 +1,68 @@
+name: Create release PR (develop → main)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  open-release-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create or reuse PR
+        id: create_pr
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const head = 'develop';
+            const base = 'main';
+            const title = 'Release: sync develop → main';
+            const body = [
+              'PR automática para preparar el despliegue a producción.',
+              '',
+              '- Base: main',
+              '- Head: develop',
+              '- Acción: mergear para lanzar el workflow de deploy a GitHub Pages.',
+              '',
+              'Si ya existe una PR abierta entre estas ramas, se reutiliza.'
+            ].join('\n');
+
+            const existing = await github.paginate(github.rest.pulls.list, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:${head}`,
+              base,
+            });
+
+            if (existing.length > 0) {
+              core.setOutput('pr_number', existing[0].number);
+              core.setOutput('pr_url', existing[0].html_url);
+              core.info(`PR ya existe: #${existing[0].number}`);
+              return;
+            }
+
+            const pr = await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              head,
+              base,
+              body,
+              draft: false,
+            });
+
+            core.setOutput('pr_number', pr.data.number);
+            core.setOutput('pr_url', pr.data.html_url);
+            core.info(`PR creada: #${pr.data.number}`);
+
+      - name: Echo PR URL
+        run: |
+          echo "PR number: ${{ steps.create_pr.outputs.pr_number }}"
+          echo "PR URL:    ${{ steps.create_pr.outputs.pr_url }}"
