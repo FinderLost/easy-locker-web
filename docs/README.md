@@ -14,7 +14,7 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 
 ## Mapa rápido
 - **How-to**: [Editar contenido](how-to/editar-contenido.md), [Dar de alta un idioma](how-to/dar-alta-idioma.md), [Gestionar imágenes de planes](how-to/imagenes-planes.md), [Desplegar a producción](how-to/desplegar.md), [Actualizar reseñas de Google](how-to/actualizar-reviews.md), [Tests UI (Playwright)](how-to/tests-ui.md)
-- **Referencia**: [Cambios realizados](reference/cambios-realizados.md), [Config Google Reviews](src/assets/config/reviews-config.js), [Guía de imágenes](src/assets/images/README.md), [Pendientes de pruebas UI/E2E](reference/testing-gaps-ui.md)
+- **Referencia**: [Cambios realizados](reference/cambios-realizados.md), [Config Google Reviews](src/assets/config/reviews-config.js), [Guía de imágenes](src/assets/images/README.md), [SEO multi-idioma (Opción A)](reference/seo-multi-idioma-opcion-a.md), [Pendientes de pruebas UI/E2E](reference/testing-gaps-ui.md)
 - **Meta / patrón**: [Patrón de documentación](meta/doc-pattern.md)
 
 ## Qué encontrarás en cada categoría
