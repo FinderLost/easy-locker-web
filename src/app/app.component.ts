@@ -11,7 +11,6 @@ import {
   COOKIE_POLICY_SLUGS,
   findCookiePolicyLanguage,
 } from './core/models/cookie-policy-routing';
-import { isRoutingLanguage } from './core/constants/routing-languages';
 
 @Component({
   selector: 'app-root',
@@ -57,10 +56,9 @@ export class AppComponent implements OnInit, OnDestroy {
   private updateSeo(): void {
     const path = this.normalizePath(this.router.url);
     const cookieLang = findCookiePolicyLanguage(path);
-    const isLangPath = isRoutingLanguage(path);
 
     this.clearManagedLinks();
-    this.setRobotsTag(isLangPath ? 'noindex,follow' : 'index,follow');
+    this.setRobotsTag('index,follow');
 
     if (cookieLang) {
       this.updateCookiePolicySeo(cookieLang);
