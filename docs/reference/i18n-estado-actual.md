@@ -10,7 +10,7 @@ status: approved
 # Estado actual del i18n y rutas multi-idioma
 
 ## 1. Reflejo del idioma en la URL
-- El idioma se refleja con prefijo: rutas `/es`, `/en`, `/fr`, `/de`, `/it` renderizan Home (SPA) pero se marcan como `noindex` para SEO.
+- El idioma se refleja con prefijo: rutas `/es`, `/en`, `/fr`, `/de`, `/it` renderizan Home (SPA) y se sirven con canónica `https://easy-locker.com/` y meta `robots` en `index,follow`.
 - `/` actúa como x-default y redirige al idioma detectado o a `en` (UX), pero la canónica siempre es `https://easy-locker.com/`.
 - El idioma se sincroniza en URL + localStorage (`language`) + `document.documentElement.lang`.
 - Excepción: la política de cookies sigue usando los slugs existentes sin prefijo (ver `COOKIE_POLICY_SLUGS`).
@@ -21,7 +21,7 @@ status: approved
 
 ## 3. Rutas reales y SEO efectivo
 - Canónica única para todas las páginas: `https://easy-locker.com/`.
-- Prefijos de idioma (`/es`, `/en`, `/fr`, `/de`, `/it`) sirven UX pero se marcan `noindex`; no se generan etiquetas `hreflang`.
+- Prefijos de idioma (`/es`, `/en`, `/fr`, `/de`, `/it`) sirven UX; no se generan etiquetas `hreflang` pero se mantiene `robots` como `index,follow`.
 - Política de cookies (sin prefijo): `https://easy-locker.com/<slug>` con los slugs de `COOKIE_POLICY_SLUGS`; hereda la canónica raíz.
 - Sitemap solo incluye URLs indexables reales (home y cookies). SPA en GitHub Pages con `404.html` para refrescos en `/lang`.
 
