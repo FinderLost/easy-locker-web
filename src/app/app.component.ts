@@ -11,6 +11,11 @@ import {
   COOKIE_POLICY_SLUGS,
   findCookiePolicyLanguage,
 } from './core/models/cookie-policy-routing';
+import {
+  DEFAULT_ROUTING_LANG,
+  ROUTING_LANGS,
+  isRoutingLanguage,
+} from './core/constants/routing-languages';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private readonly baseUrl = 'https://easy-locker.com';
   private readonly managedLinkAttr = 'data-managed';
   private readonly managedLinkValue = 'seo-link';
+  private readonly routingLangs = ROUTING_LANGS;
 
   constructor(
     private languageService: LanguageService,
@@ -68,6 +74,7 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private updateHomeSeo(): void {
+    const lang = this.getRoutingLanguage();
     const seoTitle = this.translate.instant('seo.home.title');
     const seoDescription = this.translate.instant('seo.home.description');
     const seoKeywords = this.translate.instant('seo.home.keywords');
@@ -80,7 +87,8 @@ export class AppComponent implements OnInit, OnDestroy {
     this.metaService.updateTag({ name: 'twitter:title', content: seoTitle });
     this.metaService.updateTag({ name: 'twitter:description', content: seoDescription });
 
-    this.setCanonical(`${this.baseUrl}/`);
+    this.setCanonical(this.buildLanguageUrl(lang));
+    this.setHomeHreflangLinks();
   }
 
   private updateCookiePolicySeo(lang: string): void {
@@ -118,6 +126,14 @@ export class AppComponent implements OnInit, OnDestroy {
     if (COOKIE_POLICY_SLUGS['en']) {
       this.upsertLinkTag('alternate', `${this.baseUrl}/${COOKIE_POLICY_SLUGS['en']}`, 'x-default');
     }
+  }
+
+  private setHomeHreflangLinks(): void {
+    this.upsertLinkTag('alternate', `${this.baseUrl}/`, 'x-default');
+
+    this.routingLangs.forEach((lang) => {
+      this.upsertLinkTag('alternate', this.buildLanguageUrl(lang), lang);
+    });
   }
 
   private upsertLinkTag(rel: string, href: string, hreflang?: string): void {
@@ -164,5 +180,17 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private normalizePath(url: string): string {
     return url.replace(/^\//, '').split('?')[0].split('#')[0];
+  }
+
+  private buildLanguageUrl(lang: string): string {
+    return `${this.baseUrl}/${lang}/`;
+  }
+
+  private getRoutingLanguage(): string {
+    const lang = this.languageService.getCurrentLanguage();
+    if (isRoutingLanguage(lang)) {
+      return lang;
+    }
+    return DEFAULT_ROUTING_LANG;
   }
 }

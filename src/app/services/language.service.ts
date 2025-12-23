@@ -16,11 +16,9 @@ export class LanguageService {
   private readonly supportedLanguages: LanguageOption[] = [
     { code: 'es', labelKey: 'header.language.options.es' },
     { code: 'en', labelKey: 'header.language.options.en' },
-    { code: 'pt', labelKey: 'header.language.options.pt' },
     { code: 'fr', labelKey: 'header.language.options.fr' },
     { code: 'de', labelKey: 'header.language.options.de' },
     { code: 'it', labelKey: 'header.language.options.it' },
-    { code: 'ko', labelKey: 'header.language.options.ko' },
   ];
   private initialized = false;
   private languageSubject = new BehaviorSubject<string>(this.defaultLanguage);
@@ -58,6 +56,20 @@ export class LanguageService {
 
   getSupportedLanguages(): LanguageOption[] {
     return this.supportedLanguages;
+  }
+
+  getDefaultLanguage(): string {
+    return this.defaultLanguage;
+  }
+
+  resolveInitialLanguage(): string {
+    const stored = this.getStoredLanguage();
+    if (stored) {
+      return stored;
+    }
+
+    const detected = this.detectBrowserLanguage();
+    return detected ?? this.defaultLanguage;
   }
 
   getCurrentLanguage(): string {
