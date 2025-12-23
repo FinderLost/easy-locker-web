@@ -11,11 +11,7 @@ import {
   COOKIE_POLICY_SLUGS,
   findCookiePolicyLanguage,
 } from './core/models/cookie-policy-routing';
-import {
-  DEFAULT_ROUTING_LANG,
-  ROUTING_LANGS,
-  isRoutingLanguage,
-} from './core/constants/routing-languages';
+import { isRoutingLanguage } from './core/constants/routing-languages';
 
 @Component({
   selector: 'app-root',
@@ -28,7 +24,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private readonly baseUrl = 'https://easy-locker.com';
   private readonly managedLinkAttr = 'data-managed';
   private readonly managedLinkValue = 'seo-link';
-  private readonly routingLangs = ROUTING_LANGS;
 
   constructor(
     private languageService: LanguageService,
@@ -62,8 +57,10 @@ export class AppComponent implements OnInit, OnDestroy {
   private updateSeo(): void {
     const path = this.normalizePath(this.router.url);
     const cookieLang = findCookiePolicyLanguage(path);
+    const isLangPath = isRoutingLanguage(path);
 
     this.clearManagedLinks();
+    this.setRobotsTag(isLangPath ? 'noindex,follow' : 'index,follow');
 
     if (cookieLang) {
       this.updateCookiePolicySeo(cookieLang);
@@ -74,7 +71,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   private updateHomeSeo(): void {
-    const lang = this.getRoutingLanguage();
     const seoTitle = this.translate.instant('seo.home.title');
     const seoDescription = this.translate.instant('seo.home.description');
     const seoKeywords = this.translate.instant('seo.home.keywords');
@@ -87,8 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.metaService.updateTag({ name: 'twitter:title', content: seoTitle });
     this.metaService.updateTag({ name: 'twitter:description', content: seoDescription });
 
-    this.setCanonical(this.buildLanguageUrl(lang));
-    this.setHomeHreflangLinks();
+    this.setCanonical(`${this.baseUrl}/`);
   }
 
   private updateCookiePolicySeo(lang: string): void {
@@ -100,7 +95,6 @@ export class AppComponent implements OnInit, OnDestroy {
     const seoDescription = this.translate.instant('cookiePolicy.summary');
     const keywords = this.translate.instant('seo.home.keywords');
     const slug = COOKIE_POLICY_SLUGS[lang] ?? COOKIE_POLICY_SLUGS['en'];
-    const canonicalUrl = `${this.baseUrl}/${slug}`;
 
     this.titleService.setTitle(seoTitle);
     this.metaService.updateTag({ name: 'description', content: seoDescription });
@@ -110,30 +104,11 @@ export class AppComponent implements OnInit, OnDestroy {
     this.metaService.updateTag({ name: 'twitter:title', content: seoTitle });
     this.metaService.updateTag({ name: 'twitter:description', content: seoDescription });
 
-    this.setCanonical(canonicalUrl);
-    this.setHreflangLinks();
+    this.setCanonical(`${this.baseUrl}/`);
   }
 
   private setCanonical(url: string): void {
     this.upsertLinkTag('canonical', url);
-  }
-
-  private setHreflangLinks(): void {
-    Object.entries(COOKIE_POLICY_SLUGS).forEach(([lang, slug]) => {
-      this.upsertLinkTag('alternate', `${this.baseUrl}/${slug}`, lang);
-    });
-
-    if (COOKIE_POLICY_SLUGS['en']) {
-      this.upsertLinkTag('alternate', `${this.baseUrl}/${COOKIE_POLICY_SLUGS['en']}`, 'x-default');
-    }
-  }
-
-  private setHomeHreflangLinks(): void {
-    this.upsertLinkTag('alternate', `${this.baseUrl}/`, 'x-default');
-
-    this.routingLangs.forEach((lang) => {
-      this.upsertLinkTag('alternate', this.buildLanguageUrl(lang), lang);
-    });
   }
 
   private upsertLinkTag(rel: string, href: string, hreflang?: string): void {
@@ -141,25 +116,13 @@ export class AppComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const selectors = [
-      `link[rel="${rel}"]`,
-      `[${this.managedLinkAttr}="${this.managedLinkValue}"]`,
-    ];
-
-    if (hreflang) {
-      selectors.push(`[hreflang="${hreflang}"]`);
-    }
-
-    const selector = selectors.join('');
+    const selector = `link[rel="${rel}"][${this.managedLinkAttr}="${this.managedLinkValue}"]`;
     let link = this.document.head.querySelector<HTMLLinkElement>(selector);
 
     if (!link) {
       link = this.document.createElement('link');
       link.setAttribute('rel', rel);
       link.setAttribute(this.managedLinkAttr, this.managedLinkValue);
-      if (hreflang) {
-        link.setAttribute('hreflang', hreflang);
-      }
       this.document.head.appendChild(link);
     }
 
@@ -182,15 +145,7 @@ export class AppComponent implements OnInit, OnDestroy {
     return url.replace(/^\//, '').split('?')[0].split('#')[0];
   }
 
-  private buildLanguageUrl(lang: string): string {
-    return `${this.baseUrl}/${lang}/`;
-  }
-
-  private getRoutingLanguage(): string {
-    const lang = this.languageService.getCurrentLanguage();
-    if (isRoutingLanguage(lang)) {
-      return lang;
-    }
-    return DEFAULT_ROUTING_LANG;
+  private setRobotsTag(content: string): void {
+    this.metaService.updateTag({ name: 'robots', content });
   }
 }
