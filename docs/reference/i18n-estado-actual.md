@@ -10,8 +10,8 @@ status: approved
 # Estado actual del i18n y rutas multi-idioma
 
 ## 1. Reflejo del idioma en la URL
-- El idioma ahora se refleja con prefijo: rutas `/es`, `/en`, `/fr`, `/de`, `/it` renderizan Home (SPA).
-- `/` actúa como x-default y redirige al idioma detectado o a `en`.
+- El idioma se refleja con prefijo: rutas `/es`, `/en`, `/fr`, `/de`, `/it` renderizan Home (SPA) pero se marcan como `noindex` para SEO.
+- `/` actúa como x-default y redirige al idioma detectado o a `en` (UX), pero la canónica siempre es `https://easy-locker.com/`.
 - El idioma se sincroniza en URL + localStorage (`language`) + `document.documentElement.lang`.
 - Excepción: la política de cookies sigue usando los slugs existentes sin prefijo (ver `COOKIE_POLICY_SLUGS`).
 
@@ -19,11 +19,11 @@ status: approved
 - Se utiliza **@ngx-translate/core** y **@ngx-translate/http-loader** para traducción dinámica.
 - También está presente `@angular/localize`, pero la gestión principal es con ngx-translate.
 
-## 3. Rutas reales en producción para ES/EN/FR/DE/IT
-- Home: `https://easy-locker.com/es/`, `/en/`, `/fr/`, `/de/`, `/it/` (canonical + hreflang generados en runtime).
-- X-default: `https://easy-locker.com/` (redirige a idioma detectado o `en`).
-- Política de cookies (excepción sin prefijo): `https://easy-locker.com/<slug>` donde `<slug>` es `COOKIE_POLICY_SLUGS[lang]` (p. ej. `politica-cookies`, `cookie-policy`, etc.).
-- El despliegue sigue siendo SPA en GitHub Pages; el `404.html` mantiene el redirect para refrescos en `/lang`.
+## 3. Rutas reales y SEO efectivo
+- Canónica única para todas las páginas: `https://easy-locker.com/`.
+- Prefijos de idioma (`/es`, `/en`, `/fr`, `/de`, `/it`) sirven UX pero se marcan `noindex`; no se generan etiquetas `hreflang`.
+- Política de cookies (sin prefijo): `https://easy-locker.com/<slug>` con los slugs de `COOKIE_POLICY_SLUGS`; hereda la canónica raíz.
+- Sitemap solo incluye URLs indexables reales (home y cookies). SPA en GitHub Pages con `404.html` para refrescos en `/lang`.
 
 ---
 
