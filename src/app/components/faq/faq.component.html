@@ -32,6 +32,7 @@
             [attr.aria-expanded]="faq.isOpen"
             [attr.aria-controls]="'faq-panel-' + i"
             [id]="'faq-header-' + i"
+            [attr.data-testid]="'faq-toggle-' + i"
           >
             <div class="flex items-center gap-4">
               <span class="easy-faq-step-badge mr-4">
@@ -70,6 +71,7 @@
               'max-h-0 opacity-0': !faq.isOpen,
               'max-h-96 opacity-100 mt-3': faq.isOpen
             }"
+            [attr.data-testid]="'faq-answer-' + i"
           >
             <p class="easy-faq-body">
               {{ faq.answerKey | translate }}

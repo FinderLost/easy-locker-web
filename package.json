@@ -8,7 +8,10 @@
     "build:prod": "ng build --configuration production --base-href /",
     "deploy": "ng build --configuration production --base-href / && npx angular-cli-ghpages --dir=dist/easy-locker-angular",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed"
   },
   "private": true,
   "dependencies": {
@@ -35,6 +38,7 @@
     "@angular-devkit/build-angular": "^16.2.16",
     "@angular/cli": "^16.2.16",
     "@angular/compiler-cli": "^16.2.0",
+    "@playwright/test": "^1.57.0",
     "@types/jasmine": "~4.3.0",
     "angular-cli-ghpages": "^2.0.3",
     "jasmine-core": "~4.6.0",

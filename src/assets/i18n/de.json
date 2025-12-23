@@ -52,10 +52,12 @@
       "options": {
         "es": "Español",
         "en": "English",
+        "pt": "Portugiesisch",
         "fr": "Français",
         "de": "Deutsch",
         "it": "Italiano",
-        "unknown": "Sprache"
+          "ko": "Koreanisch",
+          "unknown": "Sprache"
       }
     }
   },

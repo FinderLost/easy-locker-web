@@ -1,29 +1,37 @@
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import {
+  TranslateFakeLoader,
+  TranslateLoader,
+  TranslateModule,
+} from '@ngx-translate/core';
 import { AppComponent } from './app.component';
+import { AnalyticsService } from './core/analytics/analytics.service';
+
+class AnalyticsServiceStub {
+  // no-op stub to satisfy injections in language/theme services
+  trackEvent(): void {}
+}
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [RouterTestingModule],
-    declarations: [AppComponent]
-  }));
+  beforeEach(() =>
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        TranslateModule.forRoot({
+          loader: { provide: TranslateLoader, useClass: TranslateFakeLoader },
+        }),
+      ],
+      declarations: [AppComponent],
+      providers: [{ provide: AnalyticsService, useClass: AnalyticsServiceStub }],
+      schemas: [NO_ERRORS_SCHEMA],
+    })
+  );
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'easy-locker-angular'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('easy-locker-angular');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('easy-locker-angular app is running!');
   });
 });

@@ -16,9 +16,11 @@ export class LanguageService {
   private readonly supportedLanguages: LanguageOption[] = [
     { code: 'es', labelKey: 'header.language.options.es' },
     { code: 'en', labelKey: 'header.language.options.en' },
+    { code: 'pt', labelKey: 'header.language.options.pt' },
     { code: 'fr', labelKey: 'header.language.options.fr' },
     { code: 'de', labelKey: 'header.language.options.de' },
     { code: 'it', labelKey: 'header.language.options.it' },
+    { code: 'ko', labelKey: 'header.language.options.ko' },
   ];
   private initialized = false;
   private languageSubject = new BehaviorSubject<string>(this.defaultLanguage);

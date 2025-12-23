@@ -19,6 +19,7 @@
       </p>
       <h1
         class="easy-hero-title hero-title tracking-tight text-[2.1rem] md:text-6xl lg:text-7xl leading-[1.1] md:leading-tight text-brand-textPrimary dark:text-brand-darkTextStrong"
+        data-testid="hero-heading"
       >
         {{ "h1" | translate }}
       </h1>
@@ -31,12 +32,14 @@
         <button
           (click)="onReserve()"
           class="easy-pill-btn easy-cta-primary w-full min-w-[280px] md:w-auto"
+          data-testid="hero-cta-reserve"
         >
           {{ "hero.buttons.reserve" | translate }}
         </button>
         <button
           (click)="onDirections()"
           class="easy-pill-btn easy-cta-secondary w-full min-w-[280px] md:w-auto"
+          data-testid="hero-cta-directions"
         >
           {{ "hero.buttons.directions" | translate }}
         </button>

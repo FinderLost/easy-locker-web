@@ -1,0 +1,282 @@
+{
+  "seo": {
+    "home": {
+      "title": "코르도바 짐 보관 | Easy Locker",
+      "description": "코르도바 기차·버스터미널 근처에서 짐을 안전하게 보관하세요. 24시간 코드 출입 스마트 락커, 하루 €5부터.",
+      "keywords": "코르도바 짐보관, 코르도바 기차역 락커, 코르도바 짐 보관함, luggage storage Cordoba"
+    }
+  },
+
+  "h1": "코르도바 짐 보관 | Easy Locker",
+  "home": {
+    "description": "코르도바 기차·버스터미널 옆에서 짐을 안전하게 보관하세요. 24시간 코드 출입, 보안 카메라, €5부터. 여행객과 환승객 모두에게 적합합니다."
+  },
+  "hero": {
+    "availability": "24시간 운영",
+    "title": "코르도바 스마트 락커",
+    "subtitle": "더 많이 둘러보고, 덜 들고 다니세요",
+    "buttons": {
+      "reserve": "지금 예약",
+      "directions": "길찾기"
+    },
+    "links": {
+      "reserve": "https://easylocker.drop-point.com/booking-engine?locker_ref=EASYLOCKER1&locale=ko",
+      "maps": "https://www.google.com/maps/dir/?api=1&destination=Easy%20Locker%2C%20C.%20Pintor%20Pe%C3%B1alosa%2C%20Noroeste%2C%2014011%20C%C3%B3rdoba%2C%20Spain"
+    }
+  },
+
+  "header": {
+    "theme": {
+      "srLabel": "테마 설정",
+      "buttonAria": "테마 설정: {{mode}}",
+      "menuLabel": "테마 구성",
+      "options": {
+        "light": {
+          "label": "라이트",
+          "description": "항상 밝은 모드 사용"
+        },
+        "dark": {
+          "label": "다크",
+          "description": "항상 어두운 모드 사용"
+        },
+        "system": {
+          "label": "시스템",
+          "description": "기기 설정과 동기화"
+        }
+      }
+    },
+    "language": {
+      "srLabel": "언어 선택",
+      "buttonAria": "선택된 언어: {{language}}",
+      "menuLabel": "사용 가능한 언어",
+      "options": {
+        "es": "Español",
+        "en": "English",
+        "pt": "Português",
+        "fr": "Français",
+        "de": "Deutsch",
+        "it": "Italiano",
+        "ko": "한국어",
+        "unknown": "언어"
+      }
+    }
+  },
+
+  "lockerSizes": {
+    "title": "락커 요금제",
+    "subtitle": "짐 크기에 맞는 공간을 선택하세요",
+    "plans": {
+      "m": {
+        "name": "락커 M",
+        "price": "€5/일",
+        "dimensions": "28 cm x 41 cm x 56 cm",
+        "description": "기내용 캐리어 또는 백팩 1개에 적합합니다."
+      },
+      "l": {
+        "name": "락커 L",
+        "price": "€7/일",
+        "dimensions": "50 cm x 41 cm x 56 cm",
+        "description": "기내용 캐리어 2개 또는 백팩 2개, 혹은 큰 캐리어 1개에 적합합니다."
+      },
+      "xl": {
+        "name": "락커 XL",
+        "price": "€10/일",
+        "dimensions": "82 cm x 41 cm x 56 cm",
+        "description": "큰 캐리어 1개와 작은 캐리어 2개, 혹은 작은 캐리어 4개/백팩 4개까지 보관 가능합니다."
+      }
+    }
+  },
+
+  "sections": {
+    "testimonials": {
+      "title": "고객 후기",
+      "subtitle": "Google에 등록된 실제 Easy Locker 리뷰"
+    },
+    "faq": {
+      "title": "자주 묻는 질문",
+      "subtitle": "가장 많은 질문에 답해드립니다"
+    }
+  },
+
+  "faq_contact_title": "추가로 궁금한 점이 있나요?",
+  "faq_contact_desc": "문의해 주세요. 최대한 빨리 답변드리겠습니다.",
+  "faq_contact_btn": "이메일 보내기",
+  "faq_q1": "서비스는 어떻게 이용하나요?",
+  "faq_a1": "간단합니다. 웹사이트에서 전부 온라인으로 예약·결제하면, 확인 후 매장 출입과 예약한 락커를 열 수 있는 코드를 받게 됩니다.",
+  "faq_q2": "미리 예약할 수 있나요?",
+  "faq_a2": "네, 미리 예약할 수 있습니다. 특히 성수기에는 최대한 일찍 예약하시길 권장합니다.",
+  "faq_q3": "픽업이 늦어지면 어떻게 되나요?",
+  "faq_a3": "예약 시간을 초과하면 연장 요금이 청구될 수 있으며, 수령이 다음 오픈 시간으로 미뤄질 수 있습니다. 지연될 것 같다면 미리 알려주세요.",
+  "faq_q4": "예약 시간 동안 여러 번 드나들 수 있나요?",
+  "faq_a4": "네. 제공된 코드로 예약 시간 동안 필요한 만큼 열고 닫을 수 있습니다.",
+  "faq_q5": "하루 동안 여러 번 접근할 수 있나요?",
+  "faq_a5": "물론입니다. 예약 시간 내에서 원하는 만큼 입장하고 락커를 이용할 수 있습니다.",
+  "faq_q6": "안전한가요?",
+  "faq_a6": "네. 24시간 CCTV, 코드 출입, 금속 락커를 갖추고 있으며, 사용 후 코드는 자동으로 갱신됩니다.",
+  "faq_q7": "어떤 결제 수단을 사용할 수 있나요?",
+  "faq_a7": "결제는 안전한 카드 결제만 지원합니다.",
+  "faq_q8": "결제 방식은 어떻게 되나요?",
+  "faq_a8": "예약을 확정할 때 신용/직불카드로 완전히 안전하게 결제됩니다.",
+  "faq_q9": "코드를 잃어버리거나 배터리가 없으면?",
+  "faq_a9": "저희에게 연락 주세요. 본인 확인 후 다시 접근할 수 있도록 도와드립니다.",
+
+  "footer_contact": "문의",
+  "footer_whatsapp": "WhatsApp",
+  "footer_available": "24/7 운영",
+  "footer_description": "코르도바에서 짐을 안전하게 보관하는 믿을 수 있는 솔루션. 더 많이 탐험하고 짐은 가볍게.",
+  "footer_quick_links": "바로 가기",
+  "footer_connect_title": "소식 받기",
+  "footer_contact_title": "연락처",
+  "footer_secure_service": "안전한 서비스",
+  "footer_made_in_cordoba": "코르도바에서 ❤️를 담아",
+  "footer_all_rights": "All rights reserved.",
+  "footer_badge_secure_service": "안전한 서비스",
+  "footer_badge_made_with": "만든 마음",
+  "footer_badge_in_cordoba": "코르도바에서",
+  "footer_social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tiktok": "TikTok"
+  },
+  "footer_copyright_text": "Easy Locker · Córdoba. All rights reserved.",
+  "footer_terms": "이용 약관",
+  "footer_privacy": "개인정보 처리방침",
+  "footer_email": "info@easy-locker.com",
+  "footer_copyright": "© 2024 Easy Locker. All rights reserved.",
+  "meta_description": "코르도바 스마트 락커",
+  "meta_title": "Easy Locker | Cordoba",
+  "testimonials_rating_aria": "평점: 별 {{rating}}개 만점",
+  "testimonials_placeholder": "아직 후기가 없습니다.",
+  "testimonials_placeholder_loading": "후기를 불러오는 중...",
+  "testimonials_summary_empty": "첫 번째 리뷰를 남겨주세요.",
+  "testimonials_summary_verified": "모든 후기는 Google에서 검증되었습니다.",
+  "testimonials_summary_loading": "후기를 불러오는 중...",
+  "testimonials_empty_title": "아직 게시된 후기가 없습니다",
+  "testimonials_empty_body": "Easy Locker를 이용하셨나요? Google에 후기를 남겨 다른 여행객을 도와주세요.",
+  "testimonials_empty_trust": "후기는 Google에서 바로 가져오며, 이 사이트에서 수정할 수 없습니다.",
+  "testimonials_button_profile": "Google 프로필 보기",
+  "testimonials_button_review": "후기 남기기",
+  "testimonials_button_profile_aria": "Easy Locker Google 프로필 열기",
+  "testimonials_button_review_aria": "Google에 후기 남기기",
+  "testimonials_button_all_reviews": "모든 Google 후기 보기",
+  "testimonials_button_all_reviews_aria": "Easy Locker의 Google 후기 목록 열기",
+  "cookies": {
+    "banner": {
+      "title": "쿠키 설정",
+      "body": "필수 쿠키로 사이트를 운영하고, 선택적 분석 쿠키로 경험을 개선합니다. 필요한 쿠키만 또는 모두 허용을 선택할 수 있습니다."
+    },
+    "modal": {
+      "title": "쿠키 환경설정",
+      "body": "언제든 분석 쿠키를 켜거나 끌 수 있습니다. 필수 쿠키는 사이트 동작을 위해 항상 활성화됩니다."
+    },
+    "categories": {
+      "essential": "필수",
+      "essential_desc": "언어, 테마, Easy Locker가 동작하는 데 필요한 핵심 기능.",
+      "analytics": "분석",
+      "analytics_desc": "사이트 사용을 이해하고 서비스를 개선하는 데 도움을 줍니다."
+    },
+    "state": {
+      "required": "항상 켜짐"
+    },
+    "preferences": {
+      "analytics_label": "분석 쿠키 허용"
+    },
+    "action": {
+      "close": "닫기",
+      "hide": "숨기기",
+      "configure": "설정",
+      "essential_only": "필수만 허용",
+      "accept_all": "모두 허용",
+      "policy": "쿠키 정책",
+      "manage": "쿠키 관리"
+    }
+  },
+  "cookiePolicy": {
+    "title": "쿠키 정책",
+    "summary": "Easy Locker가 서비스를 제공하고 경험을 개선하며 사이트 성능을 익명으로 측정하기 위해 쿠키를 어떻게 사용하는지 설명합니다.",
+    "sections": {
+      "responsible": {
+        "title": "1. 데이터 처리자",
+        "body": "Easy Locker Córdoba(이하 “Easy Locker”)는 이 웹사이트에서 쿠키 사용과 관련된 데이터 처리를 담당합니다.",
+        "list": {
+          "email": "문의 이메일:",
+          "purpose": "우리는 서비스를 제공하고 사용자 경험을 개선하며 익명 사용 통계를 얻기 위해 쿠키 및 유사 기술을 사용합니다."
+        },
+        "note": "회사 정보나 추가 안내가 필요하면 info@easy-locker.com으로 연락해 주세요."
+      },
+      "definition": {
+        "title": "2. 쿠키란?",
+        "body": "쿠키는 브라우저에 저장되는 작은 파일로, 선호도를 기억하거나 사이트 이용 방식을 이해하는 데 도움이 됩니다. 쿠키는 자체 도메인(easy-locker.com) 또는 제3자(예: Google)에서 설정될 수 있으며 세션/지속형일 수 있습니다."
+      },
+      "types": {
+        "title": "3. 사용하는 쿠키 유형",
+        "essential": {
+          "title": "3.1 필수 쿠키",
+          "intro": "웹사이트가 제대로 작동하는 데 필요하며 배너에서 비활성화할 수 없습니다.",
+          "items": {
+            "language": "인터페이스 언어를 기억합니다.",
+            "theme": "라이트/다크/시스템 테마를 기억합니다.",
+            "consent": "쿠키 사용에 대한 사용자의 선택을 저장합니다."
+          },
+          "legal": "법적 근거: 정당한 이익 및 서비스 제공(이 쿠키가 없으면 사이트가 정상 동작하지 않습니다)."
+        },
+        "analytics": {
+          "title": "3.2 분석 쿠키 (선택)",
+          "intro": "우리는 Google Analytics / Firebase Analytics를 사용해 방문 수, 자주 이용되는 섹션, 성능 개선점을 파악합니다.",
+          "dataTitle": "수집되는 데이터:",
+          "dataItems": {
+            "device": "기기 또는 브라우저의 익명 식별자",
+            "tech": "기본 기술 정보(브라우저, 해상도, 대략적인 국가 등)",
+            "usage": "사용 정보(방문한 페이지, 머문 시간, ‘지금 예약’ 클릭이나 언어 변경 같은 이벤트)"
+          },
+          "notStoredTitle": "저장하지 않는 정보:",
+          "notStoredItems": {
+            "names": "이름과 성",
+            "contact": "이메일, 전화번호, 결제 정보",
+            "booking": "예약 코드 등 직접 식별 가능한 데이터"
+          },
+          "legal": "법적 근거: 사용자의 동의. 배너 또는 푸터의 ‘쿠키 관리’에서 동의·철회를 설정할 수 있습니다. 제공자: Google LLC(미국), 표준계약조항 등 관련 보호조치를 적용합니다."
+        }
+      },
+      "list": {
+        "title": "4. 사용 중인 쿠키",
+        "table": {
+          "name": "이름",
+          "type": "유형",
+          "purpose": "목적"
+        },
+        "labels": {
+          "essential": "필수",
+          "analytics": "분석"
+        },
+        "rows": {
+          "easyLang": {
+            "purpose": "선택한 언어를 기억합니다."
+          },
+          "easyTheme": {
+            "purpose": "라이트/다크/시스템 테마 설정을 유지합니다."
+          },
+          "easyConsent": {
+            "purpose": "분석 쿠키 동의 여부를 저장합니다."
+          },
+          "ga": {
+            "purpose": "동의 후 방문·사용 행동을 측정합니다."
+          }
+        },
+        "notice": "사용 중인 쿠키를 주기적으로 검토하며 새 도구를 추가하면 이 표를 업데이트합니다."
+      },
+      "manage": {
+        "title": "5. 동의 관리 또는 철회 방법",
+        "body": "첫 방문 시 필수 쿠키만 또는 모든 쿠키를 허용하는 배너가 표시됩니다. 언제든 푸터의 ‘쿠키 관리’ 링크에서 선택을 변경할 수 있습니다. 분석을 끄면 Google/Firebase로 이벤트 전송 및 기존 쿠키 읽기를 중단합니다."
+      },
+      "transfer": {
+        "title": "6. 국제 데이터 이전",
+        "body": "Google/Firebase 사용 시 미국으로 데이터가 이전될 수 있습니다. Google LLC는 표준계약조항과 추가 보호조치를 적용한다고 명시합니다."
+      },
+      "updates": {
+        "title": "7. 정책 업데이트",
+        "body": "법적·기술적 변경에 따라 본 정책이 수정될 수 있습니다. 변경이 중요할 경우 쿠키 배너를 통해 다시 동의를 요청합니다."
+      }
+    }
+  }
+}
