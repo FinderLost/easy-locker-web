@@ -66,8 +66,11 @@ export class LanguageSwitcherComponent implements OnInit, OnDestroy {
     if (this.isCookiePolicyPage()) {
       const targetSlug = getCookiePolicySlug(langCode) ?? COOKIE_POLICY_SLUGS['en'];
       this.router.navigateByUrl(`/${targetSlug}`);
+      this.dropdownCoordinator.close(this.dropdownId);
+      return;
     }
 
+    this.router.navigate(['/', langCode]);
     this.dropdownCoordinator.close(this.dropdownId);
   }
 
