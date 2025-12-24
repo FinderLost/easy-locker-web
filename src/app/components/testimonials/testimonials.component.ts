@@ -5,6 +5,7 @@ import {
   HostListener,
   OnDestroy,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subscription, catchError, map, of } from 'rxjs';
@@ -54,10 +55,12 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   readonly profileUrl = 'https://share.google/Mz0YZ1RFwkV0uToTK';
   readonly reviewUrl = 'https://g.page/r/Cdlcmss1Q8AFEBM/review';
-  private readonly desktopVisibleCount = 3;
+  private readonly desktopVisibleCount = 2;
   private readonly tabletVisibleCount = 2;
   private readonly mobileVisibleCount = 1;
   readonly autoSlideMs = 5500;
+  private readonly touchThresholdPx = 40;
+  private readonly touchVerticalTolerancePx = 30;
   readonly lastUpdatedCopy: Record<string, string> = {
     es: 'Última actualización',
     en: 'Last update',
@@ -80,6 +83,15 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   lastUpdatedDisplay?: string;
   private cachedLastModified?: string;
 
+  private touchStartX = 0;
+  private touchStartY = 0;
+  private touchActive = false;
+  private dragOffsetPercent = 0;
+  private viewportWidth = 0;
+
+  @ViewChild('carouselViewport')
+  private carouselViewport?: ElementRef<HTMLElement>;
+
   carouselReviews: GoogleReview[] = [];
 
   constructor(
@@ -97,6 +109,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    this.updateViewportWidth();
     this.observeSection();
   }
 
@@ -111,6 +124,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.reviews.length) {
       return;
     }
+    this.updateViewportWidth();
     this.updateVisibleCount();
   }
 
@@ -160,6 +174,76 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
     this.stopAutoSlide();
     this.nextSlide();
+    this.startAutoSlide();
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    if (!this.canNavigate || !event.touches.length) {
+      return;
+    }
+    const touch = event.touches[0];
+    this.stopAutoSlide();
+    this.updateViewportWidth();
+    this.touchStartX = touch.clientX;
+    this.touchStartY = touch.clientY;
+    this.touchActive = true;
+    this.dragOffsetPercent = 0;
+  }
+
+  onTouchMove(event: TouchEvent): void {
+    if (!this.touchActive || !event.touches.length) {
+      return;
+    }
+    const touch = event.touches[0];
+    const deltaY = Math.abs(touch.clientY - this.touchStartY);
+    if (deltaY > this.touchVerticalTolerancePx) {
+      this.touchActive = false;
+      this.dragOffsetPercent = 0;
+      return;
+    }
+
+    const width = this.viewportWidth || this.carouselViewport?.nativeElement?.clientWidth || 0;
+    if (!width) {
+      return;
+    }
+
+    const deltaX = touch.clientX - this.touchStartX;
+    this.dragOffsetPercent = (deltaX * 100) / width;
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    if (!this.touchActive) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+    if (!touch) {
+      this.dragOffsetPercent = 0;
+      this.touchActive = false;
+      this.startAutoSlide();
+      return;
+    }
+
+    const deltaX = touch.clientX - this.touchStartX;
+    const absDeltaX = Math.abs(deltaX);
+
+    this.dragOffsetPercent = 0;
+    this.touchActive = false;
+
+    if (absDeltaX >= this.touchThresholdPx) {
+      if (deltaX < 0) {
+        this.onNextClick();
+      } else {
+        this.onPrevClick();
+      }
+    } else {
+      this.startAutoSlide();
+    }
+  }
+
+  onTouchCancel(_event?: TouchEvent): void {
+    this.dragOffsetPercent = 0;
+    this.touchActive = false;
     this.startAutoSlide();
   }
 
@@ -399,6 +483,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       })
       .filter((review) => !!review.text && !!review.author);
 
+    this.updateVisibleCount();
     this.rebuildCarousel();
     this.updateLastUpdatedLabel(lang);
   }
@@ -409,7 +494,8 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   get sliderTransform(): string {
     const offset = this.currentIndex * this.slideWidthPercentage;
-    return `translateX(-${offset}%)`;
+    const dragOffset = this.dragOffsetPercent;
+    return `translateX(-${offset - dragOffset}%)`;
   }
 
   private prevSlide(): void {
@@ -440,6 +526,13 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.autoSlideTimer) {
       clearInterval(this.autoSlideTimer);
       this.autoSlideTimer = undefined;
+    }
+  }
+
+  private updateViewportWidth(): void {
+    const width = this.carouselViewport?.nativeElement?.clientWidth;
+    if (width) {
+      this.viewportWidth = width;
     }
   }
 

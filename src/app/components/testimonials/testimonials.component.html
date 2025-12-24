@@ -22,7 +22,7 @@
         <div class="relative max-w-6xl mx-auto">
           <button
             type="button"
-            class="control-compact absolute -left-5 md:-left-10 top-1/2 -translate-y-1/2 z-10"
+            class="control-compact absolute -left-5 md:-left-10 top-1/2 -translate-y-1/2 z-10 hidden md:inline-flex"
             (click)="onPrevClick()"
             [disabled]="!canNavigate"
             [class.opacity-50]="!canNavigate"
@@ -45,7 +45,7 @@
 
           <button
             type="button"
-            class="control-compact absolute -right-5 md:-right-10 top-1/2 -translate-y-1/2 z-10"
+            class="control-compact absolute -right-5 md:-right-10 top-1/2 -translate-y-1/2 z-10 hidden md:inline-flex"
             (click)="onNextClick()"
             [disabled]="!canNavigate"
             [class.opacity-50]="!canNavigate"
@@ -66,13 +66,17 @@
             </svg>
           </button>
 
-          <div class="overflow-hidden carousel-viewport">
+          <div class="overflow-hidden carousel-viewport" #carouselViewport>
             <div
               class="flex items-stretch transition-transform ease-out"
               [style.transform]="sliderTransform"
               [style.will-change]="'transform'"
               [style.transitionDuration]="trackTransitionDuration"
               (transitionend)="onTrackTransitionEnd()"
+              (touchstart)="onTouchStart($event)"
+              (touchmove)="onTouchMove($event)"
+              (touchend)="onTouchEnd($event)"
+              (touchcancel)="onTouchCancel($event)"
             >
               <div
                 *ngFor="let review of carouselReviews; trackBy: trackByAuthor"
