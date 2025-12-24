@@ -399,6 +399,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       })
       .filter((review) => !!review.text && !!review.author);
 
+    this.updateVisibleCount();
     this.rebuildCarousel();
     this.updateLastUpdatedLabel(lang);
   }
