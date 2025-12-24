@@ -54,7 +54,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   readonly profileUrl = 'https://share.google/Mz0YZ1RFwkV0uToTK';
   readonly reviewUrl = 'https://g.page/r/Cdlcmss1Q8AFEBM/review';
-  private readonly desktopVisibleCount = 3;
+  private readonly desktopVisibleCount = 2;
   private readonly tabletVisibleCount = 2;
   private readonly mobileVisibleCount = 1;
   readonly autoSlideMs = 5500;
