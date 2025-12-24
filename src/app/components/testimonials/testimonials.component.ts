@@ -58,6 +58,8 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private readonly tabletVisibleCount = 2;
   private readonly mobileVisibleCount = 1;
   readonly autoSlideMs = 5500;
+  private readonly touchThresholdPx = 40;
+  private readonly touchVerticalTolerancePx = 30;
   readonly lastUpdatedCopy: Record<string, string> = {
     es: 'Última actualización',
     en: 'Last update',
@@ -79,6 +81,10 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private transitionEnabled = true;
   lastUpdatedDisplay?: string;
   private cachedLastModified?: string;
+
+  private touchStartX = 0;
+  private touchStartY = 0;
+  private touchActive = false;
 
   carouselReviews: GoogleReview[] = [];
 
@@ -161,6 +167,52 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     this.stopAutoSlide();
     this.nextSlide();
     this.startAutoSlide();
+  }
+
+  onTouchStart(event: TouchEvent): void {
+    if (!this.canNavigate || !event.touches.length) {
+      return;
+    }
+    const touch = event.touches[0];
+    this.touchStartX = touch.clientX;
+    this.touchStartY = touch.clientY;
+    this.touchActive = true;
+  }
+
+  onTouchMove(event: TouchEvent): void {
+    if (!this.touchActive || !event.touches.length) {
+      return;
+    }
+    const touch = event.touches[0];
+    const deltaY = Math.abs(touch.clientY - this.touchStartY);
+    if (deltaY > this.touchVerticalTolerancePx) {
+      this.touchActive = false;
+    }
+  }
+
+  onTouchEnd(event: TouchEvent): void {
+    if (!this.touchActive) {
+      return;
+    }
+
+    const touch = event.changedTouches[0];
+    if (!touch) {
+      this.touchActive = false;
+      return;
+    }
+
+    const deltaX = touch.clientX - this.touchStartX;
+    const absDeltaX = Math.abs(deltaX);
+
+    if (absDeltaX >= this.touchThresholdPx) {
+      if (deltaX < 0) {
+        this.onNextClick();
+      } else {
+        this.onPrevClick();
+      }
+    }
+
+    this.touchActive = false;
   }
 
   onTrackTransitionEnd(): void {
