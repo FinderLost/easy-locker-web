@@ -66,7 +66,7 @@
             </svg>
           </button>
 
-          <div class="overflow-hidden carousel-viewport">
+          <div class="overflow-hidden carousel-viewport" #carouselViewport>
             <div
               class="flex items-stretch transition-transform ease-out"
               [style.transform]="sliderTransform"
@@ -76,6 +76,7 @@
               (touchstart)="onTouchStart($event)"
               (touchmove)="onTouchMove($event)"
               (touchend)="onTouchEnd($event)"
+              (touchcancel)="onTouchCancel($event)"
             >
               <div
                 *ngFor="let review of carouselReviews; trackBy: trackByAuthor"

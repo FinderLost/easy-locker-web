@@ -5,6 +5,7 @@ import {
   HostListener,
   OnDestroy,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subscription, catchError, map, of } from 'rxjs';
@@ -85,6 +86,11 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   private touchStartX = 0;
   private touchStartY = 0;
   private touchActive = false;
+  private dragOffsetPercent = 0;
+  private viewportWidth = 0;
+
+  @ViewChild('carouselViewport')
+  private carouselViewport?: ElementRef<HTMLElement>;
 
   carouselReviews: GoogleReview[] = [];
 
@@ -103,6 +109,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    this.updateViewportWidth();
     this.observeSection();
   }
 
@@ -117,6 +124,7 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     if (!this.reviews.length) {
       return;
     }
+    this.updateViewportWidth();
     this.updateVisibleCount();
   }
 
@@ -174,9 +182,12 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       return;
     }
     const touch = event.touches[0];
+    this.stopAutoSlide();
+    this.updateViewportWidth();
     this.touchStartX = touch.clientX;
     this.touchStartY = touch.clientY;
     this.touchActive = true;
+    this.dragOffsetPercent = 0;
   }
 
   onTouchMove(event: TouchEvent): void {
@@ -187,7 +198,17 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     const deltaY = Math.abs(touch.clientY - this.touchStartY);
     if (deltaY > this.touchVerticalTolerancePx) {
       this.touchActive = false;
+      this.dragOffsetPercent = 0;
+      return;
     }
+
+    const width = this.viewportWidth || this.carouselViewport?.nativeElement?.clientWidth || 0;
+    if (!width) {
+      return;
+    }
+
+    const deltaX = touch.clientX - this.touchStartX;
+    this.dragOffsetPercent = (deltaX * 100) / width;
   }
 
   onTouchEnd(event: TouchEvent): void {
@@ -197,12 +218,17 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
     const touch = event.changedTouches[0];
     if (!touch) {
+      this.dragOffsetPercent = 0;
       this.touchActive = false;
+      this.startAutoSlide();
       return;
     }
 
     const deltaX = touch.clientX - this.touchStartX;
     const absDeltaX = Math.abs(deltaX);
+
+    this.dragOffsetPercent = 0;
+    this.touchActive = false;
 
     if (absDeltaX >= this.touchThresholdPx) {
       if (deltaX < 0) {
@@ -210,9 +236,15 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
       } else {
         this.onPrevClick();
       }
+    } else {
+      this.startAutoSlide();
     }
+  }
 
+  onTouchCancel(_event?: TouchEvent): void {
+    this.dragOffsetPercent = 0;
     this.touchActive = false;
+    this.startAutoSlide();
   }
 
   onTrackTransitionEnd(): void {
@@ -462,7 +494,8 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
 
   get sliderTransform(): string {
     const offset = this.currentIndex * this.slideWidthPercentage;
-    return `translateX(-${offset}%)`;
+    const dragOffset = this.dragOffsetPercent;
+    return `translateX(-${offset - dragOffset}%)`;
   }
 
   private prevSlide(): void {
@@ -493,6 +526,13 @@ export class TestimonialsComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.autoSlideTimer) {
       clearInterval(this.autoSlideTimer);
       this.autoSlideTimer = undefined;
+    }
+  }
+
+  private updateViewportWidth(): void {
+    const width = this.carouselViewport?.nativeElement?.clientWidth;
+    if (width) {
+      this.viewportWidth = width;
     }
   }
 
