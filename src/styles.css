@@ -296,8 +296,9 @@
   }
 
   .header-picker-indicator {
-    @apply inline-flex h-2 w-2 rounded-full;
+    @apply inline-flex h-2 w-2 rounded-full self-center;
     background-color: var(--brand-accent-primary);
+    flex-shrink: 0;
   }
 
   .easy-cta-primary,
