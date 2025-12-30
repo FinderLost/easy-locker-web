@@ -74,13 +74,13 @@
       },
       "l": {
         "name": "락커 L",
-        "price": "€7/일",
+        "price": "€10.90/일",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "기내용 캐리어 2개 또는 백팩 2개, 혹은 큰 캐리어 1개에 적합합니다."
       },
       "xl": {
         "name": "락커 XL",
-        "price": "€10/일",
+        "price": "€15.90/일",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "큰 캐리어 1개와 작은 캐리어 2개, 혹은 작은 캐리어 4개/백팩 4개까지 보관 가능합니다."
       }

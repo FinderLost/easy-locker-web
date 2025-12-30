@@ -75,13 +75,13 @@
       },
       "l": {
         "name": "Tamanho L",
-        "price": "7 €/dia",
+        "price": "10,90 €/dia",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "Cabem duas malas pequenas, duas mochilas ou uma mala grande."
       },
       "xl": {
         "name": "Tamanho XL",
-        "price": "10 €/dia",
+        "price": "15,90 €/dia",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "Cabe uma mala grande e duas pequenas, quatro malas pequenas ou quatro mochilas."
       }
