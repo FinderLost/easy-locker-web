@@ -74,13 +74,13 @@
       },
       "l": {
         "name": "Locker misura L",
-        "price": "7 €/giorno",
+        "price": "10,90 €/giorno",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "Adatto a due piccole valigie, due zaini o una grande valigia."
       },
       "xl": {
         "name": "Locker misura XL",
-        "price": "10 €/giorno",
+        "price": "15,90 €/giorno",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "Adatto a una grande valigia e due piccole, quattro piccole valigie o quattro zaini."
       }

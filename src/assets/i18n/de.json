@@ -74,13 +74,13 @@
       },
       "l": {
         "name": "Schließfachgröße L",
-        "price": "7 €/Tag",
+        "price": "10,90 €/Tag",
         "dimensions": "50 cm x 41 cm x 56 cm",
         "description": "Geeignet für zwei kleine Koffer, zwei Rucksäcke oder einen großen Koffer."
       },
       "xl": {
         "name": "Schließfachgröße XL",
-        "price": "10 €/Tag",
+        "price": "15,90 €/Tag",
         "dimensions": "82 cm x 41 cm x 56 cm",
         "description": "Geeignet für einen großen Koffer und zwei kleine, vier kleine Koffer oder vier Rucksäcke."
       }
