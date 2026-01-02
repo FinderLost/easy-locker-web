@@ -66,6 +66,7 @@
   "lockerSizes": {
     "title": "Planes de consigna",
     "subtitle": "Elige el espacio que mejor encaja con tu equipaje",
+    "perDay": "/día",
     "plans": {
       "m": {
         "name": "Tamaño M",
