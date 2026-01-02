@@ -65,6 +65,7 @@
   "lockerSizes": {
     "title": "Piani di deposito bagagli",
     "subtitle": "Scegli lo spazio che meglio si adatta al tuo bagaglio",
+    "perDay": "/giorno",
     "plans": {
       "m": {
         "name": "Locker misura M",

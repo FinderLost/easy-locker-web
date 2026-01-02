@@ -65,6 +65,7 @@
   "lockerSizes": {
     "title": "Locker plans",
     "subtitle": "Choose the space that best fits your luggage",
+    "perDay": "/day",
     "plans": {
       "m": {
         "name": "Locker Size M",

@@ -3,7 +3,7 @@ title: Desplegar a producción (GitHub Pages)
 description: Cómo construir y publicar el sitio usando la GitHub Action existente o de forma manual.
 tags: [how-to, deploy, github-pages, firebase]
 owner: web-team
-last_updated: 2025-12-15
+last_updated: 2026-01-02
 status: approved
 llm_summary: Pasos para desplegar en GitHub Pages; requiere secretos de Firebase para generar firebase.config.ts y usa la acción deploy.yml.
 ---
@@ -42,6 +42,7 @@ Esta guía cubre el flujo soportado por el repo para publicar en GitHub Pages.
 
 - `build:prod` usa `--base-href /`; si se despliega bajo un subpath distinto, ajusta el flag.
 - Las credenciales de Google Reviews se inyectan en `src/assets/config/reviews-config.js` desde los secrets `GOOGLE_API_KEY` y `GOOGLE_PLACE_ID` en el pipeline. Para desarrollo local, edita ese archivo con tus valores (no lo subas al repositorio).
+- Los precios ahora se leen en tiempo real desde Firestore en el documento `config/prices`. Cambia los valores allí y se reflejarán sin redeploy. Asegúrate de que el usuario que edite tenga permisos de escritura en Firestore.
 - El archivo `src/environments/firebase.config.ts` está en `.gitignore`; debe generarse en cada entorno.
 
 **See also:** [Patrón de documentación](../meta/doc-pattern.md) | [Cambios realizados](../reference/cambios-realizados.md)

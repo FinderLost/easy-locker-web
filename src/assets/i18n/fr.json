@@ -65,6 +65,7 @@
   "lockerSizes": {
     "title": "Formules de consigne",
     "subtitle": "Choisissez l'espace qui s'adapte le mieux à vos bagages",
+    "perDay": "/jour",
     "plans": {
       "m": {
         "name": "Casier taille M",
