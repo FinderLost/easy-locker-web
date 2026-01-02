@@ -65,6 +65,7 @@
   "lockerSizes": {
     "title": "Schließfach-Tarife",
     "subtitle": "Wähle den Platz, der am besten zu deinem Gepäck passt",
+    "perDay": "/Tag",
     "plans": {
       "m": {
         "name": "Schließfachgröße M",
