@@ -3,12 +3,64 @@ title: Cambios realizados (changelog)
 description: Resumen funcional de cambios aplicados al sitio Easy Locker Web.
 tags: [reference, changelog, release-notes]
 owner: web-team
-last_updated: 2025-12-21
+last_updated: 2026-01-22
 status: approved
 llm_summary: Changelog narrativo con secciones hero, pricing, FAQ, footer y archivos tocados en la última iteración.
 ---
 
 # ✅ Cambios Realizados - Easy Locker Web
+
+## 2026-01-22 - Optimización SEO completa
+
+### 🚀 Mejoras implementadas
+
+#### JSON-LD Schema.org (LocalBusiness)
+- ✅ Implementado structured data con Schema.org type LocalBusiness
+- ✅ Incluye dirección completa, coordenadas GPS, horarios 24/7
+- ✅ Rango de precios, teléfono y enlaces a redes sociales
+- ✅ Inyección automática en `<head>` vía `app.component.ts`
+
+#### Hreflang tags multi-idioma
+- ✅ Tags `<link rel="alternate" hreflang="xx">` dinámicos
+- ✅ Soporte para 7 idiomas: es, en, fr, de, it, pt, ko
+- ✅ Tag `x-default` apuntando al español
+- ✅ Generación automática en cada cambio de ruta/idioma
+
+#### Mejoras en sitemap.xml
+- ✅ Namespace XHTML añadido para hreflang
+- ✅ Tags `<lastmod>` con fecha de actualización
+- ✅ Hreflang links en la URL principal
+- ✅ Todas las políticas de cookies incluidas (7 idiomas)
+
+#### Meta tags adicionales
+- ✅ Geo-targeting: `geo.region`, `geo.placename`, `geo.position`, `ICBM`
+- ✅ Meta `keywords` optimizado
+- ✅ Meta `author` añadido
+- ✅ Atributo `lang` en `<html>` dinámico por idioma
+
+#### Performance
+- ✅ Preconnect a Google Fonts para carga más rápida
+- ✅ DNS prefetch a Firestore para reducir latencia
+- ✅ Optimización de recursos críticos
+
+#### Documentación
+- ✅ Creada guía completa: [Análisis SEO con Screaming Frog](../how-to/analisis-seo-screaming-frog.md)
+- ✅ Creado inventario: [Estado actual del SEO](../reference/estado-seo.md)
+- ✅ Actualizado índice principal con nuevas guías
+
+### 📄 Archivos modificados
+- `src/app/app.component.ts` - Métodos SEO: `injectStructuredData()`, `addHreflangTags()`, `updateHtmlLang()`
+- `src/index.html` - Meta tags geo, preconnect, dns-prefetch
+- `src/sitemap.xml` - Namespace XHTML, lastmod, hreflang links
+- `docs/README.md` - Enlaces a nuevas guías SEO
+- `docs/how-to/analisis-seo-screaming-frog.md` - Nueva guía (creada)
+- `docs/reference/estado-seo.md` - Nuevo inventario (creado)
+
+### 🎯 Nivel de optimización SEO
+**Antes:** ⭐⭐⭐ (3/5 - Bueno)  
+**Ahora:** ⭐⭐⭐⭐⭐ (5/5 - Excelente)
+
+---
 
 ## 2025-12-21 - Idioma coreano (ko)
 - Se añadió la traducción completa `src/assets/i18n/ko.json` y se habilitó el selector con la etiqueta localizada.

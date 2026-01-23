@@ -59,13 +59,17 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.clearManagedLinks();
     this.setRobotsTag('index,follow');
+    this.updateHtmlLang();
 
     if (cookieLang) {
       this.updateCookiePolicySeo(cookieLang);
+      this.addHreflangTags();
       return;
     }
 
     this.updateHomeSeo();
+    this.addHreflangTags();
+    this.injectStructuredData();
   }
 
   private updateHomeSeo(): void {
@@ -145,5 +149,85 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private setRobotsTag(content: string): void {
     this.metaService.updateTag({ name: 'robots', content });
+  }
+
+  private updateHtmlLang(): void {
+    const currentLang = this.languageService.getCurrentLanguage();
+    this.document.documentElement.lang = currentLang;
+  }
+
+  private addHreflangTags(): void {
+    const supportedLanguages = ['es', 'en', 'fr', 'de', 'it', 'pt', 'ko'];
+    supportedLanguages.forEach(lang => {
+      this.upsertLinkTagWithHreflang('alternate', `${this.baseUrl}/`, lang);
+    });
+    // x-default apunta al español como idioma por defecto
+    this.upsertLinkTagWithHreflang('alternate', `${this.baseUrl}/`, 'x-default');
+  }
+
+  private upsertLinkTagWithHreflang(rel: string, href: string, hreflang: string): void {
+    if (!this.document?.head) {
+      return;
+    }
+
+    const selector = `link[rel="${rel}"][hreflang="${hreflang}"][${this.managedLinkAttr}="${this.managedLinkValue}"]`;
+    let link = this.document.head.querySelector<HTMLLinkElement>(selector);
+
+    if (!link) {
+      link = this.document.createElement('link');
+      link.setAttribute('rel', rel);
+      link.setAttribute('hreflang', hreflang);
+      link.setAttribute(this.managedLinkAttr, this.managedLinkValue);
+      this.document.head.appendChild(link);
+    }
+
+    link.setAttribute('href', href);
+  }
+
+  private injectStructuredData(): void {
+    const existingScript = this.document.querySelector('script[type="application/ld+json"]');
+    if (existingScript) {
+      return; // Ya existe, no duplicar
+    }
+
+    const structuredData = {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      'name': 'Easy Locker | Consigna & Luggage Storage',
+      'image': 'https://easy-locker.com/assets/images/social-card.png',
+      'description': this.translate.instant('seo.home.description'),
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'C. Pintor Peñalosa, Local 11',
+        'addressLocality': 'Córdoba',
+        'addressRegion': 'Andalucía',
+        'postalCode': '14011',
+        'addressCountry': 'ES'
+      },
+      'geo': {
+        '@type': 'GeoCoordinates',
+        'latitude': '37.8898628',
+        'longitude': '-4.7890138'
+      },
+      'url': 'https://easy-locker.com',
+      'telephone': '+34665922538',
+      'priceRange': '€',
+      'openingHoursSpecification': {
+        '@type': 'OpeningHoursSpecification',
+        'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        'opens': '00:00',
+        'closes': '23:59'
+      },
+      'sameAs': [
+        'https://www.facebook.com/share/1Got7XaYUE/',
+        'https://www.instagram.com/easylocker.es/',
+        'https://www.tiktok.com/@easylocker.es'
+      ]
+    };
+
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    this.document.head.appendChild(script);
   }
 }

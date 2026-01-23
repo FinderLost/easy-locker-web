@@ -13,8 +13,8 @@ llm_summary: Índice y convenciones de documentación (how-to, referencia, meta)
 Este es el índice único de Easy Locker Web. La estructura sigue un patrón tipo Diataxis (how-to, referencia, conceptos/meta) para que personas y agentes LLM encuentren rápido lo que necesitan.
 
 ## Mapa rápido
-- **How-to**: [Editar contenido](how-to/editar-contenido.md), [Dar de alta un idioma](how-to/dar-alta-idioma.md), [Gestionar imágenes de planes](how-to/imagenes-planes.md), [Desplegar a producción](how-to/desplegar.md), [Actualizar reseñas de Google](how-to/actualizar-reviews.md), [Tests UI (Playwright)](how-to/tests-ui.md)
-- **Referencia**: [Cambios realizados](reference/cambios-realizados.md), [Config Google Reviews](src/assets/config/reviews-config.js), [Guía de imágenes](src/assets/images/README.md), [SEO multi-idioma (Opción A)](reference/seo-multi-idioma-opcion-a.md), [Pendientes de pruebas UI/E2E](reference/testing-gaps-ui.md)
+- **How-to**: [Editar contenido](how-to/editar-contenido.md), [Dar de alta un idioma](how-to/dar-alta-idioma.md), [Gestionar imágenes de planes](how-to/imagenes-planes.md), [Desplegar a producción](how-to/desplegar.md), [Actualizar reseñas de Google](how-to/actualizar-reviews.md), [Tests UI (Playwright)](how-to/tests-ui.md), [Análisis SEO con Screaming Frog](how-to/analisis-seo-screaming-frog.md), [Push hotfix SEO](how-to/push-hotfix-seo.md)
+- **Referencia**: [Cambios realizados](reference/cambios-realizados.md), [Estado actual del SEO](reference/estado-seo.md), [Plan de acción SEO Enero 2026](reference/plan-accion-seo-2026-01.md), [Guía rápida Screaming Frog](reference/screaming-frog-quickstart.md), [Config Google Reviews](src/assets/config/reviews-config.js), [Guía de imágenes](src/assets/images/README.md), [Pendientes de pruebas UI/E2E](reference/testing-gaps-ui.md)
 - **Meta / patrón**: [Patrón de documentación](meta/doc-pattern.md)
 
 ## Qué encontrarás en cada categoría
