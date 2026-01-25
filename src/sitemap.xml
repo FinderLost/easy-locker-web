@@ -1,33 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Home (página principal) -->
   <url>
     <loc>https://easy-locker.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <lastmod>2026-01-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://easy-locker.com/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://easy-locker.com/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://easy-locker.com/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://easy-locker.com/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://easy-locker.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/" />
   </url>
+  
+  <!-- Políticas de cookies por idioma -->
   <url>
     <loc>https://easy-locker.com/politica-cookies</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <lastmod>2026-01-22</lastmod>
   </url>
   <url>
     <loc>https://easy-locker.com/cookie-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <lastmod>2026-01-22</lastmod>
   </url>
   <url>
     <loc>https://easy-locker.com/politique-cookies</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <lastmod>2026-01-22</lastmod>
   </url>
   <url>
     <loc>https://easy-locker.com/cookie-richtlinie</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <lastmod>2026-01-22</lastmod>
   </url>
   <url>
     <loc>https://easy-locker.com/politica-cookie</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+    <lastmod>2026-01-22</lastmod>
+  </url>
+  <url>
+    <loc>https://easy-locker.com/politica-de-cookies</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-01-22</lastmod>
+  </url>
+  <url>
+    <loc>https://easy-locker.com/cookie-jeongchaeg</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2026-01-22</lastmod>
   </url>
 </urlset>

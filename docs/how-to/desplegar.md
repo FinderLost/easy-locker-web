@@ -1,11 +1,11 @@
 ---
 title: Desplegar a producción (GitHub Pages)
-description: Cómo construir y publicar el sitio usando la GitHub Action existente o de forma manual.
-tags: [how-to, deploy, github-pages, firebase]
+description: Cómo construir y publicar el sitio usando workflows automáticos de GitHub Actions.
+tags: [how-to, deploy, github-pages, firebase, workflow]
 owner: web-team
-last_updated: 2026-01-02
+last_updated: 2026-01-25
 status: approved
-llm_summary: Pasos para desplegar en GitHub Pages; requiere secretos de Firebase para generar firebase.config.ts y usa la acción deploy.yml.
+llm_summary: Proceso completo de deploy automático vía PR a main, validación CI/CD y deploy a GitHub Pages; incluye configuración de secrets.
 ---
 
 # Desplegar a producción (GitHub Pages)

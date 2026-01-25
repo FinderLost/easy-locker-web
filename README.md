@@ -2,6 +2,35 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
+## ⚠️ CRITICAL: SEO Protection
+
+**Before modifying ANY SEO element (URLs, titles, H1, canonical, hreflang, robots.txt):**
+
+1. **Read:** [docs/reference/normas-criticas-seo.md](docs/reference/normas-criticas-seo.md)
+2. **Register changes:** [docs/reference/seo-changelog.md](docs/reference/seo-changelog.md)
+3. **Follow process:** [docs/how-to/cambios-seo-seguros.md](docs/how-to/cambios-seo-seguros.md)
+
+**Why?** Uncontrolled changes can cause traffic drops, ranking losses, or de-indexing.
+
+---
+
+## ⚠️ Known Security Vulnerabilities
+
+**Status:** 34 vulnerabilities detected (2 critical, 24 high, 5 moderate, 3 low)  
+**Affected:** Angular 16.2 and development dependencies  
+**Resolution:** Requires upgrade to Angular 18+ LTS
+
+**Impact:** Mostly development dependencies. Production impact is low (XSS in Angular if processing untrusted SVG/MathML).
+
+**See:** [docs/reference/security-vulnerabilities-2026-01.md](docs/reference/security-vulnerabilities-2026-01.md) for full analysis and upgrade plan.
+
+**Mitigation:**
+- Use `npm start` only on trusted local network
+- Do not process untrusted SVG/MathML user inputs
+- Upgrade to Angular 18 planned for next sprint
+
+---
+
 ## Documentation
 
 - Main hub: [docs/README.md](docs/README.md)
