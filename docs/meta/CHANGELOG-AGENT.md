@@ -35,14 +35,15 @@
 
 **Última actualización**: 2026-01-25  
 **Versión actual**: `v1.2.0`  
-**Branch activo**: `fix/security-vulnerabilities`  
-**Ramas**: `main` (prod), `develop` (pre-prod), `fix/security-vulnerabilities` (work)
+**Branch activo**: `feat/seo-title-optimization`  
+**Ramas**: `main` (prod), `develop` (pre-prod), `feat/seo-title-optimization` (work)
 
 ### 🟢 Sistemas activos
 - ✅ **Protección SEO**: Script `seo:check` + CI/CD validation en PRs
 - ✅ **Versionado semántico**: `package.json` → Footer display (v{{ appVersion }})
 - ✅ **Workflow CI/CD**: 4 workflows (ci-tests, deploy, create-release-pr, update-reviews)
 - ✅ **Compilación**: Proyecto compila correctamente (build exitoso)
+- ✅ **Title Tags optimizados**: 50 caracteres (cumple SEO best practices)
 
 ### 🔴 Problemas conocidos
 - ⚠️ **34 vulnerabilidades** de seguridad (2 críticas, 24 altas) → Requiere upgrade a Angular 18
@@ -50,13 +51,52 @@
 - ⚠️ **Node v19.8.1**: Versión non-LTS (considerar actualizar a LTS)
 
 ### 📦 Pendientes inmediatos
-1. Merge de branch `fix/security-vulnerabilities` a `develop`
+1. Merge de branch `feat/seo-title-optimization` a `develop`
 2. Crear Release PR de `develop` a `main` para deploy v1.2.0
 3. Planificar upgrade Angular 16 → 18 (ver `docs/reference/security-vulnerabilities-2026-01.md`)
 
 ---
 
 ## 📅 Historial de sesiones
+
+### Sesión 2026-01-25 (tarde): Optimización Title Tags SEO
+
+**Contexto**: Usuario solicitó optimizar Title Tags tras análisis con Screaming Frog que detectó títulos de 21 caracteres (recomendación: 50-60).
+
+**Cambios realizados**:
+- 🔍 **Análisis de títulos**: Identificado que títulos dinámicos (i18n) ya cumplían, pero HTML base no
+- ✅ **Optimización index.html**: 
+  - `<title>`: "Easy Locker | Córdoba" → "Consigna de equipaje en Córdoba | Easy Locker" (50 chars)
+  - `og:title`: Actualizado con mismo formato
+  - `twitter:title`: Actualizado con mismo formato
+- 📝 **Documentación SEO actualizada**: Nueva entrada en `seo-changelog.md`
+- ✅ **Verificación completa**: Build exitoso, seo:check ejecutado
+
+**Archivos modificados**:
+- `src/index.html` (líneas 14, 35, 49)
+- `docs/reference/seo-changelog.md` (nueva entrada 2026-01-25)
+- `docs/meta/CHANGELOG-AGENT.md` (actualizado estado y sesión)
+
+**Comandos clave ejecutados**:
+```bash
+git checkout develop && git pull origin develop
+git branch -D fix/security-vulnerabilities  # Limpieza ramas locales
+git checkout -b feat/seo-title-optimization
+npm run build  # Exitoso (679 KB)
+npm run seo:check  # Sin cambios críticos detectados
+```
+
+**Decisiones técnicas**:
+- **No modificar i18n**: Los archivos `seo.home.title` ya tenían 50 caracteres optimizados
+- **Solo actualizar HTML base**: Para evitar inconsistencias en primera carga antes de Angular
+- **Mantener formato brand**: "Servicio en Ciudad | Marca" para mejor reconocimiento
+
+**Estado al cierre**: 
+- ✅ Compilación verificada
+- ✅ Títulos optimizados (50 caracteres)
+- ⏳ Pendiente commit y push
+
+---
 
 ### Sesión 2026-01-25: Versionado + Verificación de compilación
 
