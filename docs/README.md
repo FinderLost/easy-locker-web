@@ -33,6 +33,7 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 ### 📚 Referencia (Datos y catálogos)
 - [Cambios realizados](reference/cambios-realizados.md)
 - **[Workflows CI/CD](reference/workflows-cicd.md)**
+- **[Guía de Versionado](reference/guia-versionado.md)**
 - [Estado actual del SEO](reference/estado-seo.md)
 - **[Normas críticas SEO](reference/normas-criticas-seo.md)**
 - **[SEO Changelog](reference/seo-changelog.md)**
@@ -41,6 +42,7 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 - [Estado i18n](reference/i18n-estado-actual.md)
 - [Pendientes de pruebas UI/E2E](reference/testing-gaps-ui.md)
 - **[Mejoras del Sistema 2026-01](reference/mejoras-sistema-2026-01.md)**
+- [Vulnerabilidades de Seguridad](reference/security-vulnerabilities-2026-01.md)
 
 ### 🔧 Meta / Patrón
 - [Patrón de documentación](meta/doc-pattern.md)
