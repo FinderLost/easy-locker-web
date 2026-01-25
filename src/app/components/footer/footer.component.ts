@@ -8,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ThemeService } from '../../services/theme.service';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { AnalyticsService } from '../../core/analytics/analytics.service';
-import { version } from '../../../../package.json';
+import packageJson from '../../../../package.json';
 
 @Component({
   selector: 'app-footer',
@@ -20,7 +20,7 @@ export class FooterComponent {
   linkIcons: Record<'email' | 'terms' | 'cookies' | 'whatsapp', SafeHtml>;
   secureIcon: SafeHtml;
   currentYear = new Date().getFullYear();
-  appVersion = version;
+  appVersion = packageJson.version;
   isDarkMode = false;
   showCookiePreferences = false;
 

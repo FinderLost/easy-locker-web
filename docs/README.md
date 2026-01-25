@@ -29,6 +29,7 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 - [Análisis SEO con Screaming Frog](how-to/analisis-seo-screaming-frog.md)
 - [Push hotfix SEO](how-to/push-hotfix-seo.md)
 - **[Cambios SEO seguros](how-to/cambios-seo-seguros.md)**
+- **[Verificación pre-entrega (Agente)](how-to/verificacion-pre-entrega.md)**
 
 ### 📚 Referencia (Datos y catálogos)
 - [Cambios realizados](reference/cambios-realizados.md)
@@ -46,6 +47,7 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 
 ### 🔧 Meta / Patrón
 - [Patrón de documentación](meta/doc-pattern.md)
+- **[Changelog del Agente (Memoria persistente)](meta/CHANGELOG-AGENT.md)**
 
 ## Qué encontrarás en cada categoría
 - **How-to**: pasos concretos para tareas operativas (editar textos, imágenes, despliegues). Un archivo por tarea.
