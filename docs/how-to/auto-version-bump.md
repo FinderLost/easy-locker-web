@@ -2,7 +2,7 @@
 
 ## Propósito
 
-Workflow de GitHub Actions que **incrementa automáticamente** la versión en `package.json` cuando se hace merge de un Pull Request a `develop` o `main`.
+Workflow de GitHub Actions que **incrementa automáticamente** la versión en `package.json` cuando se hace merge de un Pull Request a `main` (producción).
 
 ---
 
@@ -11,7 +11,7 @@ Workflow de GitHub Actions que **incrementa automáticamente** la versión en `p
 ### Trigger
 Se activa cuando:
 - Un PR es **mergeado** (no cerrado sin merge)
-- La rama destino es `develop` o `main`
+- La rama destino es **`main`** (NO develop)
 
 ### Proceso
 
@@ -20,14 +20,17 @@ Se activa cuando:
    - `feat:` → MINOR (x.Y.x)
    - `fix:`, `docs:`, `style:` → PATCH (x.x.Y)
    - `BREAKING CHANGE:` o `feat!:` → MAJOR (X.x.x)
-3. **Excepciones**:
-   - En `develop` **siempre PATCH** (pre-release)
-   - En `main` respeta la convención completa
-4. **Incrementa versión** en `package.json` y `package-lock.json`
-5. **Crea commit** automático: `chore: bump version to X.Y.Z [skip ci]`
-6. **Push directo** a la rama base (develop/main)
-7. **Crea Git tag** solo si merge fue a `main` (ej. `v1.2.3`)
-8. **Comenta en PR** con detalles del bump
+3. **Incrementa versión** en `package.json` y `package-lock.json`
+4. **Crea commit** automático: `chore: bump version to X.Y.Z [skip ci]`
+5. **Push directo** a `main`
+6. **Crea Git tag** (ej. `v1.2.3`)
+7. **Comenta en PR** con detalles del bump
+
+### ⚠️ Importante
+
+- **Solo se ejecuta en merges a `main`** (releases a producción)
+- **NO se ejecuta en merges a `develop`** (desarrollo)
+- La versión en `develop` se mantiene manual hasta el release
 
 ---
 
@@ -62,13 +65,13 @@ permissions:
 
 2. **Mergear PR** normalmente desde GitHub UI
 
-3. **Esperar ~30 segundos**: El workflow se ejecuta automáticamente
+3. **Esperar ~30 segundos**: El workflow se ejecuta automáticamente (solo en `main`)
 
-4. **Verificar**: La versión ya estará actualizada en `develop` o `main`
+4. **Verificar**: La versión ya estará actualizada en `main` con tag creado
 
 ### Ejemplo práctico
 
-**Escenario**: Añadiste soporte para nuevo idioma (portugués)
+**Escenario 1**: Desarrollo normal → Release
 
 ```bash
 # 1. Crear rama y commits
@@ -77,29 +80,37 @@ git commit -m "feat(i18n): añadir soporte para portugués"
 git commit -m "feat(i18n): traducir todas las claves al portugués"
 git push origin feat/add-portuguese
 
-# 2. Crear PR a develop (GitHub UI)
+# 2. Crear PR a develop y mergear (GitHub UI)
+# ⚠️ NO hay bump automático en develop
 
-# 3. Mergear PR
+# 3. Cuando esté listo para release: PR de develop → main
 
-# 4. Resultado automático:
-# - Versión: 1.2.0 → 1.2.1 (PATCH porque estamos en develop)
-# - Commit: "chore: bump version to 1.2.1 [skip ci]"
-# - Push a develop
-```
-
-**Escenario 2**: Release a producción
-
-```bash
-# 1. Crear PR de develop → main (usar workflow create-release-pr)
-
-# 2. Mergear PR a main
-
-# 3. Resultado automático:
-# - Versión: 1.2.1 → 1.3.0 (MINOR porque hubo feat)
+# 4. Mergear PR a main
+# ✅ Resultado automático:
+# - Versión: 1.2.0 → 1.3.0 (MINOR porque hubo feat)
 # - Commit: "chore: bump version to 1.3.0 [skip ci]"
-# - Tag: v1.3.0
+# - Tag: v1.3.0 creado
 # - Push a main
 # - Deploy automático con nueva versión
+```
+
+**Escenario 2**: Hotfix urgente
+
+```bash
+# 1. Crear rama desde main
+git checkout main
+git pull origin main
+git checkout -b hotfix/critical-security-fix
+
+# 2. Commit hotfix
+git commit -m "fix(security): corregir vulnerabilidad XSS"
+git push origin hotfix/critical-security-fix
+
+# 3. PR directo a main y mergear
+# ✅ Resultado automático:
+# - Versión: 1.3.0 → 1.3.1 (PATCH por fix)
+# - Tag: v1.3.1 creado
+# - Deploy inmediato
 ```
 
 ---
@@ -115,16 +126,16 @@ git push origin feat/add-portuguese
 [optional footer(s)]
 ```
 
-### Tipos soportados
+### Tipos soportados (solo aplica en merges a main)
 
-| Tipo | Descripción | Bump en develop | Bump en main |
-|------|-------------|-----------------|--------------|
-| `feat` | Nueva funcionalidad | PATCH | MINOR |
-| `fix` | Corrección de bug | PATCH | PATCH |
-| `docs` | Solo documentación | PATCH | PATCH |
-| `style` | Cambios de formato/estilo | PATCH | PATCH |
-| `refactor` | Refactor sin cambio funcional | PATCH | PATCH |
-| `perf` | Mejora de performance | PATCH | PATCH |
+| Tipo | Descripción | Bump Type |
+|------|-------------|-----------|
+| `feat` | Nueva funcionalidad | MINOR |
+| `fix` | Corrección de bug | PATCH |
+| `docs` | Solo documentación | PATCH |
+| `style` | Cambios de formato/estilo | PATCH |
+| `refactor` | Refactor sin cambio funcional | PATCH |
+| `perf` | Mejora de performance | PATCH |
 | `test` | Añadir/modificar tests | PATCH | PATCH |
 | `chore` | Tareas de mantenimiento | PATCH | PATCH |
 | `feat!` o `BREAKING CHANGE:` | Cambio incompatible | PATCH | MAJOR |

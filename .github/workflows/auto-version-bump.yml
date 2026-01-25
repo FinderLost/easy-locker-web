@@ -1,15 +1,15 @@
 name: Auto Version Bump
 
-# Se ejecuta cuando se hace merge a develop o main
+# Se ejecuta SOLO cuando se hace merge a MAIN (release)
 on:
   pull_request:
     types: [closed]
     branches:
-      - develop
       - main
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   bump-version:
@@ -37,26 +37,21 @@ jobs:
       - name: Determine version bump type
         id: bump_type
         run: |
-          # Obtener commits del PR
+          # Obtener commits del PR mergeado
           PR_NUMBER=${{ github.event.pull_request.number }}
           COMMITS=$(git log --format=%s origin/${{ github.base_ref }}..origin/${{ github.head_ref }} 2>/dev/null || echo "")
           
           # Analizar commits para determinar tipo de bump
           BUMP_TYPE="patch"
           
-          # Si hay breaking changes o feat con BREAKING CHANGE
+          # Si hay breaking changes o feat con BREAKING CHANGE → MAJOR
           if echo "$COMMITS" | grep -qiE "^(feat|fix|chore|docs|style|refactor|perf|test)(\(.+\))?!:|BREAKING CHANGE:"; then
             BUMP_TYPE="major"
-          # Si hay nuevas features
+          # Si hay nuevas features → MINOR
           elif echo "$COMMITS" | grep -qiE "^feat(\(.+\))?:"; then
             BUMP_TYPE="minor"
-          # Por defecto: patch (fix, docs, chore, etc.)
+          # Por defecto: fix, docs, chore, etc. → PATCH
           else
-            BUMP_TYPE="patch"
-          fi
-          
-          # En develop siempre PATCH (pre-release)
-          if [ "${{ github.base_ref }}" = "develop" ]; then
             BUMP_TYPE="patch"
           fi
           
@@ -106,13 +101,13 @@ jobs:
           git commit -m "chore: bump version to ${{ steps.version.outputs.new_version }} [skip ci]"
           git push origin ${{ github.base_ref }}
       
-      - name: Create Git Tag (only on main)
-        if: github.base_ref == 'main'
+      - name: Create Git Tag
         run: |
           git tag -a "v${{ steps.version.outputs.new_version }}" -m "Release v${{ steps.version.outputs.new_version }}"
           git push origin "v${{ steps.version.outputs.new_version }}"
       
       - name: Comment on PR
+        continue-on-error: true
         uses: actions/github-script@v7
         with:
           script: |
