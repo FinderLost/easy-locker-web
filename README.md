@@ -14,6 +14,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ---
 
+## ⚠️ Known Security Vulnerabilities
+
+**Status:** 34 vulnerabilities detected (2 critical, 24 high, 5 moderate, 3 low)  
+**Affected:** Angular 16.2 and development dependencies  
+**Resolution:** Requires upgrade to Angular 18+ LTS
+
+**Impact:** Mostly development dependencies. Production impact is low (XSS in Angular if processing untrusted SVG/MathML).
+
+**See:** [docs/reference/security-vulnerabilities-2026-01.md](docs/reference/security-vulnerabilities-2026-01.md) for full analysis and upgrade plan.
+
+**Mitigation:**
+- Use `npm start` only on trusted local network
+- Do not process untrusted SVG/MathML user inputs
+- Upgrade to Angular 18 planned for next sprint
+
+---
+
 ## Documentation
 
 - Main hub: [docs/README.md](docs/README.md)
