@@ -50,6 +50,30 @@ Este documento registra **todos los cambios críticos** de SEO realizados en el 
 
 ## 📋 Histórico de cambios
 
+### 2026-01-25: [Title Tag] — Optimización longitud títulos SEO
+**Responsable:** Easy Locker Agent  
+**Tipo:** Title  
+**Motivo:** Cumplir con mejores prácticas SEO de 50-60 caracteres (recomendación Screaming Frog)  
+**Impacto esperado:** Positivo (mejor CTR y claridad en SERPs)  
+**Archivos modificados:**
+- `src/index.html` (lines 14, 35, 49)
+
+**Detalles:**
+- Cambio de: `Easy Locker | Córdoba` (21 caracteres)
+- Cambio a: `Consigna de equipaje en Córdoba | Easy Locker` (50 caracteres)
+- También actualizado en og:title y twitter:title
+- Nota: Los títulos dinámicos en i18n ya estaban optimizados (no requieren cambios)
+
+**Validación:**
+- [x] Test en local
+- [x] Compilación exitosa (npm run build)
+- [x] Verificado longitud óptima (50 caracteres)
+- [x] Script seo:check ejecutado (sin cambios críticos detectados)
+
+**Observación:** Esta optimización se aplica al HTML base. Los títulos dinámicos cargados por Angular desde archivos i18n (seo.home.title) ya cumplían con la recomendación desde su creación.
+
+---
+
 ### 2026-01-22: [Schema.org] — JSON-LD LocalBusiness completo
 **Responsable:** web-team  
 **Tipo:** Schema  
@@ -150,8 +174,9 @@ Este documento registra **todos los cambios críticos** de SEO realizados en el 
 
 ## 📊 Estadísticas de cambios
 
-**Total de cambios registrados:** 4  
+**Total de cambios registrados:** 5  
 **Por tipo:**
+- Title: 1
 - Schema: 1
 - Hreflang: 1
 - Meta tags: 1
