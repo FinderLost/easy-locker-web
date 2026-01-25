@@ -29,7 +29,7 @@ Procedimiento obligatorio que el agente debe ejecutar antes de finalizar cualqui
 
 ## Procedimiento paso a paso
 
-### 1. Compilación de producción
+### 1. Compilación de producción **(OBLIGATORIO)**
 
 ```bash
 npm run build
@@ -59,7 +59,29 @@ Build at: [timestamp] - Hash: [hash] - Time: [ms]ms
 - ⚠️ `bundle initial exceeded maximum budget` → Budget 500 KB (proyecto actual ~679 KB)
 - ⚠️ `baseline-browser-mapping data is over two months old` → No crítico
 
-### 2. Validación de linting (opcional pero recomendado)
+### 2. Tests E2E SEO **(OBLIGATORIO para cambios SEO/meta tags)**
+
+```bash
+npx playwright test e2e/seo-validation.spec.ts
+```
+
+**Resultado esperado**:
+```
+Running 23 tests using 4 workers
+  ✓ 23 passed (XXs)
+```
+
+**Cuándo ejecutar tests E2E**:
+- ✅ **SIEMPRE** si cambios en:
+  - Títulos SEO (`<title>`, og:title, twitter:title)
+  - Meta tags (description, keywords, etc.)
+  - Archivos i18n que afecten SEO
+  - HTML base (index.html)
+  - Routing o cambios de idioma
+
+**Si fallan los tests E2E**: NO proceder con PR. Corregir primero.
+
+### 3. Validación de linting (opcional pero recomendado)
 
 ```bash
 npm run lint
@@ -70,7 +92,7 @@ npm run lint
 All files pass linting.
 ```
 
-### 3. Tests unitarios (opcional según contexto)
+### 4. Tests unitarios (opcional según contexto)
 
 ```bash
 npm run test -- --watch=false --browsers=ChromeHeadless
@@ -91,7 +113,7 @@ npm run test -- --watch=false --browsers=ChromeHeadless
 - Ajustes de configuración sin lógica
 - Cambios mínimos en texto/i18n
 
-### 4. Verificación manual en desarrollo (opcional)
+### 5. Verificación manual en desarrollo (opcional)
 
 Si el servidor ya está corriendo:
 ```bash
@@ -112,13 +134,24 @@ Visitar: `http://localhost:4200`
 
 Antes de finalizar el trabajo, confirmar:
 
-- [ ] ✅ `npm run build` ejecutado y exitoso
+- [ ] ✅ `npm run build` ejecutado y exitoso **(OBLIGATORIO)**
+- [ ] ✅ `npx playwright test e2e/seo-validation.spec.ts` ejecutado y exitoso **(OBLIGATORIO si cambios SEO)**
 - [ ] 📝 Errores de compilación corregidos (si hubo)
 - [ ] 🔍 Warnings críticos analizados (si hubo)
-- [ ] 📊 Tests ejecutados (si procede por tipo de cambio)
+- [ ] 📊 Tests unitarios ejecutados (si procede por tipo de cambio)
 - [ ] 🌐 Verificación visual en localhost (si procede)
 - [ ] 📄 Documentación actualizada (si hay nuevas decisiones)
 - [ ] 🧠 `CHANGELOG-AGENT.md` actualizado (si cambios significativos)
+
+### ⚠️ Regla de oro: NO CREAR PR SIN TESTS
+
+**Si haces cambios en SEO/meta tags/i18n y los tests E2E fallan**: 
+1. NO proceder con git commit  
+2. NO pushear la rama  
+3. NO crear PR
+4. Corregir primero el problema  
+5. Re-verificar con tests  
+6. Solo entonces proceder con PR
 
 ---
 

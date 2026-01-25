@@ -8,12 +8,16 @@ import { test, expect, Page } from '@playwright/test';
 test.describe('SEO Complete Validation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:4200');
-    await page.waitForLoadState('domcontentloaded');
     
-    // Forzar idioma español
+    // Forzar idioma español antes de la carga
     await page.evaluate(() => localStorage.setItem('language', 'es'));
     await page.reload();
-    await page.waitForLoadState('domcontentloaded');
+    
+    // Esperar a que Angular termine de cargar y actualizar SEO
+    // El selector de idioma es señal de que el componente está listo
+    await page.waitForSelector('app-language-switcher', { state: 'visible', timeout: 10000 });
+    
+    // Pequeña espera adicional para que TranslateService actualice meta tags
     await page.waitForTimeout(500);
   });
 
@@ -21,6 +25,10 @@ test.describe('SEO Complete Validation', () => {
     // Title debe contener Easy Locker
     const title = await page.title();
     expect(title).toContain('Easy Locker');
+    
+    // Title debe tener longitud óptima SEO (50-60 caracteres)
+    expect(title.length).toBeGreaterThanOrEqual(50);
+    expect(title.length).toBeLessThanOrEqual(60);
     
     // Meta description
     const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
@@ -46,6 +54,10 @@ test.describe('SEO Complete Validation', () => {
     const ogSiteName = await page.locator('meta[property="og:site_name"]').getAttribute('content');
     
     expect(ogTitle).toBeTruthy();
+    // OG title también debe cumplir 50-60 caracteres
+    expect(ogTitle?.length).toBeGreaterThanOrEqual(50);
+    expect(ogTitle?.length).toBeLessThanOrEqual(60);
+    
     expect(ogDescription).toBeTruthy();
     expect(ogImage).toContain('social-card.png');
     expect(ogUrl).toContain('easy-locker.com');
@@ -61,6 +73,10 @@ test.describe('SEO Complete Validation', () => {
     
     expect(twitterCard).toBe('summary_large_image');
     expect(twitterTitle).toBeTruthy();
+    // Twitter title también debe cumplir 50-60 caracteres
+    expect(twitterTitle?.length).toBeGreaterThanOrEqual(50);
+    expect(twitterTitle?.length).toBeLessThanOrEqual(60);
+    
     expect(twitterDescription).toBeTruthy();
     expect(twitterImage).toContain('social-card.png');
   });

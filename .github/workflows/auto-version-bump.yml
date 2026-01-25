@@ -1,0 +1,119 @@
+name: Auto Version Bump
+
+# Se ejecuta SOLO cuando se hace merge a MAIN (release)
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump-version:
+    # Solo si el PR fue mergeado (no cerrado sin merge)
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Determine version bump type
+        id: bump_type
+        run: |
+          # Obtener commits del PR mergeado
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          COMMITS=$(git log --format=%s origin/${{ github.base_ref }}..origin/${{ github.head_ref }} 2>/dev/null || echo "")
+          
+          # Analizar commits para determinar tipo de bump
+          BUMP_TYPE="patch"
+          
+          # Si hay breaking changes o feat con BREAKING CHANGE → MAJOR
+          if echo "$COMMITS" | grep -qiE "^(feat|fix|chore|docs|style|refactor|perf|test)(\(.+\))?!:|BREAKING CHANGE:"; then
+            BUMP_TYPE="major"
+          # Si hay nuevas features → MINOR
+          elif echo "$COMMITS" | grep -qiE "^feat(\(.+\))?:"; then
+            BUMP_TYPE="minor"
+          # Por defecto: fix, docs, chore, etc. → PATCH
+          else
+            BUMP_TYPE="patch"
+          fi
+          
+          echo "bump_type=$BUMP_TYPE" >> $GITHUB_OUTPUT
+          echo "📦 Bump type determined: $BUMP_TYPE"
+      
+      - name: Bump version
+        id: version
+        run: |
+          # Leer versión actual
+          CURRENT_VERSION=$(node -p "require('./package.json').version")
+          echo "Current version: $CURRENT_VERSION"
+          
+          # Incrementar versión según tipo
+          IFS='.' read -ra VERSION_PARTS <<< "$CURRENT_VERSION"
+          MAJOR=${VERSION_PARTS[0]}
+          MINOR=${VERSION_PARTS[1]}
+          PATCH=${VERSION_PARTS[2]}
+          
+          case "${{ steps.bump_type.outputs.bump_type }}" in
+            major)
+              MAJOR=$((MAJOR + 1))
+              MINOR=0
+              PATCH=0
+              ;;
+            minor)
+              MINOR=$((MINOR + 1))
+              PATCH=0
+              ;;
+            patch)
+              PATCH=$((PATCH + 1))
+              ;;
+          esac
+          
+          NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+          echo "New version: $NEW_VERSION"
+          
+          # Actualizar package.json
+          npm version $NEW_VERSION --no-git-tag-version
+          
+          echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          echo "old_version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+      
+      - name: Commit version bump
+        run: |
+          git add package.json package-lock.json
+          git commit -m "chore: bump version to ${{ steps.version.outputs.new_version }} [skip ci]"
+          git push origin ${{ github.base_ref }}
+      
+      - name: Create Git Tag
+        run: |
+          git tag -a "v${{ steps.version.outputs.new_version }}" -m "Release v${{ steps.version.outputs.new_version }}"
+          git push origin "v${{ steps.version.outputs.new_version }}"
+      
+      - name: Comment on PR
+        continue-on-error: true
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: ${{ github.event.pull_request.number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `🚀 **Version bumped automatically**\n\n- Old version: \`${{ steps.version.outputs.old_version }}\`\n- New version: \`${{ steps.version.outputs.new_version }}\`\n- Bump type: \`${{ steps.bump_type.outputs.bump_type }}\`\n- Branch: \`${{ github.base_ref }}\``
+            })

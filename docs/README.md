@@ -30,11 +30,13 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 - [Push hotfix SEO](how-to/push-hotfix-seo.md)
 - **[Cambios SEO seguros](how-to/cambios-seo-seguros.md)**
 - **[Verificación pre-entrega (Agente)](how-to/verificacion-pre-entrega.md)**
+- **[Auto Version Bump](how-to/auto-version-bump.md)** — Sistema automático de versionado
 
 ### 📚 Referencia (Datos y catálogos)
 - [Cambios realizados](reference/cambios-realizados.md)
 - **[Workflows CI/CD](reference/workflows-cicd.md)**
 - **[Guía de Versionado](reference/guia-versionado.md)**
+- **[Propósito y Target del Proyecto](reference/proposito-target.md)** — Estrategia y público objetivo
 - [Estado actual del SEO](reference/estado-seo.md)
 - **[Normas críticas SEO](reference/normas-criticas-seo.md)**
 - **[SEO Changelog](reference/seo-changelog.md)**
