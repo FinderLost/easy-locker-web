@@ -36,6 +36,7 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 - [Cambios realizados](reference/cambios-realizados.md)
 - **[Workflows CI/CD](reference/workflows-cicd.md)**
 - **[Guía de Versionado](reference/guia-versionado.md)**
+- **[Propósito y Target del Proyecto](reference/proposito-target.md)** — Estrategia y público objetivo
 - [Estado actual del SEO](reference/estado-seo.md)
 - **[Normas críticas SEO](reference/normas-criticas-seo.md)**
 - **[SEO Changelog](reference/seo-changelog.md)**
