@@ -107,8 +107,17 @@
 git checkout develop && git pull origin develop
 git checkout -b feat/seo-title-length-fix
 npm run build  # Exitoso (679 KB)
+npx playwright test e2e/seo-validation.spec.ts  # 23/23 ✅
 echo "Consigna... | Easy Locker" | wc -c  # Verificación longitudes
 ```
+
+**Iteraciones y correcciones**:
+1. **Primera iteración**: Ajuste HTML + ES i18n (47→57 chars)
+2. **Detección problema**: Tests fallando por timing (beforeEach inadecuado)
+3. **Fix timing tests**: Esperar app-language-switcher + 500ms
+4. **PROBLEMA REAL DETECTADO**: EN (48), FR (46-49), IT (47) bajo mínimo 50
+5. **Solución final**: Ajustar 3 idiomas adicionales (EN/FR/IT) → Todos 50-60 chars
+6. **Verificación**: Tests E2E 23/23 ✅ pasando localmente
 
 **Decisiones técnicas**:
 - **"Centro/Centre/Zentrum"**: Mejora geo-targeting + alcanza 50 chars mínimo
