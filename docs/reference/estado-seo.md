@@ -3,7 +3,7 @@ title: Estado actual del SEO
 description: Inventario completo de elementos SEO implementados y pendientes en Easy Locker Web.
 tags: [reference, seo, meta-tags, structured-data, checklist]
 owner: web-team
-last_updated: 2026-01-22
+last_updated: 2026-01-25
 status: approved
 llm_summary: Catálogo de optimizaciones SEO implementadas (meta tags, hreflang, Schema.org, sitemap) y tareas pendientes.
 ---
@@ -12,9 +12,20 @@ llm_summary: Catálogo de optimizaciones SEO implementadas (meta tags, hreflang,
 
 Este documento mantiene un inventario actualizado de todos los elementos SEO implementados, su ubicación en el código y tareas pendientes.
 
+## ⚠️ Antes de modificar elementos SEO
+
+**IMPORTANTE:** Consulta las [normas críticas de SEO](./normas-criticas-seo.md) antes de hacer cualquier cambio.
+
+**Recursos obligatorios:**
+- 📋 [Normas críticas SEO](./normas-criticas-seo.md) — Elementos que NO se pueden cambiar sin control
+- 📝 [SEO Changelog](./seo-changelog.md) — Registro obligatorio de cambios
+- 🛠️ [Cómo hacer cambios SEO seguros](../how-to/cambios-seo-seguros.md) — Guía paso a paso
+
+---
+
 ## Resumen ejecutivo
 
-**Última actualización:** 22 de enero de 2026  
+**Última actualización:** 25 de enero de 2026  
 **Nivel de optimización:** ⭐⭐⭐⭐⭐ (5/5 - Excelente)  
 **Herramienta de análisis:** Screaming Frog SEO Spider v19.x
 
@@ -447,6 +458,11 @@ Todos los elementos con atributo `data-managed="seo-link"` se limpian y regenera
 
 ## Changelog
 
+### 2026-01-25 - Documentación de protección SEO
+- ✅ Creadas normas críticas de SEO
+- ✅ Implementado sistema de changelog obligatorio
+- ✅ Guía de cambios seguros creada
+
 ### 2026-01-22 - Optimización completa
 - ✅ Implementado JSON-LD Schema.org LocalBusiness
 - ✅ Añadidos hreflang tags dinámicos para 7 idiomas
@@ -462,6 +478,6 @@ Todos los elementos con atributo `data-managed="seo-link"` se limpian y regenera
 
 ---
 
-**Última revisión:** 22 de enero de 2026  
+**Última revisión:** 25 de enero de 2026  
 **Responsable:** web-team  
 **Estado:** ✅ Optimización completa - Nivel 5/5

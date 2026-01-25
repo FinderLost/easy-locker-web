@@ -1,14 +1,60 @@
-name: CI Tests (PR)
+name: CI Tests & Quality Checks
 
 on:
   pull_request:
-    branches: [main, develop]
+    branches: [main, develop, release/**]
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
-  test:
+  seo-validation:
+    name: SEO Changes Detection
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run SEO change detector
+        id: seo_check
+        run: npm run seo:check
+        continue-on-error: true
+
+      - name: Comment PR if SEO changes detected
+        if: steps.seo_check.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `⚠️ **CAMBIOS CRÍTICOS DE SEO DETECTADOS**
+              
+              Este PR modifica elementos críticos de SEO.
+              
+              **Acción requerida:**
+              1. Revisar [normas críticas de SEO](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/reference/normas-criticas-seo.md)
+              2. Registrar cambios en [SEO Changelog](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/reference/seo-changelog.md)
+              3. Seguir [guía de cambios seguros](https://github.com/${context.repo.owner}/${context.repo.repo}/blob/main/docs/how-to/cambios-seo-seguros.md)
+              
+              **Ver detalles en el log del workflow.**`
+            })
+
+  quality:
+    name: Code Quality & Build
     runs-on: ubuntu-latest
 
     steps:
@@ -38,6 +84,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Lint (if available)
+        run: npm run lint --if-present
+        continue-on-error: true
+
+      - name: Build check
+        run: npm run build
+
       - name: Install Playwright (Chromium)
         run: npx playwright install --with-deps chromium
 
@@ -52,3 +105,11 @@ jobs:
 
       - name: E2E tests (Playwright)
         run: npm run test:e2e -- --workers=1
+
+      - name: Upload test results
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: test-results/
+          retention-days: 7

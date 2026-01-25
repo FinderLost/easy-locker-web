@@ -2,6 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
+## ⚠️ CRITICAL: SEO Protection
+
+**Before modifying ANY SEO element (URLs, titles, H1, canonical, hreflang, robots.txt):**
+
+1. **Read:** [docs/reference/normas-criticas-seo.md](docs/reference/normas-criticas-seo.md)
+2. **Register changes:** [docs/reference/seo-changelog.md](docs/reference/seo-changelog.md)
+3. **Follow process:** [docs/how-to/cambios-seo-seguros.md](docs/how-to/cambios-seo-seguros.md)
+
+**Why?** Uncontrolled changes can cause traffic drops, ranking losses, or de-indexing.
+
+---
+
 ## Documentation
 
 - Main hub: [docs/README.md](docs/README.md)
