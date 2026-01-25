@@ -8,12 +8,16 @@ import { test, expect, Page } from '@playwright/test';
 test.describe('SEO Complete Validation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:4200');
-    await page.waitForLoadState('domcontentloaded');
     
-    // Forzar idioma español
+    // Forzar idioma español antes de la carga
     await page.evaluate(() => localStorage.setItem('language', 'es'));
     await page.reload();
-    await page.waitForLoadState('domcontentloaded');
+    
+    // Esperar a que Angular termine de cargar y actualizar SEO
+    // El selector de idioma es señal de que el componente está listo
+    await page.waitForSelector('app-language-switcher', { state: 'visible', timeout: 10000 });
+    
+    // Pequeña espera adicional para que TranslateService actualice meta tags
     await page.waitForTimeout(500);
   });
 
