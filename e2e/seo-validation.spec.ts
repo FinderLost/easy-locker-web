@@ -22,6 +22,10 @@ test.describe('SEO Complete Validation', () => {
     const title = await page.title();
     expect(title).toContain('Easy Locker');
     
+    // Title debe tener longitud óptima SEO (50-60 caracteres)
+    expect(title.length).toBeGreaterThanOrEqual(50);
+    expect(title.length).toBeLessThanOrEqual(60);
+    
     // Meta description
     const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
     expect(metaDescription).toBeTruthy();
@@ -46,6 +50,10 @@ test.describe('SEO Complete Validation', () => {
     const ogSiteName = await page.locator('meta[property="og:site_name"]').getAttribute('content');
     
     expect(ogTitle).toBeTruthy();
+    // OG title también debe cumplir 50-60 caracteres
+    expect(ogTitle?.length).toBeGreaterThanOrEqual(50);
+    expect(ogTitle?.length).toBeLessThanOrEqual(60);
+    
     expect(ogDescription).toBeTruthy();
     expect(ogImage).toContain('social-card.png');
     expect(ogUrl).toContain('easy-locker.com');
@@ -61,6 +69,10 @@ test.describe('SEO Complete Validation', () => {
     
     expect(twitterCard).toBe('summary_large_image');
     expect(twitterTitle).toBeTruthy();
+    // Twitter title también debe cumplir 50-60 caracteres
+    expect(twitterTitle?.length).toBeGreaterThanOrEqual(50);
+    expect(twitterTitle?.length).toBeLessThanOrEqual(60);
+    
     expect(twitterDescription).toBeTruthy();
     expect(twitterImage).toContain('social-card.png');
   });
