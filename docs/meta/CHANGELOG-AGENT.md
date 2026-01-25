@@ -34,14 +34,15 @@
 ## 🎯 Estado actual del proyecto
 
 **Última actualización**: 2026-01-25  
-**Versión actual**: `v1.2.0`  
-**Branch activo**: `feat/seo-title-optimization`  
-**Ramas**: `main` (prod), `develop` (pre-prod), `feat/seo-title-optimization` (work)
+**Versión actual**: `v1.2.0` (próximo bump automático tras merge)  
+**Branch activo**: `feat/auto-version-bump`  
+**Ramas**: `main` (prod), `develop` (pre-prod), `feat/auto-version-bump` (work)
 
 ### 🟢 Sistemas activos
 - ✅ **Protección SEO**: Script `seo:check` + CI/CD validation en PRs
 - ✅ **Versionado semántico**: `package.json` → Footer display (v{{ appVersion }})
-- ✅ **Workflow CI/CD**: 4 workflows (ci-tests, deploy, create-release-pr, update-reviews)
+- ✅ **Auto-bump versiones**: Workflow automático tras merges (nuevo)
+- ✅ **Workflow CI/CD**: 5 workflows (ci-tests, deploy, create-release-pr, update-reviews, auto-version-bump)
 - ✅ **Compilación**: Proyecto compila correctamente (build exitoso)
 - ✅ **Title Tags optimizados**: 50 caracteres (cumple SEO best practices)
 
@@ -51,13 +52,72 @@
 - ⚠️ **Node v19.8.1**: Versión non-LTS (considerar actualizar a LTS)
 
 ### 📦 Pendientes inmediatos
-1. Merge de branch `feat/seo-title-optimization` a `develop`
-2. Crear Release PR de `develop` a `main` para deploy v1.2.0
-3. Planificar upgrade Angular 16 → 18 (ver `docs/reference/security-vulnerabilities-2026-01.md`)
+1. Merge de branch `feat/auto-version-bump` a `develop`
+2. Validar funcionamiento del auto-bump en próximo PR
+3. Crear Release PR de `develop` a `main` para deploy
+4. Planificar upgrade Angular 16 → 18 (ver `docs/reference/security-vulnerabilities-2026-01.md`)
 
 ---
 
 ## 📅 Historial de sesiones
+
+### Sesión 2026-01-25 (noche): Sistema de auto-versionado
+
+**Contexto**: Usuario reportó bug crítico: cambios mergeados a main/develop sin actualizar versión en package.json, incumpliendo flujo de trabajo esperado.
+
+**Problema detectado**:
+- Versión v1.2.0 sin cambios tras múltiples merges (SEO, versionado, memoria)
+- No existe proceso automático que incremente versiones
+- Requiere acción manual que se olvida frecuentemente
+
+**Solución implementada**:
+- 🤖 **Workflow auto-version-bump.yml**: GitHub Actions que incrementa versión automáticamente
+  - Se activa al mergear PR a develop/main
+  - Analiza Conventional Commits para determinar bump (major/minor/patch)
+  - En develop siempre PATCH (pre-release)
+  - En main respeta convención completa + crea Git tag
+  - Commit automático: `chore: bump version to X.Y.Z [skip ci]`
+- 📝 **Documentación completa**:
+  - Actualizada `guia-versionado.md` con sección de auto-bump
+  - Creada `how-to/auto-version-bump.md` con guía detallada
+  - Troubleshooting y ejemplos prácticos incluidos
+
+**Archivos creados/modificados**:
+- `.github/workflows/auto-version-bump.yml` (nuevo, 120 líneas)
+- `docs/reference/guia-versionado.md` (actualizado, +100 líneas)
+- `docs/how-to/auto-version-bump.md` (nuevo, 400+ líneas)
+- `docs/README.md` (índice actualizado)
+- `docs/meta/CHANGELOG-AGENT.md` (actualizado estado y sesión)
+
+**Comandos clave ejecutados**:
+```bash
+git checkout develop && git pull origin develop
+git branch -D feat/seo-title-optimization  # Limpieza
+git checkout -b feat/auto-version-bump
+npm run build  # Verificación exitosa (679 KB)
+```
+
+**Decisiones técnicas**:
+- **Conventional Commits obligatorio**: feat/fix/docs para determinar bump
+- **Develop siempre PATCH**: Pre-releases incrementales
+- **Main con tags**: Releases oficiales versionadas
+- **[skip ci]**: Evitar loops infinitos de CI/CD
+- **Comentario en PR**: Feedback inmediato del bump aplicado
+
+**Ventajas del sistema**:
+- ✅ Versión siempre actualizada tras cada merge
+- ✅ Sin intervención manual requerida
+- ✅ Footer web actualizado automáticamente
+- ✅ Git tags creados en releases (main)
+- ✅ Trazabilidad completa en historial
+
+**Estado al cierre**: 
+- ✅ Workflow implementado y documentado
+- ✅ Build verificado exitoso
+- ⏳ Pendiente commit y push
+- ⏳ Pendiente validación en PR real
+
+---
 
 ### Sesión 2026-01-25 (tarde): Optimización Title Tags SEO
 
