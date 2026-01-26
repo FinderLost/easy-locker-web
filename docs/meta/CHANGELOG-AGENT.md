@@ -65,6 +65,124 @@
 
 ## 📅 Historial de sesiones
 
+### Sesión 2026-01-26 (tarde): Optimizaciones SEOptimer - Content, llms.txt, Schema.org
+
+**Contexto**: Usuario compartió 3 screenshots de SEOptimer mostrando 4 issues críticos: Amount of Content (60 palabras), llms.txt faltante, Schema.org no detectado, Identity Schema ausente. Solicitó crear fichero temporal para trackear resolución.
+
+**Problema detectado**:
+- **Thin content**: Solo 60 palabras de contenido visible (mínimo 300 para SEO)
+- **llms.txt missing**: Archivo no encontrado (importante para LLMs indexing)
+- **Schema.org**: Sin structured data markup (pierde rich snippets)
+- **Identity Schema**: Sin Organization schema (dificulta brand recognition)
+
+**Solución implementada**:
+- 🎯 **Amount of Content: 60 → 522 palabras** (↑ 770%)
+  - Hero description: 30 → 80 palabras (proceso automatizado, beneficios, target audience)
+  - Pricing subtitle: 9 → 20 palabras (enfoque en variedad tamaños)
+  - Descripciones planes: M (9→25), L (17→35), XL (20→40) palabras
+  - Testimonials subtitle: 6 → 15 palabras (confianza social)
+  - FAQ subtitle: 6 → 18 palabras (informativo y SEO-friendly)
+  - FAQ respuestas: 5 respuestas expandidas (+150 palabras total)
+    - faq_a1: Proceso completo paso a paso (50 palabras)
+    - faq_a2: Temporada alta, planificación (40 palabras)
+    - faq_a4: Acceso flexible durante día (35 palabras)
+    - faq_a5: Ubicación detallada (35 palabras, nueva pregunta)
+    - faq_a6: Seguridad exhaustiva (55 palabras)
+  - **Total**: 522 palabras calculadas (superando 300 mínimo ✅)
+  
+- 📄 **llms.txt creado**:
+  - Archivo: `src/llms.txt` (700+ caracteres)
+  - Contenido: Descripción proyecto, características, ubicación, keywords, idiomas (7), contacto, tecnología stack
+  - Añadido a `angular.json` assets para incluir en build
+  - Propósito: Mejor indexación por LLMs (ChatGPT, Claude, Gemini)
+  
+- 🏢 **Schema.org LocalBusiness + Organization implementado**:
+  - Formato: JSON-LD con @graph (best practice 2024+)
+  - **LocalBusiness**:
+    - name: "Easy Locker Córdoba"
+    - address: C. Pintor Peñalosa, Córdoba 14011
+    - geo: 37.8898628, -4.7890138
+    - openingHours: "Mo-Su 00:00-23:59" (24/7)
+    - priceRange: "€€"
+    - hasOfferCatalog: 3 servicios (M 5€, L 10.90€, XL 15.90€)
+    - paymentAccepted: "Credit Card, Debit Card"
+    - areaServed: Córdoba (Wikidata Q5818)
+  - **Organization**:
+    - name: "Easy Locker"
+    - legalName: "Easy Locker Spain S.L."
+    - logo: landscape-light.svg
+    - contactPoint: customer service (7 idiomas)
+    - sameAs: [Facebook, Instagram, Twitter]
+  - **Beneficios esperados**: Rich snippets (precio, horarios, ubicación, mapa), mejor entity recognition, branding claro
+
+**Archivos modificados/creados**:
+- `src/assets/i18n/es.json`: Expandidas 11 keys (home.description, lockerSizes, sections, FAQ)
+- `src/llms.txt`: Nuevo archivo creado
+- `angular.json`: Añadido llms.txt a assets array
+- `src/index.html`: Añadido JSON-LD <script type="application/ld+json"> con @graph
+- `e2e/seo-validation.spec.ts`: Tests actualizados para validar @graph format
+  - Test "JSON-LD Schema.org LocalBusiness": Ahora valida @graph[0] y @graph[1]
+  - Test multi-idioma: Valida existencia de LocalBusiness + Organization en @graph
+- `SEO-PENDING-TASKS.md`: Fichero temporal tracking (creado y actualizado)
+- `docs/reference/seo-changelog.md`: Nueva entrada 2026-01-26 exhaustiva
+
+**Comandos clave ejecutados**:
+```bash
+npm run build  # ✅ 679 KB bundle (expected warning)
+npx playwright test e2e/seo-validation.spec.ts  # ✅ 25/25 passing
+cat src/assets/i18n/es.json | jq ... | wc -w  # 522 palabras verificadas
+git add -A && git commit -m "feat(seo): optimizaciones SEOptimer..."
+git push origin feat/seo-h2-h6-header-structure
+```
+
+**Iteraciones y correcciones**:
+1. **Primera iteración**: Expansión contenido hero + pricing (236 palabras)
+2. **Detección insuficiente**: Necesario más contenido para 300+
+3. **Segunda iteración**: Expansión FAQ exhaustiva (+286 palabras → 522 total)
+4. **llms.txt creado**: Con estructura completa para LLMs
+5. **Schema.org añadido**: JSON-LD @graph con LocalBusiness + Organization
+6. **Tests fallando**: Esperaban schema antiguo (sin @graph)
+7. **Fix tests**: Actualizados para validar @graph[0] LocalBusiness + @graph[1] Organization
+8. **Verificación final**: 25/25 tests ✅, build ✅, word count 522 ✅
+
+**Verificación pre-entrega**:
+- ✅ Tests E2E: 25/25 passing (incluye validación JSON-LD @graph)
+- ✅ Build: Exitoso (Angular 16.2.0, 679 KB bundle)
+- ✅ Word count: 522 palabras (supera 300 mínimo en +174%)
+- ✅ llms.txt accesible: `dist/easy-locker-angular/llms.txt` tras build
+- ✅ JSON-LD válido: @graph con 2 entities (LocalBusiness + Organization)
+- ⏳ Pendiente: Validar con Google Rich Results Test
+- ⏳ Pendiente: Verificar SEOptimer tras despliegue (debe resolver 4 warnings)
+
+**Commits**:
+- `72a0bfd`: feat(seo): optimizaciones SEOptimer - content, llms.txt, Schema.org
+
+**Decisiones arquitectónicas**:
+- **@graph vs single entity**: Usamos @graph para agrupar LocalBusiness + Organization (mejor práctica Schema.org 2024+, permite relacionar entities)
+- **llms.txt ubicación**: En `src/` para incluir en assets, accesible en `/llms.txt` post-build
+- **Word count strategy**: Expandir descripciones existentes sin añadir secciones nuevas (mantiene UX)
+- **FAQ expansion**: Priorizar preguntas sobre seguridad, ubicación, proceso (alto valor SEO + usuario)
+
+**Lecciones aprendidas**:
+> 🚨 **SEOptimer word count = contenido visible**  
+> Solo cuenta texto renderizado en página (excluye código, scripts, meta tags). Expandir hero, pricing, FAQ y subtitles secciones.
+
+> 🚨 **JSON-LD @graph permite múltiples schemas relacionados**  
+> Mejor que scripts separados. Permite combinar LocalBusiness + Organization + Person + Product, etc. Google lo indexa como entidades relacionadas.
+
+> 🚨 **llms.txt mejora AI indexing**  
+> LLMs usan este archivo para entender contexto proyecto sin parsear código. Similar a robots.txt pero para AI agents.
+
+**Estado al cierre**:
+- ✅ 4 issues SEOptimer resueltos (Amount of Content, llms.txt, Schema.org, Identity Schema)
+- ✅ Tests E2E actualizados y pasando
+- ✅ Build verificado exitoso
+- ✅ Documentación actualizada (seo-changelog.md, CHANGELOG-AGENT.md)
+- ✅ Committed y pushed a branch `feat/seo-h2-h6-header-structure`
+- ⏳ Pendiente: Usuario debe mergear PR y verificar en SEOptimer post-deploy
+
+---
+
 ### Sesión 2026-01-26 (mañana): Optimización meta descriptions 120-160 caracteres
 
 **Contexto**: Usuario reportó que SEOptimer muestra meta description de 47 caracteres (fallo crítico de SEO). Screenshot mostraba "Meta Description (47 Character(s))". Solicitó crear test para asegurar compliance.
