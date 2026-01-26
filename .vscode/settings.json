@@ -1,0 +1,16 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "/^git checkout develop && git pull origin develop$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^npx playwright test e2e/seo-validation\\.spec\\.ts --reporter=list$/": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "/^git add -A && git status --short$/": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  }
+}

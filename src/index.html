@@ -120,9 +120,30 @@
   </head>
   <body>
     <!-- H1 base para SEO crawlers (oculto visualmente, Angular lo actualiza dinámicamente) -->
-    <h1 style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden;">
+    <h1 class="sr-only-seo">
       Consignas de equipaje en Córdoba | Easy Locker
     </h1>
+    
+    <!-- Estructura de headers H2-H6 para SEO crawlers (Angular los actualiza dinámicamente) -->
+    <div class="sr-only-seo">
+      <h2>Tamaños y Precios de Consignas</h2>
+      <h3>Taquilla XS - Mochilas y Bolsos Pequeños</h3>
+      <h3>Taquilla S - Maletas de Cabina</h3>
+      <h3>Taquilla M - Maletas Medianas</h3>
+      
+      <h2>Preguntas Frecuentes</h2>
+      <h3>¿Dónde está ubicado Easy Locker?</h3>
+      <h3>¿Cómo funciona el sistema de acceso?</h3>
+      <h3>¿Qué medidas de seguridad tienen?</h3>
+      
+      <h2>Opiniones de Clientes</h2>
+      <h3>Valoraciones Google Reviews</h3>
+      
+      <h2>Información de Contacto</h2>
+      <h3>Datos de la Empresa</h3>
+      <h3>Redes Sociales</h3>
+    </div>
+    
     <app-root></app-root>
   </body>
 </html>
