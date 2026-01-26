@@ -30,11 +30,11 @@ test.describe('SEO Complete Validation', () => {
     expect(title.length).toBeGreaterThanOrEqual(50);
     expect(title.length).toBeLessThanOrEqual(60);
     
-    // Meta description
+    // Meta description debe estar en rango SEO óptimo (120-160 caracteres)
     const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
     expect(metaDescription).toBeTruthy();
-    expect(metaDescription?.length).toBeGreaterThan(50);
-    expect(metaDescription?.length).toBeLessThan(160);
+    expect(metaDescription?.length).toBeGreaterThanOrEqual(120);
+    expect(metaDescription?.length).toBeLessThanOrEqual(160);
     
     // Meta keywords
     const metaKeywords = await page.locator('meta[name="keywords"]').getAttribute('content');
@@ -59,6 +59,10 @@ test.describe('SEO Complete Validation', () => {
     expect(ogTitle?.length).toBeLessThanOrEqual(60);
     
     expect(ogDescription).toBeTruthy();
+    // OG description debe estar en rango SEO óptimo (120-160 caracteres)
+    expect(ogDescription?.length).toBeGreaterThanOrEqual(120);
+    expect(ogDescription?.length).toBeLessThanOrEqual(160);
+    
     expect(ogImage).toContain('social-card.png');
     expect(ogUrl).toContain('easy-locker.com');
     expect(ogType).toBe('website');
@@ -78,6 +82,9 @@ test.describe('SEO Complete Validation', () => {
     expect(twitterTitle?.length).toBeLessThanOrEqual(60);
     
     expect(twitterDescription).toBeTruthy();
+    // Twitter description debe estar en rango SEO óptimo (120-160 caracteres)
+    expect(twitterDescription?.length).toBeGreaterThanOrEqual(120);
+    expect(twitterDescription?.length).toBeLessThanOrEqual(160);
     expect(twitterImage).toContain('social-card.png');
   });
 
