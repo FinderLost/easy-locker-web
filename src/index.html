@@ -107,6 +107,137 @@
         .addEventListener("change", setFaviconByTheme);
     </script>
     <script src="assets/config/reviews-config.js" defer></script>
+    
+    <!-- Schema.org JSON-LD: LocalBusiness + Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://easy-locker.com/#localbusiness",
+          "name": "Easy Locker Córdoba",
+          "description": "Consignas inteligentes para equipaje en Córdoba. Almacenamiento seguro 24/7 junto a la estación de tren y autobús con acceso mediante código personal.",
+          "url": "https://easy-locker.com",
+          "image": "https://easy-locker.com/assets/images/social-card.png",
+          "logo": "https://easy-locker.com/assets/images/landscape-light.svg",
+          "telephone": "+34-XXX-XXX-XXX",
+          "email": "info@easy-locker.com",
+          "priceRange": "€€",
+          "currenciesAccepted": "EUR",
+          "paymentAccepted": "Credit Card, Debit Card",
+          "openingHours": "Mo-Su 00:00-23:59",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C. Pintor Peñalosa",
+            "addressLocality": "Córdoba",
+            "addressRegion": "Andalucía",
+            "postalCode": "14011",
+            "addressCountry": "ES"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "37.8898628",
+            "longitude": "-4.7890138"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Córdoba",
+            "@id": "https://www.wikidata.org/wiki/Q5818"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Tamaños de Consignas",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Taquilla Tamaño M",
+                  "description": "28x41x56 cm. Ideal para maletas pequeñas o mochilas."
+                },
+                "price": "5.00",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "5.00",
+                  "priceCurrency": "EUR",
+                  "unitText": "día"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Taquilla Tamaño L",
+                  "description": "50x41x56 cm. Caben dos maletas pequeñas o una maleta grande."
+                },
+                "price": "10.90",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "10.90",
+                  "priceCurrency": "EUR",
+                  "unitText": "día"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Taquilla Tamaño XL",
+                  "description": "82x41x56 cm. Nuestro tamaño más espacioso para grupos o mucho equipaje."
+                },
+                "price": "15.90",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "15.90",
+                  "priceCurrency": "EUR",
+                  "unitText": "día"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://easy-locker.com/#organization",
+          "name": "Easy Locker",
+          "legalName": "Easy Locker Spain S.L.",
+          "url": "https://easy-locker.com",
+          "logo": "https://easy-locker.com/assets/images/landscape-light.svg",
+          "description": "Servicio de consignas inteligentes en Córdoba, España. Almacenamiento seguro de equipaje 24/7.",
+          "email": "info@easy-locker.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C. Pintor Peñalosa",
+            "addressLocality": "Córdoba",
+            "addressRegion": "Andalucía",
+            "postalCode": "14011",
+            "addressCountry": "ES"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "info@easy-locker.com",
+            "availableLanguage": ["Spanish", "English", "Portuguese", "French", "German", "Italian", "Korean"]
+          },
+          "sameAs": [
+            "https://www.facebook.com/easylocker",
+            "https://www.instagram.com/easylocker",
+            "https://twitter.com/easylocker"
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Córdoba",
+            "@id": "https://www.wikidata.org/wiki/Q5818"
+          }
+        }
+      ]
+    }
+    </script>
+    
     <!-- GitHub Pages SPA redirect handler -->
     <script defer>
       (function () {

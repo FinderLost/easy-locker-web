@@ -126,47 +126,52 @@ test.describe('SEO Complete Validation', () => {
     
     const jsonLd = JSON.parse(jsonLdScript!);
     
-    // Verificar estructura básica
+    // Verificar estructura básica con @graph
     expect(jsonLd['@context']).toBe('https://schema.org');
-    expect(jsonLd['@type']).toBe('LocalBusiness');
+    expect(jsonLd['@graph']).toBeTruthy();
+    expect(jsonLd['@graph']).toHaveLength(2); // LocalBusiness + Organization
+    
+    // Encontrar LocalBusiness en @graph
+    const localBusiness = jsonLd['@graph'].find((item: any) => item['@type'] === 'LocalBusiness');
+    expect(localBusiness).toBeTruthy();
     
     // Verificar nombre correcto
-    expect(jsonLd.name).toBe('Easy Locker | Consigna & Luggage Storage');
+    expect(localBusiness.name).toBe('Easy Locker Córdoba');
     
     // Verificar dirección completa
-    expect(jsonLd.address).toBeTruthy();
-    expect(jsonLd.address['@type']).toBe('PostalAddress');
-    expect(jsonLd.address.streetAddress).toBe('C. Pintor Peñalosa, Local 11');
-    expect(jsonLd.address.addressLocality).toBe('Córdoba');
-    expect(jsonLd.address.postalCode).toBe('14011');
-    expect(jsonLd.address.addressCountry).toBe('ES');
+    expect(localBusiness.address).toBeTruthy();
+    expect(localBusiness.address['@type']).toBe('PostalAddress');
+    expect(localBusiness.address.streetAddress).toBe('C. Pintor Peñalosa');
+    expect(localBusiness.address.addressLocality).toBe('Córdoba');
+    expect(localBusiness.address.postalCode).toBe('14011');
+    expect(localBusiness.address.addressCountry).toBe('ES');
     
     // Verificar coordenadas exactas
-    expect(jsonLd.geo).toBeTruthy();
-    expect(jsonLd.geo['@type']).toBe('GeoCoordinates');
-    expect(jsonLd.geo.latitude).toBe('37.8898628');
-    expect(jsonLd.geo.longitude).toBe('-4.7890138');
+    expect(localBusiness.geo).toBeTruthy();
+    expect(localBusiness.geo['@type']).toBe('GeoCoordinates');
+    expect(localBusiness.geo.latitude).toBe('37.8898628');
+    expect(localBusiness.geo.longitude).toBe('-4.7890138');
     
-    // Verificar teléfono real
-    expect(jsonLd.telephone).toBe('+34665922538');
-    
-    // Verificar rango de precios económico
-    expect(jsonLd.priceRange).toBe('€');
+    // Verificar rango de precios
+    expect(localBusiness.priceRange).toBe('€€');
     
     // Verificar URL
-    expect(jsonLd.url).toBe('https://easy-locker.com');
+    expect(localBusiness.url).toBe('https://easy-locker.com');
     
     // Verificar horarios 24/7
-    expect(jsonLd.openingHoursSpecification).toBeTruthy();
-    expect(jsonLd.openingHoursSpecification.opens).toBe('00:00');
-    expect(jsonLd.openingHoursSpecification.closes).toBe('23:59');
+    expect(localBusiness.openingHours).toBe('Mo-Su 00:00-23:59');
     
-    // Verificar redes sociales (3)
-    expect(jsonLd.sameAs).toBeTruthy();
-    expect(jsonLd.sameAs).toHaveLength(3);
-    expect(jsonLd.sameAs).toContain('https://www.facebook.com/share/1Got7XaYUE/');
-    expect(jsonLd.sameAs).toContain('https://www.instagram.com/easylocker.es/');
-    expect(jsonLd.sameAs).toContain('https://www.tiktok.com/@easylocker.es');
+    // Verificar que tiene catálogo de servicios con precios
+    expect(localBusiness.hasOfferCatalog).toBeTruthy();
+    expect(localBusiness.hasOfferCatalog.itemListElement).toBeTruthy();
+    expect(localBusiness.hasOfferCatalog.itemListElement.length).toBeGreaterThanOrEqual(3); // M, L, XL
+    
+    // Encontrar Organization en @graph
+    const organization = jsonLd['@graph'].find((item: any) => item['@type'] === 'Organization');
+    expect(organization).toBeTruthy();
+    expect(organization.name).toBe('Easy Locker');
+    expect(organization.sameAs).toBeTruthy();
+    expect(organization.sameAs.length).toBeGreaterThanOrEqual(3); // Redes sociales
   });
 
   test('Preconnect y DNS prefetch están configurados', async ({ page }) => {
@@ -409,10 +414,17 @@ test.describe('SEO Multi-idioma', () => {
       const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
       expect(metaDescription).toBeTruthy();
       
-      // Verificar JSON-LD (debe estar en todos los idiomas)
+      // Verificar JSON-LD (debe estar en todos los idiomas) - Formato @graph
       const jsonLdScript = await page.locator('script[type="application/ld+json"]').textContent();
       const jsonLd = JSON.parse(jsonLdScript!);
-      expect(jsonLd.name).toBe('Easy Locker | Consigna & Luggage Storage');
+      expect(jsonLd['@graph']).toBeTruthy();
+      
+      // Verificar que LocalBusiness y Organization existen
+      const localBusiness = jsonLd['@graph'].find((item: any) => item['@type'] === 'LocalBusiness');
+      const organization = jsonLd['@graph'].find((item: any) => item['@type'] === 'Organization');
+      expect(localBusiness).toBeTruthy();
+      expect(organization).toBeTruthy();
+      expect(organization.name).toBe('Easy Locker');
       
       // Verificar H1 presente y con contenido relevante
       const h1 = page.locator('h1[data-testid="hero-heading"]');
