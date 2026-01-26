@@ -3,7 +3,7 @@ title: SEO Changelog
 description: Histórico completo de todos los cambios críticos de SEO realizados en el proyecto.
 tags: [reference, seo, changelog, history, audit]
 owner: web-team
-last_updated: 2026-01-25
+last_updated: 2026-01-26
 status: approved
 llm_summary: Registro cronológico de cambios en URLs, titles, H1, canonical, hreflang y otros elementos SEO críticos.
 ---
@@ -49,6 +49,41 @@ Este documento registra **todos los cambios críticos** de SEO realizados en el 
 ---
 
 ## 📋 Histórico de cambios
+
+### 2026-01-26: [Meta Description] — Ajuste longitud óptima 120-160 caracteres
+**Responsable**: Easy Locker Agent  
+**Tipo**: Meta Description  
+**Motivo**: Cumplimiento estándar SEOptimer (actualizado 2018) + corrección auditoría (HTML base 47 chars → SEO tool fail)  
+**Impacto esperado**: Positivo (CTR mejorado + mejor preview en SERPs + compliance SEO tools)  
+**Archivos modificados**:
+- `src/index.html` (line 19): 47 → 134 caracteres
+- `src/assets/i18n/es.json`: 140 → 155 caracteres
+- `src/assets/i18n/en.json`: 161 → 151 caracteres (sobrepasaba límite)
+- `src/assets/i18n/it.json`: 115 → 139 caracteres
+- `src/assets/i18n/de.json`: 119 → 157 caracteres
+- `src/assets/i18n/fr.json`: 117 → 139 caracteres
+- `src/assets/i18n/ko.json`: 61 → 125 caracteres (crítico: muy corto)
+- `e2e/seo-validation.spec.ts`: Tests actualizados con validación estricta ≥120 & ≤160
+
+**Detalles**:
+- **HTML base crítico**: SEO tools (SEOptimer, Screaming Frog) escanean HTML inicial antes de que Angular actualice dinámicamente → el valor estático era 47 chars
+- **Estándar SEOptimer 2018**: Google ajustó de 320 chars (2017) a ~155-160 (2018), rango óptimo 120-160 para consistencia cross-device
+- **Contenido añadido**: "cámaras de vigilancia", "ubicación ideal/conveniente", características de seguridad en todos los idiomas
+- **Validación completa**: og:description y twitter:description también validados en mismo rango
+
+**Validación**:
+- [x] Test E2E local: 23/23 passing
+- [x] Build exitoso (Angular 16.2.0)
+- [x] Verificado rango 120-160 en 7 idiomas
+- [ ] Verificar en SEOptimer tras despliegue
+- [ ] Test en staging con Screaming Frog
+
+**Notas adicionales**:
+- HTML base meta tags son **prioritarios** para SEO tools vs. Angular dynamic updates
+- Test E2E ahora previene regresión con validación estricta de longitud
+- KO (coreano) tenía descripción extremadamente corta (61 chars) → expandida a 125 chars
+
+---
 
 ### 2026-01-25: [Title Tag] — Ajuste longitud final 50-60 caracteres
 **Responsable**: Easy Locker Agent  
