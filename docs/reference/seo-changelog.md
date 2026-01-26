@@ -50,6 +50,35 @@ Este documento registra **todos los cambios críticos** de SEO realizados en el 
 
 ## 📋 Histórico de cambios
 
+### 2026-01-26: [H1 Tag] — Añadir H1 en HTML base para compliance SEOptimer
+**Responsable**: Easy Locker Agent  
+**Tipo**: H1  
+**Motivo**: SEOptimer reportaba "Your page does not have an H1 Header Tag" - HTML base no tenía H1 visible para crawlers (Angular lo añadía después)  
+**Impacto esperado**: Positivo (compliance SEO tools + mejor señal a search engines sobre topic principal)  
+**Archivos modificados**:
+- `src/index.html` (line 44): Añadido `<h1>` oculto visualmente pero presente para SEO crawlers
+- `e2e/seo-validation.spec.ts` (lines 184-196): Mejorada validación H1 con checks de keywords y unicidad
+
+**Detalles**:
+- **HTML base crítico**: Añadido H1 con texto "Consigna equipaje Córdoba Centro | Easy Locker 24/7" en español
+- **Estrategia dual**: H1 base para SEO crawlers + Angular reemplaza dinámicamente según idioma
+- **Keywords incluidas**: "Consigna equipaje", "Córdoba", "Centro" (geo-targeting)
+- **Clase .sr-only-seo**: Oculto visualmente pero accesible para screen readers y crawlers
+
+**Validación**:
+- [x] Test E2E local: 23/23 passing
+- [x] Build exitoso (Angular 16.2.0)
+- [x] H1 existe y contiene keywords principales
+- [x] Exactamente un H1 por página (best practice)
+- [ ] Verificar en SEOptimer tras despliegue
+
+**Notas adicionales**:
+- Lección aplicada de meta descriptions: HTML base es prioritario para SEO tools
+- Tests E2E verifican tanto presencia como contenido semántico del H1
+- H1 cumple best practices: único, descriptivo, con keywords relevantes
+
+---
+
 ### 2026-01-26: [Meta Description] — Ajuste longitud óptima 120-160 caracteres
 **Responsable**: Easy Locker Agent  
 **Tipo**: Meta Description  
