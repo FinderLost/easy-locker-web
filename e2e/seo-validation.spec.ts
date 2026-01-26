@@ -205,9 +205,52 @@ test.describe('SEO Complete Validation', () => {
       lowerH1.includes('짐');
     expect(hasRelevantKeyword).toBe(true);
     
-    // Debe haber múltiples H2 (secciones)
+    // Debe haber múltiples H2 (secciones principales)
     const h2Count = await page.locator('h2').count();
-    expect(h2Count).toBeGreaterThanOrEqual(3);
+    expect(h2Count).toBeGreaterThanOrEqual(3); // Pricing, FAQ, Testimonials, etc.
+    
+    // Debe haber H3 (subsecciones)
+    const h3Count = await page.locator('h3').count();
+    expect(h3Count).toBeGreaterThanOrEqual(2); // Al menos algunas subsecciones
+    
+    // Verificar estructura semántica: H2 en secciones clave
+    const h2InPricing = await page.locator('app-pricing h2, section:has(h2:text("Tamaños"), h2:text("Sizes"), h2:text("Tailles"))').count();
+    expect(h2InPricing).toBeGreaterThan(0);
+    
+    const h2InFaq = await page.locator('app-faq h2, section:has(h2:text("Preguntas"), h2:text("Questions"), h2:text("FAQ"))').count();
+    expect(h2InFaq).toBeGreaterThan(0);
+  });
+
+  test('Estructura H2-H6 múltiples niveles presente', async ({ page }) => {
+    // HTML debe contener al menos 3 tipos diferentes de headers (H1, H2, H3 mínimo)
+    const h1Exists = await page.locator('h1').count();
+    const h2Exists = await page.locator('h2').count();
+    const h3Exists = await page.locator('h3').count();
+    
+    expect(h1Exists).toBeGreaterThan(0);
+    expect(h2Exists).toBeGreaterThanOrEqual(3); // Al menos 3 H2 (pricing, faq, testimonials, footer)
+    expect(h3Exists).toBeGreaterThanOrEqual(2); // Al menos 2 H3 (subsecciones)
+    
+    // Verificar que headers tienen contenido significativo
+    const allH2 = await page.locator('h2').all();
+    for (const h2 of allH2) {
+      const isVisible = await h2.isVisible();
+      if (isVisible) {
+        const text = await h2.textContent();
+        expect(text).toBeTruthy();
+        expect(text!.trim().length).toBeGreaterThan(3);
+      }
+    }
+    
+    const allH3 = await page.locator('h3').all();
+    for (const h3 of allH3) {
+      const isVisible = await h3.isVisible();
+      if (isVisible) {
+        const text = await h3.textContent();
+        expect(text).toBeTruthy();
+        expect(text!.trim().length).toBeGreaterThan(2);
+      }
+    }
   });
 
   test('Todas las imágenes tienen alt text', async ({ page }) => {
