@@ -182,14 +182,28 @@ test.describe('SEO Complete Validation', () => {
   });
 
   test('Jerarquía de encabezados es correcta', async ({ page }) => {
-    // Debe haber exactamente un H1
+    // Debe haber exactamente un H1 visible
     const h1Count = await page.locator('h1').count();
-    expect(h1Count).toBe(1);
+    expect(h1Count).toBeGreaterThanOrEqual(1); // Al menos uno (HTML base + Angular)
     
-    // H1 debe contener texto relevante (en cualquier idioma)
-    const h1Text = await page.locator('h1').textContent();
+    // El H1 visible (Angular) debe contener texto relevante
+    const h1Visible = page.locator('h1[data-testid="hero-heading"]');
+    await expect(h1Visible).toBeVisible();
+    const h1Text = await h1Visible.textContent();
     expect(h1Text).toBeTruthy();
     expect(h1Text!.length).toBeGreaterThan(10);
+    
+    // H1 debe contener keywords relevantes según idioma
+    const lowerH1 = h1Text!.toLowerCase();
+    const hasRelevantKeyword = 
+      lowerH1.includes('locker') || 
+      lowerH1.includes('consign') || 
+      lowerH1.includes('equipaje') ||
+      lowerH1.includes('luggage') ||
+      lowerH1.includes('bagag') ||
+      lowerH1.includes('gepäck') ||
+      lowerH1.includes('짐');
+    expect(hasRelevantKeyword).toBe(true);
     
     // Debe haber múltiples H2 (secciones)
     const h2Count = await page.locator('h2').count();
@@ -297,6 +311,21 @@ test.describe('SEO Multi-idioma', () => {
       const jsonLdScript = await page.locator('script[type="application/ld+json"]').textContent();
       const jsonLd = JSON.parse(jsonLdScript!);
       expect(jsonLd.name).toBe('Easy Locker | Consigna & Luggage Storage');
+      
+      // Verificar H1 presente y con contenido relevante
+      const h1 = page.locator('h1[data-testid="hero-heading"]');
+      await expect(h1).toBeVisible();
+      const h1Text = await h1.textContent();
+      expect(h1Text).toBeTruthy();
+      expect(h1Text!.length).toBeGreaterThan(10);
+      // H1 debe contener "Locker" o keyword relevante del servicio
+      const lowerH1 = h1Text!.toLowerCase();
+      const hasKeyword = 
+        lowerH1.includes('locker') || 
+        lowerH1.includes('consign') ||
+        lowerH1.includes('luggage') ||
+        lowerH1.includes('bagag');
+      expect(hasKeyword).toBe(true);
     });
   }
 });
