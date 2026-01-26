@@ -9,7 +9,8 @@
 
   "h1": "Consignas de equipaje en Córdoba | Easy Locker",
   "home": {
-    "description": "Guarda tus maletas de forma segura junto a la estación de tren y autobús de Córdoba. Nuestro servicio de consignas inteligentes te permite explorar la ciudad sin cargar con tu equipaje. Acceso 24 horas con código personal, videovigilancia continua y precios económicos desde 5€ al día. Sistema automatizado sin colas ni esperas. Perfecto para turistas, viajeros de paso y visitantes que quieren descubrir Córdoba con total libertad y comodidad."
+    "description": "Guarda tus maletas de forma segura junto a la estación de tren y autobús de Córdoba. Nuestro servicio de consignas inteligentes te permite explorar la ciudad sin cargar con tu equipaje. Acceso 24 horas con código personal, videovigilancia continua y precios económicos desde 5€ al día. Sistema automatizado sin colas ni esperas. Perfecto para turistas, viajeros de paso y visitantes que quieren descubrir Córdoba con total libertad y comodidad.",
+    "description_short": "Guarda tus maletas de forma segura junto a la estación de Córdoba. Acceso 24/7 con código personal, videovigilancia y precios desde 5€. Sistema automatizado sin colas."
   },
 
   "hero": {
