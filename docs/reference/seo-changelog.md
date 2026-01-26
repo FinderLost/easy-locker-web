@@ -50,6 +50,49 @@ Este documento registra **todos los cambios críticos** de SEO realizados en el 
 
 ## 📋 Histórico de cambios
 
+### 2026-01-26: [Keyword Consistency] — Optimizar distribución keywords en title y description
+**Responsable**: Easy Locker Agent  
+**Tipo**: Title + Meta Description  
+**Motivo**: SEOptimer reportaba keywords importantes solo en headings, no en title ni meta description  
+**Impacto esperado**: Positivo (mejor señalización de relevancia + CTR mejorado)  
+**Archivos modificados**:
+- `src/index.html` (line 14, 19-21): Title y meta description actualizados
+- `src/assets/i18n/es.json`: Title y description actualizados (seo.home)
+- `e2e/seo-validation.spec.ts`: Nuevo test "Keyword Consistency"
+
+**Detalles**:
+- **Title actualizado** (56 → 54 caracteres):
+  - Antes: "Consigna de equipaje en Córdoba Estación | Easy Locker"
+  - Ahora: "Taquillas y Consignas Córdoba Estación | Easy Locker"
+  - Añade: "Taquilla" (keyword con 3 apariciones en headings pero 0 en title)
+- **Meta description actualizada** (134 → 158 caracteres):
+  - Antes: "Guarda tus maletas en Córdoba junto a la estación de tren y autobús..."
+  - Ahora: "Taquillas y consignas para maletas y equipaje en Córdoba. Easy Locker ofrece guardar tus cosas 24/7..."
+  - Añade: "taquilla", "equipaje", "Easy Locker" (keywords ausentes)
+- **Keyword distribution mejorada**:
+  - easy locker: ✅ title ✅ description (antes solo title)
+  - locker: ✅ title ✅ description
+  - consignas: ✅ title ✅ description
+  - taquilla: ✅ title ✅ description (antes solo headings)
+  - maletas: ✅ description
+  - equipaje: ✅ description (antes solo headings)
+  - córdoba: ✅ title ✅ description
+
+**Validación**:
+- [x] Test E2E local: 25/25 passing (nuevo test "Keyword Consistency")
+- [x] Build exitoso (Angular 16.2.0)
+- [x] Keywords críticas en title Y description
+- [x] Cumple rangos SEO: title 50-60 (54), description 120-160 (158)
+- [ ] Verificar en SEOptimer tras despliegue (debe resolver warnings)
+
+**Notas adicionales**:
+- Test multiidioma: valida keywords en cualquier idioma (es, en, de, fr, it, ko, pt)
+- Requerimientos: "both" (debe aparecer en ambos) o "either" (al menos uno)
+- Keywords validadas: servicio (locker/consigna/taquilla), marca (Easy Locker), ubicación (Córdoba), objeto (maletas/equipaje)
+- SEOptimer warning específico: "taquilla" aparecía 3 veces en página pero 0 en title/description
+
+---
+
 ### 2026-01-26: [Headers H2-H6] — Añadir estructura jerárquica múltiples niveles
 **Responsable**: Easy Locker Agent  
 **Tipo**: H2-H6  
