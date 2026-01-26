@@ -118,6 +118,9 @@ test.describe('SEO Complete Validation', () => {
   });
 
   test('JSON-LD Schema.org LocalBusiness está presente y completo', async ({ page }) => {
+    // Cargar datos de referencia desde business-info.json (fuente única de verdad)
+    const businessInfo = require('../src/assets/data/business-info.json');
+    
     // El script está en el DOM aunque hidden
     await page.waitForTimeout(1000); // Dar tiempo para que Angular inyecte el script
     
@@ -135,43 +138,74 @@ test.describe('SEO Complete Validation', () => {
     const localBusiness = jsonLd['@graph'].find((item: any) => item['@type'] === 'LocalBusiness');
     expect(localBusiness).toBeTruthy();
     
-    // Verificar nombre correcto
-    expect(localBusiness.name).toBe('Easy Locker Córdoba');
+    // Verificar nombre correcto (desde business-info.json)
+    expect(localBusiness.name).toBe(businessInfo.business.name);
     
-    // Verificar dirección completa
+    // Verificar dirección completa (desde business-info.json)
     expect(localBusiness.address).toBeTruthy();
     expect(localBusiness.address['@type']).toBe('PostalAddress');
-    expect(localBusiness.address.streetAddress).toBe('C. Pintor Peñalosa');
-    expect(localBusiness.address.addressLocality).toBe('Córdoba');
-    expect(localBusiness.address.postalCode).toBe('14011');
-    expect(localBusiness.address.addressCountry).toBe('ES');
+    expect(localBusiness.address.streetAddress).toBe(businessInfo.address.streetAddress);
+    expect(localBusiness.address.addressLocality).toBe(businessInfo.address.addressLocality);
+    expect(localBusiness.address.postalCode).toBe(businessInfo.address.postalCode);
+    expect(localBusiness.address.addressCountry).toBe(businessInfo.address.addressCountry);
     
-    // Verificar coordenadas exactas
+    // Verificar coordenadas exactas (desde business-info.json)
     expect(localBusiness.geo).toBeTruthy();
     expect(localBusiness.geo['@type']).toBe('GeoCoordinates');
-    expect(localBusiness.geo.latitude).toBe('37.8898628');
-    expect(localBusiness.geo.longitude).toBe('-4.7890138');
+    expect(localBusiness.geo.latitude).toBe(businessInfo.geo.latitude);
+    expect(localBusiness.geo.longitude).toBe(businessInfo.geo.longitude);
     
-    // Verificar rango de precios
-    expect(localBusiness.priceRange).toBe('€€');
+    // Verificar teléfono real (desde business-info.json)
+    expect(localBusiness.telephone).toBe(businessInfo.business.telephone);
+    
+    // Verificar rango de precios (desde business-info.json)
+    expect(localBusiness.priceRange).toBe(businessInfo.business.priceRange);
     
     // Verificar URL
-    expect(localBusiness.url).toBe('https://easy-locker.com');
+    expect(localBusiness.url).toBe(businessInfo.business.url);
     
-    // Verificar horarios 24/7
-    expect(localBusiness.openingHours).toBe('Mo-Su 00:00-23:59');
+    // Verificar horarios 24/7 (openingHoursSpecification)
+    expect(localBusiness.openingHoursSpecification).toBeTruthy();
+    expect(localBusiness.openingHoursSpecification.opens).toBe(businessInfo.openingHours.specification.opens);
+    expect(localBusiness.openingHoursSpecification.closes).toBe(businessInfo.openingHours.specification.closes);
     
-    // Verificar que tiene catálogo de servicios con precios
+    // Verificar redes sociales (desde business-info.json)
+    expect(localBusiness.sameAs).toBeTruthy();
+    expect(localBusiness.sameAs).toHaveLength(3);
+    expect(localBusiness.sameAs).toContain(businessInfo.socialMedia.facebook);
+    expect(localBusiness.sameAs).toContain(businessInfo.socialMedia.instagram);
+    expect(localBusiness.sameAs).toContain(businessInfo.socialMedia.tiktok);
+    
+    // Verificar que tiene catálogo de servicios con precios (desde business-info.json)
     expect(localBusiness.hasOfferCatalog).toBeTruthy();
     expect(localBusiness.hasOfferCatalog.itemListElement).toBeTruthy();
-    expect(localBusiness.hasOfferCatalog.itemListElement.length).toBeGreaterThanOrEqual(3); // M, L, XL
+    expect(localBusiness.hasOfferCatalog.itemListElement.length).toBe(3); // M, L, XL
+    
+    // Verificar precios de cada servicio
+    const offerM = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
+      item.itemOffered.name === businessInfo.services.M.name
+    );
+    expect(offerM.price).toBe(businessInfo.services.M.price.toFixed(2));
+    
+    const offerL = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
+      item.itemOffered.name === businessInfo.services.L.name
+    );
+    expect(offerL.price).toBe(businessInfo.services.L.price.toFixed(2));
+    
+    const offerXL = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
+      item.itemOffered.name === businessInfo.services.XL.name
+    );
+    expect(offerXL.price).toBe(businessInfo.services.XL.price.toFixed(2));
     
     // Encontrar Organization en @graph
     const organization = jsonLd['@graph'].find((item: any) => item['@type'] === 'Organization');
     expect(organization).toBeTruthy();
-    expect(organization.name).toBe('Easy Locker');
+    expect(organization.name).toBe(businessInfo.business.legalName);
     expect(organization.sameAs).toBeTruthy();
-    expect(organization.sameAs.length).toBeGreaterThanOrEqual(3); // Redes sociales
+    expect(organization.sameAs.length).toBe(3);
+    expect(organization.sameAs).toContain(businessInfo.socialMedia.facebook);
+    expect(organization.sameAs).toContain(businessInfo.socialMedia.instagram);
+    expect(organization.sameAs).toContain(businessInfo.socialMedia.tiktok);
   });
 
   test('Preconnect y DNS prefetch están configurados', async ({ page }) => {

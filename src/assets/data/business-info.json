@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-26",
+  "business": {
+    "name": "Easy Locker | Consigna & Luggage Storage",
+    "legalName": "Easy Locker",
+    "shortName": "Easy Locker",
+    "description": "Consignas inteligentes para equipaje en Córdoba. Almacenamiento seguro 24/7 junto a la estación de tren y autobús con acceso mediante código personal.",
+    "url": "https://easy-locker.com",
+    "email": "info@easy-locker.com",
+    "telephone": "+34665922538",
+    "priceRange": "€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Credit Card, Debit Card"
+  },
+  "address": {
+    "streetAddress": "C. Pintor Peñalosa, Local 11",
+    "addressLocality": "Córdoba",
+    "addressRegion": "Andalucía",
+    "postalCode": "14011",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "latitude": "37.8898628",
+    "longitude": "-4.7890138"
+  },
+  "openingHours": {
+    "specification": {
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "shortFormat": "Mo-Su 00:00-23:59",
+    "display": "24/7"
+  },
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/share/1Got7XaYUE/",
+    "instagram": "https://www.instagram.com/easylocker.es/",
+    "tiktok": "https://www.tiktok.com/@easylocker.es"
+  },
+  "services": {
+    "M": {
+      "name": "Taquilla Tamaño M",
+      "dimensions": "28x41x56 cm",
+      "dimensionsCm": {
+        "width": 28,
+        "height": 41,
+        "depth": 56
+      },
+      "description": "Ideal para maletas pequeñas o mochilas.",
+      "price": 5.00,
+      "currency": "EUR",
+      "unitText": "día"
+    },
+    "L": {
+      "name": "Taquilla Tamaño L",
+      "dimensions": "50x41x56 cm",
+      "dimensionsCm": {
+        "width": 50,
+        "height": 41,
+        "depth": 56
+      },
+      "description": "Caben dos maletas pequeñas o una maleta grande.",
+      "price": 10.90,
+      "currency": "EUR",
+      "unitText": "día"
+    },
+    "XL": {
+      "name": "Taquilla Tamaño XL",
+      "dimensions": "82x41x56 cm",
+      "dimensionsCm": {
+        "width": 82,
+        "height": 41,
+        "depth": 56
+      },
+      "description": "Nuestro tamaño más espacioso para grupos o mucho equipaje.",
+      "price": 15.90,
+      "currency": "EUR",
+      "unitText": "día"
+    }
+  },
+  "areaServed": {
+    "city": "Córdoba",
+    "wikidataId": "Q5818"
+  },
+  "images": {
+    "logo": "https://easy-locker.com/assets/images/landscape-light.svg",
+    "socialCard": "https://easy-locker.com/assets/images/social-card.png"
+  },
+  "languages": [
+    "es",
+    "en",
+    "pt",
+    "fr",
+    "de",
+    "it",
+    "ko"
+  ]
+}
