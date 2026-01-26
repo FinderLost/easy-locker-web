@@ -9,10 +9,6 @@ test.describe('SEO Complete Validation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:4200');
     
-    // Forzar idioma español antes de la carga
-    await page.evaluate(() => localStorage.setItem('language', 'es'));
-    await page.reload();
-    
     // Esperar a que Angular termine de cargar y actualizar SEO
     // El selector de idioma es señal de que el componente está listo
     await page.waitForSelector('app-language-switcher', { state: 'visible', timeout: 10000 });
@@ -313,6 +309,69 @@ test.describe('SEO Complete Validation', () => {
     
     const dnsPrefetches = await page.locator('link[rel="dns-prefetch"]').all();
     expect(dnsPrefetches.length).toBeGreaterThanOrEqual(1);
+  });
+
+  test('Keyword Consistency: keywords principales en title y meta description', async ({ page }) => {
+    const title = await page.title();
+    const titleLower = title.toLowerCase();
+    
+    const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
+    const descriptionLower = metaDescription?.toLowerCase() || '';
+    
+    // Keywords críticas multiidioma que DEBEN aparecer
+    const criticalKeywords = {
+      // Marca (debe aparecer siempre)
+      'easy_locker': {
+        title: titleLower.includes('easy') && titleLower.includes('locker'),
+        description: descriptionLower.includes('easy') && descriptionLower.includes('locker'),
+        required: 'either' // al menos uno
+      },
+      // Servicio (en cualquier idioma)
+      'servicio_lockers': {
+        title: titleLower.includes('locker') || titleLower.includes('consigna') || titleLower.includes('taquilla') || titleLower.includes('storage'),
+        description: descriptionLower.includes('locker') || descriptionLower.includes('consigna') || descriptionLower.includes('taquilla') || descriptionLower.includes('storage'),
+        required: 'both' // debe aparecer en ambos
+      },
+      // Qué se guarda (en cualquier idioma)
+      'objeto_guardado': {
+        title: titleLower.includes('equipaje') || titleLower.includes('maleta') || titleLower.includes('luggage') || titleLower.includes('bag') || titleLower.includes('gepäck') || titleLower.includes('bagage'),
+        description: descriptionLower.includes('equipaje') || descriptionLower.includes('maleta') || titleLower.includes('luggage') || descriptionLower.includes('bag') || descriptionLower.includes('gepäck') || descriptionLower.includes('bagage'),
+        required: 'either' // al menos uno
+      },
+      // Ubicación (crítica)
+      'cordoba': {
+        title: titleLower.includes('córdoba') || titleLower.includes('cordoba'),
+        description: descriptionLower.includes('córdoba') || descriptionLower.includes('cordoba'),
+        required: 'both' // debe aparecer en ambos
+      }
+    };
+    
+    // Validar keywords según su nivel de requerimiento
+    for (const [keyword, data] of Object.entries(criticalKeywords)) {
+      const appearsInBoth = data.title && data.description;
+      const appearsInEither = data.title || data.description;
+      
+      if (data.required === 'both') {
+        expect(appearsInBoth).toBe(true);
+        if (!appearsInBoth) {
+          throw new Error(`"${keyword}" debe aparecer en TITLE y DESCRIPTION. Title: ${data.title}, Description: ${data.description}`);
+        }
+      } else if (data.required === 'either') {
+        expect(appearsInEither).toBe(true);
+        if (!appearsInEither) {
+          throw new Error(`"${keyword}" debe aparecer al menos en TITLE o DESCRIPTION`);
+        }
+      }
+      
+      // Log para debugging
+      if (!appearsInBoth && data.required === 'either') {
+        console.log(`Info: "${keyword}" solo en ${data.title ? 'title' : 'description'}`);
+      }
+    }
+    
+    // Log para debugging - mostrar valores actuales
+    console.log(`Title: ${title}`);
+    console.log(`Description: ${metaDescription}`);
   });
 });
 
