@@ -1,15 +1,16 @@
 {
   "seo": {
     "home": {
-      "title": "Consigna de equipaje en Córdoba Estación | Easy Locker",
-      "description": "Guarda tus maletas en Córdoba junto a la estación de tren y autobús. Consignas seguras 24/7 con acceso por código, cámaras de vigilancia y precios desde 5€.",
+      "title": "Taquillas y Consignas Córdoba Estación | Easy Locker",
+      "description": "Taquillas y consignas para maletas y equipaje en Córdoba. Easy Locker ofrece guardar tus cosas 24/7 junto a la estación, con código, cámaras y desde 5€.",
       "keywords": "consigna equipaje Córdoba, taquillas maletas Córdoba, guardar maletas estación Córdoba, lockers Córdoba, luggage storage Cordoba"
     }
   },
 
   "h1": "Consignas de equipaje en Córdoba | Easy Locker",
   "home": {
-    "description": "Guarda tus maletas de forma segura junto a la estación de tren y autobús de Córdoba. Acceso 24h con código, cámaras de seguridad y precios desde 5€. Perfecto para turistas y viajeros de paso."
+    "description": "Guarda tus maletas de forma segura junto a la estación de tren y autobús de Córdoba. Nuestro servicio de consignas inteligentes te permite explorar la ciudad sin cargar con tu equipaje. Acceso 24 horas con código personal, videovigilancia continua y precios económicos desde 5€ al día. Sistema automatizado sin colas ni esperas. Perfecto para turistas, viajeros de paso y visitantes que quieren descubrir Córdoba con total libertad y comodidad.",
+    "description_short": "Guarda tus maletas de forma segura junto a la estación de Córdoba. Acceso 24/7 con código personal, videovigilancia y precios desde 5€. Sistema automatizado sin colas."
   },
 
   "hero": {
@@ -65,26 +66,26 @@
 
   "lockerSizes": {
     "title": "Planes de consigna",
-    "subtitle": "Elige el espacio que mejor encaja con tu equipaje",
+    "subtitle": "Selecciona el tamaño de taquilla que mejor se adapta a tu equipaje. Desde mochilas hasta maletas grandes, tenemos el espacio perfecto para ti",
     "perDay": "/día",
     "plans": {
       "m": {
         "name": "Tamaño M",
         "price": "5 €/día",
         "dimensions": "28 cm x 41 cm x 56 cm",
-        "description": "Cabe una maleta pequeña o mochila."
+        "description": "Ideal para maletas pequeñas, mochilas de viaje o bolsas de mano. Perfecto para escapadas de fin de semana o viajes cortos con equipaje ligero."
       },
       "l": {
         "name": "Tamaño L",
         "price": "10,90 €/día",
         "dimensions": "50 cm x 41 cm x 56 cm",
-        "description": "Caben dos maletas pequeñas, dos mochilas o una maleta grande."
+        "description": "Capacidad para dos maletas pequeñas, dos mochilas grandes o una maleta grande de tamaño estándar. La opción más popular para parejas o viajeros con equipaje medio. Amplio espacio para guardar múltiples objetos de forma organizada."
       },
       "xl": {
         "name": "Tamaño XL",
         "price": "15,90 €/día",
         "dimensions": "82 cm x 41 cm x 56 cm",
-        "description": "Cabe una maleta grande y dos pequeñas, cuatro maletas pequeñas o cuatro mochilas."
+        "description": "Nuestro tamaño más espacioso. Caben hasta cuatro maletas pequeñas, cuatro mochilas grandes, o una combinación de maleta grande y dos pequeñas. Ideal para grupos, familias o viajeros con mucho equipaje. También perfecto para almacenar equipos deportivos o compras de gran volumen."
       }
     }
   },
@@ -92,11 +93,11 @@
   "sections": {
     "testimonials": {
       "title": "Opiniones de clientes",
-      "subtitle": "Valoraciones reales de Easy Locker en Google"
+      "subtitle": "Lee las valoraciones reales de nuestros clientes en Google. Descubre por qué confían en Easy Locker para guardar su equipaje en Córdoba"
     },
     "faq": {
       "title": "FAQs",
-      "subtitle": "Resolvemos tus dudas más frecuentes"
+      "subtitle": "Encuentra respuestas a las preguntas más frecuentes sobre nuestro servicio de consignas. Información sobre reservas, pagos, seguridad y acceso a las taquillas"
     }
   },
 
@@ -104,17 +105,17 @@
   "faq_contact_desc": "Contáctanos y te responderemos lo antes posible.",
   "faq_contact_btn": "Enviar email",
   "faq_q1": "¿Cómo funciona el servicio?",
-  "faq_a1": "Es muy sencillo. Reservas y pagas todo online en nuestra web. Una vez confirmada la reserva, recibirás un código que te permite entrar en el local y abrir la consigna que reservaste.",
+  "faq_a1": "Nuestro sistema es completamente automatizado y muy fácil de usar. Primero, realizas la reserva online en nuestra web seleccionando el tamaño de consigna que necesitas y el período de tiempo. Pagas de forma segura con tarjeta. Inmediatamente después de confirmar el pago, recibirás un código personal único por email y SMS que te permite acceder al local y abrir la consigna asignada. El proceso es 100% digital, sin colas ni papeles.",
   "faq_q2": "¿Puedo reservar una consigna con antelación?",
-  "faq_a2": "Sí, puedes reservar con antelación. Recomendamos hacerlo lo antes posible, especialmente en temporada alta.",
+  "faq_a2": "Sí, totalmente. Puedes reservar tu taquilla con días o incluso semanas de antelación. De hecho, lo recomendamos especialmente durante temporada alta, puentes, festivos y época turística en Córdoba (primavera y otoño). Reservar con antelación garantiza disponibilidad y te permite planificar tu visita con tranquilidad.",
   "faq_q3": "¿Qué pasa si recojo tarde?",
   "faq_a3": "Si te pasas del tiempo contratado, podemos cobrarte una extensión y la recogida podría posponerse al siguiente horario de apertura. Avísanos si prevés retraso.",
-  "faq_q4": "¿Puedo acceder varias veces durante el día?",
-  "faq_a4": "Sí, puedes acceder a tu consigna tantas veces como necesites durante tu reserva usando el código que te damos.",
-  "faq_q5": "¿Puedo acceder varias veces durante mi reserva?",
-  "faq_a5": "Sí. Puedes abrir y cerrar tu consigna tantas veces como necesites dentro del horario.",
+  "faq_q4": "¿Puedo acceder varias veces durante mi reserva?",
+  "faq_a4": "Sí, por supuesto. Puedes abrir y cerrar tu consigna tantas veces como necesites durante el período reservado. Esto es ideal si quieres dejar tu equipaje por la mañana, recoger algo a mediodía y volver a guardar cosas por la tarde. Simplemente utiliza tu código personal cada vez que quieras acceder.",
+  "faq_q5": "¿Dónde está ubicado Easy Locker?",
+  "faq_a5": "Estamos ubicados en pleno centro de Córdoba, a pocos metros de la estación de tren y la estación de autobuses. La dirección exacta y el mapa para llegar te llegan por email tras confirmar tu reserva. También puedes hacer clic en 'Cómo llegar' en nuestra web para abrir Google Maps con la ruta desde tu ubicación.",
   "faq_q6": "¿Es seguro?",
-  "faq_a6": "Sí. El local cuenta con videovigilancia 24/7, acceso por código y consignas metálicas. Los códigos se renuevan automáticamente tras cada uso.",
+  "faq_a6": "Totalmente seguro. Nuestras instalaciones cuentan con múltiples capas de seguridad: sistema de videovigilancia 24/7 con grabación continua, acceso controlado mediante códigos personales que se renuevan automáticamente después de cada uso, y consignas fabricadas con materiales metálicos resistentes. El local está ubicado en una zona céntrica y bien iluminada junto a la estación de tren y autobús. Tu equipaje está completamente protegido durante toda tu estancia.",
   "faq_q7": "¿Qué métodos de pago aceptáis?",
   "faq_a7": "El pago es solo con tarjeta a través de una pasarela segura.",
   "faq_q8": "¿Cómo pago?",

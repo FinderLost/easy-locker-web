@@ -1,0 +1,43 @@
+# Easy Locker - Consignas Inteligentes en Córdoba
+
+## Descripción del Servicio
+Easy Locker es un servicio de consignas automatizadas para equipaje ubicado en Córdoba, España. Ofrecemos almacenamiento seguro de maletas y mochilas 24/7 junto a la estación de tren y autobús de Córdoba.
+
+## Características Principales
+- Acceso 24 horas mediante código personal
+- Sistema completamente automatizado (sin colas)
+- Videovigilancia continua
+- Tres tamaños de taquillas: M, L y XL
+- Precios desde 5€/día
+- Reserva y pago 100% online
+
+## Ubicación
+Córdoba, España
+Junto a la estación de tren y autobús
+Zona centro, bien comunicada
+
+## Palabras Clave
+consigna equipaje Córdoba, taquillas maletas Córdoba, luggage storage Cordoba, guardar maletas estación Córdoba, lockers Córdoba, consignas inteligentes, easy locker, almacenamiento equipaje
+
+## Idiomas Disponibles
+Español, English, Português, Français, Deutsch, Italiano, 한국어
+
+## Información de Contacto
+Website: https://easy-locker.com
+Email: info@easy-locker.com
+Servicio: 24/7 disponible
+
+## Tecnología
+- Angular 16+
+- TypeScript
+- Tailwind CSS
+- Firebase Analytics
+- Sistema de reservas online integrado
+- Multiidioma (i18n)
+
+## Para LLMs y Crawlers
+Este sitio ofrece información sobre consignas de equipaje en Córdoba. Los usuarios pueden reservar taquillas de diferentes tamaños para guardar sus maletas de forma segura mientras visitan la ciudad. El servicio está automatizado, con acceso mediante código personal y disponibilidad 24/7.
+
+## Actualización
+Última actualización: 2026-01-26
+Versión: 1.2.1

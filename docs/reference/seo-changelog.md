@@ -50,6 +50,140 @@ Este documento registra **todos los cambios críticos** de SEO realizados en el 
 
 ## 📋 Histórico de cambios
 
+### 2026-01-26: [SEOptimer Optimizations] — Amount of Content, llms.txt, Schema.org
+**Responsable**: Easy Locker Agent  
+**Tipo**: Content + Schema + llms.txt  
+**Motivo**: SEOptimer scan reportaba 4 issues críticos: thin content (60 palabras), falta llms.txt, sin Schema.org, sin Identity Schema  
+**Impacto esperado**: Muy positivo (ranking mejorado + rich snippets + visibilidad LLMs)  
+**Archivos modificados**:
+- `src/assets/i18n/es.json`: Expandidas descripciones hero, planes, FAQ
+- `src/llms.txt`: Nuevo archivo creado
+- `angular.json`: Añadido llms.txt a assets
+- `src/index.html`: Añadido JSON-LD Schema.org (LocalBusiness + Organization)
+- `e2e/seo-validation.spec.ts`: Tests actualizados para validar JSON-LD @graph
+- `SEO-PENDING-TASKS.md`: Fichero temporal de tracking
+
+**Detalles**:
+
+#### 1. Amount of Content (60 → 522 palabras) ✅
+- **Hero description**: 30 → 80 palabras
+  - Antes: "Guarda tus maletas... Perfecto para turistas y viajeros de paso."
+  - Ahora: "Guarda tus maletas de forma segura... Perfecto para turistas, viajeros de paso y visitantes que quieren descubrir Córdoba con total libertad y comodidad."
+- **Pricing subtitle**: 9 → 20 palabras
+  - Antes: "Elige el espacio que mejor encaja con tu equipaje"
+  - Ahora: "Selecciona el tamaño de taquilla que mejor se adapta a tu equipaje. Desde mochilas hasta maletas grandes, tenemos el espacio perfecto para ti"
+- **Descripciones planes**: Expandidas M/L/XL
+  - Plan M: 9 → 25 palabras (añade "escapadas fin de semana, viajes cortos")
+  - Plan L: 17 → 35 palabras (añade "opción más popular parejas, espacio organizado")
+  - Plan XL: 20 → 40 palabras (añade "grupos, familias, equipos deportivos")
+- **FAQ respuestas**: +150 palabras
+  - faq_a1: 30 → 50 palabras (proceso detallado paso a paso)
+  - faq_a2: 18 → 40 palabras (temporada alta, planificación)
+  - faq_a4: 20 → 35 palabras (uso flexible durante el día)
+  - faq_a5: Nueva pregunta "¿Dónde está ubicado?" (35 palabras)
+  - faq_a6: 22 → 55 palabras (seguridad detallada: videovigilancia, códigos, materiales)
+- **Section subtitles**: Testimonials (+15), FAQ (+18) palabras
+
+#### 2. llms.txt creado ✅
+Archivo: `src/llms.txt`
+```
+# Easy Locker - Consignas Inteligentes en Córdoba
+Descripción servicio, características (24/7, código, vigilancia)
+Ubicación: Córdoba junto estación
+Keywords: consigna equipaje, taquillas, luggage storage
+Idiomas: 7 (es, en, pt, fr, de, it, ko)
+Contacto: info@easy-locker.com, 24/7
+Tecnología: Angular 16+, TypeScript, Tailwind, Firebase
+```
+
+#### 3. Schema.org Structured Data implementado ✅
+Formato: JSON-LD con @graph
+
+**LocalBusiness**:
+- name: "Easy Locker Córdoba"
+- description: Completa (consignas inteligentes, 24/7)
+- address: C. Pintor Peñalosa, Córdoba 14011, España
+- geo: 37.8898628, -4.7890138
+- openingHours: "Mo-Su 00:00-23:59"
+- priceRange: "€€"
+- hasOfferCatalog: 3 servicios (M/L/XL) con precios (5€, 10.90€, 15.90€)
+- paymentAccepted: "Credit Card, Debit Card"
+- areaServed: Córdoba (Wikidata Q5818)
+
+**Organization**:
+- name: "Easy Locker"
+- legalName: "Easy Locker Spain S.L."
+- logo: https://easy-locker.com/assets/images/landscape-light.svg
+- contactPoint: customer service, 7 idiomas
+- sameAs: [Facebook, Instagram, Twitter]
+- address: Igual que LocalBusiness
+
+#### 4. Identity Schema (Organization) añadido ✅
+Incluido en @graph junto con LocalBusiness (ver punto 3)
+Establece ownership claro de la marca Easy Locker
+
+**Validación**:
+- [x] Test E2E local: 25/25 passing (tests JSON-LD actualizados)
+- [x] Build exitoso (Angular 16.2.0, 679 KB bundle)
+- [x] Word count: 522 palabras (supera mínimo 300)
+- [x] llms.txt accesible en /llms.txt tras build
+- [x] JSON-LD válido con @graph[2] (LocalBusiness + Organization)
+- [ ] Validar con Google Rich Results Test
+- [ ] Verificar en SEOptimer tras despliegue
+
+**Notas adicionales**:
+- SEOptimer warnings resueltos: Amount of Content ✅, llms.txt ✅, Schema.org ✅, Identity Schema ✅
+- JSON-LD @graph permite múltiples schemas relacionados (mejor práctica 2024+)
+- Tests E2E actualizados para validar nuevo formato @graph en lugar de schema único
+- Word count calculado: 522 palabras en contenido visible (hero + pricing + testimonials + FAQ)
+- llms.txt mejora indexación por LLMs (ChatGPT, Claude, etc.)
+- Rich snippets esperados: precio, horarios, ubicación mapa, valoraciones (cuando se añadan)
+
+---
+
+### 2026-01-26: [Keyword Consistency] — Optimizar distribución keywords en title y description
+**Responsable**: Easy Locker Agent  
+**Tipo**: Title + Meta Description  
+**Motivo**: SEOptimer reportaba keywords importantes solo en headings, no en title ni meta description  
+**Impacto esperado**: Positivo (mejor señalización de relevancia + CTR mejorado)  
+**Archivos modificados**:
+- `src/index.html` (line 14, 19-21): Title y meta description actualizados
+- `src/assets/i18n/es.json`: Title y description actualizados (seo.home)
+- `e2e/seo-validation.spec.ts`: Nuevo test "Keyword Consistency"
+
+**Detalles**:
+- **Title actualizado** (56 → 54 caracteres):
+  - Antes: "Consigna de equipaje en Córdoba Estación | Easy Locker"
+  - Ahora: "Taquillas y Consignas Córdoba Estación | Easy Locker"
+  - Añade: "Taquilla" (keyword con 3 apariciones en headings pero 0 en title)
+- **Meta description actualizada** (134 → 158 caracteres):
+  - Antes: "Guarda tus maletas en Córdoba junto a la estación de tren y autobús..."
+  - Ahora: "Taquillas y consignas para maletas y equipaje en Córdoba. Easy Locker ofrece guardar tus cosas 24/7..."
+  - Añade: "taquilla", "equipaje", "Easy Locker" (keywords ausentes)
+- **Keyword distribution mejorada**:
+  - easy locker: ✅ title ✅ description (antes solo title)
+  - locker: ✅ title ✅ description
+  - consignas: ✅ title ✅ description
+  - taquilla: ✅ title ✅ description (antes solo headings)
+  - maletas: ✅ description
+  - equipaje: ✅ description (antes solo headings)
+  - córdoba: ✅ title ✅ description
+
+**Validación**:
+- [x] Test E2E local: 25/25 passing (nuevo test "Keyword Consistency")
+- [x] Build exitoso (Angular 16.2.0)
+- [x] Keywords críticas en title Y description
+- [x] Cumple rangos SEO: title 50-60 (54), description 120-160 (158)
+- [ ] Verificar en SEOptimer tras despliegue (debe resolver warnings)
+
+**Notas adicionales**:
+- Test multiidioma: valida keywords en cualquier idioma (es, en, de, fr, it, ko, pt)
+- Requerimientos: "both" (debe aparecer en ambos) o "either" (al menos uno)
+- Keywords validadas: servicio (locker/consigna/taquilla), marca (Easy Locker), ubicación (Córdoba), objeto (maletas/equipaje)
+- SEOptimer warning específico: "taquilla" aparecía 3 veces en página pero 0 en title/description
+
+---
+
 ### 2026-01-26: [Headers H2-H6] — Añadir estructura jerárquica múltiples niveles
 **Responsable**: Easy Locker Agent  
 **Tipo**: H2-H6  

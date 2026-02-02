@@ -32,6 +32,7 @@
               "src/site.webmanifest",
               "src/robots.txt",
               "src/sitemap.xml",
+              "src/llms.txt",
               "src/assets",
               "src/.nojekyll",
               "src/404.html"

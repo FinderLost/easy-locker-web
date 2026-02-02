@@ -23,7 +23,12 @@
       >
         {{ "h1" | translate }}
       </h1>
-      <p class="easy-hero-subtitle hero-subtitle max-w-3xl mx-auto">
+      <!-- Versión mobile: texto corto para mantener botones above the fold -->
+      <p class="easy-hero-subtitle hero-subtitle max-w-3xl mx-auto md:hidden">
+        {{ "home.description_short" | translate }}
+      </p>
+      <!-- Versión desktop: texto completo para SEO y mayor espacio -->
+      <p class="easy-hero-subtitle hero-subtitle max-w-3xl mx-auto hidden md:block">
         {{ "home.description" | translate }}
       </p>
       <div

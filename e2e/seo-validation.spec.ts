@@ -9,10 +9,6 @@ test.describe('SEO Complete Validation', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('http://localhost:4200');
     
-    // Forzar idioma español antes de la carga
-    await page.evaluate(() => localStorage.setItem('language', 'es'));
-    await page.reload();
-    
     // Esperar a que Angular termine de cargar y actualizar SEO
     // El selector de idioma es señal de que el componente está listo
     await page.waitForSelector('app-language-switcher', { state: 'visible', timeout: 10000 });
@@ -122,6 +118,9 @@ test.describe('SEO Complete Validation', () => {
   });
 
   test('JSON-LD Schema.org LocalBusiness está presente y completo', async ({ page }) => {
+    // Cargar datos de referencia desde business-info.json (fuente única de verdad)
+    const businessInfo = require('../src/assets/data/business-info.json');
+    
     // El script está en el DOM aunque hidden
     await page.waitForTimeout(1000); // Dar tiempo para que Angular inyecte el script
     
@@ -130,47 +129,86 @@ test.describe('SEO Complete Validation', () => {
     
     const jsonLd = JSON.parse(jsonLdScript!);
     
-    // Verificar estructura básica
+    // Verificar estructura básica con @graph
     expect(jsonLd['@context']).toBe('https://schema.org');
-    expect(jsonLd['@type']).toBe('LocalBusiness');
+    expect(jsonLd['@graph']).toBeTruthy();
+    expect(jsonLd['@graph']).toHaveLength(2); // LocalBusiness + Organization
     
-    // Verificar nombre correcto
-    expect(jsonLd.name).toBe('Easy Locker | Consigna & Luggage Storage');
+    // Encontrar LocalBusiness en @graph
+    const localBusiness = jsonLd['@graph'].find((item: any) => item['@type'] === 'LocalBusiness');
+    expect(localBusiness).toBeTruthy();
     
-    // Verificar dirección completa
-    expect(jsonLd.address).toBeTruthy();
-    expect(jsonLd.address['@type']).toBe('PostalAddress');
-    expect(jsonLd.address.streetAddress).toBe('C. Pintor Peñalosa, Local 11');
-    expect(jsonLd.address.addressLocality).toBe('Córdoba');
-    expect(jsonLd.address.postalCode).toBe('14011');
-    expect(jsonLd.address.addressCountry).toBe('ES');
+    // Verificar nombre correcto (desde business-info.json)
+    expect(localBusiness.name).toBe(businessInfo.business.name);
     
-    // Verificar coordenadas exactas
-    expect(jsonLd.geo).toBeTruthy();
-    expect(jsonLd.geo['@type']).toBe('GeoCoordinates');
-    expect(jsonLd.geo.latitude).toBe('37.8898628');
-    expect(jsonLd.geo.longitude).toBe('-4.7890138');
+    // Verificar dirección completa (desde business-info.json)
+    expect(localBusiness.address).toBeTruthy();
+    expect(localBusiness.address['@type']).toBe('PostalAddress');
+    expect(localBusiness.address.streetAddress).toBe(businessInfo.address.streetAddress);
+    expect(localBusiness.address.addressLocality).toBe(businessInfo.address.addressLocality);
+    expect(localBusiness.address.postalCode).toBe(businessInfo.address.postalCode);
+    expect(localBusiness.address.addressCountry).toBe(businessInfo.address.addressCountry);
     
-    // Verificar teléfono real
-    expect(jsonLd.telephone).toBe('+34665922538');
+    // Verificar coordenadas exactas (desde business-info.json)
+    expect(localBusiness.geo).toBeTruthy();
+    expect(localBusiness.geo['@type']).toBe('GeoCoordinates');
+    expect(localBusiness.geo.latitude).toBe(businessInfo.geo.latitude);
+    expect(localBusiness.geo.longitude).toBe(businessInfo.geo.longitude);
     
-    // Verificar rango de precios económico
-    expect(jsonLd.priceRange).toBe('€');
+    // Verificar teléfono real (desde business-info.json)
+    expect(localBusiness.telephone).toBe(businessInfo.business.telephone);
+    
+    // Verificar rango de precios (desde business-info.json)
+    expect(localBusiness.priceRange).toBe(businessInfo.business.priceRange);
     
     // Verificar URL
-    expect(jsonLd.url).toBe('https://easy-locker.com');
+    expect(localBusiness.url).toBe(businessInfo.business.url);
     
-    // Verificar horarios 24/7
-    expect(jsonLd.openingHoursSpecification).toBeTruthy();
-    expect(jsonLd.openingHoursSpecification.opens).toBe('00:00');
-    expect(jsonLd.openingHoursSpecification.closes).toBe('23:59');
+    // Verificar horarios 24/7 (openingHoursSpecification)
+    expect(localBusiness.openingHoursSpecification).toBeTruthy();
+    expect(localBusiness.openingHoursSpecification.opens).toBe(businessInfo.openingHours.specification.opens);
+    expect(localBusiness.openingHoursSpecification.closes).toBe(businessInfo.openingHours.specification.closes);
     
-    // Verificar redes sociales (3)
-    expect(jsonLd.sameAs).toBeTruthy();
-    expect(jsonLd.sameAs).toHaveLength(3);
-    expect(jsonLd.sameAs).toContain('https://www.facebook.com/share/1Got7XaYUE/');
-    expect(jsonLd.sameAs).toContain('https://www.instagram.com/easylocker.es/');
-    expect(jsonLd.sameAs).toContain('https://www.tiktok.com/@easylocker.es');
+    // Verificar redes sociales (desde business-info.json)
+    expect(localBusiness.sameAs).toBeTruthy();
+    expect(localBusiness.sameAs).toHaveLength(3);
+    expect(localBusiness.sameAs).toContain(businessInfo.socialMedia.facebook);
+    expect(localBusiness.sameAs).toContain(businessInfo.socialMedia.instagram);
+    expect(localBusiness.sameAs).toContain(businessInfo.socialMedia.tiktok);
+    
+    // Verificar que tiene catálogo de servicios con precios (desde business-info.json)
+    expect(localBusiness.hasOfferCatalog).toBeTruthy();
+    expect(localBusiness.hasOfferCatalog.itemListElement).toBeTruthy();
+    expect(localBusiness.hasOfferCatalog.itemListElement.length).toBe(3); // M, L, XL
+    
+    // Verificar estructura de cada servicio (precios vienen dinámicamente desde Firebase)
+    const offerM = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
+      item.itemOffered.name === businessInfo.services.M.name
+    );
+    expect(offerM).toBeTruthy();
+    expect(offerM.priceCurrency).toBe('EUR');
+    
+    const offerL = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
+      item.itemOffered.name === businessInfo.services.L.name
+    );
+    expect(offerL).toBeTruthy();
+    expect(offerL.priceCurrency).toBe('EUR');
+    
+    const offerXL = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
+      item.itemOffered.name === businessInfo.services.XL.name
+    );
+    expect(offerXL).toBeTruthy();
+    expect(offerXL.priceCurrency).toBe('EUR');
+    
+    // Encontrar Organization en @graph
+    const organization = jsonLd['@graph'].find((item: any) => item['@type'] === 'Organization');
+    expect(organization).toBeTruthy();
+    expect(organization.name).toBe(businessInfo.business.legalName);
+    expect(organization.sameAs).toBeTruthy();
+    expect(organization.sameAs.length).toBe(3);
+    expect(organization.sameAs).toContain(businessInfo.socialMedia.facebook);
+    expect(organization.sameAs).toContain(businessInfo.socialMedia.instagram);
+    expect(organization.sameAs).toContain(businessInfo.socialMedia.tiktok);
   });
 
   test('Preconnect y DNS prefetch están configurados', async ({ page }) => {
@@ -314,6 +352,69 @@ test.describe('SEO Complete Validation', () => {
     const dnsPrefetches = await page.locator('link[rel="dns-prefetch"]').all();
     expect(dnsPrefetches.length).toBeGreaterThanOrEqual(1);
   });
+
+  test('Keyword Consistency: keywords principales en title y meta description', async ({ page }) => {
+    const title = await page.title();
+    const titleLower = title.toLowerCase();
+    
+    const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
+    const descriptionLower = metaDescription?.toLowerCase() || '';
+    
+    // Keywords críticas multiidioma que DEBEN aparecer
+    const criticalKeywords = {
+      // Marca (debe aparecer siempre)
+      'easy_locker': {
+        title: titleLower.includes('easy') && titleLower.includes('locker'),
+        description: descriptionLower.includes('easy') && descriptionLower.includes('locker'),
+        required: 'either' // al menos uno
+      },
+      // Servicio (en cualquier idioma)
+      'servicio_lockers': {
+        title: titleLower.includes('locker') || titleLower.includes('consigna') || titleLower.includes('taquilla') || titleLower.includes('storage'),
+        description: descriptionLower.includes('locker') || descriptionLower.includes('consigna') || descriptionLower.includes('taquilla') || descriptionLower.includes('storage'),
+        required: 'both' // debe aparecer en ambos
+      },
+      // Qué se guarda (en cualquier idioma)
+      'objeto_guardado': {
+        title: titleLower.includes('equipaje') || titleLower.includes('maleta') || titleLower.includes('luggage') || titleLower.includes('bag') || titleLower.includes('gepäck') || titleLower.includes('bagage'),
+        description: descriptionLower.includes('equipaje') || descriptionLower.includes('maleta') || titleLower.includes('luggage') || descriptionLower.includes('bag') || descriptionLower.includes('gepäck') || descriptionLower.includes('bagage'),
+        required: 'either' // al menos uno
+      },
+      // Ubicación (crítica)
+      'cordoba': {
+        title: titleLower.includes('córdoba') || titleLower.includes('cordoba'),
+        description: descriptionLower.includes('córdoba') || descriptionLower.includes('cordoba'),
+        required: 'both' // debe aparecer en ambos
+      }
+    };
+    
+    // Validar keywords según su nivel de requerimiento
+    for (const [keyword, data] of Object.entries(criticalKeywords)) {
+      const appearsInBoth = data.title && data.description;
+      const appearsInEither = data.title || data.description;
+      
+      if (data.required === 'both') {
+        expect(appearsInBoth).toBe(true);
+        if (!appearsInBoth) {
+          throw new Error(`"${keyword}" debe aparecer en TITLE y DESCRIPTION. Title: ${data.title}, Description: ${data.description}`);
+        }
+      } else if (data.required === 'either') {
+        expect(appearsInEither).toBe(true);
+        if (!appearsInEither) {
+          throw new Error(`"${keyword}" debe aparecer al menos en TITLE o DESCRIPTION`);
+        }
+      }
+      
+      // Log para debugging
+      if (!appearsInBoth && data.required === 'either') {
+        console.log(`Info: "${keyword}" solo en ${data.title ? 'title' : 'description'}`);
+      }
+    }
+    
+    // Log para debugging - mostrar valores actuales
+    console.log(`Title: ${title}`);
+    console.log(`Description: ${metaDescription}`);
+  });
 });
 
 test.describe('SEO Multi-idioma', () => {
@@ -350,10 +451,17 @@ test.describe('SEO Multi-idioma', () => {
       const metaDescription = await page.locator('meta[name="description"]').getAttribute('content');
       expect(metaDescription).toBeTruthy();
       
-      // Verificar JSON-LD (debe estar en todos los idiomas)
+      // Verificar JSON-LD (debe estar en todos los idiomas) - Formato @graph
       const jsonLdScript = await page.locator('script[type="application/ld+json"]').textContent();
       const jsonLd = JSON.parse(jsonLdScript!);
-      expect(jsonLd.name).toBe('Easy Locker | Consigna & Luggage Storage');
+      expect(jsonLd['@graph']).toBeTruthy();
+      
+      // Verificar que LocalBusiness y Organization existen
+      const localBusiness = jsonLd['@graph'].find((item: any) => item['@type'] === 'LocalBusiness');
+      const organization = jsonLd['@graph'].find((item: any) => item['@type'] === 'Organization');
+      expect(localBusiness).toBeTruthy();
+      expect(organization).toBeTruthy();
+      expect(organization.name).toBe('Easy Locker');
       
       // Verificar H1 presente y con contenido relevante
       const h1 = page.locator('h1[data-testid="hero-heading"]');
