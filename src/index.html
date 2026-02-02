@@ -11,14 +11,14 @@
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <meta charset="utf-8" />
-    <title>Consigna de equipaje en Córdoba Estación | Easy Locker</title>
+    <title>Taquillas y Consignas Córdoba Estación | Easy Locker</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
     <!-- SEO Meta Tags -->
     <meta
       name="description"
-      content="Guarda tus maletas en Córdoba junto a la estación de tren y autobús. Consignas seguras 24/7 con acceso por código, cámaras de vigilancia y precios desde 5€."
+      content="Taquillas y consignas para maletas y equipaje en Córdoba. Easy Locker ofrece guardar tus cosas 24/7 junto a la estación, con código, cámaras y desde 5€."
     />
     <meta name="keywords" content="consigna equipaje Córdoba, taquillas maletas Córdoba, guardar maletas estación Córdoba, lockers Córdoba, luggage storage Cordoba" />
     <meta name="author" content="Easy Locker" />
@@ -107,6 +107,128 @@
         .addEventListener("change", setFaviconByTheme);
     </script>
     <script src="assets/config/reviews-config.js" defer></script>
+    
+    <!-- Schema.org JSON-LD: LocalBusiness + Organization -->
+    <!-- Valores sincronizados con src/assets/data/business-info.json -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://easy-locker.com/#localbusiness",
+          "name": "Easy Locker | Consigna & Luggage Storage",
+          "description": "Consignas inteligentes para equipaje en Córdoba. Almacenamiento seguro 24/7 junto a la estación de tren y autobús con acceso mediante código personal.",
+          "url": "https://easy-locker.com",
+          "image": "https://easy-locker.com/assets/images/social-card.png",
+          "logo": "https://easy-locker.com/assets/images/landscape-light.svg",
+          "telephone": "+34665922538",
+          "email": "info@easy-locker.com",
+          "priceRange": "€",
+          "currenciesAccepted": "EUR",
+          "paymentAccepted": "Credit Card, Debit Card",
+          "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C. Pintor Peñalosa, Local 11",
+            "addressLocality": "Córdoba",
+            "addressRegion": "Andalucía",
+            "postalCode": "14011",
+            "addressCountry": "ES"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "37.8898628",
+            "longitude": "-4.7890138"
+          },
+          "areaServed": {
+            "@type": "City",
+            "name": "Córdoba",
+            "@id": "https://www.wikidata.org/wiki/Q5818"
+          },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Tamaños de Consignas",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Taquilla Tamaño M",
+                  "description": "28x41x56 cm. Ideal para maletas pequeñas o mochilas."
+                },
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Taquilla Tamaño L",
+                  "description": "50x41x56 cm. Caben dos maletas pequeñas o una maleta grande."
+                },
+                "priceCurrency": "EUR"
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Taquilla Tamaño XL",
+                  "description": "82x41x56 cm. Nuestro tamaño más espacioso para grupos o mucho equipaje."
+                },
+                "priceCurrency": "EUR"
+              }
+            ]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/1Got7XaYUE/",
+            "https://www.instagram.com/easylocker.es/",
+            "https://www.tiktok.com/@easylocker.es"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://easy-locker.com/#organization",
+          "name": "Easy Locker",
+          "legalName": "Easy Locker",
+          "url": "https://easy-locker.com",
+          "logo": "https://easy-locker.com/assets/images/landscape-light.svg",
+          "description": "Servicio de consignas inteligentes en Córdoba, España. Almacenamiento seguro de equipaje 24/7.",
+          "email": "info@easy-locker.com",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "C. Pintor Peñalosa, Local 11",
+            "addressLocality": "Córdoba",
+            "addressRegion": "Andalucía",
+            "postalCode": "14011",
+            "addressCountry": "ES"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "info@easy-locker.com",
+            "telephone": "+34665922538",
+            "availableLanguage": ["Spanish", "English", "Portuguese", "French", "German", "Italian", "Korean"]
+          },
+          "sameAs": [
+            "https://www.facebook.com/share/1Got7XaYUE/",
+            "https://www.instagram.com/easylocker.es/",
+            "https://www.tiktok.com/@easylocker.es"
+          ],
+          "areaServed": {
+            "@type": "City",
+            "name": "Córdoba",
+            "@id": "https://www.wikidata.org/wiki/Q5818"
+          }
+        }
+      ]
+    }
+    </script>
+    
     <!-- GitHub Pages SPA redirect handler -->
     <script defer>
       (function () {
