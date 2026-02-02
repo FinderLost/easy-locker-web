@@ -49,7 +49,6 @@
         "depth": 56
       },
       "description": "Ideal para maletas pequeñas o mochilas.",
-      "price": 5.00,
       "currency": "EUR",
       "unitText": "día"
     },
@@ -62,7 +61,6 @@
         "depth": 56
       },
       "description": "Caben dos maletas pequeñas o una maleta grande.",
-      "price": 10.90,
       "currency": "EUR",
       "unitText": "día"
     },
@@ -75,11 +73,11 @@
         "depth": 56
       },
       "description": "Nuestro tamaño más espacioso para grupos o mucho equipaje.",
-      "price": 15.90,
       "currency": "EUR",
       "unitText": "día"
     }
   },
+  "_comment": "Los precios se obtienen en tiempo real desde Firebase Firestore (config/prices). No duplicar aquí para mantener única fuente de verdad.",
   "areaServed": {
     "city": "Córdoba",
     "wikidataId": "Q5818"

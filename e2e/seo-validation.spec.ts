@@ -181,21 +181,24 @@ test.describe('SEO Complete Validation', () => {
     expect(localBusiness.hasOfferCatalog.itemListElement).toBeTruthy();
     expect(localBusiness.hasOfferCatalog.itemListElement.length).toBe(3); // M, L, XL
     
-    // Verificar precios de cada servicio
+    // Verificar estructura de cada servicio (precios vienen dinámicamente desde Firebase)
     const offerM = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
       item.itemOffered.name === businessInfo.services.M.name
     );
-    expect(offerM.price).toBe(businessInfo.services.M.price.toFixed(2));
+    expect(offerM).toBeTruthy();
+    expect(offerM.priceCurrency).toBe('EUR');
     
     const offerL = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
       item.itemOffered.name === businessInfo.services.L.name
     );
-    expect(offerL.price).toBe(businessInfo.services.L.price.toFixed(2));
+    expect(offerL).toBeTruthy();
+    expect(offerL.priceCurrency).toBe('EUR');
     
     const offerXL = localBusiness.hasOfferCatalog.itemListElement.find((item: any) => 
       item.itemOffered.name === businessInfo.services.XL.name
     );
-    expect(offerXL.price).toBe(businessInfo.services.XL.price.toFixed(2));
+    expect(offerXL).toBeTruthy();
+    expect(offerXL.priceCurrency).toBe('EUR');
     
     // Encontrar Organization en @graph
     const organization = jsonLd['@graph'].find((item: any) => item['@type'] === 'Organization');

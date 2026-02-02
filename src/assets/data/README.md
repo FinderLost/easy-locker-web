@@ -55,7 +55,11 @@ URLs exactas de perfiles sociales (Facebook, Instagram, TikTok)
 Catálogo de servicios (M, L, XL) con:
 - Dimensiones exactas
 - Descripciones
-- Precios actualizados
+- **⚠️ IMPORTANTE: Los precios NO están en este JSON**
+  - Los precios se obtienen en tiempo real desde **Firebase Firestore** (`config/prices`)
+  - Esto permite actualizarlos sin redesplegar la web
+  - Ver `src/app/core/services/prices.service.ts` para implementación
+  - La UI mostrará precios dinámicos mediante `PricingComponent`
 
 ### `images`
 URLs de logos y social cards
