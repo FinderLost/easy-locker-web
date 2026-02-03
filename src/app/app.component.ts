@@ -67,6 +67,14 @@ export class AppComponent implements OnInit, OnDestroy {
       return;
     }
 
+    // Detectar rutas de blog individual
+    const blogPostMatch = path.match(/^[a-z]{2}\/blog\/(articulo|article)\/([a-z0-9-]+)$/);
+    if (blogPostMatch) {
+      const slug = blogPostMatch[2];
+      this.updateBlogPostSeo(slug);
+      return;
+    }
+
     this.updateHomeSeo();
     this.addHreflangTags();
     this.injectStructuredData();
@@ -86,6 +94,59 @@ export class AppComponent implements OnInit, OnDestroy {
     this.metaService.updateTag({ name: 'twitter:description', content: seoDescription });
 
     this.setCanonical(`${this.baseUrl}/`);
+  }
+
+  private updateBlogPostSeo(slug: string): void {
+    const currentLang = this.languageService.getCurrentLanguage();
+    
+    // Cargar el post desde assets/data/blog-posts.json
+    import('../assets/data/blog-posts.json').then((module: any) => {
+      const posts = module.default || module;
+      const post = posts.find((p: any) => 
+        p.slug.es === slug || p.slug.en === slug
+      );
+
+      if (!post) {
+        this.updateHomeSeo();
+        return;
+      }
+
+      const metaTitle = post.metaTitle[currentLang] || post.title[currentLang];
+      const metaDescription = post.metaDescription[currentLang] || post.excerpt[currentLang];
+      const keywords = post.keywords[currentLang]?.join(', ') || '';
+      const articleSlug = currentLang === 'es' ? 'articulo' : 'article';
+      const postSlug = post.slug[currentLang];
+      const canonicalUrl = `${this.baseUrl}/${currentLang}/blog/${articleSlug}/${postSlug}`;
+      const imageUrl = post.featuredImage.url.startsWith('http') 
+        ? post.featuredImage.url 
+        : `${this.baseUrl}${post.featuredImage.url}`;
+
+      this.titleService.setTitle(metaTitle);
+      this.metaService.updateTag({ name: 'description', content: metaDescription });
+      this.metaService.updateTag({ name: 'keywords', content: keywords });
+      
+      // Open Graph
+      this.metaService.updateTag({ property: 'og:type', content: 'article' });
+      this.metaService.updateTag({ property: 'og:title', content: metaTitle });
+      this.metaService.updateTag({ property: 'og:description', content: metaDescription });
+      this.metaService.updateTag({ property: 'og:url', content: canonicalUrl });
+      this.metaService.updateTag({ property: 'og:image', content: imageUrl });
+      this.metaService.updateTag({ property: 'article:published_time', content: post.publishedAt });
+      this.metaService.updateTag({ property: 'article:author', content: post.author });
+      
+      // Twitter Cards
+      this.metaService.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+      this.metaService.updateTag({ name: 'twitter:title', content: metaTitle });
+      this.metaService.updateTag({ name: 'twitter:description', content: metaDescription });
+      this.metaService.updateTag({ name: 'twitter:image', content: imageUrl });
+
+      this.setCanonical(canonicalUrl);
+      this.addBlogHreflangTags(post);
+      this.injectArticleSchema(post, currentLang);
+    }).catch(err => {
+      console.error('Error loading blog post for SEO:', err);
+      this.updateHomeSeo();
+    });
   }
 
   private updateCookiePolicySeo(lang: string): void {
@@ -228,6 +289,58 @@ export class AppComponent implements OnInit, OnDestroy {
     const script = this.document.createElement('script');
     script.type = 'application/ld+json';
     script.text = JSON.stringify(structuredData);
+    this.document.head.appendChild(script);
+  }
+
+  private addBlogHreflangTags(post: any): void {
+    const esSlug = post.slug.es;
+    const enSlug = post.slug.en;
+
+    this.upsertLinkTagWithHreflang('alternate', `${this.baseUrl}/es/blog/articulo/${esSlug}`, 'es');
+    this.upsertLinkTagWithHreflang('alternate', `${this.baseUrl}/en/blog/article/${enSlug}`, 'en');
+    this.upsertLinkTagWithHreflang('alternate', `${this.baseUrl}/es/blog/articulo/${esSlug}`, 'x-default');
+  }
+
+  private injectArticleSchema(post: any, currentLang: string): void {
+    // Eliminar schema existente si lo hay
+    const existingScript = this.document.querySelector('script[type="application/ld+json"]');
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    const imageUrl = post.featuredImage.url.startsWith('http') 
+      ? post.featuredImage.url 
+      : `${this.baseUrl}${post.featuredImage.url}`;
+
+    const articleSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': post.title[currentLang],
+      'description': post.excerpt[currentLang],
+      'image': imageUrl,
+      'author': {
+        '@type': 'Person',
+        'name': post.author
+      },
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'Easy Locker',
+        'logo': {
+          '@type': 'ImageObject',
+          'url': `${this.baseUrl}/assets/images/logo.png`
+        }
+      },
+      'datePublished': post.publishedAt,
+      'dateModified': post.updatedAt || post.publishedAt,
+      'mainEntityOfPage': {
+        '@type': 'WebPage',
+        '@id': `${this.baseUrl}/${currentLang}/blog/${currentLang === 'es' ? 'articulo' : 'article'}/${post.slug[currentLang]}`
+      }
+    };
+
+    const script = this.document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(articleSchema);
     this.document.head.appendChild(script);
   }
 }
