@@ -7,6 +7,10 @@
     "/^git stash pop$/": {
       "approve": true,
       "matchCommandLine": true
+    },
+    "/^git checkout develop$/": {
+      "approve": true,
+      "matchCommandLine": true
     }
   }
 }
