@@ -60,4 +60,82 @@
     <priority>0.5</priority>
     <lastmod>2026-01-22</lastmod>
   </url>
+
+  <!-- Blog -->
+  <url>
+    <loc>https://easy-locker.com/es/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog" />
+  </url>
+  <url>
+    <loc>https://easy-locker.com/en/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog" />
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://easy-locker.com/es/blog/articulo/mezquita-catedral-cordoba</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog/articulo/mezquita-catedral-cordoba" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog/article/mezquita-cathedral-cordoba" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog/articulo/mezquita-catedral-cordoba" />
+  </url>
+  <url>
+    <loc>https://easy-locker.com/en/blog/article/mezquita-cathedral-cordoba</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog/articulo/mezquita-catedral-cordoba" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog/article/mezquita-cathedral-cordoba" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog/articulo/mezquita-catedral-cordoba" />
+  </url>
+
+  <url>
+    <loc>https://easy-locker.com/es/blog/articulo/alcazar-reyes-cristianos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog/articulo/alcazar-reyes-cristianos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog/article/alcazar-christian-kings" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog/articulo/alcazar-reyes-cristianos" />
+  </url>
+  <url>
+    <loc>https://easy-locker.com/en/blog/article/alcazar-christian-kings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog/articulo/alcazar-reyes-cristianos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog/article/alcazar-christian-kings" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog/articulo/alcazar-reyes-cristianos" />
+  </url>
+
+  <url>
+    <loc>https://easy-locker.com/es/blog/articulo/donde-guardar-maletas-cordoba</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog/articulo/donde-guardar-maletas-cordoba" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog/article/luggage-storage-cordoba" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog/articulo/donde-guardar-maletas-cordoba" />
+  </url>
+  <url>
+    <loc>https://easy-locker.com/en/blog/article/luggage-storage-cordoba</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-02-03</lastmod>
+    <xhtml:link rel="alternate" hreflang="es" href="https://easy-locker.com/es/blog/articulo/donde-guardar-maletas-cordoba" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://easy-locker.com/en/blog/article/luggage-storage-cordoba" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easy-locker.com/es/blog/articulo/donde-guardar-maletas-cordoba" />
+  </url>
 </urlset>

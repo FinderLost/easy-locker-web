@@ -11,6 +11,11 @@
     "/^git checkout develop$/": {
       "approve": true,
       "matchCommandLine": true
+    },
+    "git checkout": true,
+    "/^git add \\.$/": {
+      "approve": true,
+      "matchCommandLine": true
     }
   }
 }

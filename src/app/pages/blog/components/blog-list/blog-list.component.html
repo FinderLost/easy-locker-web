@@ -1,0 +1,30 @@
+<div class="min-h-screen bg-brand-background py-12">
+  <div class="mx-auto max-w-7xl px-4">
+    <!-- Header -->
+    <header class="mb-12 text-center">
+      <h1 class="text-4xl font-bold text-brand-textPrimary md:text-5xl">
+        {{ 'blog.list.title' | translate }}
+      </h1>
+      <p class="mt-4 text-lg text-brand-textSecondary">
+        {{ 'blog.list.subtitle' | translate }}
+      </p>
+    </header>
+
+    <!-- Grid de posts -->
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <app-blog-card
+        *ngFor="let post of posts$ | async; trackBy: trackByPostId"
+        [post]="post"
+        [lang]="currentLang">
+      </app-blog-card>
+    </div>
+
+    <!-- Empty state -->
+    <div *ngIf="(posts$ | async)?.length === 0" 
+         class="mt-12 text-center">
+      <p class="text-lg text-brand-textMuted">
+        {{ 'blog.list.emptyState' | translate }}
+      </p>
+    </div>
+  </div>
+</div>

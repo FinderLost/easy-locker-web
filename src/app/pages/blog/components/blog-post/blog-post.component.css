@@ -1,0 +1,48 @@
+/* Estilos para el contenido del blog */
+::ng-deep .blog-content {
+  line-height: 1.8;
+}
+
+::ng-deep .blog-content h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+::ng-deep .blog-content h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+::ng-deep .blog-content p {
+  margin-bottom: 1rem;
+}
+
+::ng-deep .blog-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+::ng-deep .blog-content a:hover {
+  color: var(--color-primary-hover);
+}
+
+::ng-deep .blog-content ul,
+::ng-deep .blog-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+::ng-deep .blog-content li {
+  margin-bottom: 0.5rem;
+}
+
+::ng-deep .blog-content strong {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}

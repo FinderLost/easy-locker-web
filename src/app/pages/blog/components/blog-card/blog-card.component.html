@@ -1,0 +1,40 @@
+<article 
+  (click)="onCardClick()"
+  class="group cursor-pointer overflow-hidden rounded-lg bg-brand-cardBg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+  
+  <!-- Imagen -->
+  <div class="relative aspect-video overflow-hidden">
+    <img
+      [src]="post.featuredImage.url"
+      [alt]="post.featuredImage.alt[lang]"
+      class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+      loading="lazy"
+      [width]="post.featuredImage.width"
+      [height]="post.featuredImage.height"
+    />
+    <!-- Badge categoría -->
+    <span class="absolute top-3 left-3 inline-block rounded-full bg-brand-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+      {{ getCategoryLabel() }}
+    </span>
+  </div>
+
+  <!-- Contenido -->
+  <div class="p-6">
+    <!-- Título -->
+    <h3 class="mb-3 text-xl font-bold text-brand-textPrimary line-clamp-2 group-hover:text-brand-primary transition-colors">
+      {{ post.title[lang] }}
+    </h3>
+
+    <!-- Excerpt -->
+    <p class="mb-4 text-sm text-brand-textSecondary line-clamp-3">
+      {{ post.excerpt[lang] }}
+    </p>
+
+    <!-- Metadata -->
+    <div class="flex items-center gap-4 text-xs text-brand-textMuted">
+      <span>📅 {{ post.publishedAt | date: 'mediumDate' }}</span>
+      <span>•</span>
+      <span>⏱️ {{ post.readingTimeMinutes }} {{ 'blog.metadata.readingTime' | translate }}</span>
+    </div>
+  </div>
+</article>

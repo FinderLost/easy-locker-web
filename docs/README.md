@@ -31,6 +31,7 @@ Este es el índice único de Easy Locker Web. La estructura sigue un patrón tip
 - **[Cambios SEO seguros](how-to/cambios-seo-seguros.md)**
 - **[Verificación pre-entrega (Agente)](how-to/verificacion-pre-entrega.md)**
 - **[Auto Version Bump](how-to/auto-version-bump.md)** — Sistema automático de versionado
+- **[Implementar Blog Multilingüe](how-to/implementar-blog-multilingue.md)** — Plan integral para blog de contenido
 
 ### 📚 Referencia (Datos y catálogos)
 - [Cambios realizados](reference/cambios-realizados.md)

@@ -39,6 +39,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: ':lang/blog',
+    loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule),
+    canActivate: [LanguageRouteGuard],
+  },
+  {
     path: ':lang',
     component: HomeComponent,
     canActivate: [LanguageRouteGuard],

@@ -281,5 +281,30 @@
         "body": "Podemos modificar esta política para adaptarla a cambios legales o técnicos. Si el cambio es relevante, volveremos a solicitar tu consentimiento mediante el banner de cookies."
       }
     }
+  },
+
+  "blog": {
+    "list": {
+      "title": "Blog de viajes y turismo en Córdoba",
+      "subtitle": "Guías, consejos y recomendaciones para disfrutar de Córdoba",
+      "emptyState": "No hay artículos en esta categoría todavía.",
+      "loadMore": "Cargar más artículos"
+    },
+    "post": {
+      "readMore": "Leer más",
+      "share": "Compartir",
+      "relatedPosts": "Artículos relacionados",
+      "backToBlog": "Volver al blog"
+    },
+    "cta": {
+      "title": "¿Listo para explorar Córdoba?",
+      "description": "Guarda tus maletas con Easy Locker y disfruta de la ciudad sin cargas. Reserva tu taquilla ahora y recibe un código de acceso al instante.",
+      "button": "Reservar ahora"
+    },
+    "metadata": {
+      "publishedOn": "Publicado el",
+      "readingTime": "min de lectura",
+      "author": "Autor"
+    }
   }
 }

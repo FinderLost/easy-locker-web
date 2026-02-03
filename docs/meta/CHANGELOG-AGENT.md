@@ -33,10 +33,10 @@
 
 ## 🎯 Estado actual del proyecto
 
-**Última actualización**: 2026-01-26  
+**Última actualización**: 2026-02-03  
 **Versión actual**: `v1.2.1` (en develop tras merge PR #33)  
-**Branch activo**: `feat/seo-h2-h6-header-structure`  
-**Ramas**: `main` (prod v1.2.0), `develop` (pre-prod v1.2.1), `feat/seo-h2-h6-header-structure` (work)
+**Branch activo**: `develop`  
+**Ramas**: `main` (prod v1.2.0), `develop` (pre-prod v1.2.1)
 
 ### 🟢 Sistemas activos
 - ✅ **Protección SEO**: Script `seo:check` + CI/CD validation en PRs
@@ -56,7 +56,7 @@
 - ⚠️ **Node v19.8.1**: Versión non-LTS (considerar actualizar a LTS)
 
 ### 📦 Pendientes inmediatos
-1. Merge de branch `feat/seo-meta-descriptions-120-160` a `develop`
+1. **🆕 Blog multilingüe**: Implementar según plan en `docs/how-to/implementar-blog-multilingue.md`
 2. Validar SEOptimer tool tras deploy para confirmar fix (47→134 chars HTML base)
 3. Ejecutar Screaming Frog en staging para validación completa
 4. Crear Release PR de `develop` a `main` para deploy producción
@@ -65,6 +65,181 @@
 ---
 
 ## 📅 Historial de sesiones
+
+### Sesión 2026-02-03: Planificación integral de Blog Multilingüe
+
+**Contexto**: Usuario solicita planificación completa del desarrollo de un blog multilingüe con contenido de valor sobre Córdoba y turismo, desde inicio hasta fin, siguiendo estrategia SEO de "crear contenido de valor y blog multilingüe para atraer tráfico orgánico y obtener enlaces naturales".
+
+**Análisis realizado**:
+- ✅ Revisión exhaustiva de arquitectura actual: Angular 16, ngx-translate, routing, SEO dinámico
+- ✅ Estudio de público objetivo: Turistas internacionales (25-45 años), 80% móvil
+- ✅ Validación de normas críticas: SEO, i18n, routing, protección existente
+- ✅ Análisis de decisiones arquitectónicas previas (canónica única, @graph JSON-LD, business-info.json)
+
+**Planificación creada - Documento integral**:
+- 📄 **Archivo**: `docs/how-to/implementar-blog-multilingue.md` (1000+ líneas)
+- 📋 **Estructura completa**:
+  1. **Análisis y contexto**: Situación actual, público objetivo, restricciones críticas
+  2. **Arquitectura técnica**: Módulo lazy loading, modelos de datos, servicios
+  3. **Sistema de rutas y SEO**: URLs, routing, meta tags dinámicos, JSON-LD Article Schema
+  4. **Gestión de contenido**: JSON estático (MVP), validación, workflow
+  5. **Diseño y componentes**: BlogList, BlogCard, BlogPost con Tailwind
+  6. **i18n**: Claves de traducción, gestión multilingüe (ES/EN/FR/DE)
+  7. **Plan de implementación por fases**: 4 fases detalladas (MVP → Funcionalidad avanzada → Optimización → Content Marketing)
+  8. **Estrategia editorial**: Pilares de contenido, calendario, optimización SEO
+  9. **Checklist de verificación**: Pre-desarrollo, durante, pre-merge, post-deploy
+
+**Detalles técnicos clave**:
+
+**Arquitectura:**
+```
+src/app/pages/blog/
+├── blog-routing.module.ts
+├── blog.module.ts
+├── components/ (BlogList, BlogPost, BlogCard, CategoryFilter, RelatedPosts)
+├── services/blog.service.ts
+└── models/blog-post.model.ts
+```
+
+**Modelo de datos:**
+```typescript
+interface BlogPost {
+  id: string;
+  title: Record<Language, string>;
+  slug: Record<Language, string>;
+  excerpt: Record<Language, string>;
+  content: Record<Language, string>;
+  metaTitle: Record<Language, string>;      // 50-60 chars
+  metaDescription: Record<Language, string>; // 120-160 chars
+  keywords: Record<Language, string[]>;
+  category: BlogCategory;
+  tags: string[];
+  author: string;
+  publishedAt: Date;
+  readingTimeMinutes: number;
+  featuredImage: { url, alt, width, height, credit };
+  relatedPosts: string[];
+  status: 'draft' | 'published' | 'archived';
+  featured: boolean;
+}
+```
+
+**Rutas propuestas:**
+```
+/:lang/blog                        → Listado
+/:lang/blog/:category              → Filtrado por categoría
+/:lang/blog/articulo/:slug         → Post individual
+```
+
+**SEO dinámico:**
+- Actualizar `app.component.ts` con lógica para blog posts
+- JSON-LD Article Schema con headline, image, datePublished, author, publisher
+- Meta tags completos: description, keywords, og:*, twitter:*
+- Canonical única por post: `/${lang}/blog/articulo/${slug}`
+
+**Gestión de contenido:**
+- **Fase 1 (MVP)**: JSON estático `src/assets/data/blog-posts.json`
+- **Fase 2**: Migración opcional a Firebase Firestore
+- **Fase 3**: Headless CMS (Strapi, Contentful)
+- Script de validación: `scripts/validate-blog-posts.js` (meta length, slugs únicos, imágenes)
+- Script sitemap: `scripts/generate-blog-sitemap.js` (automatizado en CI/CD)
+
+**Plan de implementación por fases:**
+
+**Fase 1 (MVP - 2 semanas)**:
+- Infraestructura básica con lazy loading
+- Listado + vista individual
+- 3-5 posts ejemplo (ES/EN)
+- Tests E2E básicos
+- Criterios: Build ✅, Tests ✅, Responsive ✅, SEO completo ✅
+
+**Fase 2 (Funcionalidad avanzada - 2 semanas)**:
+- Filtros por categoría
+- Búsqueda con debounce
+- Paginación (12 posts/página)
+- Related posts
+- 10-15 posts totales (ES/EN/FR/DE)
+- Analytics events
+
+**Fase 3 (Optimización - 2 semanas)**:
+- Opcional: Migración a Firestore
+- Sitemap automático
+- Performance optimization (Core Web Vitals)
+- A/B testing CTAs
+- 20+ posts
+
+**Fase 4 (Content Marketing - Ongoing)**:
+- 2-4 posts/mes
+- Estrategia backlinks
+- Newsletter opcional
+- Social media automation
+- Monitoreo rankings
+
+**Estrategia editorial:**
+
+**Pilares de contenido:**
+1. **Guías turísticas**: Mezquita, Alcázar, Judería → Keywords: "mezquita córdoba horarios"
+2. **Consejos prácticos**: Dónde guardar maletas, qué hacer con niños → Keywords: "consigna equipaje córdoba"
+3. **Gastronomía**: Tabernas, salmorejo, dónde comer → Keywords: "restaurantes córdoba"
+4. **Eventos**: Festival Patios, Cruces Mayo, Semana Santa → Keywords: "patios córdoba 2026"
+5. **Historia y cultura**: Historia Mezquita, Califato → Keywords: "historia mezquita córdoba"
+
+**Calendario editorial Q1 2026:**
+- Feb: Mezquita, Dónde guardar maletas, Alcázar, Tabernas
+- Mar: Festival Patios, Judería, Córdoba con niños, Ruta salmorejo
+
+**Checklist SEO por post:**
+- [ ] Keyword principal en H1
+- [ ] 3-5 keywords secundarias naturales
+- [ ] Headers H2/H3 con keywords LSI
+- [ ] 2-3 enlaces internos
+- [ ] Alt text en imágenes
+- [ ] 800-1200 palabras
+- [ ] CTA conversión (reserva)
+- [ ] Meta description 120-160 chars
+
+**Archivos creados/modificados**:
+- ✅ `docs/how-to/implementar-blog-multilingue.md`: **NUEVO** - Planificación integral (1000+ líneas)
+- ✅ `docs/README.md`: Añadido enlace a guía de blog en sección How-to
+
+**Decisiones arquitectónicas documentadas**:
+- 🎯 **Lazy loading obligatorio**: Blog es funcionalidad secundaria, optimizar bundle
+- 🎯 **JSON estático para MVP**: Escalar a Firestore solo si necesario (Fase 3)
+- 🎯 **Canónica única por post**: `/${lang}/blog/articulo/${slug}` (mantiene patrón i18n)
+- 🎯 **JSON-LD Article Schema**: Separado de LocalBusiness/Organization existente
+- 🎯 **Validación pre-commit**: Script valida meta lengths, slugs, imágenes antes de build
+- 🎯 **Sitemap automático**: Generado en CI/CD desde blog-posts.json
+- 🎯 **Tailwind Typography**: Plugin para estilos de prosa consistentes
+
+**Lecciones aprendidas**:
+> 🚨 **Blog requiere estrategia SEO completa desde día 1**  
+> No basta con tener contenido: meta tags, JSON-LD, sitemap, internal linking, keyword research son críticos.
+
+> 🚨 **Gestión de contenido debe ser escalable**  
+> Empezar con JSON (simple MVP) pero diseñar arquitectura preparada para CMS futuro.
+
+> 🚨 **Long-tail keywords en turismo local tienen alto ROI**  
+> "Dónde guardar maletas Córdoba" > "consignas españa" (menor competencia, mayor conversión).
+
+**Próximos pasos sugeridos**:
+1. Usuario valida planificación y confirma fase inicial (MVP o completa)
+2. Crear branch `feat/blog-multilingue` desde `develop`
+3. Implementar Fase 1 siguiendo checklist del documento
+4. PR con tests E2E y build exitoso
+5. Deploy a staging y validación SEO con Screaming Frog
+6. Merge a `develop` y plan de contenido editorial
+
+**Estado al cierre**:
+- ✅ Planificación integral completa y documentada
+- ✅ Arquitectura técnica definida con detalles de implementación
+- ✅ Plan de fases con criterios de aceptación claros
+- ✅ Estrategia editorial con pilares y calendario
+- ✅ Checklist de verificación exhaustiva
+- ✅ Documentación integrada en `docs/README.md`
+- ✅ CHANGELOG-AGENT.md actualizado con sesión
+- ⏳ Pendiente: Usuario debe validar planificación y decidir fase inicial
+
+---
 
 ### Sesión 2026-01-26 (noche): Centralización business info - Single source of truth
 
